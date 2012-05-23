@@ -26,28 +26,218 @@ public class JPCrearUsuario extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jTFNombre = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jCBGenero = new javax.swing.JComboBox();
+        jTFFechaNacimiento = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jTFTelefono = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jTFDireccion = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTFEmail = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jCBCargo = new javax.swing.JComboBox();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jPFPassword = new javax.swing.JPasswordField();
+        jTFIdentificacion = new javax.swing.JTextField();
+        jBCrear = new javax.swing.JButton();
+        jBLimpiar = new javax.swing.JButton();
 
-        jLabel1.setText("JPCrearUsuario");
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Crear Usuario"));
+        jPanel1.setLayout(null);
+
+        jLabel2.setText("Nombre");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(24, 38, 57, 18);
+
+        jTFNombre.setColumns(20);
+        jPanel1.add(jTFNombre);
+        jTFNombre.setBounds(196, 33, 270, 28);
+
+        jLabel4.setText("Telefono");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(24, 146, 64, 18);
+
+        jLabel3.setText("Genero");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(24, 72, 52, 18);
+
+        jCBGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
+        jCBGenero.setName(""); // NOI18N
+        jCBGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBGeneroActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCBGenero);
+        jCBGenero.setBounds(196, 67, 119, 28);
+
+        jTFFechaNacimiento.setColumns(20);
+        jPanel1.add(jTFFechaNacimiento);
+        jTFFechaNacimiento.setBounds(196, 101, 270, 28);
+
+        jLabel5.setText("Fecha de nacimiento");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(24, 106, 143, 18);
+
+        jTFTelefono.setColumns(20);
+        jPanel1.add(jTFTelefono);
+        jTFTelefono.setBounds(196, 141, 270, 28);
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(18, 142, 0, 0);
+
+        jTFDireccion.setColumns(20);
+        jPanel1.add(jTFDireccion);
+        jTFDireccion.setBounds(196, 175, 270, 28);
+
+        jLabel8.setText("Direccion");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(24, 180, 66, 18);
+
+        jTFEmail.setColumns(20);
+        jPanel1.add(jTFEmail);
+        jTFEmail.setBounds(196, 209, 270, 28);
+
+        jLabel9.setText("Email");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(24, 214, 37, 18);
+
+        jLabel10.setText("Cargo");
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(24, 248, 42, 18);
+
+        jCBCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Gerente", "Jefe de Taller", "Vendedor" }));
+        jCBCargo.setName(""); // NOI18N
+        jCBCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBCargoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jCBCargo);
+        jCBCargo.setBounds(196, 243, 134, 28);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
+
+        jLabel6.setText("Identificacion");
+
+        jLabel11.setText("Password");
+
+        jPFPassword.setText("jPasswordField1");
+
+        jTFIdentificacion.setColumns(20);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel11))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPFPassword)
+                    .addComponent(jTFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(jTFIdentificacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jPFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jBCrear.setText("Crear");
+
+        jBLimpiar.setText("Limpiar");
+        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jLabel1)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(260, 260, 260)
+                .addComponent(jBLimpiar)
+                .addGap(38, 38, 38)
+                .addComponent(jBCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(130, 130, 130)
-                .addComponent(jLabel1)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBLimpiar)
+                    .addComponent(jBCrear)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jCBGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBGeneroActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_jCBGeneroActionPerformed
+
+    private void jCBCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBCargoActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_jCBCargoActionPerformed
+
+    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+        jCBCargo.setSelectedIndex(0);
+        jCBGenero.setSelectedIndex(0);
+        jPFPassword.setText("");
+        jTFDireccion.setText("");
+        jTFEmail.setText("");
+        jTFFechaNacimiento.setText("");
+        jTFIdentificacion.setText("");
+        jTFNombre.setText("");
+        jTFTelefono.setText("");
+    }//GEN-LAST:event_jBLimpiarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jBCrear;
+    private javax.swing.JButton jBLimpiar;
+    private javax.swing.JComboBox jCBCargo;
+    private javax.swing.JComboBox jCBGenero;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPasswordField jPFPassword;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTFDireccion;
+    private javax.swing.JTextField jTFEmail;
+    private javax.swing.JTextField jTFFechaNacimiento;
+    private javax.swing.JTextField jTFIdentificacion;
+    private javax.swing.JTextField jTFNombre;
+    private javax.swing.JTextField jTFTelefono;
     // End of variables declaration//GEN-END:variables
 }

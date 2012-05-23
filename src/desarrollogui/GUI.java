@@ -7,11 +7,19 @@ package desarrollogui;
 import desarrollogui.Cliente.JPBuscarCliente;
 import desarrollogui.Cliente.JPCrearCliente;
 import desarrollogui.Cliente.JPModificarCliente;
+import desarrollogui.DatosPersonales.JPModificarDatosPersonales;
 import desarrollogui.Item.JPCrearItem;
 import desarrollogui.Item.JPEliminarItem;
 import desarrollogui.Item.JPModificarItem;
 import desarrollogui.Ordenes.JPOrdenAlistamiento;
+import desarrollogui.Ordenes.JPOrdenMantenimiento;
 import desarrollogui.Ordenes.JPOrdenReparacion;
+import desarrollogui.Reporte.JPReporte;
+import desarrollogui.Usuarios.JPCrearUsuario;
+import desarrollogui.Usuarios.JPEliminarUsuario;
+import desarrollogui.Usuarios.JPModificarUsuario;
+import desarrollogui.Ventas.JPCotizacion;
+import desarrollogui.Ventas.JPVenta;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -342,35 +350,91 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMIOrdenReparacionActionPerformed
 
     private void jMIOrdenMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenMantenimientoActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPOrdenMantenimiento jPOM = new JPOrdenMantenimiento();
+        jPPrincipal.add(jPOM, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIOrdenMantenimientoActionPerformed
 
     private void jMICrearCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearCotizacionActionPerformed
-        // TODO add your handling code here:
+       try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPCotizacion jPC = new JPCotizacion();
+        jPPrincipal.add(jPC, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMICrearCotizacionActionPerformed
 
     private void jMIRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRegistrarVentaActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPVenta jPV = new JPVenta();
+        jPPrincipal.add(jPV, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIRegistrarVentaActionPerformed
 
     private void jMICrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearUsuarioActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPCrearUsuario jPCU = new JPCrearUsuario();
+        jPPrincipal.add(jPCU, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMICrearUsuarioActionPerformed
 
     private void jMIModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarUsuarioActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPModificarUsuario jPMU = new JPModificarUsuario();
+        jPPrincipal.add(jPMU, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIModificarUsuarioActionPerformed
 
     private void jMIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarUsuarioActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPEliminarUsuario jPEU = new JPEliminarUsuario();
+        jPPrincipal.add(jPEU, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIEliminarUsuarioActionPerformed
 
     private void jMIGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIGenerarReporteActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPReporte jPR = new JPReporte();
+        jPPrincipal.add(jPR, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIGenerarReporteActionPerformed
 
     private void jMIModificarOpcionesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarOpcionesPersonalesActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPModificarDatosPersonales jPMDP = new JPModificarDatosPersonales();
+        jPPrincipal.add(jPMDP, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIModificarOpcionesPersonalesActionPerformed
 
     /**
