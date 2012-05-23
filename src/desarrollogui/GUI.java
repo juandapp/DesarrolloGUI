@@ -4,6 +4,14 @@
  */
 package desarrollogui;
 
+import desarrollogui.Cliente.JPBuscarCliente;
+import desarrollogui.Cliente.JPCrearCliente;
+import desarrollogui.Cliente.JPModificarCliente;
+import desarrollogui.Item.JPCrearItem;
+import desarrollogui.Item.JPEliminarItem;
+import desarrollogui.Item.JPModificarItem;
+import desarrollogui.Ordenes.JPOrdenAlistamiento;
+import desarrollogui.Ordenes.JPOrdenReparacion;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -89,6 +97,11 @@ public class GUI extends javax.swing.JFrame {
         jMCrearCliente.add(jSeparator5);
 
         jMIBuscarCliente.setText("Buscar Cliente");
+        jMIBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIBuscarClienteActionPerformed(evt);
+            }
+        });
         jMCrearCliente.add(jMIBuscarCliente);
 
         jMenuBar1.add(jMCrearCliente);
@@ -96,13 +109,28 @@ public class GUI extends javax.swing.JFrame {
         jMInventario.setText(" Inventario ");
 
         jMICrearItem.setText("Crear Item");
+        jMICrearItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICrearItemActionPerformed(evt);
+            }
+        });
         jMInventario.add(jMICrearItem);
 
         jMIModificarItem.setText("Modificar Item");
+        jMIModificarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIModificarItemActionPerformed(evt);
+            }
+        });
         jMInventario.add(jMIModificarItem);
         jMInventario.add(jSeparator2);
 
         jMIEliminarItem.setText("Eliminar Item");
+        jMIEliminarItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIEliminarItemActionPerformed(evt);
+            }
+        });
         jMInventario.add(jMIEliminarItem);
 
         jMenuBar1.add(jMInventario);
@@ -110,12 +138,27 @@ public class GUI extends javax.swing.JFrame {
         jMOrdenesTrabajo.setText(" Ordenes Trabajo  ");
 
         jMIOrdenAlistamiento.setText("Orden Alistamiento");
+        jMIOrdenAlistamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIOrdenAlistamientoActionPerformed(evt);
+            }
+        });
         jMOrdenesTrabajo.add(jMIOrdenAlistamiento);
 
         jMIOrdenReparacion.setText("Orden Reparacion");
+        jMIOrdenReparacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIOrdenReparacionActionPerformed(evt);
+            }
+        });
         jMOrdenesTrabajo.add(jMIOrdenReparacion);
 
         jMIOrdenMantenimiento.setText("Orden Mantenimiento");
+        jMIOrdenMantenimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIOrdenMantenimientoActionPerformed(evt);
+            }
+        });
         jMOrdenesTrabajo.add(jMIOrdenMantenimiento);
 
         jMenuBar1.add(jMOrdenesTrabajo);
@@ -123,6 +166,11 @@ public class GUI extends javax.swing.JFrame {
         jMOpciones.setText("Opciones  ");
 
         jMIModificarOpcionesPersonales.setText("Modificar Opciones Personales");
+        jMIModificarOpcionesPersonales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIModificarOpcionesPersonalesActionPerformed(evt);
+            }
+        });
         jMOpciones.add(jMIModificarOpcionesPersonales);
 
         jMenuBar1.add(jMOpciones);
@@ -130,10 +178,20 @@ public class GUI extends javax.swing.JFrame {
         jMVentas.setText(" Ventas  ");
 
         jMICrearCotizacion.setText("Crear Cotizacion");
+        jMICrearCotizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICrearCotizacionActionPerformed(evt);
+            }
+        });
         jMVentas.add(jMICrearCotizacion);
         jMVentas.add(jSeparator3);
 
         jMIRegistrarVenta.setText("Registrar Venta");
+        jMIRegistrarVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIRegistrarVentaActionPerformed(evt);
+            }
+        });
         jMVentas.add(jMIRegistrarVenta);
 
         jMenuBar1.add(jMVentas);
@@ -141,13 +199,28 @@ public class GUI extends javax.swing.JFrame {
         jMUsuarios.setText(" Usuarios  ");
 
         jMICrearUsuario.setText("Crear Usuario");
+        jMICrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICrearUsuarioActionPerformed(evt);
+            }
+        });
         jMUsuarios.add(jMICrearUsuario);
 
         jMIModificarUsuario.setText("Modificar Usuario");
+        jMIModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIModificarUsuarioActionPerformed(evt);
+            }
+        });
         jMUsuarios.add(jMIModificarUsuario);
         jMUsuarios.add(jSeparator4);
 
         jMIEliminarUsuario.setText("Eliminar Usuario");
+        jMIEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIEliminarUsuarioActionPerformed(evt);
+            }
+        });
         jMUsuarios.add(jMIEliminarUsuario);
 
         jMenuBar1.add(jMUsuarios);
@@ -155,6 +228,11 @@ public class GUI extends javax.swing.JFrame {
         jMReportes.setText(" Reportes  ");
 
         jMIGenerarReporte.setText("Generar Reporte");
+        jMIGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIGenerarReporteActionPerformed(evt);
+            }
+        });
         jMReportes.add(jMIGenerarReporte);
 
         jMenuBar1.add(jMReportes);
@@ -196,6 +274,104 @@ public class GUI extends javax.swing.JFrame {
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMIModificarClienteActionPerformed
+
+    private void jMIBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarClienteActionPerformed
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPBuscarCliente jPBC = new JPBuscarCliente();
+        jPPrincipal.add(jPBC, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
+    }//GEN-LAST:event_jMIBuscarClienteActionPerformed
+
+    private void jMICrearItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearItemActionPerformed
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPCrearItem jPCI = new JPCrearItem();
+        jPPrincipal.add(jPCI, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
+    }//GEN-LAST:event_jMICrearItemActionPerformed
+
+    private void jMIModificarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarItemActionPerformed
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPModificarItem jPMI = new JPModificarItem();
+        jPPrincipal.add(jPMI, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
+    }//GEN-LAST:event_jMIModificarItemActionPerformed
+
+    private void jMIEliminarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarItemActionPerformed
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPEliminarItem jPEI = new JPEliminarItem();
+        jPPrincipal.add(jPEI, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
+    }//GEN-LAST:event_jMIEliminarItemActionPerformed
+
+    private void jMIOrdenAlistamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenAlistamientoActionPerformed
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPOrdenAlistamiento jPOA = new JPOrdenAlistamiento();
+        jPPrincipal.add(jPOA, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
+    }//GEN-LAST:event_jMIOrdenAlistamientoActionPerformed
+
+    private void jMIOrdenReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenReparacionActionPerformed
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPOrdenReparacion jPOR = new JPOrdenReparacion();
+        jPPrincipal.add(jPOR, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
+    }//GEN-LAST:event_jMIOrdenReparacionActionPerformed
+
+    private void jMIOrdenMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenMantenimientoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMIOrdenMantenimientoActionPerformed
+
+    private void jMICrearCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearCotizacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMICrearCotizacionActionPerformed
+
+    private void jMIRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRegistrarVentaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMIRegistrarVentaActionPerformed
+
+    private void jMICrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMICrearUsuarioActionPerformed
+
+    private void jMIModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMIModificarUsuarioActionPerformed
+
+    private void jMIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMIEliminarUsuarioActionPerformed
+
+    private void jMIGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIGenerarReporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMIGenerarReporteActionPerformed
+
+    private void jMIModificarOpcionesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarOpcionesPersonalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMIModificarOpcionesPersonalesActionPerformed
 
     /**
      * @param args the command line arguments
