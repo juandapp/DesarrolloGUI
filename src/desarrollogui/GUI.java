@@ -182,6 +182,7 @@ public class GUI extends javax.swing.JFrame {
         }
         JPCrearCliente jPCC = new JPCrearCliente();
         jPPrincipal.add(jPCC, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMICrearClienteActionPerformed
 
@@ -192,6 +193,7 @@ public class GUI extends javax.swing.JFrame {
         }
         JPModificarCliente jPMC = new JPModificarCliente();
         jPPrincipal.add(jPMC, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMIModificarClienteActionPerformed
 
