@@ -42,31 +42,7 @@
             <Property name="text" type="java.lang.String" value=" Inventario "/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMICrearItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Crear Item"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMICrearItemActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIModificarItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar Item"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIModificarItemActionPerformed"/>
-              </Events>
-            </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIEliminarItem">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar Item"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIEliminarItemActionPerformed"/>
-              </Events>
             </MenuItem>
             <Menu class="javax.swing.JMenu" name="jMenu1">
               <Properties>

@@ -53,10 +53,7 @@ public class GUI extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMIBuscarCliente = new javax.swing.JMenuItem();
         jMInventario = new javax.swing.JMenu();
-        jMICrearItem = new javax.swing.JMenuItem();
-        jMIModificarItem = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMIEliminarItem = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMICrearAccesorio = new javax.swing.JMenuItem();
         jMIModificarAccesorio = new javax.swing.JMenuItem();
@@ -122,31 +119,7 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1.add(jMCrearCliente);
 
         jMInventario.setText(" Inventario ");
-
-        jMICrearItem.setText("Crear Item");
-        jMICrearItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICrearItemActionPerformed(evt);
-            }
-        });
-        jMInventario.add(jMICrearItem);
-
-        jMIModificarItem.setText("Modificar Item");
-        jMIModificarItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIModificarItemActionPerformed(evt);
-            }
-        });
-        jMInventario.add(jMIModificarItem);
         jMInventario.add(jSeparator2);
-
-        jMIEliminarItem.setText("Eliminar Item");
-        jMIEliminarItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIEliminarItemActionPerformed(evt);
-            }
-        });
-        jMInventario.add(jMIEliminarItem);
 
         jMenu1.setText("Accesorio");
 
@@ -359,41 +332,6 @@ public class GUI extends javax.swing.JFrame {
         this.pack();
     }//GEN-LAST:event_jMIBuscarClienteActionPerformed
 
-    private void jMICrearItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearItemActionPerformed
-
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPCrearItem jPCI = new JPCrearItem();
-        jPPrincipal.add(jPCI, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMICrearItemActionPerformed
-
-    private void jMIModificarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarItemActionPerformed
-
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPModificarItem jPMI = new JPModificarItem();
-        jPPrincipal.add(jPMI, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIModificarItemActionPerformed
-
-    private void jMIEliminarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarItemActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPEliminarItem jPEI = new JPEliminarItem();
-        jPPrincipal.add(jPEI, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIEliminarItemActionPerformed
-
     private void jMIOrdenAlistamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenAlistamientoActionPerformed
         try {
             jPPrincipal.removeAll();
@@ -518,11 +456,25 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMICrearVehiculoActionPerformed
 
     private void jMIModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarVehiculoActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPModificarVehiculo jPMV = new JPModificarVehiculo();
+        jPPrincipal.add(jPMV, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIModificarVehiculoActionPerformed
 
     private void jMIEliminarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarVehiculoActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPEliminarVehiculo jPEV = new JPEliminarVehiculo();
+        jPPrincipal.add(jPEV, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIEliminarVehiculoActionPerformed
 
     private void jMICrearAccesorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearAccesorioActionPerformed
@@ -538,11 +490,25 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMICrearAccesorioActionPerformed
 
     private void jMIModificarAccesorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarAccesorioActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPModificarAccesorio jPMA = new JPModificarAccesorio();
+        jPPrincipal.add(jPMA, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIModificarAccesorioActionPerformed
 
     private void jMIEliminarAccesorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarAccesorioActionPerformed
-        // TODO add your handling code here:
+        try {
+            jPPrincipal.removeAll();
+        } catch (Exception e) {
+        }
+        JPEliminarAccesorio jPEA = new JPEliminarAccesorio();
+        jPPrincipal.add(jPEA, BorderLayout.CENTER);
+        jPPrincipal.updateUI();
+        this.pack();
     }//GEN-LAST:event_jMIEliminarAccesorioActionPerformed
 
     /**
@@ -594,17 +560,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMICrearAccesorio;
     private javax.swing.JMenuItem jMICrearCliente;
     private javax.swing.JMenuItem jMICrearCotizacion;
-    private javax.swing.JMenuItem jMICrearItem;
     private javax.swing.JMenuItem jMICrearUsuario;
     private javax.swing.JMenuItem jMICrearVehiculo;
     private javax.swing.JMenuItem jMIEliminarAccesorio;
-    private javax.swing.JMenuItem jMIEliminarItem;
     private javax.swing.JMenuItem jMIEliminarUsuario;
     private javax.swing.JMenuItem jMIEliminarVehiculo;
     private javax.swing.JMenuItem jMIGenerarReporte;
     private javax.swing.JMenuItem jMIModificarAccesorio;
     private javax.swing.JMenuItem jMIModificarCliente;
-    private javax.swing.JMenuItem jMIModificarItem;
     private javax.swing.JMenuItem jMIModificarOpcionesPersonales;
     private javax.swing.JMenuItem jMIModificarUsuario;
     private javax.swing.JMenuItem jMIModificarVehiculo;
