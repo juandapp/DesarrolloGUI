@@ -53,11 +53,12 @@ public class GUI extends javax.swing.JFrame {
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMIBuscarCliente = new javax.swing.JMenuItem();
         jMInventario = new javax.swing.JMenu();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenu1 = new javax.swing.JMenu();
         jMICrearAccesorio = new javax.swing.JMenuItem();
         jMIModificarAccesorio = new javax.swing.JMenuItem();
+        jSeparator6 = new javax.swing.JPopupMenu.Separator();
         jMIEliminarAccesorio = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMVehiculo = new javax.swing.JMenu();
         jMICrearVehiculo = new javax.swing.JMenuItem();
         jMIModificarVehiculo = new javax.swing.JMenuItem();
@@ -119,7 +120,6 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1.add(jMCrearCliente);
 
         jMInventario.setText(" Inventario ");
-        jMInventario.add(jSeparator2);
 
         jMenu1.setText("Accesorio");
 
@@ -138,6 +138,7 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMIModificarAccesorio);
+        jMenu1.add(jSeparator6);
 
         jMIEliminarAccesorio.setText("Eliminar Accesorio");
         jMIEliminarAccesorio.addActionListener(new java.awt.event.ActionListener() {
@@ -148,6 +149,7 @@ public class GUI extends javax.swing.JFrame {
         jMenu1.add(jMIEliminarAccesorio);
 
         jMInventario.add(jMenu1);
+        jMInventario.add(jSeparator2);
 
         jMVehiculo.setText("Vehiculo");
 
@@ -590,5 +592,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
+    private javax.swing.JPopupMenu.Separator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
