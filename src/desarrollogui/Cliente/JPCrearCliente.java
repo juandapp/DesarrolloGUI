@@ -68,6 +68,11 @@ public class JPCrearCliente extends javax.swing.JPanel {
         jLabel5.setText("Fecha de nacimiento");
 
         jTFTelefono.setColumns(20);
+        jTFTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFTelefonoActionPerformed(evt);
+            }
+        });
 
         jTFDireccion.setColumns(20);
 
@@ -175,7 +180,7 @@ public class JPCrearCliente extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(10, 10, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBLimpiar)
@@ -208,6 +213,11 @@ public class JPCrearCliente extends javax.swing.JPanel {
         jTFTelefono.setText("");
         jCBGenero.setSelectedIndex(0);
     }//GEN-LAST:event_jBLimpiarActionPerformed
+
+    private void jTFTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTelefonoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBLimpiar;
