@@ -9,27 +9,25 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import logica.Articulo;
+import logica.C_compra_V;
 
 /**
  *
- * @author cdariolo
+ * @author juandrd
  */
-public class DaoArticulo {
-    
-    FachadaBD fachada;
+public class DAOC_compra_V {
+     FachadaBD fachada;
 
-    DaoArticulo() {
+    DAOC_compra_V() {
         fachada = new FachadaBD();
     }//
 
-    public int guardar(Articulo articulo) {
+    public int guardar(C_compra_V ccv) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO articulo VALUES ('"
-                + articulo.getCodigo_a() + "', '"
-                + articulo.getNombre() + "', '"
-                + articulo.getCantidad() + "', '"
-                + articulo.getDescripcion()+ "')";
+        sql_guardar = "INSERT INTO c_compra_v VALUES ("
+                + ccv.getId_c().getId_c().getId_p()+ ", "
+                + ccv.getNumerochasis_v().getNumerochasis_v() + ", '"
+                + ccv.getTipo_pago() + "')";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -44,10 +42,10 @@ public class DaoArticulo {
         return -1;
     }//fin guardar
 
-    public Articulo consultar(int codigo_a) {
-        Articulo a = new Articulo();
+    public C_compra_V consultar(int id_c) {
+        C_compra_V ccv = new C_compra_V();
         String sql_select;
-        sql_select = "SELECT * FROM articulo WHERE id_p='" + codigo_a + "'";
+        sql_select = "SELECT * FROM c_compra_v WHERE id_c='" + id_c + "'";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -56,33 +54,31 @@ public class DaoArticulo {
             //
             if (tabla.next()) {
 
-                a.setCodigo_a(Integer.parseInt(tabla.getString("codigo_a")));
-                a.setNombre(tabla.getString("nombre"));
-                a.setCantidad(Integer.parseInt(tabla.getString("cantidad")));
-                a.setDescripcion(tabla.getString("descripcion"));
+                ccv.setNumerochasis_v(tabla.getInt("numerochasis_v"));
+                ccv.setContrasena_e(tabla.getString("contrasena_e"));
+                
             }
 
             conn.close();
             System.out.println("Conexion cerrada");
-            return a;
+            return ccv;
 
-        } catch (SQLException e) {
-            System.out.println(e);
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
 
         return null;
     }
 
-    public int editar(Articulo a) {
+    public int editar(C_compra_V e) {
 
         String sql_update;
-        sql_update = "UPDATE articulo SET"
-                + "nombre='" + a.getNombre() + "'"
-                + "cantidad=" + a.getCantidad() + ""
-                + "descripcion='" + a.getDescripcion() + "'"
-                + "WHERE codigo_a='" + a.getCodigo_a() + "'";
+        sql_update = "UPDATE c_compra_v SET"
+                + "tipo_e='" + e.getTipo_e() + "'"
+                + "contrasena_e='" + e.getContrasena_e() + "'"
+                + "WHERE id_e='" + e.getId_e().getId_p() + "'";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -94,13 +90,11 @@ public class DaoArticulo {
             System.out.println("Conexion cerrada");
             return 0;
 
-        } catch (SQLException e) {
-            System.out.println(e);
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
         return -1;
     }
 }
-    
-

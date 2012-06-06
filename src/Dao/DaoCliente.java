@@ -9,27 +9,23 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import logica.Articulo;
+import logica.Cliente;
 
 /**
  *
- * @author cdariolo
+ * @author juandrd
  */
-public class DaoArticulo {
-    
-    FachadaBD fachada;
+public class DaoCliente {
+     FachadaBD fachada;
 
-    DaoArticulo() {
+    DaoCliente() {
         fachada = new FachadaBD();
     }//
 
-    public int guardar(Articulo articulo) {
+    public int guardar(Cliente cliente) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO articulo VALUES ('"
-                + articulo.getCodigo_a() + "', '"
-                + articulo.getNombre() + "', '"
-                + articulo.getCantidad() + "', '"
-                + articulo.getDescripcion()+ "')";
+        sql_guardar = "INSERT INTO cliente VALUES ('"
+                + cliente.getId_c().getId_p() + "')";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -44,10 +40,10 @@ public class DaoArticulo {
         return -1;
     }//fin guardar
 
-    public Articulo consultar(int codigo_a) {
-        Articulo a = new Articulo();
+    public Cliente consultar(int id_c) {
+        Cliente e = new Cliente();
         String sql_select;
-        sql_select = "SELECT * FROM articulo WHERE id_p='" + codigo_a + "'";
+        sql_select = "SELECT * FROM cliente WHERE id_c='" + id_c + "'";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -56,33 +52,27 @@ public class DaoArticulo {
             //
             if (tabla.next()) {
 
-                a.setCodigo_a(Integer.parseInt(tabla.getString("codigo_a")));
-                a.setNombre(tabla.getString("nombre"));
-                a.setCantidad(Integer.parseInt(tabla.getString("cantidad")));
-                a.setDescripcion(tabla.getString("descripcion"));
+                               
             }
 
             conn.close();
             System.out.println("Conexion cerrada");
-            return a;
+            return e;
 
-        } catch (SQLException e) {
-            System.out.println(e);
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
 
         return null;
     }
 
-    public int editar(Articulo a) {
+    public int editar(Cliente c) {
 
         String sql_update;
-        sql_update = "UPDATE articulo SET"
-                + "nombre='" + a.getNombre() + "'"
-                + "cantidad=" + a.getCantidad() + ""
-                + "descripcion='" + a.getDescripcion() + "'"
-                + "WHERE codigo_a='" + a.getCodigo_a() + "'";
+        sql_update = "UPDATE cliente SET"
+                + "WHERE id_e='" + c.getId_c().getId_p() + "'";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -94,13 +84,11 @@ public class DaoArticulo {
             System.out.println("Conexion cerrada");
             return 0;
 
-        } catch (SQLException e) {
-            System.out.println(e);
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
         return -1;
     }
 }
-    
-
