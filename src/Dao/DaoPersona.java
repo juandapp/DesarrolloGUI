@@ -25,8 +25,8 @@ public class DaoPersona {
 
     public int guardar(Persona persona) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO persona VALUES ('"
-                + persona.getId_p() + "', '"
+        sql_guardar = "INSERT INTO persona VALUES ("
+                + persona.getId_p() + ", '"
                 + persona.getNombre_p() + "', '"
                 + persona.getDireccion_p() + "', '"
                 + persona.getTelefono_p() + "','"
@@ -49,7 +49,7 @@ public class DaoPersona {
     public Persona consultar(int id_p) {
         Persona p = new Persona();
         String sql_select;
-        sql_select = "SELECT * FROM persona WHERE id_p='" + id_p + "'";
+        sql_select = "SELECT * FROM persona WHERE id_p=" + id_p + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -89,7 +89,7 @@ public class DaoPersona {
                 + "telefono_p='" + p.getTelefono_p() + "'"
                 + "email_p='" + p.getEmail_p() + "'"
                 + "genero_p='" + p.getGenero_p() + "'"
-                + "WHERE id_p='" + p.getId_p() + "'";
+                + "WHERE id_p=" + p.getId_p() + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

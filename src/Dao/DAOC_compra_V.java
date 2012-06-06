@@ -45,7 +45,7 @@ public class DAOC_compra_V {
     public C_compra_V consultar(int id_c) {
         C_compra_V ccv = new C_compra_V();
         String sql_select;
-        sql_select = "SELECT * FROM c_compra_v WHERE id_c='" + id_c + "'";
+        sql_select = "SELECT * FROM c_compra_v WHERE id_c=" + id_c + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -78,7 +78,7 @@ public class DAOC_compra_V {
         String sql_update;
         sql_update = "UPDATE c_compra_v SET"
                
-                + "WHERE id_c='" + ccv.getId_c().getId_c().getId_p() + "'";
+                + "WHERE id_c=" + ccv.getId_c().getId_c().getId_p() + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
