@@ -4,11 +4,8 @@
  */
 package desarrollogui;
 
-import desarrollogui.Cliente.JPBuscarCliente;
-import desarrollogui.Cliente.JPCrearCliente;
-import desarrollogui.Cliente.JPModificarCliente;
+
 import desarrollogui.DatosPersonales.JPModificarDatosPersonales;
-import desarrollogui.Item.*;
 import desarrollogui.Ordenes.JPOrdenAlistamiento;
 import desarrollogui.Ordenes.JPOrdenMantenimiento;
 import desarrollogui.Ordenes.JPOrdenReparacion;
@@ -47,10 +44,6 @@ public class GUI extends javax.swing.JFrame {
         jPPrincipal = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMCrearCliente = new javax.swing.JMenu();
-        jMIModificarCliente = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMIBuscarCliente = new javax.swing.JMenuItem();
         jMInventario = new javax.swing.JMenu();
         jMICrearAccesorio = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
@@ -81,27 +74,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setText("Principal");
         jPPrincipal.add(jLabel1);
         jLabel1.setBounds(280, 180, 59, 30);
-
-        jMCrearCliente.setText(" Cliente ");
-
-        jMIModificarCliente.setText("Modificar Cliente");
-        jMIModificarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIModificarClienteActionPerformed(evt);
-            }
-        });
-        jMCrearCliente.add(jMIModificarCliente);
-        jMCrearCliente.add(jSeparator5);
-
-        jMIBuscarCliente.setText("Buscar Cliente");
-        jMIBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIBuscarClienteActionPerformed(evt);
-            }
-        });
-        jMCrearCliente.add(jMIBuscarCliente);
-
-        jMenuBar1.add(jMCrearCliente);
 
         jMInventario.setText(" Inventario ");
 
@@ -261,28 +233,6 @@ public class GUI extends javax.swing.JFrame {
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMIClienteActionPerformed
-
-    private void jMIModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarClienteActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPModificarCliente jPMC = new JPModificarCliente();
-        jPPrincipal.add(jPMC, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIModificarClienteActionPerformed
-
-    private void jMIBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarClienteActionPerformed
-        try { 
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPBuscarCliente jPBC = new JPBuscarCliente();
-        jPPrincipal.add(jPBC, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIBuscarClienteActionPerformed
 
     private void jMIOrdenAlistamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenAlistamientoActionPerformed
         try {
@@ -463,15 +413,12 @@ public class GUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMCrearCliente;
-    private javax.swing.JMenuItem jMIBuscarCliente;
     private javax.swing.JMenuItem jMICliente;
     private javax.swing.JMenuItem jMICrearAccesorio;
     private javax.swing.JMenuItem jMICrearCotizacion;
     private javax.swing.JMenuItem jMICrearUsuario;
     private javax.swing.JMenuItem jMIEliminarUsuario;
     private javax.swing.JMenuItem jMIGenerarReporte;
-    private javax.swing.JMenuItem jMIModificarCliente;
     private javax.swing.JMenuItem jMIModificarOpcionesPersonales;
     private javax.swing.JMenuItem jMIModificarUsuario;
     private javax.swing.JMenuItem jMIOrdenAlistamiento;
@@ -490,6 +437,5 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
     // End of variables declaration//GEN-END:variables
 }
