@@ -44,14 +44,11 @@ public class GUI extends javax.swing.JFrame {
         jMICrearAccesorio = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMIVehiculo = new javax.swing.JMenuItem();
-        jMOrdenesTrabajo = new javax.swing.JMenu();
-        jMIOrdenAlistamiento = new javax.swing.JMenuItem();
-        jMIOrdenReparacion = new javax.swing.JMenuItem();
-        jMIOrdenMantenimiento = new javax.swing.JMenuItem();
         jMOpciones = new javax.swing.JMenu();
         jMIModificarDatosPersonales = new javax.swing.JMenuItem();
         jMICliente = new javax.swing.JMenuItem();
         jMICrearUsuario = new javax.swing.JMenuItem();
+        jMIOrdenes = new javax.swing.JMenuItem();
         jMVentas = new javax.swing.JMenu();
         jMICrearCotizacion = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -88,34 +85,6 @@ public class GUI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMInventario);
 
-        jMOrdenesTrabajo.setText(" Ordenes Trabajo  ");
-
-        jMIOrdenAlistamiento.setText("Orden Alistamiento");
-        jMIOrdenAlistamiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIOrdenAlistamientoActionPerformed(evt);
-            }
-        });
-        jMOrdenesTrabajo.add(jMIOrdenAlistamiento);
-
-        jMIOrdenReparacion.setText("Orden Reparacion");
-        jMIOrdenReparacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIOrdenReparacionActionPerformed(evt);
-            }
-        });
-        jMOrdenesTrabajo.add(jMIOrdenReparacion);
-
-        jMIOrdenMantenimiento.setText("Orden Mantenimiento");
-        jMIOrdenMantenimiento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIOrdenMantenimientoActionPerformed(evt);
-            }
-        });
-        jMOrdenesTrabajo.add(jMIOrdenMantenimiento);
-
-        jMenuBar1.add(jMOrdenesTrabajo);
-
         jMOpciones.setText("Opciones  ");
 
         jMIModificarDatosPersonales.setText("Modificar Datos Personales");
@@ -141,6 +110,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jMOpciones.add(jMICrearUsuario);
+
+        jMIOrdenes.setText("Ordenes de Trabajo");
+        jMIOrdenes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIOrdenesActionPerformed(evt);
+            }
+        });
+        jMOpciones.add(jMIOrdenes);
 
         jMenuBar1.add(jMOpciones);
 
@@ -205,38 +182,16 @@ public class GUI extends javax.swing.JFrame {
         this.pack();
     }//GEN-LAST:event_jMIClienteActionPerformed
 
-    private void jMIOrdenAlistamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenAlistamientoActionPerformed
+    private void jMIOrdenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenesActionPerformed
         try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPOrdenAlistamiento jPOA = new JPOrdenAlistamiento();
-        jPPrincipal.add(jPOA, BorderLayout.CENTER);
+        JPOrdenes jPO = new JPOrdenes();
+        jPPrincipal.add(jPO, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
-    }//GEN-LAST:event_jMIOrdenAlistamientoActionPerformed
-
-    private void jMIOrdenReparacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenReparacionActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPOrdenReparacion jPOR = new JPOrdenReparacion();
-        jPPrincipal.add(jPOR, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIOrdenReparacionActionPerformed
-
-    private void jMIOrdenMantenimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenMantenimientoActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPOrdenMantenimiento jPOM = new JPOrdenMantenimiento();
-        jPPrincipal.add(jPOM, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIOrdenMantenimientoActionPerformed
+    }//GEN-LAST:event_jMIOrdenesActionPerformed
 
     private void jMICrearCotizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearCotizacionActionPerformed
         try {
@@ -368,14 +323,11 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMICrearUsuario;
     private javax.swing.JMenuItem jMIGenerarReporte;
     private javax.swing.JMenuItem jMIModificarDatosPersonales;
-    private javax.swing.JMenuItem jMIOrdenAlistamiento;
-    private javax.swing.JMenuItem jMIOrdenMantenimiento;
-    private javax.swing.JMenuItem jMIOrdenReparacion;
+    private javax.swing.JMenuItem jMIOrdenes;
     private javax.swing.JMenuItem jMIRegistrarVenta;
     private javax.swing.JMenuItem jMIVehiculo;
     private javax.swing.JMenu jMInventario;
     private javax.swing.JMenu jMOpciones;
-    private javax.swing.JMenu jMOrdenesTrabajo;
     private javax.swing.JMenu jMReportes;
     private javax.swing.JMenu jMVentas;
     private javax.swing.JMenuBar jMenuBar1;

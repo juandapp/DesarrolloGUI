@@ -29,37 +29,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMOrdenesTrabajo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value=" Ordenes Trabajo  "/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIOrdenAlistamiento">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Orden Alistamiento"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIOrdenAlistamientoActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIOrdenReparacion">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Orden Reparacion"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIOrdenReparacionActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIOrdenMantenimiento">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Orden Mantenimiento"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIOrdenMantenimientoActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="jMOpciones">
           <Properties>
             <Property name="text" type="java.lang.String" value="Opciones  "/>
@@ -87,6 +56,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMICrearUsuarioActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMIOrdenes">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ordenes de Trabajo"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIOrdenesActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
