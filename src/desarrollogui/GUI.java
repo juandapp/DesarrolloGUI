@@ -55,12 +55,12 @@ public class GUI extends javax.swing.JFrame {
         jMOpciones = new javax.swing.JMenu();
         jMIModificarOpcionesPersonales = new javax.swing.JMenuItem();
         jMICliente = new javax.swing.JMenuItem();
+        jMICrearUsuario = new javax.swing.JMenuItem();
         jMVentas = new javax.swing.JMenu();
         jMICrearCotizacion = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMIRegistrarVenta = new javax.swing.JMenuItem();
         jMUsuarios = new javax.swing.JMenu();
-        jMICrearUsuario = new javax.swing.JMenuItem();
         jMIModificarUsuario = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
         jMIEliminarUsuario = new javax.swing.JMenuItem();
@@ -142,6 +142,14 @@ public class GUI extends javax.swing.JFrame {
         });
         jMOpciones.add(jMICliente);
 
+        jMICrearUsuario.setText("Usuario");
+        jMICrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICrearUsuarioActionPerformed(evt);
+            }
+        });
+        jMOpciones.add(jMICrearUsuario);
+
         jMenuBar1.add(jMOpciones);
 
         jMVentas.setText(" Ventas  ");
@@ -166,14 +174,6 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1.add(jMVentas);
 
         jMUsuarios.setText(" Usuarios  ");
-
-        jMICrearUsuario.setText("Crear Usuario");
-        jMICrearUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICrearUsuarioActionPerformed(evt);
-            }
-        });
-        jMUsuarios.add(jMICrearUsuario);
 
         jMIModificarUsuario.setText("Modificar Usuario");
         jMIModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -295,8 +295,8 @@ public class GUI extends javax.swing.JFrame {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPCrearUsuario jPCU = new JPCrearUsuario();
-        jPPrincipal.add(jPCU, BorderLayout.CENTER);
+        JPUsuario jPU = new JPUsuario();
+        jPPrincipal.add(jPU, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMICrearUsuarioActionPerformed
