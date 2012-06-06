@@ -2,15 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package desarrollogui;
+package gui;
 
 
 import desarrollogui.Ordenes.JPOrdenAlistamiento;
 import desarrollogui.Ordenes.JPOrdenMantenimiento;
 import desarrollogui.Ordenes.JPOrdenReparacion;
 import desarrollogui.Reporte.JPReporte;
-import desarrollogui.Usuarios.JPEliminarUsuario;
-import desarrollogui.Usuarios.JPModificarUsuario;
 import desarrollogui.Ventas.JPCotizacion;
 import desarrollogui.Ventas.JPVenta;
 import java.awt.BorderLayout;

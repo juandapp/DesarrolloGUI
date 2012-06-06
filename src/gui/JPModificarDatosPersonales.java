@@ -1,4 +1,4 @@
-package desarrollogui;
+package gui;
 
 /*
  * To change this template, choose Tools | Templates

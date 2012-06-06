@@ -2,18 +2,18 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package desarrollogui;
+package gui;
 
 /**
  *
  * @author juandapp
  */
-public class JPVehiculo extends javax.swing.JPanel {
+public class JPCliente extends javax.swing.JPanel {
 
     /**
      * Creates new form JPCliente
      */
-    public JPVehiculo() {
+    public JPCliente() {
         initComponents();
     }
 
@@ -31,38 +31,30 @@ public class JPVehiculo extends javax.swing.JPanel {
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTFModelo = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTFLinea = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTFMarca = new javax.swing.JTextField();
-        jTFNoChasis = new javax.swing.JTextField();
-        jTFColor = new javax.swing.JTextField();
-        jTFCojineria = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        jTFIdentificacion = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jTFNombre = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jCBGenero = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jCBDisponible = new javax.swing.JComboBox();
-        jLabel15 = new javax.swing.JLabel();
+        jTFFechaNacimiento = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jTFTelefono = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jTFDireccion = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTFEmail = new javax.swing.JTextField();
         jBLimpiar = new javax.swing.JButton();
         jBCrear = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jCBTipoCaja1 = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        jTFIdentificacion1 = new javax.swing.JTextField();
         jBConsultar = new javax.swing.JButton();
+        jTFNombre1 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTResultados = new javax.swing.JTable();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jTFLinea1 = new javax.swing.JTextField();
-        jTFMarca1 = new javax.swing.JTextField();
-        jTFNoChasis1 = new javax.swing.JTextField();
-        jTFModelo1 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jTFColor1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jTFIdentificacion2 = new javax.swing.JTextField();
@@ -85,66 +77,67 @@ public class JPVehiculo extends javax.swing.JPanel {
         jPanel5.add(jLabel13);
         jLabel13.setBounds(18, 182, 0, 0);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Vehiculo"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
         jPanel4.setLayout(null);
 
         jPanel1.setLayout(null);
 
-        jLabel1.setText("Modelo");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 20, 53, 18);
-
-        jTFModelo.setColumns(20);
-        jPanel1.add(jTFModelo);
-        jTFModelo.setBounds(90, 10, 270, 28);
-
-        jLabel2.setText("Linea");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 50, 37, 18);
-
-        jTFLinea.setColumns(20);
-        jPanel1.add(jTFLinea);
-        jTFLinea.setBounds(90, 40, 270, 28);
-
-        jLabel3.setText("Marca");
+        jLabel3.setText("Identificacion");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 80, 43, 18);
+        jLabel3.setBounds(10, 20, 93, 18);
 
-        jTFMarca.setColumns(20);
-        jPanel1.add(jTFMarca);
-        jTFMarca.setBounds(90, 70, 270, 28);
+        jTFIdentificacion.setColumns(20);
+        jPanel1.add(jTFIdentificacion);
+        jTFIdentificacion.setBounds(160, 10, 270, 28);
 
-        jTFNoChasis.setColumns(20);
-        jPanel1.add(jTFNoChasis);
-        jTFNoChasis.setBounds(90, 100, 270, 28);
+        jLabel1.setText("Nombre");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 50, 57, 18);
 
-        jTFColor.setColumns(20);
-        jPanel1.add(jTFColor);
-        jTFColor.setBounds(90, 130, 270, 28);
+        jTFNombre.setColumns(20);
+        jPanel1.add(jTFNombre);
+        jTFNombre.setBounds(160, 40, 270, 28);
 
-        jTFCojineria.setColumns(20);
-        jPanel1.add(jTFCojineria);
-        jTFCojineria.setBounds(90, 160, 270, 26);
+        jLabel2.setText("Genero");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(10, 80, 52, 18);
 
-        jLabel4.setText("No. Chasis");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 110, 71, 18);
+        jCBGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
+        jCBGenero.setName(""); // NOI18N
+        jPanel1.add(jCBGenero);
+        jCBGenero.setBounds(160, 70, 119, 28);
 
-        jLabel5.setText("Color");
+        jLabel5.setText("Fecha de nacimiento");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 140, 38, 18);
+        jLabel5.setBounds(10, 110, 143, 18);
 
-        jLabel7.setText("Cojineria");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 170, 60, 18);
+        jTFFechaNacimiento.setColumns(20);
+        jPanel1.add(jTFFechaNacimiento);
+        jTFFechaNacimiento.setBounds(160, 100, 270, 28);
 
-        jCBDisponible.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "True", "False" }));
-        jPanel1.add(jCBDisponible);
-        jCBDisponible.setBounds(90, 220, 120, 28);
+        jLabel4.setText("Telefono");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(10, 140, 64, 18);
 
-        jLabel15.setText("Tipo Caja");
-        jPanel1.add(jLabel15);
-        jLabel15.setBounds(10, 200, 62, 18);
+        jTFTelefono.setColumns(20);
+        jPanel1.add(jTFTelefono);
+        jTFTelefono.setBounds(160, 130, 270, 28);
+
+        jLabel8.setText("Direccion");
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(10, 170, 66, 18);
+
+        jTFDireccion.setColumns(20);
+        jPanel1.add(jTFDireccion);
+        jTFDireccion.setBounds(160, 160, 270, 28);
+
+        jLabel9.setText("Email");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(10, 200, 37, 18);
+
+        jTFEmail.setColumns(20);
+        jPanel1.add(jTFEmail);
+        jTFEmail.setBounds(160, 190, 270, 28);
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -153,38 +146,46 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jBLimpiar);
-        jBLimpiar.setBounds(142, 260, 90, 30);
+        jBLimpiar.setBounds(230, 230, 80, 30);
 
         jBCrear.setText("Crear");
         jPanel1.add(jBCrear);
-        jBCrear.setBounds(240, 260, 70, 30);
-
-        jLabel6.setText("Disponible");
-        jPanel1.add(jLabel6);
-        jLabel6.setBounds(10, 230, 73, 18);
-
-        jCBTipoCaja1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Automatico", "Mecanico" }));
-        jPanel1.add(jCBTipoCaja1);
-        jCBTipoCaja1.setBounds(90, 190, 118, 28);
+        jBCrear.setBounds(360, 230, 70, 30);
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
         jPanel2.setLayout(null);
 
+        jLabel16.setText("Identificacion");
+        jPanel2.add(jLabel16);
+        jLabel16.setBounds(10, 20, 93, 18);
+
+        jTFIdentificacion1.setColumns(20);
+        jPanel2.add(jTFIdentificacion1);
+        jTFIdentificacion1.setBounds(160, 10, 190, 28);
+
         jBConsultar.setText("Consultar");
         jPanel2.add(jBConsultar);
-        jBConsultar.setBounds(380, 10, 90, 30);
+        jBConsultar.setBounds(360, 10, 90, 30);
+
+        jTFNombre1.setColumns(20);
+        jPanel2.add(jTFNombre1);
+        jTFNombre1.setBounds(160, 40, 190, 28);
+
+        jLabel6.setText("Nombre");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(10, 50, 57, 18);
 
         jTResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria", "Disponible"
+                "Identificacion", "Nombre", "Direccion", "Telefono", "Email", "Genero"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -192,52 +193,9 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(jTResultados);
-        jTResultados.getColumnModel().getColumn(4).setResizable(false);
-        jTResultados.getColumnModel().getColumn(5).setResizable(false);
-        jTResultados.getColumnModel().getColumn(6).setResizable(false);
 
         jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 170, 550, 125);
-
-        jLabel20.setText("No. Chasis");
-        jPanel2.add(jLabel20);
-        jLabel20.setBounds(10, 110, 71, 18);
-
-        jLabel21.setText("Marca");
-        jPanel2.add(jLabel21);
-        jLabel21.setBounds(10, 80, 43, 18);
-
-        jLabel22.setText("Linea");
-        jPanel2.add(jLabel22);
-        jLabel22.setBounds(10, 50, 37, 18);
-
-        jTFLinea1.setColumns(20);
-        jPanel2.add(jTFLinea1);
-        jTFLinea1.setBounds(90, 40, 270, 28);
-
-        jTFMarca1.setColumns(20);
-        jPanel2.add(jTFMarca1);
-        jTFMarca1.setBounds(90, 70, 270, 28);
-
-        jTFNoChasis1.setColumns(20);
-        jPanel2.add(jTFNoChasis1);
-        jTFNoChasis1.setBounds(90, 100, 270, 28);
-
-        jTFModelo1.setColumns(20);
-        jPanel2.add(jTFModelo1);
-        jTFModelo1.setBounds(90, 10, 270, 28);
-
-        jLabel23.setText("Modelo");
-        jPanel2.add(jLabel23);
-        jLabel23.setBounds(10, 20, 53, 18);
-
-        jLabel24.setText("Color");
-        jPanel2.add(jLabel24);
-        jLabel24.setBounds(10, 140, 38, 18);
-
-        jTFColor1.setColumns(20);
-        jPanel2.add(jTFColor1);
-        jTFColor1.setBounds(90, 130, 270, 28);
+        jScrollPane1.setBounds(10, 80, 480, 125);
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
@@ -312,85 +270,77 @@ public class JPVehiculo extends javax.swing.JPanel {
         jTabbedPane1.addTab("Modificar", jPanel3);
 
         jPanel4.add(jTabbedPane1);
-        jTabbedPane1.setBounds(10, 20, 608, 340);
+        jTabbedPane1.setBounds(10, 20, 519, 339);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+        jTFDireccion.setText("");
+        jTFEmail.setText("");
+        jTFFechaNacimiento.setText("");
+        jTFIdentificacion.setText("");
+        jTFNombre.setText("");
+        jTFTelefono.setText("");
+        jCBGenero.setSelectedIndex(0);
+    }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBModificarActionPerformed
-
-    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
-        jCBDisponible.setSelectedIndex(0);
-        jTFCojineria.setText("");
-        jTFColor.setText("");
-        jTFLinea.setText("");
-        jTFMarca.setText("");
-        jTFModelo.setText("");
-        jTFNoChasis.setText("");
-    }//GEN-LAST:event_jBLimpiarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBLimpiar;
     private javax.swing.JButton jBModificar;
-    private javax.swing.JComboBox jCBDisponible;
+    private javax.swing.JComboBox jCBGenero;
     private javax.swing.JComboBox jCBGenero1;
-    private javax.swing.JComboBox jCBTipoCaja1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTFCojineria;
-    private javax.swing.JTextField jTFColor;
-    private javax.swing.JTextField jTFColor1;
+    private javax.swing.JTextField jTFDireccion;
     private javax.swing.JTextField jTFDireccion1;
+    private javax.swing.JTextField jTFEmail;
     private javax.swing.JTextField jTFEmail1;
+    private javax.swing.JTextField jTFFechaNacimiento;
     private javax.swing.JTextField jTFFechaNacimiento1;
+    private javax.swing.JTextField jTFIdentificacion;
+    private javax.swing.JTextField jTFIdentificacion1;
     private javax.swing.JTextField jTFIdentificacion2;
-    private javax.swing.JTextField jTFLinea;
-    private javax.swing.JTextField jTFLinea1;
-    private javax.swing.JTextField jTFMarca;
-    private javax.swing.JTextField jTFMarca1;
-    private javax.swing.JTextField jTFModelo;
-    private javax.swing.JTextField jTFModelo1;
-    private javax.swing.JTextField jTFNoChasis;
-    private javax.swing.JTextField jTFNoChasis1;
+    private javax.swing.JTextField jTFNombre;
+    private javax.swing.JTextField jTFNombre1;
     private javax.swing.JTextField jTFNombre2;
+    private javax.swing.JTextField jTFTelefono;
     private javax.swing.JTextField jTFTelefono1;
     private javax.swing.JTable jTResultados;
     private javax.swing.JTabbedPane jTabbedPane1;
