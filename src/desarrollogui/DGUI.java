@@ -9,7 +9,7 @@ package desarrollogui;
  * @author juandapp
  */
 public class DGUI {
-
+ 
     /**
      * @param args the command line arguments
      */
