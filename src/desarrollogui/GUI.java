@@ -274,7 +274,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMIModificarClienteActionPerformed
 
     private void jMIBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarClienteActionPerformed
-        try {
+        try { 
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
