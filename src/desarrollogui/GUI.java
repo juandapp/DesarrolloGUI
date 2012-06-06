@@ -5,12 +5,10 @@
 package desarrollogui;
 
 
-import desarrollogui.DatosPersonales.JPModificarDatosPersonales;
 import desarrollogui.Ordenes.JPOrdenAlistamiento;
 import desarrollogui.Ordenes.JPOrdenMantenimiento;
 import desarrollogui.Ordenes.JPOrdenReparacion;
 import desarrollogui.Reporte.JPReporte;
-import desarrollogui.Usuarios.JPCrearUsuario;
 import desarrollogui.Usuarios.JPEliminarUsuario;
 import desarrollogui.Usuarios.JPModificarUsuario;
 import desarrollogui.Ventas.JPCotizacion;
@@ -53,7 +51,7 @@ public class GUI extends javax.swing.JFrame {
         jMIOrdenReparacion = new javax.swing.JMenuItem();
         jMIOrdenMantenimiento = new javax.swing.JMenuItem();
         jMOpciones = new javax.swing.JMenu();
-        jMIModificarOpcionesPersonales = new javax.swing.JMenuItem();
+        jMIModificarDatosPersonales = new javax.swing.JMenuItem();
         jMICliente = new javax.swing.JMenuItem();
         jMICrearUsuario = new javax.swing.JMenuItem();
         jMVentas = new javax.swing.JMenu();
@@ -126,13 +124,13 @@ public class GUI extends javax.swing.JFrame {
 
         jMOpciones.setText("Opciones  ");
 
-        jMIModificarOpcionesPersonales.setText("Modificar Opciones Personales");
-        jMIModificarOpcionesPersonales.addActionListener(new java.awt.event.ActionListener() {
+        jMIModificarDatosPersonales.setText("Modificar Datos Personales");
+        jMIModificarDatosPersonales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIModificarOpcionesPersonalesActionPerformed(evt);
+                jMIModificarDatosPersonalesActionPerformed(evt);
             }
         });
-        jMOpciones.add(jMIModificarOpcionesPersonales);
+        jMOpciones.add(jMIModificarDatosPersonales);
 
         jMICliente.setText("Cliente");
         jMICliente.addActionListener(new java.awt.event.ActionListener() {
@@ -334,7 +332,7 @@ public class GUI extends javax.swing.JFrame {
         this.pack();
     }//GEN-LAST:event_jMIGenerarReporteActionPerformed
 
-    private void jMIModificarOpcionesPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarOpcionesPersonalesActionPerformed
+    private void jMIModificarDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarDatosPersonalesActionPerformed
         try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
@@ -343,7 +341,7 @@ public class GUI extends javax.swing.JFrame {
         jPPrincipal.add(jPMDP, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
-    }//GEN-LAST:event_jMIModificarOpcionesPersonalesActionPerformed
+    }//GEN-LAST:event_jMIModificarDatosPersonalesActionPerformed
 
     private void jMIVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVehiculoActionPerformed
         ///interfaz completa
@@ -419,7 +417,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMICrearUsuario;
     private javax.swing.JMenuItem jMIEliminarUsuario;
     private javax.swing.JMenuItem jMIGenerarReporte;
-    private javax.swing.JMenuItem jMIModificarOpcionesPersonales;
+    private javax.swing.JMenuItem jMIModificarDatosPersonales;
     private javax.swing.JMenuItem jMIModificarUsuario;
     private javax.swing.JMenuItem jMIOrdenAlistamiento;
     private javax.swing.JMenuItem jMIOrdenMantenimiento;

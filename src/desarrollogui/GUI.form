@@ -65,12 +65,12 @@
             <Property name="text" type="java.lang.String" value="Opciones  "/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIModificarOpcionesPersonales">
+            <MenuItem class="javax.swing.JMenuItem" name="jMIModificarDatosPersonales">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar Opciones Personales"/>
+                <Property name="text" type="java.lang.String" value="Modificar Datos Personales"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIModificarOpcionesPersonalesActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIModificarDatosPersonalesActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMICliente">
