@@ -9,11 +9,13 @@ package desarrollogui;
  * @author juandapp
  */
 public class DGUI {
-
+ 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //comentario
+        
+        GUI g = new GUI();
+        g.setVisible(true);
     }
 }

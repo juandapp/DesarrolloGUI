@@ -5,6 +5,7 @@
 package desarrollogui;
 
 import desarrollogui.Cliente.JPBuscarCliente;
+import desarrollogui.Cliente.JPCliente;
 import desarrollogui.Cliente.JPCrearCliente;
 import desarrollogui.Cliente.JPModificarCliente;
 import desarrollogui.DatosPersonales.JPModificarDatosPersonales;
@@ -48,7 +49,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMCrearCliente = new javax.swing.JMenu();
-        jMICrearCliente = new javax.swing.JMenuItem();
         jMIModificarCliente = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
         jMIBuscarCliente = new javax.swing.JMenuItem();
@@ -70,6 +70,7 @@ public class GUI extends javax.swing.JFrame {
         jMIOrdenMantenimiento = new javax.swing.JMenuItem();
         jMOpciones = new javax.swing.JMenu();
         jMIModificarOpcionesPersonales = new javax.swing.JMenuItem();
+        jMICliente = new javax.swing.JMenuItem();
         jMVentas = new javax.swing.JMenu();
         jMICrearCotizacion = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
@@ -91,14 +92,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel1.setBounds(280, 180, 59, 30);
 
         jMCrearCliente.setText(" Cliente ");
-
-        jMICrearCliente.setText("Crear Cliente");
-        jMICrearCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICrearClienteActionPerformed(evt);
-            }
-        });
-        jMCrearCliente.add(jMICrearCliente);
 
         jMIModificarCliente.setText("Modificar Cliente");
         jMIModificarCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -220,6 +213,14 @@ public class GUI extends javax.swing.JFrame {
         });
         jMOpciones.add(jMIModificarOpcionesPersonales);
 
+        jMICliente.setText("Cliente");
+        jMICliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIClienteActionPerformed(evt);
+            }
+        });
+        jMOpciones.add(jMICliente);
+
         jMenuBar1.add(jMOpciones);
 
         jMVentas.setText(" Ventas  ");
@@ -300,17 +301,17 @@ public class GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMICrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearClienteActionPerformed
+    private void jMIClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClienteActionPerformed
         ///interfaz completa
         try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPCrearCliente jPCC = new JPCrearCliente();
+        JPCliente jPCC = new JPCliente();
         jPPrincipal.add(jPCC, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
-    }//GEN-LAST:event_jMICrearClienteActionPerformed
+    }//GEN-LAST:event_jMIClienteActionPerformed
 
     private void jMIModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarClienteActionPerformed
         try {
@@ -559,8 +560,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMCrearCliente;
     private javax.swing.JMenuItem jMIBuscarCliente;
+    private javax.swing.JMenuItem jMICliente;
     private javax.swing.JMenuItem jMICrearAccesorio;
-    private javax.swing.JMenuItem jMICrearCliente;
     private javax.swing.JMenuItem jMICrearCotizacion;
     private javax.swing.JMenuItem jMICrearUsuario;
     private javax.swing.JMenuItem jMICrearVehiculo;
