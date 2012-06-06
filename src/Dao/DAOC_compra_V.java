@@ -53,9 +53,10 @@ public class DAOC_compra_V {
 
             //
             if (tabla.next()) {
+                
+                //ccv.setid(tabla.getString("descripcion"));
 
-                ccv.setNumerochasis_v(tabla.getInt("numerochasis_v"));
-                ccv.setContrasena_e(tabla.getString("contrasena_e"));
+           // NO SE COMO HACERLO PATIÑOOOOOO
                 
             }
 
@@ -72,13 +73,12 @@ public class DAOC_compra_V {
         return null;
     }
 
-    public int editar(C_compra_V e) {
+    public int editar(C_compra_V ccv) {
 
         String sql_update;
         sql_update = "UPDATE c_compra_v SET"
-                + "tipo_e='" + e.getTipo_e() + "'"
-                + "contrasena_e='" + e.getContrasena_e() + "'"
-                + "WHERE id_e='" + e.getId_e().getId_p() + "'";
+               
+                + "WHERE id_c='" + ccv.getId_c().getId_c().getId_p() + "'";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
