@@ -10,12 +10,12 @@ package logica;
  */
 public class Empleado {
     String tipo_e, contrasena_e;
-    int id_e;
+    Persona id_e;
 
     public Empleado() {
     }
 
-    public int getId_e() {
+    public Persona getId_e() {
         return id_e;
     }
 
@@ -35,7 +35,7 @@ public class Empleado {
         this.tipo_e = tipo_e;
     }
 
-    public void setId_e(int id_e) {
+    public void setId_e(Persona id_e) {
         this.id_e = id_e;
     }
     

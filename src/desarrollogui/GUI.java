@@ -4,12 +4,8 @@
  */
 package desarrollogui;
 
-import desarrollogui.Cliente.JPBuscarCliente;
-import desarrollogui.Cliente.JPCliente;
-import desarrollogui.Cliente.JPCrearCliente;
-import desarrollogui.Cliente.JPModificarCliente;
+
 import desarrollogui.DatosPersonales.JPModificarDatosPersonales;
-import desarrollogui.Item.*;
 import desarrollogui.Ordenes.JPOrdenAlistamiento;
 import desarrollogui.Ordenes.JPOrdenMantenimiento;
 import desarrollogui.Ordenes.JPOrdenReparacion;
@@ -48,22 +44,10 @@ public class GUI extends javax.swing.JFrame {
         jPPrincipal = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMCrearCliente = new javax.swing.JMenu();
-        jMIModificarCliente = new javax.swing.JMenuItem();
-        jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMIBuscarCliente = new javax.swing.JMenuItem();
         jMInventario = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
         jMICrearAccesorio = new javax.swing.JMenuItem();
-        jMIModificarAccesorio = new javax.swing.JMenuItem();
-        jSeparator6 = new javax.swing.JPopupMenu.Separator();
-        jMIEliminarAccesorio = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMVehiculo = new javax.swing.JMenu();
-        jMICrearVehiculo = new javax.swing.JMenuItem();
-        jMIModificarVehiculo = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMIEliminarVehiculo = new javax.swing.JMenuItem();
+        jMIVehiculo = new javax.swing.JMenuItem();
         jMOrdenesTrabajo = new javax.swing.JMenu();
         jMIOrdenAlistamiento = new javax.swing.JMenuItem();
         jMIOrdenReparacion = new javax.swing.JMenuItem();
@@ -91,87 +75,24 @@ public class GUI extends javax.swing.JFrame {
         jPPrincipal.add(jLabel1);
         jLabel1.setBounds(280, 180, 59, 30);
 
-        jMCrearCliente.setText(" Cliente ");
-
-        jMIModificarCliente.setText("Modificar Cliente");
-        jMIModificarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIModificarClienteActionPerformed(evt);
-            }
-        });
-        jMCrearCliente.add(jMIModificarCliente);
-        jMCrearCliente.add(jSeparator5);
-
-        jMIBuscarCliente.setText("Buscar Cliente");
-        jMIBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIBuscarClienteActionPerformed(evt);
-            }
-        });
-        jMCrearCliente.add(jMIBuscarCliente);
-
-        jMenuBar1.add(jMCrearCliente);
-
         jMInventario.setText(" Inventario ");
 
-        jMenu1.setText("Accesorio");
-
-        jMICrearAccesorio.setText("Crear Accesorio");
+        jMICrearAccesorio.setText("Accesorio");
         jMICrearAccesorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMICrearAccesorioActionPerformed(evt);
             }
         });
-        jMenu1.add(jMICrearAccesorio);
-
-        jMIModificarAccesorio.setText("Modificar Accesorio");
-        jMIModificarAccesorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIModificarAccesorioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMIModificarAccesorio);
-        jMenu1.add(jSeparator6);
-
-        jMIEliminarAccesorio.setText("Eliminar Accesorio");
-        jMIEliminarAccesorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIEliminarAccesorioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMIEliminarAccesorio);
-
-        jMInventario.add(jMenu1);
+        jMInventario.add(jMICrearAccesorio);
         jMInventario.add(jSeparator2);
 
-        jMVehiculo.setText("Vehiculo");
-
-        jMICrearVehiculo.setText("Crear Vehiculo");
-        jMICrearVehiculo.addActionListener(new java.awt.event.ActionListener() {
+        jMIVehiculo.setText("Vehiculo");
+        jMIVehiculo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICrearVehiculoActionPerformed(evt);
+                jMIVehiculoActionPerformed(evt);
             }
         });
-        jMVehiculo.add(jMICrearVehiculo);
-
-        jMIModificarVehiculo.setText("Modificar Vehiculo");
-        jMIModificarVehiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIModificarVehiculoActionPerformed(evt);
-            }
-        });
-        jMVehiculo.add(jMIModificarVehiculo);
-        jMVehiculo.add(jSeparator1);
-
-        jMIEliminarVehiculo.setText("Eliminar Vehiculo");
-        jMIEliminarVehiculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIEliminarVehiculoActionPerformed(evt);
-            }
-        });
-        jMVehiculo.add(jMIEliminarVehiculo);
-
-        jMInventario.add(jMVehiculo);
+        jMInventario.add(jMIVehiculo);
 
         jMenuBar1.add(jMInventario);
 
@@ -313,28 +234,6 @@ public class GUI extends javax.swing.JFrame {
         this.pack();
     }//GEN-LAST:event_jMIClienteActionPerformed
 
-    private void jMIModificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarClienteActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPModificarCliente jPMC = new JPModificarCliente();
-        jPPrincipal.add(jPMC, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIModificarClienteActionPerformed
-
-    private void jMIBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBuscarClienteActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPBuscarCliente jPBC = new JPBuscarCliente();
-        jPPrincipal.add(jPBC, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIBuscarClienteActionPerformed
-
     private void jMIOrdenAlistamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIOrdenAlistamientoActionPerformed
         try {
             jPPrincipal.removeAll();
@@ -446,39 +345,17 @@ public class GUI extends javax.swing.JFrame {
         this.pack();
     }//GEN-LAST:event_jMIModificarOpcionesPersonalesActionPerformed
 
-    private void jMICrearVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearVehiculoActionPerformed
+    private void jMIVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVehiculoActionPerformed
         ///interfaz completa
         try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPCrearVehiculo jPCV = new JPCrearVehiculo();
-        jPPrincipal.add(jPCV, BorderLayout.CENTER);
+        JPVehiculo jPV = new JPVehiculo();
+        jPPrincipal.add(jPV, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
-    }//GEN-LAST:event_jMICrearVehiculoActionPerformed
-
-    private void jMIModificarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarVehiculoActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPModificarVehiculo jPMV = new JPModificarVehiculo();
-        jPPrincipal.add(jPMV, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIModificarVehiculoActionPerformed
-
-    private void jMIEliminarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarVehiculoActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPEliminarVehiculo jPEV = new JPEliminarVehiculo();
-        jPPrincipal.add(jPEV, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIEliminarVehiculoActionPerformed
+    }//GEN-LAST:event_jMIVehiculoActionPerformed
 
     private void jMICrearAccesorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearAccesorioActionPerformed
         ///interfaz completa
@@ -486,33 +363,11 @@ public class GUI extends javax.swing.JFrame {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPCrearAccesorio jPCA = new JPCrearAccesorio();
+        JPAccesorio jPCA = new JPAccesorio();
         jPPrincipal.add(jPCA, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMICrearAccesorioActionPerformed
-
-    private void jMIModificarAccesorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarAccesorioActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPModificarAccesorio jPMA = new JPModificarAccesorio();
-        jPPrincipal.add(jPMA, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIModificarAccesorioActionPerformed
-
-    private void jMIEliminarAccesorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarAccesorioActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPEliminarAccesorio jPEA = new JPEliminarAccesorio();
-        jPPrincipal.add(jPEA, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIEliminarAccesorioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -558,41 +413,29 @@ public class GUI extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMCrearCliente;
-    private javax.swing.JMenuItem jMIBuscarCliente;
     private javax.swing.JMenuItem jMICliente;
     private javax.swing.JMenuItem jMICrearAccesorio;
     private javax.swing.JMenuItem jMICrearCotizacion;
     private javax.swing.JMenuItem jMICrearUsuario;
-    private javax.swing.JMenuItem jMICrearVehiculo;
-    private javax.swing.JMenuItem jMIEliminarAccesorio;
     private javax.swing.JMenuItem jMIEliminarUsuario;
-    private javax.swing.JMenuItem jMIEliminarVehiculo;
     private javax.swing.JMenuItem jMIGenerarReporte;
-    private javax.swing.JMenuItem jMIModificarAccesorio;
-    private javax.swing.JMenuItem jMIModificarCliente;
     private javax.swing.JMenuItem jMIModificarOpcionesPersonales;
     private javax.swing.JMenuItem jMIModificarUsuario;
-    private javax.swing.JMenuItem jMIModificarVehiculo;
     private javax.swing.JMenuItem jMIOrdenAlistamiento;
     private javax.swing.JMenuItem jMIOrdenMantenimiento;
     private javax.swing.JMenuItem jMIOrdenReparacion;
     private javax.swing.JMenuItem jMIRegistrarVenta;
+    private javax.swing.JMenuItem jMIVehiculo;
     private javax.swing.JMenu jMInventario;
     private javax.swing.JMenu jMOpciones;
     private javax.swing.JMenu jMOrdenesTrabajo;
     private javax.swing.JMenu jMReportes;
     private javax.swing.JMenu jMUsuarios;
-    private javax.swing.JMenu jMVehiculo;
     private javax.swing.JMenu jMVentas;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPPrincipal;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JPopupMenu.Separator jSeparator4;
-    private javax.swing.JPopupMenu.Separator jSeparator5;
-    private javax.swing.JPopupMenu.Separator jSeparator6;
     // End of variables declaration//GEN-END:variables
 }
