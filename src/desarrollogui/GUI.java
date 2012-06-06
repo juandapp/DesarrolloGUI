@@ -58,10 +58,6 @@ public class GUI extends javax.swing.JFrame {
         jMICrearCotizacion = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         jMIRegistrarVenta = new javax.swing.JMenuItem();
-        jMUsuarios = new javax.swing.JMenu();
-        jMIModificarUsuario = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
-        jMIEliminarUsuario = new javax.swing.JMenuItem();
         jMReportes = new javax.swing.JMenu();
         jMIGenerarReporte = new javax.swing.JMenuItem();
 
@@ -171,27 +167,6 @@ public class GUI extends javax.swing.JFrame {
 
         jMenuBar1.add(jMVentas);
 
-        jMUsuarios.setText(" Usuarios  ");
-
-        jMIModificarUsuario.setText("Modificar Usuario");
-        jMIModificarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIModificarUsuarioActionPerformed(evt);
-            }
-        });
-        jMUsuarios.add(jMIModificarUsuario);
-        jMUsuarios.add(jSeparator4);
-
-        jMIEliminarUsuario.setText("Eliminar Usuario");
-        jMIEliminarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIEliminarUsuarioActionPerformed(evt);
-            }
-        });
-        jMUsuarios.add(jMIEliminarUsuario);
-
-        jMenuBar1.add(jMUsuarios);
-
         jMReportes.setText(" Reportes  ");
 
         jMIGenerarReporte.setText("Generar Reporte");
@@ -299,28 +274,6 @@ public class GUI extends javax.swing.JFrame {
         this.pack();
     }//GEN-LAST:event_jMICrearUsuarioActionPerformed
 
-    private void jMIModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarUsuarioActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPModificarUsuario jPMU = new JPModificarUsuario();
-        jPPrincipal.add(jPMU, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIModificarUsuarioActionPerformed
-
-    private void jMIEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEliminarUsuarioActionPerformed
-        try {
-            jPPrincipal.removeAll();
-        } catch (Exception e) {
-        }
-        JPEliminarUsuario jPEU = new JPEliminarUsuario();
-        jPPrincipal.add(jPEU, BorderLayout.CENTER);
-        jPPrincipal.updateUI();
-        this.pack();
-    }//GEN-LAST:event_jMIEliminarUsuarioActionPerformed
-
     private void jMIGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIGenerarReporteActionPerformed
         try {
             jPPrincipal.removeAll();
@@ -415,10 +368,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMICrearAccesorio;
     private javax.swing.JMenuItem jMICrearCotizacion;
     private javax.swing.JMenuItem jMICrearUsuario;
-    private javax.swing.JMenuItem jMIEliminarUsuario;
     private javax.swing.JMenuItem jMIGenerarReporte;
     private javax.swing.JMenuItem jMIModificarDatosPersonales;
-    private javax.swing.JMenuItem jMIModificarUsuario;
     private javax.swing.JMenuItem jMIOrdenAlistamiento;
     private javax.swing.JMenuItem jMIOrdenMantenimiento;
     private javax.swing.JMenuItem jMIOrdenReparacion;
@@ -428,12 +379,10 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenu jMOpciones;
     private javax.swing.JMenu jMOrdenesTrabajo;
     private javax.swing.JMenu jMReportes;
-    private javax.swing.JMenu jMUsuarios;
     private javax.swing.JMenu jMVentas;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPPrincipal;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
     // End of variables declaration//GEN-END:variables
 }

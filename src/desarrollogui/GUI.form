@@ -116,31 +116,6 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMUsuarios">
-          <Properties>
-            <Property name="text" type="java.lang.String" value=" Usuarios  "/>
-          </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIModificarUsuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar Usuario"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIModificarUsuarioActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator4">
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMIEliminarUsuario">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Eliminar Usuario"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIEliminarUsuarioActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="jMReportes">
           <Properties>
             <Property name="text" type="java.lang.String" value=" Reportes  "/>
