@@ -40,10 +40,11 @@ public class JPOrdenes extends javax.swing.JPanel {
         jTFMarca = new javax.swing.JTextField();
         jTFLinea = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTResultados = new javax.swing.JTable();
+        jTResultadosVehiculo = new javax.swing.JTable();
         jBConsultarVehiculo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jCBDisponible = new javax.swing.JComboBox();
+        jBLimpiarVehiculo = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTFCodigoArticulo = new javax.swing.JTextField();
@@ -51,15 +52,17 @@ public class JPOrdenes extends javax.swing.JPanel {
         jTFNombreArticulo = new javax.swing.JTextField();
         jBConsultarArticulo = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTResultados3 = new javax.swing.JTable();
+        jTResultadosArticulo = new javax.swing.JTable();
+        jBLimpiarArticulo = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jTFIdentificacionCliente = new javax.swing.JTextField();
         jTFNombreCliente = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTResultados1 = new javax.swing.JTable();
+        jTResultadosCliente = new javax.swing.JTable();
         jBConsultarCliente = new javax.swing.JButton();
+        jBLimpiarCliente = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jTFIdentificacionEmpleado = new javax.swing.JTextField();
@@ -70,6 +73,7 @@ public class JPOrdenes extends javax.swing.JPanel {
         jBConsultarEmpleado = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTResultados2 = new javax.swing.JTable();
+        jBLimpiarempleado = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -83,7 +87,7 @@ public class JPOrdenes extends javax.swing.JPanel {
         jTFidEmpleadoOrden = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jComboBox1 = new javax.swing.JComboBox();
+        jCbTipoOrden = new javax.swing.JComboBox();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTPDescripcion = new javax.swing.JTextPane();
         jLabel10 = new javax.swing.JLabel();
@@ -139,7 +143,7 @@ public class JPOrdenes extends javax.swing.JPanel {
         jPanel2.add(jTFLinea);
         jTFLinea.setBounds(90, 40, 270, 28);
 
-        jTResultados.setModel(new javax.swing.table.DefaultTableModel(
+        jTResultadosVehiculo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -155,7 +159,7 @@ public class JPOrdenes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTResultados);
+        jScrollPane1.setViewportView(jTResultadosVehiculo);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(10, 200, 550, 125);
@@ -168,10 +172,18 @@ public class JPOrdenes extends javax.swing.JPanel {
         jPanel2.add(jLabel6);
         jLabel6.setBounds(10, 170, 73, 18);
 
-        jCBDisponible.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "True" }));
-        jCBDisponible.setEnabled(false);
+        jCBDisponible.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "True", "False" }));
         jPanel2.add(jCBDisponible);
         jCBDisponible.setBounds(90, 160, 120, 28);
+
+        jBLimpiarVehiculo.setText("Limpiar");
+        jBLimpiarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarVehiculoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBLimpiarVehiculo);
+        jBLimpiarVehiculo.setBounds(380, 50, 90, 30);
 
         jTabbedPane1.addTab("Vehiculo", jPanel2);
 
@@ -197,7 +209,7 @@ public class JPOrdenes extends javax.swing.JPanel {
         jPanel6.add(jBConsultarArticulo);
         jBConsultarArticulo.setBounds(380, 10, 90, 30);
 
-        jTResultados3.setModel(new javax.swing.table.DefaultTableModel(
+        jTResultadosArticulo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -213,10 +225,19 @@ public class JPOrdenes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTResultados3);
+        jScrollPane5.setViewportView(jTResultadosArticulo);
 
         jPanel6.add(jScrollPane5);
         jScrollPane5.setBounds(20, 80, 470, 125);
+
+        jBLimpiarArticulo.setText("Limpiar");
+        jBLimpiarArticulo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarArticuloActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jBLimpiarArticulo);
+        jBLimpiarArticulo.setBounds(380, 40, 90, 30);
 
         jTabbedPane1.addTab("Articulo", jPanel6);
 
@@ -238,7 +259,7 @@ public class JPOrdenes extends javax.swing.JPanel {
         jPanel3.add(jLabel7);
         jLabel7.setBounds(10, 50, 57, 18);
 
-        jTResultados1.setModel(new javax.swing.table.DefaultTableModel(
+        jTResultadosCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -254,7 +275,7 @@ public class JPOrdenes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTResultados1);
+        jScrollPane2.setViewportView(jTResultadosCliente);
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(10, 80, 480, 125);
@@ -262,6 +283,15 @@ public class JPOrdenes extends javax.swing.JPanel {
         jBConsultarCliente.setText("Consultar");
         jPanel3.add(jBConsultarCliente);
         jBConsultarCliente.setBounds(360, 10, 90, 30);
+
+        jBLimpiarCliente.setText("Limpiar");
+        jBLimpiarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarClienteActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jBLimpiarCliente);
+        jBLimpiarCliente.setBounds(360, 40, 90, 30);
 
         jTabbedPane1.addTab("Cliente", jPanel3);
 
@@ -318,6 +348,15 @@ public class JPOrdenes extends javax.swing.JPanel {
         jPanel5.add(jScrollPane3);
         jScrollPane3.setBounds(20, 110, 530, 125);
 
+        jBLimpiarempleado.setText("Limpiar");
+        jBLimpiarempleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarempleadoActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jBLimpiarempleado);
+        jBLimpiarempleado.setBounds(320, 40, 90, 30);
+
         jTabbedPane1.addTab("Empleado", jPanel5);
 
         jPanel4.setLayout(null);
@@ -329,8 +368,12 @@ public class JPOrdenes extends javax.swing.JPanel {
         jLabel2.setText("Cliente Id");
         jPanel4.add(jLabel2);
         jLabel2.setBounds(280, 30, 65, 18);
+
+        jTFidVehiculoOrden.setEnabled(false);
         jPanel4.add(jTFidVehiculoOrden);
         jTFidVehiculoOrden.setBounds(100, 20, 140, 28);
+
+        jTFidClienteOrden1.setEnabled(false);
         jPanel4.add(jTFidClienteOrden1);
         jTFidClienteOrden1.setBounds(360, 20, 140, 28);
 
@@ -349,6 +392,8 @@ public class JPOrdenes extends javax.swing.JPanel {
         jLabel5.setText("Empleado Id");
         jPanel4.add(jLabel5);
         jLabel5.setBounds(10, 60, 90, 18);
+
+        jTFidEmpleadoOrden.setEnabled(false);
         jPanel4.add(jTFidEmpleadoOrden);
         jTFidEmpleadoOrden.setBounds(100, 50, 140, 28);
 
@@ -358,9 +403,9 @@ public class JPOrdenes extends javax.swing.JPanel {
         jPanel4.add(jSeparator1);
         jSeparator1.setBounds(0, 80, 570, 10);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Alistamiento", "Mantenimiento", "Reparacion" }));
-        jPanel4.add(jComboBox1);
-        jComboBox1.setBounds(100, 150, 140, 28);
+        jCbTipoOrden.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Alistamiento", "Mantenimiento", "Reparacion" }));
+        jPanel4.add(jCbTipoOrden);
+        jCbTipoOrden.setBounds(100, 150, 140, 28);
 
         jScrollPane4.setViewportView(jTPDescripcion);
 
@@ -376,12 +421,19 @@ public class JPOrdenes extends javax.swing.JPanel {
         jButton1.setBounds(410, 260, 130, 30);
 
         jButton2.setText("Limpiar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton2);
         jButton2.setBounds(190, 260, 100, 30);
 
         jLabel13.setText("Articulo Id");
         jPanel4.add(jLabel13);
         jLabel13.setBounds(280, 60, 70, 18);
+
+        jTFidArticuloOrden.setEnabled(false);
         jPanel4.add(jTFidArticuloOrden);
         jTFidArticuloOrden.setBounds(360, 50, 140, 28);
 
@@ -402,16 +454,50 @@ public class JPOrdenes extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBLimpiarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarVehiculoActionPerformed
+        jTFModelo.setText("");
+        jTFLinea.setText("");
+        jTFMarca.setText("");
+        jTFNoChasis.setText("");
+        jTFColor.setText("");
+        jCBDisponible.setSelectedIndex(0);
+    }//GEN-LAST:event_jBLimpiarVehiculoActionPerformed
+
+    private void jBLimpiarArticuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarArticuloActionPerformed
+        jTFCodigoArticulo.setText("");
+        jTFNombreArticulo.setText("");
+    }//GEN-LAST:event_jBLimpiarArticuloActionPerformed
+
+    private void jBLimpiarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarClienteActionPerformed
+        jTFIdentificacionCliente.setText("");
+        jTFNombreCliente.setText("");
+    }//GEN-LAST:event_jBLimpiarClienteActionPerformed
+
+    private void jBLimpiarempleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarempleadoActionPerformed
+        jTFIdentificacionEmpleado.setText("");
+        jTFNombreEmpleado.setText("");
+    }//GEN-LAST:event_jBLimpiarempleadoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jTFFecha.setText("");
+        jTFValor.setText("");
+        jCbTipoOrden.setSelectedIndex(0);
+        jTPDescripcion.setText("");
+    }//GEN-LAST:event_jButton2ActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultarArticulo;
     private javax.swing.JButton jBConsultarCliente;
     private javax.swing.JButton jBConsultarEmpleado;
     private javax.swing.JButton jBConsultarVehiculo;
+    private javax.swing.JButton jBLimpiarArticulo;
+    private javax.swing.JButton jBLimpiarCliente;
+    private javax.swing.JButton jBLimpiarVehiculo;
+    private javax.swing.JButton jBLimpiarempleado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jCBCargo1;
     private javax.swing.JComboBox jCBDisponible;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jCbTipoOrden;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -463,10 +549,10 @@ public class JPOrdenes extends javax.swing.JPanel {
     private javax.swing.JTextField jTFidEmpleadoOrden;
     private javax.swing.JTextField jTFidVehiculoOrden;
     private javax.swing.JTextPane jTPDescripcion;
-    private javax.swing.JTable jTResultados;
-    private javax.swing.JTable jTResultados1;
     private javax.swing.JTable jTResultados2;
-    private javax.swing.JTable jTResultados3;
+    private javax.swing.JTable jTResultadosArticulo;
+    private javax.swing.JTable jTResultadosCliente;
+    private javax.swing.JTable jTResultadosVehiculo;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
