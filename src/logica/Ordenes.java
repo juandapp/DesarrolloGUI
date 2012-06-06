@@ -12,14 +12,18 @@ import java.sql.Date;
  */
 public class Ordenes {
 
-    int id_e, id_c, numerochasis_v, codigo_a, valor;
+    Empleado id_e;
+    Cliente id_c;
+    Vehiculo numerochasis_v;
+    Articulo codigo_a;
+    int valor;
     Date fecha;
     String tipo_orden, descripcion;
 
     public Ordenes() {
     }
 
-    public int getCodigo_a() {
+    public Articulo getCodigo_a() {
         return codigo_a;
     }
 
@@ -31,15 +35,15 @@ public class Ordenes {
         return fecha;
     }
 
-    public int getId_c() {
+    public Cliente getId_c() {
         return id_c;
     }
 
-    public int getId_e() {
+    public Empleado getId_e() {
         return id_e;
     }
 
-    public int getNumerochasis_v() {
+    public Vehiculo getNumerochasis_v() {
         return numerochasis_v;
     }
 
@@ -51,7 +55,7 @@ public class Ordenes {
         return valor;
     }
 
-    public void setCodigo_a(int codigo_a) {
+    public void setCodigo_a(Articulo codigo_a) {
         this.codigo_a = codigo_a;
     }
 
@@ -63,15 +67,15 @@ public class Ordenes {
         this.fecha = fecha;
     }
 
-    public void setId_c(int id_c) {
+    public void setId_c(Cliente id_c) {
         this.id_c = id_c;
     }
 
-    public void setId_e(int id_e) {
+    public void setId_e(Empleado id_e) {
         this.id_e = id_e;
     }
 
-    public void setNumerochasis_v(int numerochasis_v) {
+    public void setNumerochasis_v(Vehiculo numerochasis_v) {
         this.numerochasis_v = numerochasis_v;
     }
 

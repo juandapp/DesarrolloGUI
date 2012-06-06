@@ -10,17 +10,18 @@ package logica;
  */
 public class C_compra_V {
 
-    int id_c, numerochasis_v;
+    Cliente id_c;
+    Vehiculo  numerochasis_v;
     String tipo_pago;
     
     public C_compra_V() {
     }
 
-    public int getId_c() {
+    public Cliente getId_c() {
         return id_c;
     }
 
-    public int getNumerochasis_v() {
+    public Vehiculo getNumerochasis_v() {
         return numerochasis_v;
     }
 
@@ -28,11 +29,11 @@ public class C_compra_V {
         return tipo_pago;
     }
 
-    public void setId_c(int id_c) {
+    public void setId_c(Cliente id_c) {
         this.id_c = id_c;
     }
 
-    public void setNumerochasis_v(int numerochasis_v) {
+    public void setNumerochasis_v(Vehiculo numerochasis_v) {
         this.numerochasis_v = numerochasis_v;
     }
 
