@@ -28,6 +28,7 @@ public class JPUsuario extends javax.swing.JPanel {
 
         jPanel5 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -86,6 +87,9 @@ public class JPUsuario extends javax.swing.JPanel {
         jPanel5.setLayout(null);
         jPanel5.add(jLabel13);
         jLabel13.setBounds(18, 182, 0, 0);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuario"));
+        jPanel4.setLayout(null);
 
         jPanel1.setLayout(null);
 
@@ -351,15 +355,18 @@ public class JPUsuario extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 
+        jPanel4.add(jTabbedPane1);
+        jTabbedPane1.setBounds(10, 20, 565, 386);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -441,6 +448,7 @@ public class JPUsuario extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTFDireccion;
