@@ -44,6 +44,14 @@ public class JPOrdenes extends javax.swing.JPanel {
         jBConsultarVehiculo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jCBDisponible = new javax.swing.JComboBox();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jTFCodigoArticulo = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTFNombreArticulo = new javax.swing.JTextField();
+        jBConsultarArticulo = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTResultados3 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jTFIdentificacionCliente = new javax.swing.JTextField();
@@ -81,6 +89,8 @@ public class JPOrdenes extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        jTFidArticuloOrden = new javax.swing.JTextField();
 
         setEnabled(false);
 
@@ -164,6 +174,51 @@ public class JPOrdenes extends javax.swing.JPanel {
         jCBDisponible.setBounds(90, 160, 120, 28);
 
         jTabbedPane1.addTab("Vehiculo", jPanel2);
+
+        jPanel6.setLayout(null);
+
+        jLabel11.setText("Codigo");
+        jPanel6.add(jLabel11);
+        jLabel11.setBounds(10, 20, 49, 18);
+
+        jTFCodigoArticulo.setColumns(20);
+        jPanel6.add(jTFCodigoArticulo);
+        jTFCodigoArticulo.setBounds(80, 10, 270, 28);
+
+        jLabel12.setText("Nombre");
+        jPanel6.add(jLabel12);
+        jLabel12.setBounds(10, 50, 57, 18);
+
+        jTFNombreArticulo.setColumns(20);
+        jPanel6.add(jTFNombreArticulo);
+        jTFNombreArticulo.setBounds(80, 40, 270, 28);
+
+        jBConsultarArticulo.setText("Consultar");
+        jPanel6.add(jBConsultarArticulo);
+        jBConsultarArticulo.setBounds(380, 10, 90, 30);
+
+        jTResultados3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Codigo", "Nombre", "Cantidad", "Descripcion"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(jTResultados3);
+
+        jPanel6.add(jScrollPane5);
+        jScrollPane5.setBounds(20, 80, 470, 125);
+
+        jTabbedPane1.addTab("Articulo", jPanel6);
 
         jPanel3.setLayout(null);
 
@@ -273,11 +328,11 @@ public class JPOrdenes extends javax.swing.JPanel {
 
         jLabel2.setText("Cliente Id");
         jPanel4.add(jLabel2);
-        jLabel2.setBounds(260, 30, 65, 18);
+        jLabel2.setBounds(280, 30, 65, 18);
         jPanel4.add(jTFidVehiculoOrden);
         jTFidVehiculoOrden.setBounds(100, 20, 140, 28);
         jPanel4.add(jTFidClienteOrden1);
-        jTFidClienteOrden1.setBounds(350, 20, 140, 28);
+        jTFidClienteOrden1.setBounds(360, 20, 140, 28);
 
         jLabel3.setText("Fecha");
         jPanel4.add(jLabel3);
@@ -322,7 +377,13 @@ public class JPOrdenes extends javax.swing.JPanel {
 
         jButton2.setText("Limpiar");
         jPanel4.add(jButton2);
-        jButton2.setBounds(272, 260, 100, 30);
+        jButton2.setBounds(190, 260, 100, 30);
+
+        jLabel13.setText("Articulo Id");
+        jPanel4.add(jLabel13);
+        jLabel13.setBounds(280, 60, 70, 18);
+        jPanel4.add(jTFidArticuloOrden);
+        jTFidArticuloOrden.setBounds(360, 50, 140, 28);
 
         jTabbedPane1.addTab("Orden", jPanel4);
 
@@ -342,6 +403,7 @@ public class JPOrdenes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBConsultarArticulo;
     private javax.swing.JButton jBConsultarCliente;
     private javax.swing.JButton jBConsultarEmpleado;
     private javax.swing.JButton jBConsultarVehiculo;
@@ -352,6 +414,9 @@ public class JPOrdenes extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
@@ -373,11 +438,14 @@ public class JPOrdenes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTFCodigoArticulo;
     private javax.swing.JTextField jTFColor;
     private javax.swing.JTextField jTFFecha;
     private javax.swing.JTextField jTFIdentificacionCliente;
@@ -386,9 +454,11 @@ public class JPOrdenes extends javax.swing.JPanel {
     private javax.swing.JTextField jTFMarca;
     private javax.swing.JTextField jTFModelo;
     private javax.swing.JTextField jTFNoChasis;
+    private javax.swing.JTextField jTFNombreArticulo;
     private javax.swing.JTextField jTFNombreCliente;
     private javax.swing.JTextField jTFNombreEmpleado;
     private javax.swing.JTextField jTFValor;
+    private javax.swing.JTextField jTFidArticuloOrden;
     private javax.swing.JTextField jTFidClienteOrden1;
     private javax.swing.JTextField jTFidEmpleadoOrden;
     private javax.swing.JTextField jTFidVehiculoOrden;
@@ -396,6 +466,7 @@ public class JPOrdenes extends javax.swing.JPanel {
     private javax.swing.JTable jTResultados;
     private javax.swing.JTable jTResultados1;
     private javax.swing.JTable jTResultados2;
+    private javax.swing.JTable jTResultados3;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
