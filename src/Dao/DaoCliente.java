@@ -24,8 +24,8 @@ public class DaoCliente {
 
     public int guardar(Cliente cliente) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO cliente VALUES ('"
-                + cliente.getId_c().getId_p() + "')";
+        sql_guardar = "INSERT INTO cliente VALUES ("
+                + cliente.getId_c().getId_p() + ")";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -43,7 +43,7 @@ public class DaoCliente {
     public Cliente consultar(int id_c) {
         Cliente e = new Cliente();
         String sql_select;
-        sql_select = "SELECT * FROM cliente WHERE id_c='" + id_c + "'";
+        sql_select = "SELECT * FROM cliente WHERE id_c=" + id_c + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -72,7 +72,7 @@ public class DaoCliente {
 
         String sql_update;
         sql_update = "UPDATE cliente SET"
-                + "WHERE id_e='" + c.getId_c().getId_p() + "'";
+                + "WHERE id_e=" + c.getId_c().getId_p() + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

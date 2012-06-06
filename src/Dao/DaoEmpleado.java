@@ -24,8 +24,8 @@ public class DaoEmpleado {
 
     public int guardar(Empleado empleado) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO empleado VALUES ('"
-                + empleado.getId_e().getId_p() + "', '"
+        sql_guardar = "INSERT INTO empleado VALUES ("
+                + empleado.getId_e().getId_p() + ", '"
                 + empleado.getTipo_e() + "', '"
                 + empleado.getContrasena_e() + "')";
         try {
@@ -45,7 +45,7 @@ public class DaoEmpleado {
     public Empleado consultar(int id_e) {
         Empleado e = new Empleado();
         String sql_select;
-        sql_select = "SELECT * FROM empleado WHERE id_e='" + id_e + "'";
+        sql_select = "SELECT * FROM empleado WHERE id_e=" + id_e + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -78,7 +78,7 @@ public class DaoEmpleado {
         sql_update = "UPDATE empleado SET"
                 + "tipo_e='" + e.getTipo_e() + "'"
                 + "contrasena_e='" + e.getContrasena_e() + "'"
-                + "WHERE id_e='" + e.getId_e().getId_p() + "'";
+                + "WHERE id_e=" + e.getId_e().getId_p() + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

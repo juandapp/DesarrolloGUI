@@ -24,14 +24,14 @@ public class DaoVehiculo {
 
     public int guardar(Vehiculo vehiculo) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO vehiculo VALUES ('"
-                + vehiculo.getNumerochasis_v() + "', '"
+        sql_guardar = "INSERT INTO vehiculo VALUES ("
+                + vehiculo.getNumerochasis_v() + ", '"
                 + vehiculo.getLinea_v() + "', '"
                 + vehiculo.getMarca_v() + "', '"
                 + vehiculo.getColor_v() + "', '"
                 + vehiculo.getModelo_v() + "', '"
-                + vehiculo.getCojineria_v() + "', '"
-                + vehiculo.getDisponible_v() +"')";
+                + vehiculo.getCojineria_v() + "', "
+                + vehiculo.getDisponible_v() +")";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -49,7 +49,7 @@ public class DaoVehiculo {
     public Vehiculo consultar(int numerochasis_v) {
         Vehiculo v = new Vehiculo();
         String sql_select;
-        sql_select = "SELECT * FROM vehiculo WHERE numerochasis_v='" + numerochasis_v + "'";
+        sql_select = "SELECT * FROM vehiculo WHERE numerochasis_v=" + numerochasis_v + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -89,8 +89,8 @@ public class DaoVehiculo {
                 + "color_v='" + v.getColor_v() + "'"
                 + "modelo_v='" + v.getModelo_v() + "'"
                 + "cojineria_v='" + v.getCojineria_v() + "'"
-                + "disponible_v='" + v.getDisponible_v() + "'"
-                + "WHERE numerochasis_v='" + v.getNumerochasis_v() + "'";
+                + "disponible_v=" + v.getDisponible_v() + ""
+                + "WHERE numerochasis_v=" + v.getNumerochasis_v() + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

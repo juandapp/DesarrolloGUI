@@ -25,10 +25,10 @@ public class DaoArticulo {
 
     public int guardar(Articulo articulo) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO articulo VALUES ('"
-                + articulo.getCodigo_a() + "', '"
-                + articulo.getNombre() + "', '"
-                + articulo.getCantidad() + "', '"
+        sql_guardar = "INSERT INTO articulo VALUES ("
+                + articulo.getCodigo_a() + ", '"
+                + articulo.getNombre() + "', "
+                + articulo.getCantidad() + ", '"
                 + articulo.getDescripcion()+ "')";
         try {
             Connection conn = fachada.conectar();
@@ -47,7 +47,7 @@ public class DaoArticulo {
     public Articulo consultar(int codigo_a) {
         Articulo a = new Articulo();
         String sql_select;
-        sql_select = "SELECT * FROM articulo WHERE id_p='" + codigo_a + "'";
+        sql_select = "SELECT * FROM articulo WHERE codigo_a=" + codigo_a + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -82,7 +82,7 @@ public class DaoArticulo {
                 + "nombre='" + a.getNombre() + "'"
                 + "cantidad=" + a.getCantidad() + ""
                 + "descripcion='" + a.getDescripcion() + "'"
-                + "WHERE codigo_a='" + a.getCodigo_a() + "'";
+                + "WHERE codigo_a=" + a.getCodigo_a() + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

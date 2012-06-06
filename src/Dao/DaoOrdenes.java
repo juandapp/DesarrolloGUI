@@ -9,29 +9,30 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import logica.Persona;
+import logica.Ordenes;
 
 /**
  *
- * @author juandrd
+ * @author cdariolo
  */
-public class DaoPersona {
-    //
-    FachadaBD fachada;
+public class DaoOrdenes {
+      FachadaBD fachada;
 
-    DaoPersona() {
+    DaoOrdenes() {
         fachada = new FachadaBD();
     }//
 
-    public int guardar(Persona persona) {
+    public int guardar(Ordenes ordenes) {
         String sql_guardar;
-        sql_guardar = "INSERT INTO persona VALUES ("
-                + persona.getId_p() + ", '"
-                + persona.getNombre_p() + "', '"
-                + persona.getDireccion_p() + "', '"
-                + persona.getTelefono_p() + "','"
-                + persona.getEmail_p() + "','"
-                + persona.getGenero_p() + "')";
+        sql_guardar = "INSERT INTO ordenes VALUES ("
+                + ordenes.getId_e() + ", "
+                + ordenes.getId_c() + ", '"
+                + ordenes.getNumerochasis_v().getNumerochasis_v() + "', '"
+                + ordenes.getCodigo_a().getCodigo_a() + "', '"
+                + ordenes.getValor() + "', '"
+                + ordenes.getFecha() + "', '"
+                + ordenes.getTipo_orden() + "', '"
+                + ordenes.getDescripcion()+ "')";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -46,10 +47,10 @@ public class DaoPersona {
         return -1;
     }//fin guardar
 
-    public Persona consultar(int id_p) {
-        Persona p = new Persona();
+    public Ordenes consultar(int id_e,int id_c) {
+        Ordenes o = new Ordenes();
         String sql_select;
-        sql_select = "SELECT * FROM persona WHERE id_p=" + id_p + "";
+        sql_select = "SELECT * FROM ordenes WHERE id_e=" + id_e + " AND id_c=" + id_c + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -58,18 +59,12 @@ public class DaoPersona {
             //
             if (tabla.next()) {
 
-                p.setNombre_p(tabla.getString("nombre_p"));
-                p.setDireccion_p(tabla.getString("direccion_p"));
-                p.setTelefono_p(tabla.getString("telefono_p"));
-                p.setEmail_p(tabla.getString("email_p"));
-                p.setGenero_p(tabla.getString("genero_p"));
-                             
-
+              //HACELO PATIÑO
             }
 
             conn.close();
             System.out.println("Conexion cerrada");
-            return p;
+            return o;
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -80,16 +75,18 @@ public class DaoPersona {
         return null;
     }
 
-    public int editar(Persona p) {
+    public int editar(Ordenes o) {
 
         String sql_update;
-        sql_update = "UPDATE persona SET"
-                + "nombre_p='" + p.getNombre_p() + "'"
-                + "direccion_p='" + p.getDireccion_p() + "'"
-                + "telefono_p='" + p.getTelefono_p() + "'"
-                + "email_p='" + p.getEmail_p() + "'"
-                + "genero_p='" + p.getGenero_p() + "'"
-                + "WHERE id_p=" + p.getId_p() + "";
+        sql_update = "UPDATE ordenes SET"
+                + "id_e=" + o.getId_e() + ","
+                + "id_c='" + o.getId_c() + "',"
+                + "numerochasis_v=" + o.getNumerochasis_v() + ","
+                + "codigo_a=" + o.getCodigo_a() + ""
+                + "valor=" + o.getValor() + ","
+                + "fecha=" + o.getFecha()+ ","
+                + "tipo_orden='" + o.getTipo_orden() + "',"
+                + "descripcion='" + o.getDescripcion() + "'";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
