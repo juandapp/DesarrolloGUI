@@ -16,6 +16,7 @@ import logica.Persona;
  * @author juandrd
  */
 public class DaoPersona {
+    //
     FachadaBD fachada;
 
     DaoPersona() {
