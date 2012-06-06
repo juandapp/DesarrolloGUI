@@ -34,74 +34,24 @@
             <Property name="text" type="java.lang.String" value=" Inventario "/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu1">
+            <MenuItem class="javax.swing.JMenuItem" name="jMICrearAccesorio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Accesorio"/>
               </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMICrearAccesorio">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Crear Accesorio"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMICrearAccesorioActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMIModificarAccesorio">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Modificar Accesorio"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIModificarAccesorioActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator6">
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMIEliminarAccesorio">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Eliminar Accesorio"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIEliminarAccesorioActionPerformed"/>
-                  </Events>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMICrearAccesorioActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
             </MenuItem>
-            <Menu class="javax.swing.JMenu" name="jMVehiculo">
+            <MenuItem class="javax.swing.JMenuItem" name="jMIVehiculo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vehiculo"/>
               </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMICrearVehiculo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Crear Vehiculo"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMICrearVehiculoActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMIModificarVehiculo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Modificar Vehiculo"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIModificarVehiculoActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMIEliminarVehiculo">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Eliminar Vehiculo"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIEliminarVehiculoActionPerformed"/>
-                  </Events>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMIVehiculoActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMOrdenesTrabajo">
