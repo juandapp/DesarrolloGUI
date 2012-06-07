@@ -59,7 +59,8 @@ public class DaoOrdenes {
             //
             if (tabla.next()) {
 
-              //HACELO PATIÑO
+             
+                
             }
 
             conn.close();

@@ -14,7 +14,16 @@ public class Vehiculo {
     String linea_v, marca_v, color_v, modelo_v, cojineria_v;
     Boolean disponible_v;
     
-    public Vehiculo() {
+    public Vehiculo(){}
+    public Vehiculo(int numerochasis_v,String linea_v,String marca_v,String color_v
+            ,String modelo_v,String cojineria_v,Boolean disponible_v) {
+        this.numerochasis_v=numerochasis_v;
+        this.linea_v=linea_v;
+        this.marca_v=marca_v;
+        this.color_v=color_v;
+        this.modelo_v=modelo_v;
+        this.cojineria_v=cojineria_v;
+        this.disponible_v=disponible_v;
     }
 
     public String getCojineria_v() {

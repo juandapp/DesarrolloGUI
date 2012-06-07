@@ -18,7 +18,7 @@ import logica.Vehiculo;
 public class DaoVehiculo {
      FachadaBD fachada;
 
-    DaoVehiculo() {
+    public DaoVehiculo() {
         fachada = new FachadaBD();
     }//
 

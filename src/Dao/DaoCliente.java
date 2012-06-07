@@ -41,7 +41,7 @@ public class DaoCliente {
     }//fin guardar
 
     public Cliente consultar(int id_c) {
-        Cliente e = new Cliente();
+        Cliente c = new Cliente();
         String sql_select;
         sql_select = "SELECT * FROM cliente WHERE id_c=" + id_c + "";
         try {
@@ -51,13 +51,13 @@ public class DaoCliente {
 
             //
             if (tabla.next()) {
-
+              
                                
             }
 
             conn.close();
             System.out.println("Conexion cerrada");
-            return e;
+            return c;
 
         } catch (SQLException ex) {
             System.out.println(ex);
