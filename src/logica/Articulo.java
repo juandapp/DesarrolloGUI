@@ -16,6 +16,13 @@ public class Articulo {
     public Articulo() {
     }
 
+    public Articulo(int codigo_a, int cantidad, String nombre, String descripcion) {
+        this.codigo_a = codigo_a;
+        this.cantidad = cantidad;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }    
+
     public int getCantidad() {
         return cantidad;
     }

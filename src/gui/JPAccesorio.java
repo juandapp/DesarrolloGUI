@@ -4,6 +4,9 @@
  */
 package gui;
 
+import Controlador.AccesorioControlador;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juandapp
@@ -13,8 +16,12 @@ public class JPAccesorio extends javax.swing.JPanel {
     /**
      * Creates new form JPCliente
      */
+    
+    AccesorioControlador accesorioControlador;
+    
     public JPAccesorio() {
         initComponents();
+        accesorioControlador = new AccesorioControlador();
     }
 
     /**
@@ -115,6 +122,11 @@ public class JPAccesorio extends javax.swing.JPanel {
         jBLimpiar.setBounds(290, 180, 80, 30);
 
         jBCrear.setText("Crear");
+        jBCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCrearActionPerformed(evt);
+            }
+        });
         jPanel1.add(jBCrear);
         jBCrear.setBounds(200, 180, 70, 30);
 
@@ -239,6 +251,19 @@ public class JPAccesorio extends javax.swing.JPanel {
         jTFCodigo.setText("");
 
     }//GEN-LAST:event_jBLimpiarActionPerformed
+
+    private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
+        int codigo_a=Integer.parseInt(jTFCodigo.getText());
+        int cantidad = Integer.parseInt(jTFCantidad.getText());
+        String nombre = jTFNombre.getText();
+        String descripcion = jTPDescripcion.getText();
+        int guardar = accesorioControlador.guardar(codigo_a, cantidad, nombre, descripcion);
+        if (guardar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo crear la Accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Accesorio Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jBCrearActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
