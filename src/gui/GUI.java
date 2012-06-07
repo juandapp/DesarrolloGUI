@@ -5,9 +5,6 @@
 package gui;
 
 
-import desarrollogui.Ordenes.JPOrdenAlistamiento;
-import desarrollogui.Ordenes.JPOrdenMantenimiento;
-import desarrollogui.Ordenes.JPOrdenReparacion;
 import desarrollogui.Reporte.JPReporte;
 import desarrollogui.Ventas.JPCotizacion;
 import desarrollogui.Ventas.JPVenta;
