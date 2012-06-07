@@ -17,9 +17,11 @@ import logica.Cliente;
  */
 public class DaoCliente {
      FachadaBD fachada;
+     DaoPersona daoPersona;
 
     DaoCliente() {
         fachada = new FachadaBD();
+        daoPersona=new DaoPersona();
     }//
 
     public int guardar(Cliente cliente) {
@@ -43,6 +45,7 @@ public class DaoCliente {
     public Cliente consultar(int id_c) {
         Cliente c = new Cliente();
         String sql_select;
+        int id_c_consulta=0;
         sql_select = "SELECT * FROM cliente WHERE id_c=" + id_c + "";
         try {
             Connection conn = fachada.conectar();
@@ -52,8 +55,11 @@ public class DaoCliente {
             //
             if (tabla.next()) {
               
-                               
+                id_c_consulta=Integer.parseInt(tabla.getString("id_c"));
+                        
             }
+            
+            c.setId_c(daoPersona.consultar(id_c_consulta));
 
             conn.close();
             System.out.println("Conexion cerrada");

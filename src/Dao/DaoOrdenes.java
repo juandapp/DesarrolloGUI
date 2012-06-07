@@ -59,7 +59,7 @@ public class DaoOrdenes {
     public Ordenes consultar(int id_e,int id_c,int numerochasis_v, int codigo_a) {
         Ordenes o = new Ordenes();
         String sql_select;
-        int id_e_consulta,id_c_consulta,codigo_a_consulta,numerochasis_v_consulta;
+        int id_e_consulta=0,id_c_consulta=0,codigo_a_consulta=0,numerochasis_v_consulta=0;
         
         
         sql_select = "SELECT * FROM ordenes WHERE id_e=" + id_e + " AND id_c=" + id_c + 
@@ -83,10 +83,10 @@ public class DaoOrdenes {
                o.setDescripcion(tabla.getString("descripcion"));
                 
             }
-            o.setCodigo_a(daoArticulo.consultar(codigo_a));
-            o.setId_c(daoCliente.consultar(id_c));
-            o.setId_e(daoEmpleado.consultar(id_e));
-            o.setNumerochasis_v(daoVehiculo.consultar(numerochasis_v));
+            o.setCodigo_a(daoArticulo.consultar(codigo_a_consulta));
+            o.setId_c(daoCliente.consultar(id_c_consulta));
+            o.setId_e(daoEmpleado.consultar(id_e_consulta));
+            o.setNumerochasis_v(daoVehiculo.consultar(numerochasis_v_consulta));
 
             conn.close();
             System.out.println("Conexion cerrada");

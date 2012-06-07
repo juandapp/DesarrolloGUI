@@ -17,6 +17,7 @@ import logica.Empleado;
  */
 public class DaoEmpleado {
     FachadaBD fachada;
+    DaoPersona daoPersona;
 
     DaoEmpleado() {
         fachada = new FachadaBD();
@@ -45,6 +46,7 @@ public class DaoEmpleado {
     public Empleado consultar(int id_e) {
         Empleado e = new Empleado();
         String sql_select;
+        int id_e_consulta=0;
         sql_select = "SELECT * FROM empleado WHERE id_e=" + id_e + "";
         try {
             Connection conn = fachada.conectar();
@@ -54,11 +56,13 @@ public class DaoEmpleado {
             //
             
             if (tabla.next()) {
-               
+                id_e_consulta=Integer.parseInt(tabla.getString("id_e"));
                 e.setTipo_e(tabla.getString("tipo_e"));
                 e.setContrasena_e(tabla.getString("contrasena_e"));
                 
             }
+            
+            e.setId_e(daoPersona.consultar(id_e_consulta));
 
             conn.close();
             System.out.println("Conexion cerrada");
