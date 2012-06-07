@@ -19,7 +19,7 @@ public class DaoPersona {
     //
     FachadaBD fachada;
 
-    DaoPersona() {
+   public DaoPersona() {
         fachada = new FachadaBD();
     }//
 

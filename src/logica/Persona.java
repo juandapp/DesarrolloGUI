@@ -14,6 +14,19 @@ public class Persona {
 
     public Persona() {
     }
+    
+    public Persona(int id_p,String nombre_p,String direccion_p,int telefono_p,
+            String email_p,String genero_p)
+    {
+    this.id_p=id_p;
+    this.nombre_p=nombre_p;
+    this.direccion_p=direccion_p;
+    this.telefono_p=""+telefono_p;
+    this.email_p=email_p;
+    this.genero_p=genero_p;
+    
+    
+    }
 
     public String getDireccion_p() {
         return direccion_p;

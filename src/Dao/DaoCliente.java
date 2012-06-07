@@ -19,7 +19,7 @@ public class DaoCliente {
      FachadaBD fachada;
      DaoPersona daoPersona;
 
-    DaoCliente() {
+    public DaoCliente() {
         fachada = new FachadaBD();
         daoPersona=new DaoPersona();
     }//
@@ -59,7 +59,7 @@ public class DaoCliente {
                         
             }
             
-            c.setId_c(daoPersona.consultar(id_c_consulta));
+           // c.setId_c(daoPersona.consultar(id_c_consulta));
 
             conn.close();
             System.out.println("Conexion cerrada");

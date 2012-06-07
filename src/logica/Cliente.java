@@ -13,6 +13,10 @@ public class Cliente {
 
     public Cliente() {
     }
+    
+    public Cliente(Persona id_c) {
+        this.id_c=id_c;
+    }
 
     public Persona getId_c() {
         return id_c;
