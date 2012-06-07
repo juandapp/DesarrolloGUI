@@ -17,9 +17,13 @@ import logica.C_compra_V;
  */
 public class DAOC_compra_V {
      FachadaBD fachada;
+     DaoCliente daoCliente;
+     DaoVehiculo daoVehiculo;
 
     DAOC_compra_V() {
         fachada = new FachadaBD();
+        daoCliente= new DaoCliente();
+        daoVehiculo= new DaoVehiculo();
     }//
 
     public int guardar(C_compra_V ccv) {
@@ -42,10 +46,11 @@ public class DAOC_compra_V {
         return -1;
     }//fin guardar
 
-    public C_compra_V consultar(int id_c) {
+    public C_compra_V consultar(int id_c, int numerochasis_v) {
         C_compra_V ccv = new C_compra_V();
         String sql_select;
-        sql_select = "SELECT * FROM c_compra_v WHERE id_c=" + id_c + "";
+        int id_c_consulta=0,numerochasis_v_consulta=0;
+        sql_select = "SELECT * FROM c_compra_v WHERE id_c=" + id_c +"AND numerochasis_v=" + numerochasis_v + "";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -54,11 +59,16 @@ public class DAOC_compra_V {
             //
             if (tabla.next()) {
                 
-                //ccv.setid(tabla.getString("descripcion"));
+                id_c_consulta=Integer.parseInt(tabla.getString("id_c"));
+                numerochasis_v_consulta=Integer.parseInt(tabla.getString("numerochasis_v"));
+                ccv.setTipo_pago(tabla.getString("tipo_pago"));
 
-           // NO SE COMO HACERLO PATIÑOOOOOO
+           
                 
             }
+            
+            ccv.setId_c(daoCliente.consultar(id_c_consulta));
+            ccv.setNumerochasis_v(daoVehiculo.consultar(numerochasis_v_consulta));
 
             conn.close();
             System.out.println("Conexion cerrada");
