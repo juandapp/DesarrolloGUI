@@ -34,4 +34,14 @@ public class AccesorioControlador {
         art = daoArticulo.consultar(codigo_a);
         return art;
     }
+    
+    public int editar(int codigo_a, String nombre, String descripcion, int cantidad) {
+        if (!nombre.isEmpty() && !descripcion.isEmpty() && codigo_a > 0 && cantidad > 0) {
+            Articulo art = new Articulo(codigo_a, cantidad, nombre, descripcion);
+            int retorno = daoArticulo.editar(art);
+            return retorno;
+        } else {
+            return -1;
+        }
+    }
 }
