@@ -52,8 +52,9 @@ public class DaoEmpleado {
             ResultSet tabla = sentencia.executeQuery(sql_select);
 
             //
+            
             if (tabla.next()) {
-
+               
                 e.setTipo_e(tabla.getString("tipo_e"));
                 e.setContrasena_e(tabla.getString("contrasena_e"));
                 

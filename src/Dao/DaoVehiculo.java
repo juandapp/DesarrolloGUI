@@ -57,7 +57,7 @@ public class DaoVehiculo {
 
             //
             if (tabla.next()) {
-
+                v.setNumerochasis_v(Integer.parseInt(tabla.getString("numero_chasis_v")));
                 v.setLinea_v(tabla.getString("linea_v"));
                 v.setMarca_v(tabla.getString("marca_v"));
                 v.setColor_v(tabla.getString("color_v"));

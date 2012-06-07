@@ -57,7 +57,7 @@ public class DaoPersona {
 
             //
             if (tabla.next()) {
-
+                p.setId_p(Integer.parseInt(tabla.getString("id_p")));
                 p.setNombre_p(tabla.getString("nombre_p"));
                 p.setDireccion_p(tabla.getString("direccion_p"));
                 p.setTelefono_p(tabla.getString("telefono_p"));

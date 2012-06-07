@@ -5,11 +5,10 @@
 package Dao;
 
 import accesoDatos.FachadaBD;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+
 import logica.Ordenes;
+
 
 /**
  *
@@ -17,9 +16,19 @@ import logica.Ordenes;
  */
 public class DaoOrdenes {
       FachadaBD fachada;
+      DaoCliente daoCliente;
+      DaoEmpleado daoEmpleado;
+      DaoArticulo daoArticulo;
+      DaoVehiculo daoVehiculo;
+      
+     
 
     DaoOrdenes() {
         fachada = new FachadaBD();
+        daoCliente= new DaoCliente();
+        daoEmpleado= new DaoEmpleado();
+        daoArticulo= new DaoArticulo();
+        daoVehiculo= new DaoVehiculo();
     }//
 
     public int guardar(Ordenes ordenes) {
@@ -47,10 +56,16 @@ public class DaoOrdenes {
         return -1;
     }//fin guardar
 
-    public Ordenes consultar(int id_e,int id_c) {
+    public Ordenes consultar(int id_e,int id_c,int numerochasis_v, int codigo_a) {
         Ordenes o = new Ordenes();
         String sql_select;
-        sql_select = "SELECT * FROM ordenes WHERE id_e=" + id_e + " AND id_c=" + id_c + "";
+        int id_e_consulta,id_c_consulta,codigo_a_consulta,numerochasis_v_consulta;
+        
+        
+        sql_select = "SELECT * FROM ordenes WHERE id_e=" + id_e + " AND id_c=" + id_c + 
+                " AND numerochasis_v=" + numerochasis_v +" AND codigo_a=" + codigo_a +"";
+        
+        
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -58,10 +73,20 @@ public class DaoOrdenes {
 
             //
             if (tabla.next()) {
-
-             
+               id_e_consulta=Integer.parseInt(tabla.getString("id_e"));
+               id_c_consulta=Integer.parseInt(tabla.getString("id_c"));
+               codigo_a_consulta=Integer.parseInt(tabla.getString("codigo_a"));
+               numerochasis_v_consulta=Integer.parseInt(tabla.getString("numerochasis_v"));
+               o.setFecha(Date.valueOf(tabla.getString("fecha")));
+               o.setTipo_orden(tabla.getString("tipo_orden"));
+               o.setValor(Integer.parseInt(tabla.getString("valor")));
+               o.setDescripcion(tabla.getString("descripcion"));
                 
             }
+            o.setCodigo_a(daoArticulo.consultar(codigo_a));
+            o.setId_c(daoCliente.consultar(id_c));
+            o.setId_e(daoEmpleado.consultar(id_e));
+            o.setNumerochasis_v(daoVehiculo.consultar(numerochasis_v));
 
             conn.close();
             System.out.println("Conexion cerrada");
