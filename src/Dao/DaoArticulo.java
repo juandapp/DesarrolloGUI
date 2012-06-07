@@ -27,9 +27,9 @@ public class DaoArticulo {
         String sql_guardar;
         sql_guardar = "INSERT INTO articulo VALUES ("
                 + articulo.getCodigo_a() + ", '"
-                + articulo.getNombre() + "', "
-                + articulo.getCantidad() + ", '"
-                + articulo.getDescripcion()+ "')";
+                + articulo.getNombre() + "', '"
+                + articulo.getDescripcion() + "', '"
+                + articulo.getCantidad()+ "')";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

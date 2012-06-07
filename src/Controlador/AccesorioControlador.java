@@ -19,15 +19,19 @@ public class AccesorioControlador {
         daoArticulo = new DaoArticulo();
     }
 
-    public int guardar(int codigo_a, int cantidad, String nombre, String descripcion) {
-        Articulo art = new Articulo(codigo_a, cantidad, nombre, descripcion);
-        int retorno = daoArticulo.guardar(art);
-        return retorno;
+    public int guardar(int codigo_a, String nombre, String descripcion, int cantidad) {
+        if (!nombre.isEmpty() && !descripcion.isEmpty() && codigo_a > 0 && cantidad > 0) {
+            Articulo art = new Articulo(codigo_a, cantidad, nombre, descripcion);
+            int retorno = daoArticulo.guardar(art);
+            return retorno;
+        } else {
+            return -1;
+        }
     }
 
-    public Articulo consultar(String codigo_a) {
+    public Articulo consultar(int codigo_a) {
         Articulo art;
-        art = daoArticulo.consultar(Integer.parseInt(codigo_a));
+        art = daoArticulo.consultar(codigo_a);
         return art;
     }
 }

@@ -6,6 +6,9 @@ package gui;
 
 import Controlador.AccesorioControlador;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import logica.Articulo;
 
 /**
  *
@@ -16,9 +19,8 @@ public class JPAccesorio extends javax.swing.JPanel {
     /**
      * Creates new form JPCliente
      */
-    
     AccesorioControlador accesorioControlador;
-    
+
     public JPAccesorio() {
         initComponents();
         accesorioControlador = new AccesorioControlador();
@@ -135,6 +137,11 @@ public class JPAccesorio extends javax.swing.JPanel {
         jPanel2.setLayout(null);
 
         jBConsultar.setText("Consultar");
+        jBConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultarActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBConsultar);
         jBConsultar.setBounds(380, 10, 90, 30);
 
@@ -253,18 +260,59 @@ public class JPAccesorio extends javax.swing.JPanel {
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
-        int codigo_a=Integer.parseInt(jTFCodigo.getText());
-        int cantidad = Integer.parseInt(jTFCantidad.getText());
-        String nombre = jTFNombre.getText();
-        String descripcion = jTPDescripcion.getText();
-        int guardar = accesorioControlador.guardar(codigo_a, cantidad, nombre, descripcion);
+        int guardar = -1;
+        try {
+            guardar = accesorioControlador.guardar(
+                    Integer.parseInt(jTFCodigo.getText()),
+                    jTFNombre.getText(),
+                    jTPDescripcion.getText(),
+                    Integer.parseInt(jTFCantidad.getText()));
+
+        } catch (Exception e) {
+        }
+
         if (guardar == -1) {
             JOptionPane.showMessageDialog(this, "No su pudo crear la Accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Accesorio Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            jTFCodigo1.setText(jTFCodigo.getText());
+            jBConsultar.doClick();
+            jTabbedPane1.setSelectedIndex(1);
+            
         }
+
+
     }//GEN-LAST:event_jBCrearActionPerformed
 
+    private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
+        Articulo consultar = null;
+        try {
+            consultar = accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText()));
+        } catch (Exception e) {
+        }
+        if ((consultar != null) && (consultar.getCodigo_a()!=0)) {
+            Object[][] s = new Object[1][4];
+            s[0][0] = consultar.getCodigo_a();
+            s[0][1] = consultar.getNombre();
+            s[0][2] = consultar.getDescripcion();
+            s[0][3] = consultar.getCantidad();
+
+
+
+            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}) {
+
+                boolean[] canEdit = new boolean[]{false, false, false, false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            };
+           ///remover filas
+            jTResultados.setModel(myModel);
+            jTResultados.setRowSorter(new TableRowSorter(myModel));
+        }
+    }//GEN-LAST:event_jBConsultarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
