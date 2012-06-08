@@ -320,8 +320,11 @@ public class JPAccesorio extends javax.swing.JPanel {
             if (jTFNombre1.getText().equals("") && jTFCodigo1.getText().equals("")) {
                 consulta = accesorioControlador.consultarTodo();
             } else {
-                if (jTFNombre1.getText().equals("")) {
+                if (!jTFNombre1.getText().equals("") && jTFCodigo.getText().equals("")) {
+                    consulta = accesorioControlador.consultar_Nombre(jTFNombre1.getText());
+                } else {
                     consulta.add(accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText())));
+
                 }
             }
 

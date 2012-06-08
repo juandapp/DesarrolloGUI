@@ -40,6 +40,12 @@ public class AccesorioControlador {
         }
     }
 
+    public LinkedList consultar_Nombre(String nombre) {
+        LinkedList articulosConsultados = new LinkedList();
+        articulosConsultados = daoArticulo.consultar_Nombre(nombre);
+        return articulosConsultados;
+    }
+
     public LinkedList consultarTodo() {
         LinkedList articulosConsultados = new LinkedList();
         articulosConsultados = daoArticulo.consultarTodo();

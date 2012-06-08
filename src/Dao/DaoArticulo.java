@@ -76,6 +76,39 @@ public class DaoArticulo {
 
         return null;
     }
+    
+    
+    
+    
+    
+    public LinkedList consultar_Nombre(String nombre) {
+        LinkedList articuloConsulta = new LinkedList();
+        String sql_select;
+        sql_select = "SELECT * FROM articulo WHERE nombre LIKE '%"+nombre+"%'";
+        try {
+            Connection conn = fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) {
+                Articulo articulo = new Articulo();
+                articulo.setCodigo_a(Integer.parseInt(tabla.getString("codigo_a")));
+                articulo.setNombre(tabla.getString("nombre"));
+                articulo.setCantidad(Integer.parseInt(tabla.getString("cantidad")));
+                articulo.setDescripcion(tabla.getString("descripcion"));
+                articuloConsulta.add(articulo);
+            }
+            conn.close();
+            System.out.println("Conexion cerrada");
+            return articuloConsulta;
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return null;
+    }
 
     public LinkedList consultarTodo() {
         LinkedList articuloConsulta = new LinkedList();
