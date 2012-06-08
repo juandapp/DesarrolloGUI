@@ -9,7 +9,10 @@ package accesoDatos;
  *
  * @author Oswaldo
  */
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 public class FachadaBD {
         String url, usuario, password;
         Connection conexion;
@@ -19,10 +22,10 @@ public class FachadaBD {
 //            url="jdbc:postgresql://pgsql:5432/juandapp";
 //            usuario="juandapp";
 //            password="juandapp";
-            
-            url="jdbc:postgresql://localhost:5432/proyectoDSI";
-            usuario="postgres";
-            password="JUANPAULO";
+//            
+//            url="jdbc:postgresql://localhost:5432/proyectoDSI";
+//            usuario="postgres";
+//            password="JUANPAULO";
             
         }
 
