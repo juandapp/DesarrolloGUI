@@ -285,35 +285,6 @@ public class JPAccesorio extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearActionPerformed
 
     private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
-//        Articulo consultar = null;
-//        try {
-//            consultar = accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText()));
-//        } catch (Exception e) {
-//        }
-//        jTResultados.setModel(new DefaultTableModel(null, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}));
-//        if ((consultar != null) && (consultar.getCodigo_a() != 0)) {
-//            Object[][] s = new Object[1][4];
-//            s[0][0] = consultar.getCodigo_a();
-//            s[0][1] = consultar.getNombre();
-//            s[0][2] = consultar.getDescripcion();
-//            s[0][3] = consultar.getCantidad();
-//
-//
-//
-//            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}) {
-//
-//                boolean[] canEdit = new boolean[]{false, false, false, false
-//                };
-//
-//                @Override
-//                public boolean isCellEditable(int rowIndex, int columnIndex) {
-//                    return canEdit[columnIndex];
-//                }
-//            };
-//            ///remover filas
-//            jTResultados.setModel(myModel);
-//            ///  jTResultados.setRowSorter(new TableRowSorter(myModel));
-//        }
 
         LinkedList consulta = new LinkedList();
         try {
