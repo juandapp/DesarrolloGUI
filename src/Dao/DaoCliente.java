@@ -16,13 +16,14 @@ import logica.Cliente;
  * @author juandrd
  */
 public class DaoCliente {
-     FachadaBD fachada;
-     DaoPersona daoPersona;
+
+    FachadaBD fachada;
+    DaoPersona daoPersona;
 
     public DaoCliente() {
         fachada = new FachadaBD();
-        daoPersona=new DaoPersona();
-    }//
+        daoPersona = new DaoPersona();
+    }
 
     public int guardar(Cliente cliente) {
         String sql_guardar;
@@ -45,7 +46,7 @@ public class DaoCliente {
     public Cliente consultar(int id_c) {
         Cliente c = new Cliente();
         String sql_select;
-        int id_c_consulta=0;
+        int id_c_consulta = 0;
         sql_select = "SELECT * FROM cliente WHERE id_c=" + id_c + "";
         try {
             Connection conn = fachada.conectar();
@@ -54,12 +55,12 @@ public class DaoCliente {
 
             //
             if (tabla.next()) {
-              
-                id_c_consulta=Integer.parseInt(tabla.getString("id_c"));
-                        
+
+                id_c_consulta = Integer.parseInt(tabla.getString("id_c"));
+
             }
-            
-           // c.setId_c(daoPersona.consultar(id_c_consulta));
+
+            // c.setId_c(daoPersona.consultar(id_c_consulta));
 
             conn.close();
             System.out.println("Conexion cerrada");

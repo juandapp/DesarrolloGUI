@@ -5,6 +5,7 @@
 package Controlador;
 
 import Dao.DaoPersona;
+import java.util.LinkedList;
 import logica.Persona;
 
 /**
@@ -30,12 +31,12 @@ public class PersonaControlador {
             return per;
         
         }
-    
 
-    public Persona consultar(int id_p) {
-        Persona per;
-        per = daoPersona.consultar(id_p);
-        return per;
+    
+     public LinkedList consultarTodo(int id_p, String nombre) {
+        LinkedList personasConsultados = new LinkedList();
+        personasConsultados = daoPersona.consultar(id_p, nombre);
+        return personasConsultados;
     }
     
     public Persona editar(int id_p,String nombre_p,String direccion_p,int telefono_p,
