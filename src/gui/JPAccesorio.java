@@ -78,7 +78,7 @@ public class JPAccesorio extends javax.swing.JPanel {
         jPanel1.add(jTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
         jLabel1.setText("Codigo");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, -1));
 
         jTFNombre.setColumns(20);
         jPanel1.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
@@ -238,15 +238,12 @@ public class JPAccesorio extends javax.swing.JPanel {
             jTFCodigo1.setText(jTFCodigo2.getText());
             jBConsultar.doClick();
             jTabbedPane1.setSelectedIndex(1);
+            limpiarCamposModificar();
         }
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBLimpiarCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarCrearActionPerformed
-        jTPDescripcion.setText("");
-        jTFNombre.setText("");
-        jTFCantidad.setText("");
-        jTFCodigo.setText("");
-
+        limpiarCamposCrear();
     }//GEN-LAST:event_jBLimpiarCrearActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
@@ -306,6 +303,20 @@ public class JPAccesorio extends javax.swing.JPanel {
             ///  jTResultados.setRowSorter(new TableRowSorter(myModel));
         }
     }//GEN-LAST:event_jBConsultarActionPerformed
+
+    private void limpiarCamposModificar() {
+        jTFCantidad1.setText("");
+        jTFCodigo2.setText("");
+        jTFNombre3.setText("");
+        jTPDescripcion1.setText("");
+    }
+
+    private void limpiarCamposCrear() {
+        jTPDescripcion.setText("");
+        jTFNombre.setText("");
+        jTFCantidad.setText("");
+        jTFCodigo.setText("");
+    }
 
     private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
         int selectedRow = jTResultados.getSelectedRow();
