@@ -17,7 +17,7 @@ public class AccesorioControlador {
 
     public AccesorioControlador() {
         daoArticulo = new DaoArticulo();
-    }
+    }  
 
     public int guardar(int codigo_a, String nombre, String descripcion, int cantidad) {
         if (!nombre.isEmpty() && !descripcion.isEmpty() && codigo_a > 0 && cantidad > 0) {
