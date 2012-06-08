@@ -12,7 +12,7 @@ CREATE TABLE persona (
 id_p int PRIMARY KEY,
 nombre_p VARCHAR(100),
 direccion_p VARCHAR(100),
-telefono_p int,
+telefono_p VARCHAR(100),
 email_p VARCHAR(100),
 genero_p VARCHAR(100));
 

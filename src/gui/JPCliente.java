@@ -4,6 +4,10 @@
  */
 package gui;
 
+import Controlador.PersonaControlador;
+import Dao.DaoPersona;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juandapp
@@ -13,8 +17,11 @@ public class JPCliente extends javax.swing.JPanel {
     /**
      * Creates new form JPCliente
      */
+    PersonaControlador personaControlador;
+
     public JPCliente() {
         initComponents();
+        personaControlador = new PersonaControlador();
     }
 
     /**
@@ -45,7 +52,7 @@ public class JPCliente extends javax.swing.JPanel {
         jTFDireccion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jTFEmail = new javax.swing.JTextField();
-        jBLimpiar = new javax.swing.JButton();
+        jBLimpiarCrear = new javax.swing.JButton();
         jBCrear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -55,6 +62,7 @@ public class JPCliente extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTResultados = new javax.swing.JTable();
+        jBLimpiarConsultar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
         jTFIdentificacion2 = new javax.swing.JTextField();
@@ -139,16 +147,21 @@ public class JPCliente extends javax.swing.JPanel {
         jPanel1.add(jTFEmail);
         jTFEmail.setBounds(160, 190, 270, 28);
 
-        jBLimpiar.setText("Limpiar");
-        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        jBLimpiarCrear.setText("Limpiar");
+        jBLimpiarCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimpiarActionPerformed(evt);
+                jBLimpiarCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(jBLimpiar);
-        jBLimpiar.setBounds(230, 230, 80, 30);
+        jPanel1.add(jBLimpiarCrear);
+        jBLimpiarCrear.setBounds(230, 230, 80, 30);
 
         jBCrear.setText("Crear");
+        jBCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCrearActionPerformed(evt);
+            }
+        });
         jPanel1.add(jBCrear);
         jBCrear.setBounds(360, 230, 70, 30);
 
@@ -196,6 +209,15 @@ public class JPCliente extends javax.swing.JPanel {
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(10, 80, 480, 125);
+
+        jBLimpiarConsultar.setText("Limpiar");
+        jBLimpiarConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarConsultarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBLimpiarConsultar);
+        jBLimpiarConsultar.setBounds(360, 40, 90, 30);
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
@@ -284,7 +306,7 @@ public class JPCliente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+    private void jBLimpiarCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarCrearActionPerformed
         jTFDireccion.setText("");
         jTFEmail.setText("");
         jTFFechaNacimiento.setText("");
@@ -292,16 +314,48 @@ public class JPCliente extends javax.swing.JPanel {
         jTFNombre.setText("");
         jTFTelefono.setText("");
         jCBGenero.setSelectedIndex(0);
-    }//GEN-LAST:event_jBLimpiarActionPerformed
+    }//GEN-LAST:event_jBLimpiarCrearActionPerformed
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBModificarActionPerformed
 
+    private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
+        int guardar = -1;
+        try {
+            guardar = personaControlador.guardar(   
+                    Integer.parseInt(jTFIdentificacion.getText()),
+                    jTFNombre.getText(),
+                    jTFDireccion.getText(),
+                    jTFTelefono.getText(),
+                    jTFEmail.getText(),
+                    jCBGenero.getSelectedItem().toString());
+
+        } catch (Exception e) {
+        }
+
+        if (guardar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo crear la Accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Accesorio Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            jTFCodigo1.setText(jTFCodigo.getText());
+            jBConsultar.doClick();
+            jBLimpiarCrear.doClick();
+            jTabbedPane1.setSelectedIndex(1);
+
+        }
+
+
+    }//GEN-LAST:event_jBCrearActionPerformed
+
+    private void jBLimpiarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarConsultarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBLimpiarConsultarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
-    private javax.swing.JButton jBLimpiar;
+    private javax.swing.JButton jBLimpiarConsultar;
+    private javax.swing.JButton jBLimpiarCrear;
     private javax.swing.JButton jBModificar;
     private javax.swing.JComboBox jCBGenero;
     private javax.swing.JComboBox jCBGenero1;

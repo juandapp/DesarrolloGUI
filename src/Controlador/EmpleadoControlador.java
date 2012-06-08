@@ -20,9 +20,9 @@ public class EmpleadoControlador {
         daoEmpleado = new DaoEmpleado();
     }
 
-    public int guardar(int id_c,String nombre_p,String direccion_p,int telefono_p,
+    public int guardar(int id_c,String nombre_p,String direccion_p,String telefono_p,
             String email_p,String genero_p) {
-        if (id_c > 0 && !nombre_p.isEmpty() && !direccion_p.isEmpty() && telefono_p>0 && 
+        if (id_c > 0 && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && 
                 !email_p.isEmpty() && genero_p.isEmpty()) {
             
             Persona per=controladorPersona.guardar(id_c, nombre_p, direccion_p, telefono_p, email_p, genero_p);
@@ -41,9 +41,9 @@ public class EmpleadoControlador {
         return cli;
     }
     
-    public int editar(int id_c,String nombre_p,String direccion_p,int telefono_p,
+    public int editar(int id_c,String nombre_p,String direccion_p,String telefono_p,
             String email_p,String genero_p) {
-        if (id_c > 0 && !nombre_p.isEmpty() && !direccion_p.isEmpty() && telefono_p>0 && 
+        if (id_c > 0 && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && 
                 !email_p.isEmpty() && genero_p.isEmpty()) {
             
             Persona per=controladorPersona.guardar(id_c, nombre_p, direccion_p, telefono_p, email_p, genero_p);
