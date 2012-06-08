@@ -5,9 +5,12 @@
 package gui;
 
 import Controlador.AccesorioControlador;
+import java.util.LinkedList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import logica.Articulo;
 
 /**
@@ -57,6 +60,7 @@ public class JPAccesorio extends javax.swing.JPanel {
         jTFCodigo1 = new javax.swing.JTextField();
         jTFNombre1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jBLimpiarConsultar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jBModificar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -163,6 +167,14 @@ public class JPAccesorio extends javax.swing.JPanel {
 
         jLabel6.setText("Nombre");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        jBLimpiarConsultar.setText("Limpiar");
+        jBLimpiarConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarConsultarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBLimpiarConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 40, 90, -1));
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
@@ -273,18 +285,64 @@ public class JPAccesorio extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearActionPerformed
 
     private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
-        Articulo consultar = null;
+//        Articulo consultar = null;
+//        try {
+//            consultar = accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText()));
+//        } catch (Exception e) {
+//        }
+//        jTResultados.setModel(new DefaultTableModel(null, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}));
+//        if ((consultar != null) && (consultar.getCodigo_a() != 0)) {
+//            Object[][] s = new Object[1][4];
+//            s[0][0] = consultar.getCodigo_a();
+//            s[0][1] = consultar.getNombre();
+//            s[0][2] = consultar.getDescripcion();
+//            s[0][3] = consultar.getCantidad();
+//
+//
+//
+//            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}) {
+//
+//                boolean[] canEdit = new boolean[]{false, false, false, false
+//                };
+//
+//                @Override
+//                public boolean isCellEditable(int rowIndex, int columnIndex) {
+//                    return canEdit[columnIndex];
+//                }
+//            };
+//            ///remover filas
+//            jTResultados.setModel(myModel);
+//            ///  jTResultados.setRowSorter(new TableRowSorter(myModel));
+//        }
+
+        LinkedList consulta = new LinkedList();
         try {
-            consultar = accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText()));
+            if (jTFNombre1.getText().equals("") && jTFCodigo1.getText().equals("")) {
+                consulta = accesorioControlador.consultarTodo();
+            } else {
+                if (jTFNombre1.getText().equals("")) {
+                    consulta.add(accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText())));
+                }
+            }
+
         } catch (Exception e) {
         }
         jTResultados.setModel(new DefaultTableModel(null, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}));
-        if ((consultar != null) && (consultar.getCodigo_a() != 0)) {
-            Object[][] s = new Object[1][4];
-            s[0][0] = consultar.getCodigo_a();
-            s[0][1] = consultar.getNombre();
-            s[0][2] = consultar.getDescripcion();
-            s[0][3] = consultar.getCantidad();
+        if (consulta.getFirst() != null) {
+            Object[][] s = new Object[consulta.size()][4];
+            for (int i = 0; i < consulta.size(); i++) {
+                Articulo articulo = (Articulo) consulta.get(i);
+                if (articulo.getNombre() != null) {
+                    s[i][0] = articulo.getCodigo_a();
+                    s[i][1] = articulo.getNombre();
+                    s[i][2] = articulo.getDescripcion();
+                    s[i][3] = articulo.getCantidad();
+                } else {
+                    s = null;
+                }
+            }
+
+
 
 
 
@@ -300,8 +358,10 @@ public class JPAccesorio extends javax.swing.JPanel {
             };
             ///remover filas
             jTResultados.setModel(myModel);
-            ///  jTResultados.setRowSorter(new TableRowSorter(myModel));
+            jTResultados.setRowSorter(new TableRowSorter(myModel));
         }
+
+
     }//GEN-LAST:event_jBConsultarActionPerformed
 
     private void limpiarCamposModificar() {
@@ -318,6 +378,11 @@ public class JPAccesorio extends javax.swing.JPanel {
         jTFCodigo.setText("");
     }
 
+    private void limpiarCamposConsultar() {
+        jTFNombre1.setText("");
+        jTFCodigo1.setText("");
+    }
+
     private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
         int selectedRow = jTResultados.getSelectedRow();
         jTFCodigo2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
@@ -326,9 +391,15 @@ public class JPAccesorio extends javax.swing.JPanel {
         jTFCantidad1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jTResultadosMouseClicked
+
+    private void jBLimpiarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarConsultarActionPerformed
+        limpiarCamposConsultar();
+        jBConsultar.doClick();
+    }//GEN-LAST:event_jBLimpiarConsultarActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
+    private javax.swing.JButton jBLimpiarConsultar;
     private javax.swing.JButton jBLimpiarCrear;
     private javax.swing.JButton jBModificar;
     private javax.swing.JLabel jLabel1;

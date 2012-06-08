@@ -5,6 +5,7 @@
 package Controlador;
 
 import Dao.DaoArticulo;
+import java.util.LinkedList;
 import logica.Articulo;
 
 /**
@@ -17,7 +18,7 @@ public class AccesorioControlador {
 
     public AccesorioControlador() {
         daoArticulo = new DaoArticulo();
-    }  
+    }
 
     public int guardar(int codigo_a, String nombre, String descripcion, int cantidad) {
         if (!nombre.isEmpty() && !descripcion.isEmpty() && codigo_a > 0 && cantidad > 0) {
@@ -32,9 +33,19 @@ public class AccesorioControlador {
     public Articulo consultar(int codigo_a) {
         Articulo art;
         art = daoArticulo.consultar(codigo_a);
-        return art;
+        if (art == null) {
+            return null;
+        } else {
+            return art;
+        }
     }
-    
+
+    public LinkedList consultarTodo() {
+        LinkedList articulosConsultados = new LinkedList();
+        articulosConsultados = daoArticulo.consultarTodo();
+        return articulosConsultados;
+    }
+
     public int editar(int codigo_a, String nombre, String descripcion, int cantidad) {
         if (!nombre.isEmpty() && !descripcion.isEmpty() && codigo_a > 0 && cantidad > 0) {
             Articulo art = new Articulo(codigo_a, cantidad, nombre, descripcion);
