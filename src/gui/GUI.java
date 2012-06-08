@@ -265,6 +265,7 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         JPAccesorio jPCA = new JPAccesorio();
+        jPCA.setBounds(jPPrincipal.getBounds());
         jPPrincipal.add(jPCA, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();

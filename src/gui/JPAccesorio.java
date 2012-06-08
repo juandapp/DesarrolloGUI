@@ -6,6 +6,7 @@ package gui;
 
 import Controlador.AccesorioControlador;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import logica.Articulo;
@@ -35,13 +36,11 @@ public class JPAccesorio extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel5 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jTFNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -71,48 +70,35 @@ public class JPAccesorio extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTPDescripcion1 = new javax.swing.JTextPane();
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
-        jPanel5.setLayout(null);
-        jPanel5.add(jLabel13);
-        jLabel13.setBounds(18, 182, 0, 0);
-
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Accesorio"));
         jPanel4.setLayout(null);
 
-        jPanel1.setLayout(null);
-
-        jLabel1.setText("Codigo");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 20, 49, 18);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTFCodigo.setColumns(20);
-        jPanel1.add(jTFCodigo);
-        jTFCodigo.setBounds(100, 10, 270, 28);
+        jPanel1.add(jTFCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+
+        jLabel1.setText("Codigo");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 40, -1));
 
         jTFNombre.setColumns(20);
-        jPanel1.add(jTFNombre);
-        jTFNombre.setBounds(100, 40, 270, 28);
+        jPanel1.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
 
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 50, 57, 18);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jLabel3.setText("Cantidad");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 80, 62, 18);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jTFCantidad.setColumns(20);
-        jPanel1.add(jTFCantidad);
-        jTFCantidad.setBounds(100, 70, 100, 28);
+        jPanel1.add(jTFCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 100, -1));
 
         jScrollPane2.setViewportView(jTPDescripcion);
 
-        jPanel1.add(jScrollPane2);
-        jScrollPane2.setBounds(100, 100, 270, 72);
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 270, 72));
 
         jLabel4.setText("Descripcion");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 110, 82, 18);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -120,8 +106,7 @@ public class JPAccesorio extends javax.swing.JPanel {
                 jBLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBLimpiar);
-        jBLimpiar.setBounds(290, 180, 80, 30);
+        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 80, -1));
 
         jBCrear.setText("Crear");
         jBCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -129,12 +114,11 @@ public class JPAccesorio extends javax.swing.JPanel {
                 jBCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(jBCrear);
-        jBCrear.setBounds(200, 180, 70, 30);
+        jPanel1.add(jBCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 70, -1));
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
-        jPanel2.setLayout(null);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBConsultar.setText("Consultar");
         jBConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -142,15 +126,14 @@ public class JPAccesorio extends javax.swing.JPanel {
                 jBConsultarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBConsultar);
-        jBConsultar.setBounds(380, 10, 90, 30);
+        jPanel2.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 90, -1));
 
         jTResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Cantidad", "Descripcion"
+                "Codigo", "Nombre", "Descripcion", "Cantidad"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -161,30 +144,30 @@ public class JPAccesorio extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTResultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTResultados);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 80, 470, 125);
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 470, 125));
 
         jLabel5.setText("Codigo");
-        jPanel2.add(jLabel5);
-        jLabel5.setBounds(10, 20, 49, 18);
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jTFCodigo1.setColumns(20);
-        jPanel2.add(jTFCodigo1);
-        jTFCodigo1.setBounds(80, 10, 270, 28);
+        jPanel2.add(jTFCodigo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         jTFNombre1.setColumns(20);
-        jPanel2.add(jTFNombre1);
-        jTFNombre1.setBounds(80, 40, 270, 28);
+        jPanel2.add(jTFNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         jLabel6.setText("Nombre");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(10, 50, 57, 18);
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
-        jPanel3.setLayout(null);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBModificar.setText("Modificar");
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -192,41 +175,33 @@ public class JPAccesorio extends javax.swing.JPanel {
                 jBModificarActionPerformed(evt);
             }
         });
-        jPanel3.add(jBModificar);
-        jBModificar.setBounds(290, 180, 90, 30);
+        jPanel3.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 90, -1));
 
         jLabel7.setText("Codigo");
-        jPanel3.add(jLabel7);
-        jLabel7.setBounds(20, 20, 49, 18);
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jTFCodigo2.setColumns(20);
-        jPanel3.add(jTFCodigo2);
-        jTFCodigo2.setBounds(110, 10, 270, 28);
+        jTFCodigo2.setEnabled(false);
+        jPanel3.add(jTFCodigo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         jLabel8.setText("Nombre");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(20, 50, 57, 18);
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jTFNombre3.setColumns(20);
-        jPanel3.add(jTFNombre3);
-        jTFNombre3.setBounds(110, 40, 270, 28);
+        jPanel3.add(jTFNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, -1, -1));
 
         jLabel9.setText("Cantidad");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(20, 80, 62, 18);
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jTFCantidad1.setColumns(20);
-        jPanel3.add(jTFCantidad1);
-        jTFCantidad1.setBounds(110, 70, 100, 28);
+        jPanel3.add(jTFCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 100, -1));
 
         jLabel15.setText("Descripcion");
-        jPanel3.add(jLabel15);
-        jLabel15.setBounds(20, 110, 82, 18);
+        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jScrollPane3.setViewportView(jTPDescripcion1);
 
-        jPanel3.add(jScrollPane3);
-        jScrollPane3.setBounds(110, 100, 270, 72);
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 270, 72));
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 
@@ -290,6 +265,7 @@ public class JPAccesorio extends javax.swing.JPanel {
             consultar = accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText()));
         } catch (Exception e) {
         }
+        jTResultados.setModel(new DefaultTableModel(null, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}));
         if ((consultar != null) && (consultar.getCodigo_a()!=0)) {
             Object[][] s = new Object[1][4];
             s[0][0] = consultar.getCodigo_a();
@@ -304,22 +280,32 @@ public class JPAccesorio extends javax.swing.JPanel {
                 boolean[] canEdit = new boolean[]{false, false, false, false
                 };
 
+                @Override
                 public boolean isCellEditable(int rowIndex, int columnIndex) {
                     return canEdit[columnIndex];
                 }
             };
            ///remover filas
             jTResultados.setModel(myModel);
-            jTResultados.setRowSorter(new TableRowSorter(myModel));
+          ///  jTResultados.setRowSorter(new TableRowSorter(myModel));
         }
     }//GEN-LAST:event_jBConsultarActionPerformed
+
+    private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
+        int selectedRow = jTResultados.getSelectedRow();
+        jTFCodigo2.setText(""+jTResultados.getModel().getValueAt(selectedRow, 0));
+        jTFNombre3.setText(""+jTResultados.getModel().getValueAt(selectedRow, 1));
+        jTPDescripcion1.setText(""+jTResultados.getModel().getValueAt(selectedRow, 2));
+        jTFCantidad1.setText(""+jTResultados.getModel().getValueAt(selectedRow, 3));
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jTResultadosMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBLimpiar;
     private javax.swing.JButton jBModificar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -333,7 +319,6 @@ public class JPAccesorio extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
