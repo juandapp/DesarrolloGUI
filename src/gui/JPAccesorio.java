@@ -8,7 +8,6 @@ import Controlador.AccesorioControlador;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 import logica.Articulo;
 
 /**
@@ -48,7 +47,7 @@ public class JPAccesorio extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTPDescripcion = new javax.swing.JTextPane();
         jLabel4 = new javax.swing.JLabel();
-        jBLimpiar = new javax.swing.JButton();
+        jBLimpiarCrear = new javax.swing.JButton();
         jBCrear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jBConsultar = new javax.swing.JButton();
@@ -100,13 +99,13 @@ public class JPAccesorio extends javax.swing.JPanel {
         jLabel4.setText("Descripcion");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jBLimpiar.setText("Limpiar");
-        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        jBLimpiarCrear.setText("Limpiar");
+        jBLimpiarCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimpiarActionPerformed(evt);
+                jBLimpiarCrearActionPerformed(evt);
             }
         });
-        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 80, -1));
+        jPanel1.add(jBLimpiarCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 80, -1));
 
         jBCrear.setText("Crear");
         jBCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -223,16 +222,32 @@ public class JPAccesorio extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
-        // TODO add your handling code here:
+        int editar = -1;
+        try {
+            editar = accesorioControlador.editar(Integer.parseInt(jTFCodigo2.getText()),
+                    jTFNombre3.getText(),
+                    jTPDescripcion1.getText(),
+                    Integer.parseInt(jTFCantidad1.getText()));
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+        if (editar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo editar el accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Accesorio modificado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            jTFCodigo1.setText(jTFCodigo2.getText());
+            jBConsultar.doClick();
+            jTabbedPane1.setSelectedIndex(1);
+        }
     }//GEN-LAST:event_jBModificarActionPerformed
 
-    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+    private void jBLimpiarCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarCrearActionPerformed
         jTPDescripcion.setText("");
         jTFNombre.setText("");
         jTFCantidad.setText("");
         jTFCodigo.setText("");
 
-    }//GEN-LAST:event_jBLimpiarActionPerformed
+    }//GEN-LAST:event_jBLimpiarCrearActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
         int guardar = -1;
@@ -252,8 +267,9 @@ public class JPAccesorio extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Accesorio Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
             jTFCodigo1.setText(jTFCodigo.getText());
             jBConsultar.doClick();
+            jBLimpiarCrear.doClick();
             jTabbedPane1.setSelectedIndex(1);
-            
+
         }
 
 
@@ -266,7 +282,7 @@ public class JPAccesorio extends javax.swing.JPanel {
         } catch (Exception e) {
         }
         jTResultados.setModel(new DefaultTableModel(null, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}));
-        if ((consultar != null) && (consultar.getCodigo_a()!=0)) {
+        if ((consultar != null) && (consultar.getCodigo_a() != 0)) {
             Object[][] s = new Object[1][4];
             s[0][0] = consultar.getCodigo_a();
             s[0][1] = consultar.getNombre();
@@ -285,25 +301,24 @@ public class JPAccesorio extends javax.swing.JPanel {
                     return canEdit[columnIndex];
                 }
             };
-           ///remover filas
+            ///remover filas
             jTResultados.setModel(myModel);
-          ///  jTResultados.setRowSorter(new TableRowSorter(myModel));
+            ///  jTResultados.setRowSorter(new TableRowSorter(myModel));
         }
     }//GEN-LAST:event_jBConsultarActionPerformed
 
     private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
         int selectedRow = jTResultados.getSelectedRow();
-        jTFCodigo2.setText(""+jTResultados.getModel().getValueAt(selectedRow, 0));
-        jTFNombre3.setText(""+jTResultados.getModel().getValueAt(selectedRow, 1));
-        jTPDescripcion1.setText(""+jTResultados.getModel().getValueAt(selectedRow, 2));
-        jTFCantidad1.setText(""+jTResultados.getModel().getValueAt(selectedRow, 3));
+        jTFCodigo2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
+        jTFNombre3.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
+        jTPDescripcion1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 2));
+        jTFCantidad1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jTResultadosMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
-    private javax.swing.JButton jBLimpiar;
+    private javax.swing.JButton jBLimpiarCrear;
     private javax.swing.JButton jBModificar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;

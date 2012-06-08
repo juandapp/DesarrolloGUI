@@ -16,7 +16,7 @@ import logica.Articulo;
  * @author cdariolo
  */
 public class DaoArticulo {
-    
+
     FachadaBD fachada;
 
     public DaoArticulo() {
@@ -29,7 +29,7 @@ public class DaoArticulo {
                 + articulo.getCodigo_a() + ", '"
                 + articulo.getNombre() + "', '"
                 + articulo.getDescripcion() + "', '"
-                + articulo.getCantidad()+ "')";
+                + articulo.getCantidad() + "')";
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -78,11 +78,11 @@ public class DaoArticulo {
     public int editar(Articulo a) {
 
         String sql_update;
-        sql_update = "UPDATE articulo SET"
-                + "nombre='" + a.getNombre() + "'"
-                + "cantidad=" + a.getCantidad() + ""
-                + "descripcion='" + a.getDescripcion() + "'"
-                + "WHERE codigo_a=" + a.getCodigo_a() + "";
+        sql_update = "UPDATE articulo SET "
+                + "nombre='" + a.getNombre() + "', "
+                + "cantidad=" + a.getCantidad() + ", "
+                + "descripcion='" + a.getDescripcion() + "' "
+                + "WHERE codigo_a=" + a.getCodigo_a();
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -102,5 +102,3 @@ public class DaoArticulo {
         return -1;
     }
 }
-    
-
