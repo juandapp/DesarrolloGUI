@@ -232,7 +232,7 @@ public class JPAccesorio extends javax.swing.JPanel {
             System.out.print(e);
         }
         if (editar == -1) {
-            JOptionPane.showMessageDialog(this, "No su pudo editar el accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No su pudo modificar el accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Accesorio modificado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
             jTFCodigo1.setText(jTFCodigo2.getText());
