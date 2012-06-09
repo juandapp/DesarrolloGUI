@@ -59,7 +59,7 @@ public class DaoEmpleado {
                 
             }
             
-            e.setId_e(daoPersona.consultar(id_e_consulta));
+          //  e.setId_e(daoPersona.consultar(id_e_consulta));
 
             conn.close();
             System.out.println("Conexion cerrada");

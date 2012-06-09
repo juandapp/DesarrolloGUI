@@ -5,8 +5,6 @@
 package gui;
 
 import Controlador.ClienteControlador;
-import Controlador.PersonaControlador;
-import Dao.DaoPersona;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -379,7 +377,7 @@ public class JPCliente extends javax.swing.JPanel {
             jTabbedPane1.setSelectedIndex(1);
             
         }
-    //GEN-LAST:event_jBCrearActionPerformed
+                                           
 
 
     }//GEN-LAST:event_jBCrearActionPerformed

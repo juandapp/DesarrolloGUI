@@ -44,7 +44,7 @@ public class DaoVehiculo {
             System.out.println(e);
         }
         return -1;
-    }//fin guardar
+    }
 
     public Vehiculo consultar(int numerochasis_v) {
         Vehiculo v = new Vehiculo();
