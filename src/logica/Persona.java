@@ -1,4 +1,3 @@
-
 package logica;
 
 /**
@@ -6,23 +5,23 @@ package logica;
  * @author juandrd
  */
 public class Persona {
+
     int id_p;
     String nombre_p, direccion_p, telefono_p, email_p, genero_p;
 
     public Persona() {
     }
-    
-    public Persona(int id_p,String nombre_p,String direccion_p,String telefono_p,
-            String email_p,String genero_p)
-    {
-    this.id_p=id_p;
-    this.nombre_p=nombre_p;
-    this.direccion_p=direccion_p;
-    this.telefono_p=""+telefono_p;
-    this.email_p=email_p;
-    this.genero_p=genero_p;
-    
-    
+
+    public Persona(int id_p, String nombre_p, String direccion_p, String telefono_p,
+            String email_p, String genero_p) {
+        this.id_p = id_p;
+        this.nombre_p = nombre_p;
+        this.direccion_p = direccion_p;
+        this.telefono_p = telefono_p;
+        this.email_p = email_p;
+        this.genero_p = genero_p;
+
+
     }
 
     public String getDireccion_p() {
@@ -72,7 +71,4 @@ public class Persona {
     public void setTelefono_p(String telefono_p) {
         this.telefono_p = telefono_p;
     }
-    
-    
-   
 }

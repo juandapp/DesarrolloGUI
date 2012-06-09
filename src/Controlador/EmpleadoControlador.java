@@ -10,7 +10,8 @@ import logica.Persona;
 
 /**
  *
- * @author chokuno
+ * 
+ * @author juandapp
  */
 public class EmpleadoControlador {
     DaoEmpleado daoEmpleado;
@@ -21,17 +22,18 @@ public class EmpleadoControlador {
     }
 
     public int guardar(int id_c,String nombre_p,String direccion_p,String telefono_p,
-            String email_p,String genero_p) {
-        if (id_c > 0 && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && 
-                !email_p.isEmpty() && genero_p.isEmpty()) {
-            
-            Persona per=controladorPersona.guardar(id_c, nombre_p, direccion_p, telefono_p, email_p, genero_p);
-            Empleado emp= new Empleado(per);
-            
-            int retorno = daoEmpleado.guardar(emp);
-            return retorno;
+            String email_p,String genero_p) {	  	
+        if (!String.valueOf(id_c).isEmpty() && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && !email_p.isEmpty() && !genero_p.isEmpty()) {
+	  	
+           Persona persona = new Persona(id_c, nombre_p, direccion_p, telefono_p, email_p, genero_p);
+	  	
+          //  int retorno = daoEmpleado.guardar(persona);
+	  	
+          return retorno;
+	  	
         } else {
-            return -1;
+	  	
+           return -1;
         }
     }
 

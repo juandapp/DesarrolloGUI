@@ -5,6 +5,7 @@
 package gui;
 
 import Controlador.ClienteControlador;
+import Controlador.PersonaControlador;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -19,11 +20,12 @@ public class JPCliente extends javax.swing.JPanel {
     /**
      * Creates new form JPCliente
      */
-   ClienteControlador clienteControlador;
-   
+    ClienteControlador clienteControlador;
+    PersonaControlador personaControlador;
+
     public JPCliente() {
         initComponents();
-        clienteControlador= new ClienteControlador();
+        clienteControlador = new ClienteControlador();
     }
 
     /**
@@ -330,7 +332,7 @@ public class JPCliente extends javax.swing.JPanel {
             consultar = clienteControlador.consultar(Integer.parseInt(jTFIdentificacion1.getText()));
         } catch (Exception e) {
         }
-        if ((consultar != null) && (consultar.getId_c().getId_p()!=0)) {
+        if ((consultar != null) && (consultar.getId_c().getId_p() != 0)) {
             Object[][] s = new Object[1][6];
             s[0][0] = consultar.getId_c().getId_p();
             s[0][1] = consultar.getId_c().getNombre_p();
@@ -340,32 +342,36 @@ public class JPCliente extends javax.swing.JPanel {
             s[0][5] = consultar.getId_c().getGenero_p();
 
 
-            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre", 
-                "Direccion", "Telefono","Email","Genero"}) {
+            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre",
+                        "Direccion", "Telefono", "Email", "Genero"}) {
 
-                boolean[] canEdit = new boolean[]{false, false, false, false,false,false
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false
                 };
 
                 public boolean isCellEditable(int rowIndex, int columnIndex) {
                     return canEdit[columnIndex];
                 }
             };
-           ///remover filas
+            ///remover filas
             jTResultados.setModel(myModel);
-            jTResultados.setRowSorter(new TableRowSorter(myModel));}
+            jTResultados.setRowSorter(new TableRowSorter(myModel));
+        }
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
-       int guardar = -1;
+        int guardar = -1;
         try {
+            System.out.println(jCBGenero.getSelectedItem().toString());
             guardar = clienteControlador.guardar(
                     Integer.parseInt(jTFIdentificacion.getText()),
                     jTFNombre.getText(),
                     jTFDireccion.getText(),
                     jTFTelefono.getText(),
-                    jTFEmail.getText(),jCBGenero.getSelectedItem().toString());
-
+                    jTFEmail.getText(),
+                    jCBGenero.getSelectedItem().toString());
         } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println();
         }
 
         if (guardar == -1) {
@@ -375,7 +381,7 @@ public class JPCliente extends javax.swing.JPanel {
             jTFIdentificacion1.setText(jTFIdentificacion.getText());
             jBConsultar.doClick();
             jTabbedPane1.setSelectedIndex(1);
-            
+
         }
                                            
 
@@ -391,10 +397,9 @@ public class JPCliente extends javax.swing.JPanel {
         int selectedRow = jTResultados.getSelectedRow();
         jTFIdentificacion1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
         jTFNombre1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
-       
+
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jTResultadosMouseClicked
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
