@@ -4,9 +4,13 @@
  */
 package gui;
 
+import Controlador.ClienteControlador;
 import Controlador.PersonaControlador;
 import Dao.DaoPersona;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import logica.Cliente;
 
 /**
  *
@@ -17,11 +21,11 @@ public class JPCliente extends javax.swing.JPanel {
     /**
      * Creates new form JPCliente
      */
-    PersonaControlador personaControlador;
-
+   ClienteControlador clienteControlador;
+   
     public JPCliente() {
         initComponents();
-        personaControlador = new PersonaControlador();
+        clienteControlador= new ClienteControlador();
     }
 
     /**
@@ -92,60 +96,60 @@ public class JPCliente extends javax.swing.JPanel {
 
         jLabel3.setText("Identificacion");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 20, 93, 18);
+        jLabel3.setBounds(10, 20, 83, 17);
 
         jTFIdentificacion.setColumns(20);
         jPanel1.add(jTFIdentificacion);
-        jTFIdentificacion.setBounds(160, 10, 270, 28);
+        jTFIdentificacion.setBounds(160, 10, 272, 27);
 
         jLabel1.setText("Nombre");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 50, 57, 18);
+        jLabel1.setBounds(10, 50, 52, 17);
 
         jTFNombre.setColumns(20);
         jPanel1.add(jTFNombre);
-        jTFNombre.setBounds(160, 40, 270, 28);
+        jTFNombre.setBounds(160, 40, 272, 27);
 
         jLabel2.setText("Genero");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 80, 52, 18);
+        jLabel2.setBounds(10, 80, 47, 17);
 
         jCBGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
         jCBGenero.setName(""); // NOI18N
         jPanel1.add(jCBGenero);
-        jCBGenero.setBounds(160, 70, 119, 28);
+        jCBGenero.setBounds(160, 70, 113, 27);
 
         jLabel5.setText("Fecha de nacimiento");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 110, 143, 18);
+        jLabel5.setBounds(10, 110, 133, 17);
 
         jTFFechaNacimiento.setColumns(20);
         jPanel1.add(jTFFechaNacimiento);
-        jTFFechaNacimiento.setBounds(160, 100, 270, 28);
+        jTFFechaNacimiento.setBounds(160, 100, 272, 27);
 
         jLabel4.setText("Telefono");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 140, 64, 18);
+        jLabel4.setBounds(10, 140, 54, 17);
 
         jTFTelefono.setColumns(20);
         jPanel1.add(jTFTelefono);
-        jTFTelefono.setBounds(160, 130, 270, 28);
+        jTFTelefono.setBounds(160, 130, 272, 27);
 
         jLabel8.setText("Direccion");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(10, 170, 66, 18);
+        jLabel8.setBounds(10, 170, 59, 17);
 
         jTFDireccion.setColumns(20);
         jPanel1.add(jTFDireccion);
-        jTFDireccion.setBounds(160, 160, 270, 28);
+        jTFDireccion.setBounds(160, 160, 272, 27);
 
         jLabel9.setText("Email");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(10, 200, 37, 18);
+        jLabel9.setBounds(10, 200, 35, 17);
 
         jTFEmail.setColumns(20);
         jPanel1.add(jTFEmail);
-        jTFEmail.setBounds(160, 190, 270, 28);
+        jTFEmail.setBounds(160, 190, 272, 27);
 
         jBLimpiarCrear.setText("Limpiar");
         jBLimpiarCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -154,7 +158,7 @@ public class JPCliente extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jBLimpiarCrear);
-        jBLimpiarCrear.setBounds(230, 230, 80, 30);
+        jBLimpiarCrear.setBounds(230, 230, 80, 33);
 
         jBCrear.setText("Crear");
         jBCrear.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +167,7 @@ public class JPCliente extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jBCrear);
-        jBCrear.setBounds(360, 230, 70, 30);
+        jBCrear.setBounds(360, 230, 70, 33);
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
@@ -171,23 +175,23 @@ public class JPCliente extends javax.swing.JPanel {
 
         jLabel16.setText("Identificacion");
         jPanel2.add(jLabel16);
-        jLabel16.setBounds(10, 20, 93, 18);
+        jLabel16.setBounds(10, 20, 83, 17);
 
         jTFIdentificacion1.setColumns(20);
         jPanel2.add(jTFIdentificacion1);
-        jTFIdentificacion1.setBounds(160, 10, 190, 28);
+        jTFIdentificacion1.setBounds(160, 10, 190, 27);
 
         jBConsultar.setText("Consultar");
         jPanel2.add(jBConsultar);
-        jBConsultar.setBounds(360, 10, 90, 30);
+        jBConsultar.setBounds(360, 10, 90, 33);
 
         jTFNombre1.setColumns(20);
         jPanel2.add(jTFNombre1);
-        jTFNombre1.setBounds(160, 40, 190, 28);
+        jTFNombre1.setBounds(160, 40, 190, 27);
 
         jLabel6.setText("Nombre");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(10, 50, 57, 18);
+        jLabel6.setBounds(10, 50, 52, 17);
 
         jTResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -205,6 +209,11 @@ public class JPCliente extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTResultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTResultados);
 
         jPanel2.add(jScrollPane1);
@@ -217,7 +226,7 @@ public class JPCliente extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jBLimpiarConsultar);
-        jBLimpiarConsultar.setBounds(360, 40, 90, 30);
+        jBLimpiarConsultar.setBounds(360, 40, 90, 33);
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
@@ -225,60 +234,60 @@ public class JPCliente extends javax.swing.JPanel {
 
         jLabel19.setText("Identificacion");
         jPanel3.add(jLabel19);
-        jLabel19.setBounds(10, 20, 93, 18);
+        jLabel19.setBounds(10, 20, 83, 17);
 
         jTFIdentificacion2.setColumns(20);
         jPanel3.add(jTFIdentificacion2);
-        jTFIdentificacion2.setBounds(160, 10, 270, 28);
+        jTFIdentificacion2.setBounds(160, 10, 272, 27);
 
         jLabel10.setText("Nombre");
         jPanel3.add(jLabel10);
-        jLabel10.setBounds(10, 50, 57, 18);
+        jLabel10.setBounds(10, 50, 52, 17);
 
         jTFNombre2.setColumns(20);
         jPanel3.add(jTFNombre2);
-        jTFNombre2.setBounds(160, 40, 270, 28);
+        jTFNombre2.setBounds(160, 40, 272, 27);
 
         jLabel12.setText("Genero");
         jPanel3.add(jLabel12);
-        jLabel12.setBounds(10, 80, 52, 18);
+        jLabel12.setBounds(10, 80, 47, 17);
 
         jCBGenero1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
         jCBGenero1.setName(""); // NOI18N
         jPanel3.add(jCBGenero1);
-        jCBGenero1.setBounds(160, 70, 119, 28);
+        jCBGenero1.setBounds(160, 70, 113, 27);
 
         jTFFechaNacimiento1.setColumns(20);
         jPanel3.add(jTFFechaNacimiento1);
-        jTFFechaNacimiento1.setBounds(160, 100, 270, 28);
+        jTFFechaNacimiento1.setBounds(160, 100, 272, 27);
 
         jTFTelefono1.setColumns(20);
         jPanel3.add(jTFTelefono1);
-        jTFTelefono1.setBounds(160, 130, 270, 28);
+        jTFTelefono1.setBounds(160, 130, 272, 27);
 
         jTFDireccion1.setColumns(20);
         jPanel3.add(jTFDireccion1);
-        jTFDireccion1.setBounds(160, 160, 270, 28);
+        jTFDireccion1.setBounds(160, 160, 272, 27);
 
         jTFEmail1.setColumns(20);
         jPanel3.add(jTFEmail1);
-        jTFEmail1.setBounds(160, 190, 270, 28);
+        jTFEmail1.setBounds(160, 190, 272, 27);
 
         jLabel18.setText("Email");
         jPanel3.add(jLabel18);
-        jLabel18.setBounds(10, 200, 37, 18);
+        jLabel18.setBounds(10, 200, 35, 17);
 
         jLabel17.setText("Direccion");
         jPanel3.add(jLabel17);
-        jLabel17.setBounds(10, 170, 66, 18);
+        jLabel17.setBounds(10, 170, 59, 17);
 
         jLabel11.setText("Telefono");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(10, 140, 64, 18);
+        jLabel11.setBounds(10, 140, 54, 17);
 
         jLabel14.setText("Fecha de nacimiento");
         jPanel3.add(jLabel14);
-        jLabel14.setBounds(10, 110, 143, 18);
+        jLabel14.setBounds(10, 110, 133, 17);
 
         jBModificar.setText("Modificar");
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -287,7 +296,7 @@ public class JPCliente extends javax.swing.JPanel {
             }
         });
         jPanel3.add(jBModificar);
-        jBModificar.setBounds(331, 230, 90, 30);
+        jBModificar.setBounds(331, 230, 90, 33);
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 
@@ -318,32 +327,59 @@ public class JPCliente extends javax.swing.JPanel {
 
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         // TODO add your handling code here:
+        Cliente consultar = null;
+        try {
+            consultar = clienteControlador.consultar(Integer.parseInt(jTFIdentificacion1.getText()));
+        } catch (Exception e) {
+        }
+        if ((consultar != null) && (consultar.getId_c().getId_p()!=0)) {
+            Object[][] s = new Object[1][6];
+            s[0][0] = consultar.getId_c().getId_p();
+            s[0][1] = consultar.getId_c().getNombre_p();
+            s[0][2] = consultar.getId_c().getDireccion_p();
+            s[0][3] = consultar.getId_c().getTelefono_p();
+            s[0][4] = consultar.getId_c().getEmail_p();
+            s[0][5] = consultar.getId_c().getGenero_p();
+
+
+            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre", 
+                "Direccion", "Telefono","Email","Genero"}) {
+
+                boolean[] canEdit = new boolean[]{false, false, false, false,false,false
+                };
+
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            };
+           ///remover filas
+            jTResultados.setModel(myModel);
+            jTResultados.setRowSorter(new TableRowSorter(myModel));}
     }//GEN-LAST:event_jBModificarActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
-        int guardar = -1;
+       int guardar = -1;
         try {
-            guardar = personaControlador.guardar(   
+            guardar = clienteControlador.guardar(
                     Integer.parseInt(jTFIdentificacion.getText()),
                     jTFNombre.getText(),
                     jTFDireccion.getText(),
                     jTFTelefono.getText(),
-                    jTFEmail.getText(),
-                    jCBGenero.getSelectedItem().toString());
+                    jTFEmail.getText(),jCBGenero.getSelectedItem().toString());
 
         } catch (Exception e) {
         }
 
         if (guardar == -1) {
-            JOptionPane.showMessageDialog(this, "No su pudo crear la Accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No su pudo crear el cliente", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Accesorio Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
-            jTFCodigo1.setText(jTFCodigo.getText());
+            JOptionPane.showMessageDialog(this, "Cliente Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            jTFIdentificacion1.setText(jTFIdentificacion.getText());
             jBConsultar.doClick();
-            jBLimpiarCrear.doClick();
             jTabbedPane1.setSelectedIndex(1);
-
+            
         }
+    //GEN-LAST:event_jBCrearActionPerformed
 
 
     }//GEN-LAST:event_jBCrearActionPerformed
@@ -351,6 +387,16 @@ public class JPCliente extends javax.swing.JPanel {
     private void jBLimpiarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarConsultarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jBLimpiarConsultarActionPerformed
+
+    private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = jTResultados.getSelectedRow();
+        jTFIdentificacion1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
+        jTFNombre1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
+       
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jTResultadosMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
