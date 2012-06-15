@@ -49,6 +49,8 @@ public class DaoPersona {
         return -1;
     }//fin guardar
 
+    
+    /*
     public Persona consultarNN(int id_p, String nombre) {
         Persona p = new Persona();
         String sql_select = "SELECT * FROM persona      ";
@@ -88,8 +90,8 @@ public class DaoPersona {
 
         return null;
     }
-
-    public LinkedList consultar(int id_p, String nombre) {
+*/
+    public LinkedList consultar(String id_p, String nombre) {
         LinkedList personaConsulta = new LinkedList();
         String sql_select = "SELECT * FROM persona      ";
         if (!String.valueOf(id_p).equals("") || !nombre.equals("")) {

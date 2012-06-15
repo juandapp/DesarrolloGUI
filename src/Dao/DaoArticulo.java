@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import logica.Articulo;
-import logica.Persona;
 
 /**
  *
@@ -51,10 +50,10 @@ public class DaoArticulo {
     public LinkedList consultar(String codigo_a, String nombre) {
         LinkedList articuloConsulta = new LinkedList();
         String sql_select = "SELECT * FROM articulo      ";
-        if (!String.valueOf(codigo_a).equals("") || !nombre.equals("")) {
+        if (!codigo_a.equals("") || !nombre.equals("")) {
             sql_select += "WHERE ";
         }
-        if (!String.valueOf(codigo_a).equals("")) {
+        if (!codigo_a.equals("")) {
             sql_select += "codigo_a = " + codigo_a + " AND ";
         }
         if(!nombre.equals("")){

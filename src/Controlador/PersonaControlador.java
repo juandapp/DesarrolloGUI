@@ -31,7 +31,7 @@ public class PersonaControlador {
         }
     }
 
-    public LinkedList consultarTodo(int id_p, String nombre) {
+    public LinkedList consultar(String id_p, String nombre) {
         LinkedList personasConsultados = new LinkedList();
         personasConsultados = daoPersona.consultar(id_p, nombre);
         return personasConsultados;
