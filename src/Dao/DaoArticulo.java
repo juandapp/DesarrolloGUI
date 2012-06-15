@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import logica.Articulo;
+import logica.Persona;
 
 /**
  *
@@ -45,44 +46,21 @@ public class DaoArticulo {
         return -1;
     }//fin guardar
 
-    public Articulo consultar(int codigo_a) {
-        Articulo a = new Articulo();
-        String sql_select;
-        sql_select = "SELECT * FROM articulo WHERE codigo_a=" + codigo_a + "";
-        try {
-            Connection conn = fachada.conectar();
-            Statement sentencia = conn.createStatement();
-            ResultSet tabla = sentencia.executeQuery(sql_select);
-
-            //
-            if (tabla.next()) {
-                a.setCodigo_a(Integer.parseInt(tabla.getString("codigo_a")));
-                a.setNombre(tabla.getString("nombre"));
-                a.setCantidad(Integer.parseInt(tabla.getString("cantidad")));
-                a.setDescripcion(tabla.getString("descripcion"));
-            }
-
-            conn.close();
-            System.out.println("Conexion cerrada");
-            return a;
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return null;
-    }
+      
     
-    
-    
-    
-    
-    public LinkedList consultar_Nombre(String nombre) {
+    public LinkedList consultar(String codigo_a, String nombre) {
         LinkedList articuloConsulta = new LinkedList();
-        String sql_select;
-        sql_select = "SELECT * FROM articulo WHERE nombre LIKE '%"+nombre+"%'";
+        String sql_select = "SELECT * FROM articulo      ";
+        if (!String.valueOf(codigo_a).equals("") || !nombre.equals("")) {
+            sql_select += "WHERE ";
+        }
+        if (!String.valueOf(codigo_a).equals("")) {
+            sql_select += "codigo_a = " + codigo_a + " AND ";
+        }
+        if(!nombre.equals("")){
+            sql_select += "nombre LIKE '%"+nombre+"%'"+" AND ";
+        }
+        sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -107,36 +85,8 @@ public class DaoArticulo {
 
         return null;
     }
-
-    public LinkedList consultarTodo() {
-        LinkedList articuloConsulta = new LinkedList();
-        String sql_select;
-        sql_select = "SELECT * FROM articulo ";
-        try {
-            Connection conn = fachada.conectar();
-            Statement sentencia = conn.createStatement();
-            ResultSet tabla = sentencia.executeQuery(sql_select);
-            while (tabla.next()) {
-                Articulo articulo = new Articulo();
-                articulo.setCodigo_a(Integer.parseInt(tabla.getString("codigo_a")));
-                articulo.setNombre(tabla.getString("nombre"));
-                articulo.setCantidad(Integer.parseInt(tabla.getString("cantidad")));
-                articulo.setDescripcion(tabla.getString("descripcion"));
-                articuloConsulta.add(articulo);
-            }
-            conn.close();
-            System.out.println("Conexion cerrada");
-            return articuloConsulta;
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        } catch (Exception e) {
-            System.out.println(e);
-        }
-
-        return null;
-    }
-
+   
+    
     public int editar(Articulo a) {
 
         String sql_update;

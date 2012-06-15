@@ -30,26 +30,10 @@ public class AccesorioControlador {
         }
     }
 
-    public Articulo consultar(int codigo_a) {
-        Articulo art;
-        art = daoArticulo.consultar(codigo_a);
-        if (art == null) {
-            return null;
-        } else {
-            return art;
-        }
-    }
-
-    public LinkedList consultar_Nombre(String nombre) {
-        LinkedList articulosConsultados = new LinkedList();
-        articulosConsultados = daoArticulo.consultar_Nombre(nombre);
-        return articulosConsultados;
-    }
-
-    public LinkedList consultarTodo() {
-        LinkedList articulosConsultados = new LinkedList();
-        articulosConsultados = daoArticulo.consultarTodo();
-        return articulosConsultados;
+        public LinkedList consultar(String id_p, String nombre) {
+        LinkedList articulosConsultar = new LinkedList();
+        articulosConsultar = daoArticulo.consultar(id_p, nombre);
+        return articulosConsultar;
     }
 
     public int editar(int codigo_a, String nombre, String descripcion, int cantidad) {

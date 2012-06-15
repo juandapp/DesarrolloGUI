@@ -6,7 +6,6 @@ package gui;
 
 import Controlador.AccesorioControlador;
 import java.util.LinkedList;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -247,6 +246,7 @@ public class JPAccesorio extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No su pudo modificar el accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Accesorio modificado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCamposConsultar();
             jTFCodigo1.setText(jTFCodigo2.getText());
             jBConsultar.doClick();
             jTabbedPane1.setSelectedIndex(1);
@@ -288,52 +288,37 @@ public class JPAccesorio extends javax.swing.JPanel {
 
         LinkedList consulta = new LinkedList();
         try {
-            if (jTFNombre1.getText().equals("") && jTFCodigo1.getText().equals("")) {
-                consulta = accesorioControlador.consultarTodo();
-            } else {
-                if (!jTFNombre1.getText().equals("") && jTFCodigo.getText().equals("")) {
-                    consulta = accesorioControlador.consultar_Nombre(jTFNombre1.getText());
-                } else {
-                    consulta.add(accesorioControlador.consultar(Integer.parseInt(jTFCodigo1.getText())));
-
+            consulta = accesorioControlador.consultar(jTFCodigo1.getText(), jTFNombre1.getText()); 
+                Object[][] s = new Object[consulta.size()][4];
+                for (int i = 0; i < consulta.size(); i++) {
+                    Articulo articulo = (Articulo) consulta.get(i);
+                    if (articulo.getNombre() != null) {
+                        s[i][0] = articulo.getCodigo_a();
+                        s[i][1] = articulo.getNombre();
+                        s[i][2] = articulo.getDescripcion();
+                        s[i][3] = articulo.getCantidad();
+                    } else {
+                        s = null;
+                    }
                 }
-            }
+                TableModel myModel = new DefaultTableModel(s, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}) {
+                    boolean[] canEdit = new boolean[]{false, false, false, false
+                    };
 
-        } catch (Exception e) {
-        }
-        jTResultados.setModel(new DefaultTableModel(null, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}));
-        if (consulta.getFirst() != null) {
-            Object[][] s = new Object[consulta.size()][4];
-            for (int i = 0; i < consulta.size(); i++) {
-                Articulo articulo = (Articulo) consulta.get(i);
-                if (articulo.getNombre() != null) {
-                    s[i][0] = articulo.getCodigo_a();
-                    s[i][1] = articulo.getNombre();
-                    s[i][2] = articulo.getDescripcion();
-                    s[i][3] = articulo.getCantidad();
-                } else {
-                    s = null;
-                }
-            }
-
-
-
-
-
-            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Codigo", "Nombre", "Descripcion", "Cantidad"}) {
-
-                boolean[] canEdit = new boolean[]{false, false, false, false
+                    @Override
+                    public boolean isCellEditable(int rowIndex, int columnIndex) {
+                        return canEdit[columnIndex];
+                    }
                 };
-
-                @Override
-                public boolean isCellEditable(int rowIndex, int columnIndex) {
-                    return canEdit[columnIndex];
-                }
-            };
-            ///remover filas
-            jTResultados.setModel(myModel);
-            jTResultados.setRowSorter(new TableRowSorter(myModel));
+                ///remover filas
+                jTResultados.setModel(myModel);
+                jTResultados.setRowSorter(new TableRowSorter(myModel));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        
+        
+
 
 
     }//GEN-LAST:event_jBConsultarActionPerformed
