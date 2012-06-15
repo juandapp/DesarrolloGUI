@@ -6,9 +6,12 @@ package gui;
 
 import Controlador.ClienteControlador;
 import Controlador.PersonaControlador;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import logica.Articulo;
 import logica.Cliente;
 
 /**
@@ -22,7 +25,7 @@ public class JPCliente extends javax.swing.JPanel {
      */
     ClienteControlador clienteControlador;
     PersonaControlador personaControlador;
-
+    
     public JPCliente() {
         initComponents();
         clienteControlador = new ClienteControlador();
@@ -321,20 +324,14 @@ public class JPCliente extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBLimpiarCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarCrearActionPerformed
-        jTFDireccion.setText("");
-        jTFEmail.setText("");
-        jTFFechaNacimiento.setText("");
-        jTFIdentificacion.setText("");
-        jTFNombre.setText("");
-        jTFTelefono.setText("");
-        jCBGenero.setSelectedIndex(0);
+        limpiarCamposCrear();
     }//GEN-LAST:event_jBLimpiarCrearActionPerformed
-
+    
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         // TODO add your handling code here:
         Cliente consultar = null;
         try {
-            consultar = clienteControlador.consultar(Integer.parseInt(jTFIdentificacion1.getText()));
+            //   consultar = clienteControlador.consultar(jTFIdentificacion1.getText(),jTFNombre1.getText());
         } catch (Exception e) {
         }
         if ((consultar != null) && (consultar.getId_c().getId_p() != 0)) {
@@ -345,14 +342,14 @@ public class JPCliente extends javax.swing.JPanel {
             s[0][3] = consultar.getId_c().getTelefono_p();
             s[0][4] = consultar.getId_c().getEmail_p();
             s[0][5] = consultar.getId_c().getGenero_p();
-
-
+            
+            
             TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre",
                         "Direccion", "Telefono", "Email", "Genero"}) {
-
+                
                 boolean[] canEdit = new boolean[]{false, false, false, false, false, false
                 };
-
+                
                 public boolean isCellEditable(int rowIndex, int columnIndex) {
                     return canEdit[columnIndex];
                 }
@@ -362,7 +359,7 @@ public class JPCliente extends javax.swing.JPanel {
             jTResultados.setRowSorter(new TableRowSorter(myModel));
         }
     }//GEN-LAST:event_jBModificarActionPerformed
-
+    
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
         int guardar = -1;
         try {
@@ -378,7 +375,7 @@ public class JPCliente extends javax.swing.JPanel {
             e.printStackTrace();
             System.out.println();
         }
-
+        
         if (guardar == -1) {
             JOptionPane.showMessageDialog(this, "No su pudo crear el cliente", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -386,30 +383,90 @@ public class JPCliente extends javax.swing.JPanel {
             jTFIdentificacion1.setText(jTFIdentificacion.getText());
             jBConsultar.doClick();
             jTabbedPane1.setSelectedIndex(1);
-
         }
-                                           
-
-
+        
+        
+        
     }//GEN-LAST:event_jBCrearActionPerformed
-
+    
     private void jBLimpiarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarConsultarActionPerformed
-        // TODO add your handling code here:
+        limpiarCamposConsultar();
+        jBConsultar.doClick();
     }//GEN-LAST:event_jBLimpiarConsultarActionPerformed
-
+    
     private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
         // TODO add your handling code here:
         int selectedRow = jTResultados.getSelectedRow();
         jTFIdentificacion1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
         jTFNombre1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
-
+        
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jTResultadosMouseClicked
 
     private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
-        // TODO add your handling code here:
+        
+        LinkedList consulta = new LinkedList();
+        try {
+            consulta = clienteControlador.consultar(jTFIdentificacion1.getText(), jTFNombre1.getText());            
+            Object[][] s = new Object[consulta.size()][6];
+            for (int i = 0; i < consulta.size(); i++) {
+                Cliente cliente = (Cliente) consulta.get(i);
+                if (cliente.getId_c().getNombre_p() != null){
+                    s[i][0] = cliente.getId_c().getId_p();
+                    s[i][1] = cliente.getId_c().getNombre_p();
+                    s[i][2] = cliente.getId_c().getDireccion_p();
+                    s[i][3] = cliente.getId_c().getTelefono_p();
+                    s[i][4] = cliente.getId_c().getEmail_p();
+                    s[i][5] = cliente.getId_c().getGenero_p();
+                } else {
+                    s = null;
+                }
+            }
+            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre",
+                        "Direccion", "Telefono", "Email", "Genero"}) {
+
+                boolean[] canEdit = new boolean[]{false, false, false, false
+                };
+                
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            };
+            ///remover filas
+            jTResultados.setModel(myModel);
+            jTResultados.setRowSorter(new TableRowSorter(myModel));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_jBConsultarActionPerformed
 
+    private void limpiarCamposModificar() {
+        jTFDireccion1.setText("");
+        jTFEmail1.setText("");
+        jTFFechaNacimiento1.setText("");
+        jTFIdentificacion2.setText("");
+        jTFNombre2.setText("");
+        jTFTelefono1.setText("");
+        jCBGenero1.setSelectedIndex(0);
+    }
+
+    private void limpiarCamposCrear() {
+        jTFDireccion.setText("");
+        jTFEmail.setText("");
+        jTFFechaNacimiento.setText("");
+        jTFIdentificacion.setText("");
+        jTFNombre.setText("");
+        jTFTelefono.setText("");
+        jCBGenero.setSelectedIndex(0);
+    }
+
+    private void limpiarCamposConsultar() {
+        jTFIdentificacion1.setText("");
+        jTFNombre1.setText("");
+    }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;

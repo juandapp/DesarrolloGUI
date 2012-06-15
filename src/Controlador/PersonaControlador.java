@@ -21,14 +21,18 @@ public class PersonaControlador {
     }
 
     public int guardar(int id_p, String nombre_p, String direccion_p, String telefono_p, String email_p, String genero_p) {
+        int retorno = 0;
+        try {
+            if (!String.valueOf(id_p).isEmpty() && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && !email_p.isEmpty() && !genero_p.isEmpty()) {
+                int parsetel = Integer.parseInt(telefono_p);
+                Persona persona = new Persona(id_p, nombre_p, direccion_p, telefono_p, email_p, genero_p);
+                retorno = daoPersona.guardar(persona);
 
-        if (!String.valueOf(id_p).isEmpty() && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && !email_p.isEmpty() && !genero_p.isEmpty()) {
-            Persona persona = new Persona(id_p, nombre_p, direccion_p, telefono_p, email_p, genero_p);
-            int retorno = daoPersona.guardar(persona);
-            return retorno;
-        } else {
-            return -1;
+            }
+        } catch (Exception e) {
+            retorno = -1;
         }
+        return retorno;
     }
 
     public LinkedList consultar(String id_p, String nombre) {

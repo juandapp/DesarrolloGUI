@@ -315,12 +315,7 @@ public class JPAccesorio extends javax.swing.JPanel {
                 jTResultados.setRowSorter(new TableRowSorter(myModel));
         } catch (Exception e) {
             e.printStackTrace();
-        }
-        
-        
-
-
-
+        }   
     }//GEN-LAST:event_jBConsultarActionPerformed
 
     private void limpiarCamposModificar() {

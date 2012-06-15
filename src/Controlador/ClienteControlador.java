@@ -5,7 +5,9 @@
 package Controlador;
 
 import Dao.DaoCliente;
+import java.util.LinkedList;
 import logica.Cliente;
+import logica.Persona;
 
 /**
  *
@@ -25,18 +27,26 @@ public class ClienteControlador {
             String email_c, String genero_c) {
         if (!String.valueOf(id_c).isEmpty() && !nombre_c.isEmpty() && !direccion_c.isEmpty() && !telefono_c.isEmpty()
                 && !email_c.isEmpty() && !genero_c.isEmpty()) {
-            int retorno = controladorPersona.guardar(id_c, nombre_c, direccion_c, telefono_c, email_c, genero_c);
+            Cliente cliente = new Cliente(new Persona(id_c, nombre_c, direccion_c, telefono_c, email_c, genero_c));
+            int retorno = daoCliente.guardar(cliente);
             return retorno;
         } else {
             return -1;
         }
     }
 
-    public Cliente consultar(int id_c) {
-        Cliente cli;
-        cli = daoCliente.consultar(id_c);
-        return cli;
+    public LinkedList consultar(String id_p, String nombre) {
+        LinkedList personasConsultados = new LinkedList();
+        personasConsultados = daoCliente.consultar(id_p, nombre);
+        return personasConsultados;
     }
+    
+    
+    
+    
+    
+    
+    
 //    public int editar(int id_c,String nombre_p,String direccion_p,String telefono_p,
 //            String email_p,String genero_p) {
 //        if (id_c > 0 && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && 

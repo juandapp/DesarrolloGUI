@@ -101,7 +101,7 @@ public class DaoPersona {
             sql_select += "id_p = " + id_p + " AND ";
         }
         if(!nombre.equals("")){
-            sql_select += "nombre_p = '" + nombre + "' AND ";
+            sql_select += "nombre_p = LIKE '%"+nombre+"%'"+" AND ";
         }
         sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {

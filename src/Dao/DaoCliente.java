@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
 import logica.Cliente;
+import logica.Persona;
 
 /**
  *
@@ -29,6 +31,8 @@ public class DaoCliente {
         String sql_guardar;
         sql_guardar = "INSERT INTO cliente VALUES ("
                 + cliente.getId_c().getId_p() + ")";
+        daoPersona.guardar(cliente.getId_c());
+        
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -43,6 +47,50 @@ public class DaoCliente {
         return -1;
     }//fin guardar
 
+    
+    
+    public LinkedList consultar(String id_p, String nombre) {
+        LinkedList clienteConsultado = new LinkedList();
+        String sql_select = "SELECT * FROM cliente JOIN persona ON id_p=id_c      ";
+        if (!id_p.equals("") || !nombre.equals("")) {
+            sql_select += "WHERE ";
+        }
+        if (!id_p.equals("")) {
+            sql_select += "id_p = " + id_p + " AND ";
+        }
+        if(!nombre.equals("")){
+            sql_select += "nombre_p LIKE '%"+nombre+"%'"+" AND ";
+        }
+        sql_select = sql_select.substring(0, sql_select.length() - 5);
+        try {
+            Connection conn = fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) {
+                Cliente cliente = new Cliente();
+                Persona persona = new Persona();
+                persona.setId_p(Integer.parseInt(tabla.getString("id_p")));
+                persona.setNombre_p(tabla.getString("nombre_p"));
+                persona.setDireccion_p(tabla.getString("direccion_p"));
+                persona.setTelefono_p(tabla.getString("telefono_p"));
+                persona.setEmail_p(tabla.getString("email_p"));
+                persona.setGenero_p(tabla.getString("genero_p"));
+                cliente.setId_c(persona);
+                clienteConsultado.add(cliente);
+            }
+            conn.close();
+            System.out.println("Conexion cerrada");
+            return clienteConsultado;
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return null;
+    }
+    
     public Cliente consultar(int id_c) {
         Cliente c = new Cliente();
         String sql_select;
