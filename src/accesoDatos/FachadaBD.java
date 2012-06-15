@@ -19,13 +19,13 @@ public class FachadaBD {
         Statement instruccion;
         ResultSet tabla;
         public FachadaBD(){
-            url="jdbc:postgresql://pgsql:5432/juandapp";
-            usuario="juandapp";
-            password="juandapp";
+//            url="jdbc:postgresql://pgsql:5432/juandapp";
+//            usuario="juandapp";
+//            password="juandapp";
 //            
-//            url="jdbc:postgresql://localhost:5432/proyectoDSI";
-//            usuario="postgres";
-//            password="JUANPAULO";
+            url="jdbc:postgresql://localhost:5432/proyectoDSI";
+            usuario="postgres";
+            password="JUANPAULO";
             
         }
 
@@ -57,5 +57,10 @@ public class FachadaBD {
             } catch( Exception e ) {
                 System.out.println( "No se pudo cerrar." );
             }
+        }
+        
+        public static void main(String[] arg){
+        FachadaBD f = new FachadaBD();
+        f.conectar();
         }
 }
