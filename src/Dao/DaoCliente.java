@@ -32,7 +32,7 @@ public class DaoCliente {
         sql_guardar = "INSERT INTO cliente VALUES ("
                 + cliente.getId_c().getId_p() + ")";
         daoPersona.guardar(cliente.getId_c());
-        
+
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -47,8 +47,6 @@ public class DaoCliente {
         return -1;
     }//fin guardar
 
-    
-    
     public LinkedList consultar(String id_p, String nombre) {
         LinkedList clienteConsultado = new LinkedList();
         String sql_select = "SELECT * FROM cliente JOIN persona ON id_p=id_c      ";
@@ -58,8 +56,8 @@ public class DaoCliente {
         if (!id_p.equals("")) {
             sql_select += "id_p = " + id_p + " AND ";
         }
-        if(!nombre.equals("")){
-            sql_select += "nombre_p LIKE '%"+nombre+"%'"+" AND ";
+        if (!nombre.equals("")) {
+            sql_select += "nombre_p LIKE '%" + nombre + "%'" + " AND ";
         }
         sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
@@ -90,44 +88,14 @@ public class DaoCliente {
 
         return null;
     }
-    
-    public Cliente consultar(int id_c) {
-        Cliente c = new Cliente();
-        String sql_select;
-        int id_c_consulta = 0;
-        sql_select = "SELECT * FROM cliente WHERE id_c=" + id_c + "";
-        try {
-            Connection conn = fachada.conectar();
-            Statement sentencia = conn.createStatement();
-            ResultSet tabla = sentencia.executeQuery(sql_select);
-
-            //
-            if (tabla.next()) {
-
-                id_c_consulta = Integer.parseInt(tabla.getString("id_c"));
-
-            }
-
-            // c.setId_c(daoPersona.consultar(id_c_consulta));
-
-            conn.close();
-            System.out.println("Conexion cerrada");
-            return c;
-
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-
-        return null;
-    }
 
     public int editar(Cliente c) {
 
         String sql_update;
-        sql_update = "UPDATE cliente SET"
-                + "WHERE id_e=" + c.getId_c().getId_p() + "";
+        sql_update = "UPDATE cliente SET " 
+                + "id_c= "+c.getId_c().getId_p()
+                +"WHERE id_c=" + c.getId_c().getId_p() + "";
+        daoPersona.editar(c.getId_c());
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
