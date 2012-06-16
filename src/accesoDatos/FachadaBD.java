@@ -29,6 +29,9 @@ public class FachadaBD {
 //            usuario="postgres";
 //            password="JUANPAULO";
 
+            url="jdbc:postgresql://localhost:5432/proyectoDSI";
+            usuario="postgres";
+            password="juandavid";
     }
 
     public Connection conectar() {
