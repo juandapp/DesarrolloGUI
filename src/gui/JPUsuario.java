@@ -4,6 +4,8 @@
  */
 package gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author juandapp
@@ -89,100 +91,64 @@ public class JPUsuario extends javax.swing.JPanel {
         jLabel13.setBounds(18, 182, 0, 0);
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Usuario"));
-        jPanel4.setLayout(null);
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Nombre");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 20, 57, 18);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
         jTFNombre.setColumns(20);
-        jPanel1.add(jTFNombre);
-        jTFNombre.setBounds(170, 10, 270, 28);
+        jPanel1.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jLabel4.setText("Telefono");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 110, 64, 18);
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         jLabel3.setText("Genero");
-        jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 50, 52, 18);
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         jCBGenero.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
         jCBGenero.setName(""); // NOI18N
-        jCBGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBGeneroActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCBGenero);
-        jCBGenero.setBounds(170, 40, 119, 28);
+        jPanel1.add(jCBGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
         jTFFechaNacimiento.setColumns(20);
-        jPanel1.add(jTFFechaNacimiento);
-        jTFFechaNacimiento.setBounds(170, 70, 270, 28);
+        jPanel1.add(jTFFechaNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
 
         jLabel5.setText("Fecha de nacimiento");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(20, 80, 143, 18);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jTFTelefono.setColumns(20);
-        jPanel1.add(jTFTelefono);
-        jTFTelefono.setBounds(170, 100, 270, 28);
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(12, 131, 0, 0);
+        jPanel1.add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 131, -1, -1));
 
         jTFDireccion.setColumns(20);
-        jPanel1.add(jTFDireccion);
-        jTFDireccion.setBounds(170, 130, 270, 28);
+        jPanel1.add(jTFDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
 
         jLabel8.setText("Direccion");
-        jPanel1.add(jLabel8);
-        jLabel8.setBounds(50, 140, 66, 18);
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jTFEmail.setColumns(20);
-        jPanel1.add(jTFEmail);
-        jTFEmail.setBounds(170, 160, 270, 28);
+        jPanel1.add(jTFEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
 
         jLabel9.setText("Email");
-        jPanel1.add(jLabel9);
-        jLabel9.setBounds(50, 170, 37, 18);
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         jLabel15.setText("Cargo");
-        jPanel1.add(jLabel15);
-        jLabel15.setBounds(50, 200, 42, 18);
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         jCBCargo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Gerente", "Jefe de Taller", "Vendedor" }));
         jCBCargo.setName(""); // NOI18N
-        jCBCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBCargoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jCBCargo);
-        jCBCargo.setBounds(170, 190, 134, 28);
+        jPanel1.add(jCBCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
         jLabel20.setText("Identificacion");
-        jPanel1.add(jLabel20);
-        jLabel20.setBounds(50, 240, 93, 18);
+        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jTFIdentificacion.setColumns(20);
-        jPanel1.add(jTFIdentificacion);
-        jTFIdentificacion.setBounds(170, 230, 270, 28);
-
-        jPFPassword.setText("jPasswordField1");
-        jPFPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPFPasswordActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jPFPassword);
-        jPFPassword.setBounds(170, 260, 115, 28);
+        jPanel1.add(jTFIdentificacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        jPanel1.add(jPFPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 160, -1));
 
         jLabel21.setText("Password");
-        jPanel1.add(jLabel21);
-        jLabel21.setBounds(50, 270, 68, 18);
+        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -190,36 +156,34 @@ public class JPUsuario extends javax.swing.JPanel {
                 jBLimpiarActionPerformed(evt);
             }
         });
-        jPanel1.add(jBLimpiar);
-        jBLimpiar.setBounds(190, 300, 80, 30);
+        jPanel1.add(jBLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 80, -1));
 
         jBCrear.setText("Crear");
-        jPanel1.add(jBCrear);
-        jBCrear.setBounds(330, 300, 100, 30);
+        jBCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCrearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jBCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 100, -1));
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
-        jPanel2.setLayout(null);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setText("Identificacion");
-        jPanel2.add(jLabel16);
-        jLabel16.setBounds(20, 20, 93, 18);
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jTFIdentificacion1.setColumns(20);
-        jPanel2.add(jTFIdentificacion1);
-        jTFIdentificacion1.setBounds(120, 10, 190, 28);
+        jPanel2.add(jTFIdentificacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 190, -1));
 
         jBConsultar.setText("Consultar");
-        jPanel2.add(jBConsultar);
-        jBConsultar.setBounds(320, 10, 90, 30);
+        jPanel2.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 90, -1));
 
         jTFNombre1.setColumns(20);
-        jPanel2.add(jTFNombre1);
-        jTFNombre1.setBounds(120, 40, 190, 28);
+        jPanel2.add(jTFNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 190, -1));
 
         jLabel6.setText("Nombre");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(20, 50, 57, 18);
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
         jTResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -239,22 +203,14 @@ public class JPUsuario extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTResultados);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(20, 110, 530, 125);
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 530, 125));
 
         jLabel22.setText("Cargo");
-        jPanel2.add(jLabel22);
-        jLabel22.setBounds(20, 80, 42, 18);
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jCBCargo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Gerente", "Jefe de Taller", "Vendedor" }));
         jCBCargo1.setName(""); // NOI18N
-        jCBCargo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBCargo1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jCBCargo1);
-        jCBCargo1.setBounds(120, 70, 134, 28);
+        jPanel2.add(jCBCargo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
@@ -262,101 +218,83 @@ public class JPUsuario extends javax.swing.JPanel {
 
         jLabel23.setText("Nombre");
         jPanel3.add(jLabel23);
-        jLabel23.setBounds(50, 20, 57, 18);
+        jLabel23.setBounds(50, 20, 37, 14);
 
         jTFNombre3.setColumns(20);
         jPanel3.add(jTFNombre3);
-        jTFNombre3.setBounds(170, 10, 270, 28);
+        jTFNombre3.setBounds(170, 10, 166, 20);
 
         jCBGenero2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
         jCBGenero2.setName(""); // NOI18N
-        jCBGenero2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBGenero2ActionPerformed(evt);
-            }
-        });
         jPanel3.add(jCBGenero2);
-        jCBGenero2.setBounds(170, 40, 119, 28);
+        jCBGenero2.setBounds(170, 40, 79, 20);
 
         jLabel24.setText("Genero");
         jPanel3.add(jLabel24);
-        jLabel24.setBounds(50, 50, 52, 18);
+        jLabel24.setBounds(50, 50, 35, 14);
 
         jLabel25.setText("Fecha de nacimiento");
         jPanel3.add(jLabel25);
-        jLabel25.setBounds(20, 80, 143, 18);
+        jLabel25.setBounds(20, 80, 98, 14);
 
         jTFFechaNacimiento2.setColumns(20);
         jPanel3.add(jTFFechaNacimiento2);
-        jTFFechaNacimiento2.setBounds(170, 70, 270, 28);
+        jTFFechaNacimiento2.setBounds(170, 70, 166, 20);
 
         jTFTelefono2.setColumns(20);
         jPanel3.add(jTFTelefono2);
-        jTFTelefono2.setBounds(170, 100, 270, 28);
+        jTFTelefono2.setBounds(170, 100, 166, 20);
 
         jTFDireccion2.setColumns(20);
         jPanel3.add(jTFDireccion2);
-        jTFDireccion2.setBounds(170, 130, 270, 28);
+        jTFDireccion2.setBounds(170, 130, 166, 20);
 
         jTFEmail2.setColumns(20);
         jPanel3.add(jTFEmail2);
-        jTFEmail2.setBounds(170, 160, 270, 28);
+        jTFEmail2.setBounds(170, 160, 166, 20);
 
         jCBCargo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Gerente", "Jefe de Taller", "Vendedor" }));
         jCBCargo2.setName(""); // NOI18N
-        jCBCargo2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBCargo2ActionPerformed(evt);
-            }
-        });
         jPanel3.add(jCBCargo2);
-        jCBCargo2.setBounds(170, 190, 134, 28);
+        jCBCargo2.setBounds(170, 190, 90, 20);
 
         jTFIdentificacion3.setColumns(20);
         jPanel3.add(jTFIdentificacion3);
-        jTFIdentificacion3.setBounds(170, 230, 270, 28);
-
-        jPFPassword1.setText("jPasswordField1");
-        jPFPassword1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPFPassword1ActionPerformed(evt);
-            }
-        });
+        jTFIdentificacion3.setBounds(170, 230, 166, 20);
         jPanel3.add(jPFPassword1);
-        jPFPassword1.setBounds(170, 260, 115, 28);
+        jPFPassword1.setBounds(170, 260, 6, 20);
 
         jLabel26.setText("Password");
         jPanel3.add(jLabel26);
-        jLabel26.setBounds(50, 270, 68, 18);
+        jLabel26.setBounds(50, 270, 46, 14);
 
         jLabel27.setText("Identificacion");
         jPanel3.add(jLabel27);
-        jLabel27.setBounds(50, 240, 93, 18);
+        jLabel27.setBounds(50, 240, 64, 14);
 
         jLabel28.setText("Cargo");
         jPanel3.add(jLabel28);
-        jLabel28.setBounds(50, 200, 42, 18);
+        jLabel28.setBounds(50, 200, 29, 14);
 
         jLabel29.setText("Email");
         jPanel3.add(jLabel29);
-        jLabel29.setBounds(50, 170, 37, 18);
+        jLabel29.setBounds(50, 170, 24, 14);
 
         jLabel30.setText("Direccion");
         jPanel3.add(jLabel30);
-        jLabel30.setBounds(50, 140, 66, 18);
+        jLabel30.setBounds(50, 140, 43, 14);
 
         jLabel31.setText("Telefono");
         jPanel3.add(jLabel31);
-        jLabel31.setBounds(50, 110, 64, 18);
+        jLabel31.setBounds(50, 110, 42, 14);
 
         jBModificar.setText("Modificar");
         jPanel3.add(jBModificar);
-        jBModificar.setBounds(340, 290, 100, 30);
+        jBModificar.setBounds(340, 290, 100, 23);
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 
-        jPanel4.add(jTabbedPane1);
-        jTabbedPane1.setBounds(10, 20, 565, 386);
+        jPanel4.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 565, 386));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -374,46 +312,64 @@ public class JPUsuario extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCBGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBGeneroActionPerformed
-// TODO add your handling code here:
-    }//GEN-LAST:event_jCBGeneroActionPerformed
-
-    private void jCBCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBCargoActionPerformed
-// TODO add your handling code here:
-    }//GEN-LAST:event_jCBCargoActionPerformed
-
-    private void jPFPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPFPasswordActionPerformed
-
-   }//GEN-LAST:event_jPFPasswordActionPerformed
-
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
-        jCBCargo.setSelectedIndex(0);
-        jCBGenero.setSelectedIndex(0);
-        jPFPassword.setText("");
+        limpiarCamposCrear();
+    }//GEN-LAST:event_jBLimpiarActionPerformed
+
+    private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
+        int guardar = -1;
+        try {
+            Integer.parseInt(jTFTelefono.getText());
+            guardar = clienteControlador.guardar(
+                    Integer.parseInt(jTFIdentificacion.getText()),
+                    jTFNombre.getText(),
+                    jTFDireccion.getText(),
+                    jTFTelefono.getText(),
+                    jTFEmail.getText(),
+                    jCBGenero.getSelectedItem().toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println();
+        }
+
+        if (guardar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo crear el cliente", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Cliente Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            jTFIdentificacion1.setText(jTFIdentificacion.getText());
+            jBConsultar.doClick();
+            jTabbedPane1.setSelectedIndex(1);
+            limpiarCamposCrear();
+        }
+    }//GEN-LAST:event_jBCrearActionPerformed
+
+    private void limpiarCamposModificar() {
+        jTFDireccion2.setText("");
+        jTFEmail2.setText("");
+        jTFFechaNacimiento2.setText("");
+        jTFIdentificacion3.setText("");
+        jTFNombre3.setText("");
+        jTFTelefono2.setText("");
+        jCBGenero2.setSelectedIndex(0);
+        jCBCargo2.setSelectedIndex(0);
+    }
+
+    private void limpiarCamposCrear() {
         jTFDireccion.setText("");
         jTFEmail.setText("");
         jTFFechaNacimiento.setText("");
         jTFIdentificacion.setText("");
         jTFNombre.setText("");
         jTFTelefono.setText("");
-    }//GEN-LAST:event_jBLimpiarActionPerformed
+        jCBGenero.setSelectedIndex(0);
+        jCBCargo.setSelectedIndex(0);
+    }
 
-    private void jCBCargo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBCargo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCBCargo1ActionPerformed
-
-    private void jCBGenero2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBGenero2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCBGenero2ActionPerformed
-
-    private void jCBCargo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBCargo2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCBCargo2ActionPerformed
-
-    private void jPFPassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPFPassword1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jPFPassword1ActionPerformed
-
+    private void limpiarCamposConsultar() {
+        jTFIdentificacion1.setText("");
+        jTFNombre1.setText("");
+        jCBCargo1.setSelectedIndex(0);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
