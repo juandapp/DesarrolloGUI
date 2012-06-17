@@ -52,24 +52,24 @@ public class DaoVehiculo {
         LinkedList vehiculoConsulta = new LinkedList();
         String sql_select;
         sql_select = "SELECT * FROM vehiculo      ";
-        if (numerochasis_v.equals("")|| !marca_v.equals("") || !modelo_v.equals("") || !linea_v.equals("")
+        if (!numerochasis_v.equals("")|| !marca_v.equals("") || !modelo_v.equals("") || !linea_v.equals("")
                 || !color_v.equals("")) {
             sql_select += "WHERE ";
         }
-        if (numerochasis_v.equals("")) {
-            sql_select += "numerochasis_v = " + numerochasis_v + " AND ";
+        if (!numerochasis_v.equals("")) {
+            sql_select += "numerochasis_v = " +numerochasis_v+ " AND ";
         }
         if (!marca_v.equals("")) {
-            sql_select += "marca_v LIKE '%" + marca_v + "%'" + " AND ";
+            sql_select += "marca_v LIKE '%" +marca_v+ "%'" + " AND ";
         }
         if (!modelo_v.equals("")) {
-            sql_select += "modelo_v LIKE '%" + modelo_v + "%'" + " AND ";
+            sql_select += "modelo_v LIKE '%" +modelo_v+ "%'" + " AND ";
         }
         if (!linea_v.equals("")) {
-            sql_select += "linea_v LIKE '%" + linea_v + "%'" + " AND ";
+            sql_select += "linea_v LIKE '%" +linea_v+ "%'" + " AND ";
         }
         if (!color_v.equals("")) {
-            sql_select += "color_v LIKE '%" + color_v + "%'" + " AND ";
+            sql_select += "color_v LIKE '%" +color_v+ "%'" + " AND ";
         }
         sql_select = sql_select.substring(0, sql_select.length() - 5);
 
