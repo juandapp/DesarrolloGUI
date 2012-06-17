@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
-import logica.Cliente;
 import logica.Empleado;
 
 /**
@@ -73,6 +72,7 @@ public class JPUsuario extends javax.swing.JPanel {
         jTResultados = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
         jCBCargo1 = new javax.swing.JComboBox();
+        jBLimpiarConsultar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
         jTFNombre3 = new javax.swing.JTextField();
@@ -215,6 +215,11 @@ public class JPUsuario extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTResultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTResultados);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 530, 125));
@@ -225,6 +230,14 @@ public class JPUsuario extends javax.swing.JPanel {
         jCBCargo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Gerente", "Jefe de Taller", "Vendedor" }));
         jCBCargo1.setName(""); // NOI18N
         jPanel2.add(jCBCargo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 70, -1, -1));
+
+        jBLimpiarConsultar.setText("Limpiar");
+        jBLimpiarConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarConsultarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBLimpiarConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 90, -1));
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
@@ -263,6 +276,8 @@ public class JPUsuario extends javax.swing.JPanel {
         jPanel3.add(jCBCargo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
         jTFIdentificacion3.setColumns(20);
+        jTFIdentificacion3.setEditable(false);
+        jTFIdentificacion3.setEnabled(false);
         jPanel3.add(jTFIdentificacion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
         jPanel3.add(jPFPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 130, -1));
 
@@ -285,6 +300,11 @@ public class JPUsuario extends javax.swing.JPanel {
         jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         jBModificar.setText("Modificar");
+        jBModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBModificarActionPerformed(evt);
+            }
+        });
         jPanel3.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 100, -1));
 
         jTabbedPane1.addTab("Modificar", jPanel3);
@@ -324,7 +344,7 @@ public class JPUsuario extends javax.swing.JPanel {
                     jTFEmail.getText(),
                     jCBGenero.getSelectedItem().toString(),
                     jCBCargo.getSelectedItem().toString(),
-                    jPFPassword.getPassword().toString());
+                    new String(jPFPassword.getPassword()));
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println();
@@ -338,7 +358,6 @@ public class JPUsuario extends javax.swing.JPanel {
             jBConsultar.doClick();
             jTabbedPane1.setSelectedIndex(1);
             limpiarCamposCrear();
-
         }
     }//GEN-LAST:event_jBCrearActionPerformed
 
@@ -386,6 +405,54 @@ public class JPUsuario extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jBConsultarActionPerformed
 
+    private void jBLimpiarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarConsultarActionPerformed
+        limpiarCamposConsultar();
+        jBConsultar.doClick();
+    }//GEN-LAST:event_jBLimpiarConsultarActionPerformed
+
+    private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
+        int editar = -1;
+        try {
+            Integer.parseInt(jTFIdentificacion3.getText());
+            Integer.parseInt(jTFTelefono2.getText());
+            editar = controladorEmpleado.editar(
+                    Integer.parseInt(jTFIdentificacion3.getText()),
+                    jTFNombre3.getText(),
+                    jTFDireccion2.getText(),
+                    jTFTelefono2.getText(),
+                    jTFEmail2.getText(),
+                    jCBGenero2.getSelectedItem().toString(),
+                    jCBCargo2.getSelectedItem().toString(),
+                    new String(jPFPassword1.getPassword()));
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+        if (editar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo modificar el cliente", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Cliente modificado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCamposConsultar();
+            jTFIdentificacion1.setText(jTFIdentificacion3.getText());
+            jBConsultar.doClick();
+            jTabbedPane1.setSelectedIndex(1);
+            limpiarCamposModificar();
+        }
+    }//GEN-LAST:event_jBModificarActionPerformed
+
+    private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
+        int selectedRow = jTResultados.getSelectedRow();
+
+        jTFIdentificacion3.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
+        jTFNombre3.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
+        jTFDireccion2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 2));
+        jTFTelefono2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
+        jTFEmail2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 4));
+        jCBGenero2.setSelectedItem("" + jTResultados.getModel().getValueAt(selectedRow, 5));
+        jCBCargo2.setSelectedItem("" + jTResultados.getModel().getValueAt(selectedRow, 6));
+        jPFPassword1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 7));
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jTResultadosMouseClicked
+
     private void limpiarCamposModificar() {
         jTFDireccion2.setText("");
         jTFEmail2.setText("");
@@ -419,6 +486,7 @@ public class JPUsuario extends javax.swing.JPanel {
     private javax.swing.JButton jBConsultar;
     private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBLimpiar;
+    private javax.swing.JButton jBLimpiarConsultar;
     private javax.swing.JButton jBModificar;
     private javax.swing.JComboBox jCBCargo;
     private javax.swing.JComboBox jCBCargo1;

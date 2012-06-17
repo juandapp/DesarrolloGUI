@@ -24,6 +24,7 @@ public class DaoEmpleado {
     }
 
     public int guardar(Empleado empleado) {
+        System.out.println("en guardar de empleado" );
         String sql_guardar;
         sql_guardar = "INSERT INTO empleado VALUES ("
                 + empleado.getId_e().getId_p() + ", '"
@@ -46,7 +47,7 @@ public class DaoEmpleado {
     }//fin guardar
 
     public LinkedList consultar(String id_e, String nombre_e, String cargo) {
-        System.out.println("en consulta de empleado" + cargo + nombre_e + id_e);
+        
         LinkedList empleadoConsultado = new LinkedList();
         String sql_select = "SELECT * FROM empleado JOIN persona ON id_p=id_e      ";
         if (!id_e.equals("") || !nombre_e.equals("") || !cargo.equals("")) {

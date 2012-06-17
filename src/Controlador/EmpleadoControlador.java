@@ -54,7 +54,7 @@ public class EmpleadoControlador {
                 && !email_e.isEmpty() && !genero_e.isEmpty() && !genero_e.equals("Seleccionar") && !cargo_e.isEmpty()
                 && !cargo_e.equals("Seleccionar") && !contrasena_e.isEmpty()) {
             Empleado empleado = new Empleado(cargo_e, contrasena_e, new Persona(id_e, nombre_e, direccion_e, telefono_e, email_e, genero_e));
-            retorno = daoEmpleado.guardar(empleado);
+            retorno = daoEmpleado.editar(empleado);
         } else {
             retorno = -1;
         }
