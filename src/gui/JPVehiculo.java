@@ -198,11 +198,11 @@ public class JPVehiculo extends javax.swing.JPanel {
 
             },
             new String [] {
-                "No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria"
+                "No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria", "Disponible"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -403,10 +403,10 @@ public class JPVehiculo extends javax.swing.JPanel {
         try {
             consulta = vehiculoControlador.consultar(jTFNoChasis1.getText(), jTFMarca1.getText(), jTFModelo1.getText(), jTFLinea1.getText(),
                     jTFColor1.getText());
-            Object[][] s = new Object[consulta.size()][6];
+            Object[][] s = new Object[consulta.size()][7];
             for (int i = 0; i < consulta.size(); i++) {
                 Vehiculo v = (Vehiculo) consulta.get(i);
-               System.err.println("aqui"+v);
+
                 if (!v.getModelo_v().isEmpty()) {
                     s[i][0] = v.getNumerochasis_v();
                     s[i][1] = v.getLinea_v();
@@ -414,13 +414,14 @@ public class JPVehiculo extends javax.swing.JPanel {
                     s[i][3] = v.getColor_v();
                     s[i][4] = v.getModelo_v();
                     s[i][5] = v.getCojineria_v();
+                    s[i][6] = v.getDisponible_v();
                 } else {
                     s = null;
                 }
             }
-            TableModel myModel = new DefaultTableModel(s, new String[]{"No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria"}) {
+            TableModel myModel = new DefaultTableModel(s, new String[]{"No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria", "Disponible"}) {
 
-                boolean[] canEdit = new boolean[]{false, false, false, false, false, false
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false, false
                 };
 
                 @Override
@@ -439,8 +440,21 @@ public class JPVehiculo extends javax.swing.JPanel {
     private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
         // TODO add your handling code here:
         int guardar = -1;
+        Boolean disponible = null;
         System.out.println(guardar);
         try {
+            if (jCBDisponible.getSelectedIndex() == 0) {
+                disponible=null;
+            }
+            if (jCBDisponible.getSelectedIndex() == 1) {
+                disponible=true;
+            }
+            if (jCBDisponible.getSelectedIndex() == 2) {
+                disponible=false;
+            }
+           
+            
+            
             guardar = vehiculoControlador.guardar(
                     Integer.parseInt(jTFNoChasis.getText()),
                     jTFLinea.getText(),
@@ -448,24 +462,24 @@ public class JPVehiculo extends javax.swing.JPanel {
                     jTFColor.getText(),
                     jTFModelo.getText(),
                     jTFCojineria.getText(),
-                    Boolean.parseBoolean(jCBDisponible.getSelectedItem().toString()));
-            System.err.println(Boolean.parseBoolean(jCBDisponible.getSelectedItem().toString()));
+                    disponible);
+            
 
         } catch (Exception e) {
             System.err.println(guardar);
-        } 
+        }
 
-            if (guardar == -1) {
-                System.out.println(guardar);
-                JOptionPane.showMessageDialog(this, "No su pudo crear el Vehiculo", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "Vehiculo creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
-                jTFNoChasis1.setText(jTFNoChasis.getText());
-                jBConsultar.doClick();
-                jBLimpiar.doClick();
-                jTabbedPane1.setSelectedIndex(1);
+        if (guardar == -1) {
+            System.out.println(guardar);
+            JOptionPane.showMessageDialog(this, "No su pudo crear el Vehiculo", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Vehiculo creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            jTFNoChasis1.setText(jTFNoChasis.getText());
+            jBConsultar.doClick();
+            jBLimpiar.doClick();
+            jTabbedPane1.setSelectedIndex(1);
 
-            }       
+        }
 
 
     }//GEN-LAST:event_CrearActionPerformed
@@ -476,7 +490,7 @@ public class JPVehiculo extends javax.swing.JPanel {
 
     private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
         // TODO add your handling code here:
-          int selectedRow = jTResultados.getSelectedRow();
+        int selectedRow = jTResultados.getSelectedRow();
         jTFNoChasis2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
         jTFLinea2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
         jTFMarca2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 2));
@@ -513,8 +527,6 @@ public class JPVehiculo extends javax.swing.JPanel {
         jTFNoChasis1.setText("");
         jTFColor1.setText("");
     }
-
-   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Crear;
     private javax.swing.JButton jBConsultar;
