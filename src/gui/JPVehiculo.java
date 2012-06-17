@@ -321,7 +321,7 @@ public class JPVehiculo extends javax.swing.JPanel {
         jPanel3.add(jLabel29);
         jLabel29.setBounds(10, 200, 120, 14);
 
-        jCBDisponible1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "True", "False" }));
+        jCBDisponible1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "true", "false" }));
         jPanel3.add(jCBDisponible1);
         jCBDisponible1.setBounds(150, 210, 120, 20);
 
@@ -508,6 +508,7 @@ public class JPVehiculo extends javax.swing.JPanel {
         jTFColor2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
         jTFModelo2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 4));
         jTFCojineria1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 5));
+        jCBDisponible1.setSelectedItem("" + jTResultados.getModel().getValueAt(selectedRow, 6));
         jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jTResultadosMouseClicked
     private void limpiarCamposModificar() {
