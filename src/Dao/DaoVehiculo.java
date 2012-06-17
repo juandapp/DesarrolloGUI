@@ -80,7 +80,7 @@ public class DaoVehiculo {
 
             while (tabla.next()) {
                 Vehiculo v = new Vehiculo();
-                v.setNumerochasis_v(Integer.parseInt(tabla.getString("numero_chasis_v")));
+                v.setNumerochasis_v(Integer.parseInt(tabla.getString("numerochasis_v")));
                 v.setLinea_v(tabla.getString("linea_v"));
                 v.setMarca_v(tabla.getString("marca_v"));
                 v.setColor_v(tabla.getString("color_v"));
@@ -107,14 +107,14 @@ public class DaoVehiculo {
     public int editar(Vehiculo v) {
 
         String sql_update;
-        sql_update = "UPDATE vehiculo SET"
-                + "linea_v='" + v.getLinea_v() + "',"
-                + "marca_v='" + v.getMarca_v() + "',"
-                + "color_v='" + v.getColor_v() + "',"
-                + "modelo_v='" + v.getModelo_v() + "',"
-                + "cojineria_v='" + v.getCojineria_v() + "',"
-                + "disponible_v=" + v.getDisponible_v() + ""
-                + "WHERE numerochasis_v=" + v.getNumerochasis_v() + "";
+        sql_update = "UPDATE vehiculo SET "
+                + "linea_v='" + v.getLinea_v() + "', "
+                + "marca_v='" + v.getMarca_v() + "', "
+                + "color_v='" + v.getColor_v() + "', "
+                + "modelo_v='" + v.getModelo_v() + "', "
+                + "cojineria_v='" + v.getCojineria_v() + "', "
+                + "disponible_v='" + v.getDisponible_v() + "' "
+                + "WHERE numerochasis_v=" + v.getNumerochasis_v();
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

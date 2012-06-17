@@ -42,7 +42,7 @@ public class VehiculoControlador {
 
     public int editar(int numerochasis_v, String linea_v, String marca_v, String color_v, String modelo_v, String cojineria_v, Boolean disponible_v) {
         if (!linea_v.isEmpty() && !marca_v.isEmpty() && !color_v.isEmpty()
-                && !modelo_v.isEmpty() && !cojineria_v.isEmpty() && numerochasis_v > 0 && disponible_v != null) {
+            && !modelo_v.isEmpty() && !cojineria_v.isEmpty() && numerochasis_v > 0 && disponible_v != null) {
             Vehiculo veh = new Vehiculo(numerochasis_v, linea_v, marca_v, color_v, modelo_v, cojineria_v, disponible_v);
 
 

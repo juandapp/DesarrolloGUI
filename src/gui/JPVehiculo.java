@@ -209,6 +209,11 @@ public class JPVehiculo extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTResultados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTResultadosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTResultados);
 
         jPanel2.add(jScrollPane1);
@@ -468,6 +473,18 @@ public class JPVehiculo extends javax.swing.JPanel {
     private void jCBDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBDisponibleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCBDisponibleActionPerformed
+
+    private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
+        // TODO add your handling code here:
+          int selectedRow = jTResultados.getSelectedRow();
+        jTFNoChasis2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
+        jTFLinea2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
+        jTFMarca2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 2));
+        jTFColor2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
+        jTFModelo2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 4));
+        jTFCojineria1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 5));
+        jTabbedPane1.setSelectedIndex(2);
+    }//GEN-LAST:event_jTResultadosMouseClicked
     private void limpiarCamposModificar() {
         jTFMarca2.setText("");
         jTFLinea2.setText("");
@@ -497,16 +514,7 @@ public class JPVehiculo extends javax.swing.JPanel {
         jTFColor1.setText("");
     }
 
-    private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {
-        int selectedRow = jTResultados.getSelectedRow();
-        jTFNoChasis2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
-        jTFLinea2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
-        jTFMarca2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 2));
-        jTFColor2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
-        jTFModelo2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 4));
-        jTFCojineria1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 5));
-        jTabbedPane1.setSelectedIndex(2);
-    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Crear;
     private javax.swing.JButton jBConsultar;
