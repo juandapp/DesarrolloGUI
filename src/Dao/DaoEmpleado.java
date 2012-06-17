@@ -46,7 +46,7 @@ public class DaoEmpleado {
     }//fin guardar
 
     public LinkedList consultar(String id_e, String nombre_e, String cargo) {
-        System.out.println("en consulta de empleado" + cargo);
+        System.out.println("en consulta de empleado" + cargo + nombre_e + id_e);
         LinkedList empleadoConsultado = new LinkedList();
         String sql_select = "SELECT * FROM empleado JOIN persona ON id_p=id_e      ";
         if (!id_e.equals("") || !nombre_e.equals("") || !cargo.equals("")) {
@@ -58,7 +58,10 @@ public class DaoEmpleado {
         if (!nombre_e.equals("")) {
             sql_select += "nombre_p LIKE '%" + nombre_e + "%'" + " AND ";
         }
-
+        if (!cargo.equals("")) {
+            sql_select += "tipo_e LIKE '%" + cargo + "%'" + " AND ";
+        }
+        System.out.println("sqlllllll"+sql_select);
         sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
             Connection conn = fachada.conectar();
