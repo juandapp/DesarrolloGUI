@@ -421,7 +421,7 @@ public class JPCliente extends javax.swing.JPanel {
             TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre",
                         "Direccion", "Telefono", "Email", "Genero"}) {
 
-                boolean[] canEdit = new boolean[]{false, false, false, false
+                boolean[] canEdit = new boolean[]{false, false, false, false,false,false
                 };
 
                 @Override
