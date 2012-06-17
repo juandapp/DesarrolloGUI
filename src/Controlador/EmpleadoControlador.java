@@ -41,9 +41,9 @@ public class EmpleadoControlador {
         return retorno;
     }
 
-    public LinkedList consultar(String id_e, String nombre_e, String cargo) {
+    public LinkedList consultar(String id_e, String nombre_e, String cargo_e) {
         LinkedList empleadoConsultados = new LinkedList();
-        empleadoConsultados = daoEmpleado.consultar(id_e, nombre_e, cargo);
+        empleadoConsultados = daoEmpleado.consultar(id_e, nombre_e, cargo_e);
         return empleadoConsultados;
     }
 
