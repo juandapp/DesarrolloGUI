@@ -370,13 +370,13 @@ public class JPVehiculo extends javax.swing.JPanel {
         int editar = -1;
         Boolean disponible=null;
         try {
-            if (jCBDisponible.getSelectedIndex() == 0) {
+            if (jCBDisponible1.getSelectedIndex() == 0) {
                 disponible=null;
             }
-            if (jCBDisponible.getSelectedIndex() == 1) {
+            if (jCBDisponible1.getSelectedIndex() == 1) {
                 disponible=true;
             }
-            if (jCBDisponible.getSelectedIndex() == 2) {
+            if (jCBDisponible1.getSelectedIndex() == 2) {
                 disponible=false;
             }
             
