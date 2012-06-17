@@ -4,6 +4,14 @@
  */
 package gui;
 
+import Controlador.VehiculoControlador;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import logica.Vehiculo;
+
 /**
  *
  * @author juandapp
@@ -13,8 +21,11 @@ public class JPVehiculo extends javax.swing.JPanel {
     /**
      * Creates new form JPCliente
      */
+    VehiculoControlador vehiculoControlador;
+
     public JPVehiculo() {
         initComponents();
+        vehiculoControlador = new VehiculoControlador();
     }
 
     /**
@@ -44,11 +55,9 @@ public class JPVehiculo extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jCBDisponible = new javax.swing.JComboBox();
-        jLabel15 = new javax.swing.JLabel();
         jBLimpiar = new javax.swing.JButton();
-        jBCrear = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jCBTipoCaja1 = new javax.swing.JComboBox();
+        Crear = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jBConsultar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -63,22 +72,23 @@ public class JPVehiculo extends javax.swing.JPanel {
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jTFColor1 = new javax.swing.JTextField();
+        jBLimpiarConsultar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jLabel19 = new javax.swing.JLabel();
-        jTFIdentificacion2 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jTFNombre2 = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jCBGenero1 = new javax.swing.JComboBox();
-        jTFFechaNacimiento1 = new javax.swing.JTextField();
-        jTFTelefono1 = new javax.swing.JTextField();
-        jTFDireccion1 = new javax.swing.JTextField();
-        jTFEmail1 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jBModificar = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jTFModelo2 = new javax.swing.JTextField();
+        jTFLinea2 = new javax.swing.JTextField();
+        jTFMarca2 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jCBDisponible1 = new javax.swing.JComboBox();
+        jTFCojineria1 = new javax.swing.JTextField();
+        jTFColor2 = new javax.swing.JTextField();
+        jTFNoChasis2 = new javax.swing.JTextField();
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
         jPanel5.setLayout(null);
@@ -92,59 +102,61 @@ public class JPVehiculo extends javax.swing.JPanel {
 
         jLabel1.setText("Modelo");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 20, 53, 18);
+        jLabel1.setBounds(10, 20, 80, 14);
 
         jTFModelo.setColumns(20);
         jPanel1.add(jTFModelo);
-        jTFModelo.setBounds(90, 10, 270, 28);
+        jTFModelo.setBounds(140, 10, 166, 20);
 
         jLabel2.setText("Linea");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 50, 37, 18);
+        jLabel2.setBounds(10, 50, 100, 14);
 
         jTFLinea.setColumns(20);
         jPanel1.add(jTFLinea);
-        jTFLinea.setBounds(90, 40, 270, 28);
+        jTFLinea.setBounds(140, 40, 166, 20);
 
         jLabel3.setText("Marca");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 80, 43, 18);
+        jLabel3.setBounds(10, 80, 100, 14);
 
         jTFMarca.setColumns(20);
         jPanel1.add(jTFMarca);
-        jTFMarca.setBounds(90, 70, 270, 28);
+        jTFMarca.setBounds(140, 70, 166, 20);
 
         jTFNoChasis.setColumns(20);
         jPanel1.add(jTFNoChasis);
-        jTFNoChasis.setBounds(90, 100, 270, 28);
+        jTFNoChasis.setBounds(140, 100, 166, 20);
 
         jTFColor.setColumns(20);
         jPanel1.add(jTFColor);
-        jTFColor.setBounds(90, 130, 270, 28);
+        jTFColor.setBounds(140, 130, 166, 20);
 
         jTFCojineria.setColumns(20);
         jPanel1.add(jTFCojineria);
-        jTFCojineria.setBounds(90, 160, 270, 26);
+        jTFCojineria.setBounds(140, 160, 166, 26);
 
         jLabel4.setText("No. Chasis");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 110, 71, 18);
+        jLabel4.setBounds(10, 110, 110, 14);
 
         jLabel5.setText("Color");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 140, 38, 18);
+        jLabel5.setBounds(10, 140, 100, 14);
 
         jLabel7.setText("Cojineria");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 170, 60, 18);
+        jLabel7.setBounds(10, 170, 110, 14);
 
         jCBDisponible.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "True", "False" }));
+        jCBDisponible.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jCBDisponible.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBDisponibleActionPerformed(evt);
+            }
+        });
         jPanel1.add(jCBDisponible);
-        jCBDisponible.setBounds(90, 220, 120, 28);
-
-        jLabel15.setText("Tipo Caja");
-        jPanel1.add(jLabel15);
-        jLabel15.setBounds(10, 200, 62, 18);
+        jCBDisponible.setBounds(140, 200, 120, 20);
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -153,38 +165,44 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jBLimpiar);
-        jBLimpiar.setBounds(142, 260, 90, 30);
-
-        jBCrear.setText("Crear");
-        jPanel1.add(jBCrear);
-        jBCrear.setBounds(240, 260, 70, 30);
+        jBLimpiar.setBounds(170, 250, 90, 23);
 
         jLabel6.setText("Disponible");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(10, 230, 73, 18);
+        jLabel6.setBounds(10, 210, 110, 14);
 
-        jCBTipoCaja1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "Automatico", "Mecanico" }));
-        jPanel1.add(jCBTipoCaja1);
-        jCBTipoCaja1.setBounds(90, 190, 118, 28);
+        Crear.setText("Crear");
+        Crear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Crear);
+        Crear.setBounds(80, 250, 90, 23);
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
         jPanel2.setLayout(null);
 
         jBConsultar.setText("Consultar");
+        jBConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultarActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBConsultar);
-        jBConsultar.setBounds(380, 10, 90, 30);
+        jBConsultar.setBounds(380, 10, 90, 23);
 
         jTResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria", "Disponible"
+                "No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -194,111 +212,62 @@ public class JPVehiculo extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTResultados);
         jTResultados.getColumnModel().getColumn(4).setResizable(false);
         jTResultados.getColumnModel().getColumn(5).setResizable(false);
-        jTResultados.getColumnModel().getColumn(6).setResizable(false);
 
         jPanel2.add(jScrollPane1);
         jScrollPane1.setBounds(20, 170, 550, 125);
 
         jLabel20.setText("No. Chasis");
         jPanel2.add(jLabel20);
-        jLabel20.setBounds(10, 110, 71, 18);
+        jLabel20.setBounds(10, 110, 51, 14);
 
         jLabel21.setText("Marca");
         jPanel2.add(jLabel21);
-        jLabel21.setBounds(10, 80, 43, 18);
+        jLabel21.setBounds(10, 80, 29, 14);
 
         jLabel22.setText("Linea");
         jPanel2.add(jLabel22);
-        jLabel22.setBounds(10, 50, 37, 18);
+        jLabel22.setBounds(10, 50, 25, 14);
 
         jTFLinea1.setColumns(20);
         jPanel2.add(jTFLinea1);
-        jTFLinea1.setBounds(90, 40, 270, 28);
+        jTFLinea1.setBounds(90, 40, 166, 20);
 
         jTFMarca1.setColumns(20);
         jPanel2.add(jTFMarca1);
-        jTFMarca1.setBounds(90, 70, 270, 28);
+        jTFMarca1.setBounds(90, 70, 166, 20);
 
         jTFNoChasis1.setColumns(20);
         jPanel2.add(jTFNoChasis1);
-        jTFNoChasis1.setBounds(90, 100, 270, 28);
+        jTFNoChasis1.setBounds(90, 100, 166, 20);
 
         jTFModelo1.setColumns(20);
         jPanel2.add(jTFModelo1);
-        jTFModelo1.setBounds(90, 10, 270, 28);
+        jTFModelo1.setBounds(90, 10, 166, 20);
 
         jLabel23.setText("Modelo");
         jPanel2.add(jLabel23);
-        jLabel23.setBounds(10, 20, 53, 18);
+        jLabel23.setBounds(10, 20, 34, 14);
 
         jLabel24.setText("Color");
         jPanel2.add(jLabel24);
-        jLabel24.setBounds(10, 140, 38, 18);
+        jLabel24.setBounds(10, 140, 25, 14);
 
         jTFColor1.setColumns(20);
         jPanel2.add(jTFColor1);
-        jTFColor1.setBounds(90, 130, 270, 28);
+        jTFColor1.setBounds(90, 130, 166, 20);
+
+        jBLimpiarConsultar.setText("Limpiar");
+        jBLimpiarConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarConsultarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBLimpiarConsultar);
+        jBLimpiarConsultar.setBounds(380, 40, 90, 23);
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
         jPanel3.setLayout(null);
-
-        jLabel19.setText("Identificacion");
-        jPanel3.add(jLabel19);
-        jLabel19.setBounds(10, 20, 93, 18);
-
-        jTFIdentificacion2.setColumns(20);
-        jPanel3.add(jTFIdentificacion2);
-        jTFIdentificacion2.setBounds(160, 10, 270, 28);
-
-        jLabel10.setText("Nombre");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(10, 50, 57, 18);
-
-        jTFNombre2.setColumns(20);
-        jPanel3.add(jTFNombre2);
-        jTFNombre2.setBounds(160, 40, 270, 28);
-
-        jLabel12.setText("Genero");
-        jPanel3.add(jLabel12);
-        jLabel12.setBounds(10, 80, 52, 18);
-
-        jCBGenero1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
-        jCBGenero1.setName(""); // NOI18N
-        jPanel3.add(jCBGenero1);
-        jCBGenero1.setBounds(160, 70, 119, 28);
-
-        jTFFechaNacimiento1.setColumns(20);
-        jPanel3.add(jTFFechaNacimiento1);
-        jTFFechaNacimiento1.setBounds(160, 100, 270, 28);
-
-        jTFTelefono1.setColumns(20);
-        jPanel3.add(jTFTelefono1);
-        jTFTelefono1.setBounds(160, 130, 270, 28);
-
-        jTFDireccion1.setColumns(20);
-        jPanel3.add(jTFDireccion1);
-        jTFDireccion1.setBounds(160, 160, 270, 28);
-
-        jTFEmail1.setColumns(20);
-        jPanel3.add(jTFEmail1);
-        jTFEmail1.setBounds(160, 190, 270, 28);
-
-        jLabel18.setText("Email");
-        jPanel3.add(jLabel18);
-        jLabel18.setBounds(10, 200, 37, 18);
-
-        jLabel17.setText("Direccion");
-        jPanel3.add(jLabel17);
-        jLabel17.setBounds(10, 170, 66, 18);
-
-        jLabel11.setText("Telefono");
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(10, 140, 64, 18);
-
-        jLabel14.setText("Fecha de nacimiento");
-        jPanel3.add(jLabel14);
-        jLabel14.setBounds(10, 110, 143, 18);
 
         jBModificar.setText("Modificar");
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -307,7 +276,64 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel3.add(jBModificar);
-        jBModificar.setBounds(331, 230, 90, 30);
+        jBModificar.setBounds(160, 240, 90, 23);
+
+        jLabel8.setText("Modelo");
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(10, 20, 34, 14);
+
+        jTFModelo2.setColumns(20);
+        jPanel3.add(jTFModelo2);
+        jTFModelo2.setBounds(90, 10, 166, 20);
+
+        jTFLinea2.setColumns(20);
+        jPanel3.add(jTFLinea2);
+        jTFLinea2.setBounds(90, 40, 166, 20);
+
+        jTFMarca2.setColumns(20);
+        jPanel3.add(jTFMarca2);
+        jTFMarca2.setBounds(90, 70, 166, 20);
+
+        jLabel9.setText("Linea");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(10, 50, 25, 14);
+
+        jLabel16.setText("Marca");
+        jPanel3.add(jLabel16);
+        jLabel16.setBounds(10, 80, 29, 14);
+
+        jLabel25.setText("No. Chasis");
+        jPanel3.add(jLabel25);
+        jLabel25.setBounds(10, 110, 51, 14);
+
+        jLabel26.setText("Color");
+        jPanel3.add(jLabel26);
+        jLabel26.setBounds(10, 140, 25, 14);
+
+        jLabel27.setText("Cojineria");
+        jPanel3.add(jLabel27);
+        jLabel27.setBounds(10, 170, 42, 14);
+
+        jLabel29.setText("Disponible");
+        jPanel3.add(jLabel29);
+        jLabel29.setBounds(10, 200, 48, 14);
+
+        jCBDisponible1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "True", "False" }));
+        jPanel3.add(jCBDisponible1);
+        jCBDisponible1.setBounds(90, 200, 120, 20);
+
+        jTFCojineria1.setColumns(20);
+        jPanel3.add(jTFCojineria1);
+        jTFCojineria1.setBounds(90, 160, 166, 26);
+
+        jTFColor2.setColumns(20);
+        jPanel3.add(jTFColor2);
+        jTFColor2.setBounds(90, 130, 166, 20);
+
+        jTFNoChasis2.setColumns(20);
+        jTFNoChasis2.setEditable(false);
+        jPanel3.add(jTFNoChasis2);
+        jTFNoChasis2.setBounds(90, 100, 166, 20);
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 
@@ -326,10 +352,6 @@ public class JPVehiculo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBModificarActionPerformed
-
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
         jCBDisponible.setSelectedIndex(0);
         jTFCojineria.setText("");
@@ -340,35 +362,180 @@ public class JPVehiculo extends javax.swing.JPanel {
         jTFNoChasis.setText("");
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
+    private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
+        // TODO add your handling code here:
+        int editar = -1;
+        try {
+            editar = vehiculoControlador.editar(Integer.parseInt(jTFNoChasis2.getText()),
+                    jTFLinea2.getText(),
+                    jTFMarca2.getText(),
+                    jTFColor2.getText(),
+                    jTFModelo2.getText(),
+                    jTFCojineria1.getText(),
+                    Boolean.parseBoolean(jCBDisponible1.getSelectedItem().toString()));
+
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+        if (editar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo modificar el vehiculo", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Vehiculo modificado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCamposConsultar();
+            jTFNoChasis1.setText(jTFNoChasis2.getText());
+            jBConsultar.doClick();
+            jTabbedPane1.setSelectedIndex(1);
+            limpiarCamposModificar();
+        }
+    }//GEN-LAST:event_jBModificarActionPerformed
+
+    private void jBLimpiarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarConsultarActionPerformed
+        limpiarCamposConsultar();
+        jBConsultar.doClick();
+    }//GEN-LAST:event_jBLimpiarConsultarActionPerformed
+
+    private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
+        // TODO add your handling code here:
+        LinkedList consulta = new LinkedList();
+        try {
+            consulta = vehiculoControlador.consultar(jTFNoChasis1.getText(), jTFMarca1.getText(), jTFModelo1.getText(), jTFLinea1.getText(),
+                    jTFColor1.getText());
+            Object[][] s = new Object[consulta.size()][6];
+            for (int i = 0; i < consulta.size(); i++) {
+                Vehiculo v = (Vehiculo) consulta.get(i);
+                if (v.getModelo_v() != null) {
+                    s[i][0] = v.getNumerochasis_v();
+                    s[i][1] = v.getLinea_v();
+                    s[i][2] = v.getMarca_v();
+                    s[i][3] = v.getColor_v();
+                    s[i][4] = v.getModelo_v();
+                    s[i][5] = v.getCojineria_v();
+                } else {
+                    s = null;
+                }
+            }
+            TableModel myModel = new DefaultTableModel(s, new String[]{"No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria"}) {
+
+                boolean[] canEdit = new boolean[]{false, false, false, false
+                };
+
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            };
+            ///remover filas
+            jTResultados.setModel(myModel);
+            jTResultados.setRowSorter(new TableRowSorter(myModel));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jBConsultarActionPerformed
+
+    private void CrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearActionPerformed
+        // TODO add your handling code here:
+        int guardar = -1;
+        System.out.println(guardar);
+        try {
+            guardar = vehiculoControlador.guardar(
+                    Integer.parseInt(jTFNoChasis.getText()),
+                    jTFLinea.getText(),
+                    jTFMarca.getText(),
+                    jTFColor.getText(),
+                    jTFModelo.getText(),
+                    jTFCojineria.getText(),
+                    Boolean.parseBoolean(jCBDisponible.getSelectedItem().toString()));
+            System.err.println(Boolean.parseBoolean(jCBDisponible.getSelectedItem().toString()));
+
+        } catch (Exception e) {
+            System.err.println(guardar);
+        } 
+
+            if (guardar == -1) {
+                System.out.println(guardar);
+                JOptionPane.showMessageDialog(this, "No su pudo crear el Vehiculo", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, "Vehiculo creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+                jTFNoChasis1.setText(jTFNoChasis.getText());
+                jBConsultar.doClick();
+                jBLimpiar.doClick();
+                jTabbedPane1.setSelectedIndex(1);
+
+            }       
+
+
+    }//GEN-LAST:event_CrearActionPerformed
+
+    private void jCBDisponibleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBDisponibleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCBDisponibleActionPerformed
+    private void limpiarCamposModificar() {
+        jTFMarca2.setText("");
+        jTFLinea2.setText("");
+        jTFModelo2.setText("");
+        jTFNoChasis2.setText("");
+        jTFColor2.setText("");
+        jTFCojineria1.setText("");
+        jCBDisponible1.setSelectedIndex(0);
+
+    }
+
+    private void limpiarCamposCrear() {
+        jTFMarca.setText("");
+        jTFLinea.setText("");
+        jTFModelo.setText("");
+        jTFNoChasis.setText("");
+        jTFColor.setText("");
+        jTFCojineria.setText("");
+        jCBDisponible.setSelectedIndex(0);
+    }
+
+    private void limpiarCamposConsultar() {
+        jTFMarca1.setText("");
+        jTFLinea1.setText("");
+        jTFModelo1.setText("");
+        jTFNoChasis1.setText("");
+        jTFColor1.setText("");
+    }
+
+    private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {
+        int selectedRow = jTResultados.getSelectedRow();
+        jTFNoChasis2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
+        jTFLinea2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
+        jTFMarca2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 2));
+        jTFColor2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
+        jTFModelo2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 4));
+        jTFCojineria1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 5));
+        jTabbedPane1.setSelectedIndex(2);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Crear;
     private javax.swing.JButton jBConsultar;
-    private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBLimpiar;
+    private javax.swing.JButton jBLimpiarConsultar;
     private javax.swing.JButton jBModificar;
     private javax.swing.JComboBox jCBDisponible;
-    private javax.swing.JComboBox jCBGenero1;
-    private javax.swing.JComboBox jCBTipoCaja1;
+    private javax.swing.JComboBox jCBDisponible1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -376,22 +543,22 @@ public class JPVehiculo extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTFCojineria;
+    private javax.swing.JTextField jTFCojineria1;
     private javax.swing.JTextField jTFColor;
     private javax.swing.JTextField jTFColor1;
-    private javax.swing.JTextField jTFDireccion1;
-    private javax.swing.JTextField jTFEmail1;
-    private javax.swing.JTextField jTFFechaNacimiento1;
-    private javax.swing.JTextField jTFIdentificacion2;
+    private javax.swing.JTextField jTFColor2;
     private javax.swing.JTextField jTFLinea;
     private javax.swing.JTextField jTFLinea1;
+    private javax.swing.JTextField jTFLinea2;
     private javax.swing.JTextField jTFMarca;
     private javax.swing.JTextField jTFMarca1;
+    private javax.swing.JTextField jTFMarca2;
     private javax.swing.JTextField jTFModelo;
     private javax.swing.JTextField jTFModelo1;
+    private javax.swing.JTextField jTFModelo2;
     private javax.swing.JTextField jTFNoChasis;
     private javax.swing.JTextField jTFNoChasis1;
-    private javax.swing.JTextField jTFNombre2;
-    private javax.swing.JTextField jTFTelefono1;
+    private javax.swing.JTextField jTFNoChasis2;
     private javax.swing.JTable jTResultados;
     private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
