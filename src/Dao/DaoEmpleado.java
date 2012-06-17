@@ -1,4 +1,3 @@
-
 package Dao;
 
 import accesoDatos.FachadaBD;
@@ -6,19 +5,23 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.LinkedList;
+import logica.Cliente;
 import logica.Empleado;
+import logica.Persona;
 
 /**
  *
  * @author juandrd
  */
 public class DaoEmpleado {
+
     FachadaBD fachada;
     DaoPersona daoPersona;
 
     public DaoEmpleado() {
         fachada = new FachadaBD();
-    }//
+    }
 
     public int guardar(Empleado empleado) {
         String sql_guardar;
@@ -26,6 +29,8 @@ public class DaoEmpleado {
                 + empleado.getId_e().getId_p() + ", '"
                 + empleado.getTipo_e() + "', '"
                 + empleado.getContrasena_e() + "')";
+        daoPersona.guardar(empleado.getId_e());
+
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
@@ -40,47 +45,61 @@ public class DaoEmpleado {
         return -1;
     }//fin guardar
 
-    public Empleado consultar(int id_e) {
-        Empleado e = new Empleado();
-        String sql_select;
-        int id_e_consulta=0;
-        sql_select = "SELECT * FROM empleado WHERE id_e=" + id_e + "";
+    public LinkedList consultar(String id_e, String nombre_e, String cargo_e) {
+        LinkedList empleadoConsultado = new LinkedList();
+        String sql_select = "SELECT * FROM empleado JOIN persona ON id_p=id_e      ";
+        if (!id_e.equals("") || !nombre_e.equals("") || !cargo_e.equals("")) {
+            sql_select += "WHERE ";
+        }
+        if (!id_e.equals("")) {
+            sql_select += "id_e = " + id_e + " AND ";
+        }
+        if (!nombre_e.equals("")) {
+            sql_select += "nombre_p LIKE '%" + nombre_e + "%'" + " AND ";
+        }
+        if (!cargo_e.equals("")) {
+            sql_select += "cargo_e LIKE '%" + cargo_e + "%'" + " AND ";
+        }
+        sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
-
-            //
-            
-            if (tabla.next()) {
-                id_e_consulta=Integer.parseInt(tabla.getString("id_e"));
-                e.setTipo_e(tabla.getString("tipo_e"));
-                e.setContrasena_e(tabla.getString("contrasena_e"));
-                
+            while (tabla.next()) {
+                Empleado empleado = new Empleado();
+                Persona persona = new Persona();
+                persona.setId_p(Integer.parseInt(tabla.getString("id_p")));
+                persona.setNombre_p(tabla.getString("nombre_p"));
+                persona.setDireccion_p(tabla.getString("direccion_p"));
+                persona.setTelefono_p(tabla.getString("telefono_p"));
+                persona.setEmail_p(tabla.getString("email_p"));
+                persona.setGenero_p(tabla.getString("genero_p"));
+                empleado.setId_e(persona);
+                empleado.setTipo_e(tabla.getString("tipo_e"));
+                empleado.setContrasena_e(tabla.getString("contrasena_e"));
+                empleadoConsultado.add(empleado);
             }
-            
-          //  e.setId_e(daoPersona.consultar(id_e_consulta));
-
             conn.close();
             System.out.println("Conexion cerrada");
-            return e;
+            return empleadoConsultado;
 
-        } catch (SQLException ex) {
-            System.out.println(ex);
-        } catch (Exception ex) {
-            System.out.println(ex);
+        } catch (SQLException e) {
+            System.out.println(e);
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
         return null;
     }
 
-    public int editar(Empleado e) {
+    public int editar(Empleado empleado) {
 
         String sql_update;
-        sql_update = "UPDATE empleado SET"
-                + "tipo_e='" + e.getTipo_e() + "'"
-                + "contrasena_e='" + e.getContrasena_e() + "'"
-                + "WHERE id_e=" + e.getId_e().getId_p() + "";
+        sql_update = "UPDATE empleado SET "
+                + "tipo_e='" + empleado.getTipo_e() + "',"
+                + "contrasena_e='" + empleado.getContrasena_e() + "' "
+                + "WHERE id_e=" + empleado.getId_e().getId_p() + "";
+        daoPersona.editar(empleado.getId_e());
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();

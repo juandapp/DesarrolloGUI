@@ -52,7 +52,7 @@ public class ClienteControlador {
             Cliente cliente = new Cliente(new Persona(id_c, nombre_c, direccion_c, telefono_c, email_c, genero_c));
             retorno = daoCliente.editar(cliente);
         } else {
-            retorno = -1;;
+            retorno = -1;
         }
         return retorno;
     }

@@ -14,10 +14,13 @@ public class Empleado {
 
     public Empleado() {
     }
-    
-    public Empleado(Persona id_e) {
-        this.id_e=id_e;
+
+    public Empleado(String tipo_e, String contrasena_e, Persona id_e) {
+        this.tipo_e = tipo_e;
+        this.contrasena_e = contrasena_e;
+        this.id_e = id_e;
     }
+    
 
     public Persona getId_e() {
         return id_e;

@@ -5,58 +5,59 @@
 package Controlador;
 
 import Dao.DaoEmpleado;
+import java.util.LinkedList;
+import logica.Cliente;
 import logica.Empleado;
 import logica.Persona;
 
 /**
  *
- * 
+ *
  * @author juandapp
  */
 public class EmpleadoControlador {
+
     DaoEmpleado daoEmpleado;
-     PersonaControlador controladorPersona;
+    //PersonaControlador controladorPersona;
 
     public EmpleadoControlador() {
         daoEmpleado = new DaoEmpleado();
     }
 
-    public int guardar(int id_c,String nombre_p,String direccion_p,String telefono_p,
-            String email_p,String genero_p) {	  	
-        if (!String.valueOf(id_c).isEmpty() && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && !email_p.isEmpty() && !genero_p.isEmpty()) {
-	  	
-           Persona persona = new Persona(id_c, nombre_p, direccion_p, telefono_p, email_p, genero_p);
-	  	
-          //  int retorno = daoEmpleado.guardar(persona);
-	  	
-          return retorno;
-	  	
+    public int guardar(int id_e, String nombre_e, String direccion_e, String telefono_e,
+            String email_e, String genero_e, String cargo_e, String contrasena_e) {
+
+        int retorno = 0;
+
+        if (!String.valueOf(id_e).isEmpty() && !nombre_e.isEmpty() && !direccion_e.isEmpty() && !telefono_e.isEmpty()
+                && !email_e.isEmpty() && !genero_e.isEmpty() && !genero_e.equals("Seleccionar") && !cargo_e.isEmpty()
+                && !cargo_e.equals("Seleccionar") && !contrasena_e.isEmpty()) {
+
+            Empleado empleado = new Empleado(cargo_e, contrasena_e, new Persona(id_e, nombre_e, direccion_e, telefono_e, email_e, genero_e));
+            retorno = daoEmpleado.guardar(empleado);
         } else {
-	  	
-           return -1;
+            retorno = -1;
         }
+        return retorno;
     }
 
-    public Empleado consultar(int id_c) {
-        Empleado cli;
-        cli = daoEmpleado.consultar(id_c);
-        return cli;
+    public LinkedList consultar(String id_e, String nombre_e, String cargo_e) {
+        LinkedList empleadoConsultados = new LinkedList();
+        empleadoConsultados = daoEmpleado.consultar(id_e, nombre_e, cargo_e);
+        return empleadoConsultados;
     }
-    
-    public int editar(int id_c,String nombre_p,String direccion_p,String telefono_p,
-            String email_p,String genero_p) {
-        if (id_c > 0 && !nombre_p.isEmpty() && !direccion_p.isEmpty() && !telefono_p.isEmpty() && 
-                !email_p.isEmpty() && genero_p.isEmpty()) {
-            
-            Persona per=controladorPersona.guardar(id_c, nombre_p, direccion_p, telefono_p, email_p, genero_p);
-            Empleado emp= new Empleado(per);
-            
-            int retorno = daoEmpleado.editar(emp);
-            return retorno;
+
+    public int editar(int id_e, String nombre_e, String direccion_e, String telefono_e,
+            String email_e, String genero_e, String cargo_e, String contrasena_e) {
+        int retorno = 0;
+        if (!String.valueOf(id_e).isEmpty() && !nombre_e.isEmpty() && !direccion_e.isEmpty() && !telefono_e.isEmpty()
+                && !email_e.isEmpty() && !genero_e.isEmpty() && !genero_e.equals("Seleccionar") && !cargo_e.isEmpty()
+                && !cargo_e.equals("Seleccionar") && !contrasena_e.isEmpty()) {
+            Empleado empleado = new Empleado(cargo_e, contrasena_e, new Persona(id_e, nombre_e, direccion_e, telefono_e, email_e, genero_e));
+            retorno = daoEmpleado.guardar(empleado);
         } else {
-            return -1;
+            retorno = -1;
         }
+        return retorno;
     }
-    
-    
 }

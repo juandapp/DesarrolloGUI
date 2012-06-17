@@ -498,7 +498,7 @@
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-                <Property name="useNullLayout" type="boolean" value="true"/>
+                <Property name="useNullLayout" type="boolean" value="false"/>
               </Layout>
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel23">
@@ -629,7 +629,7 @@
                 <Component class="javax.swing.JPasswordField" name="jPFPassword1">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="170" y="260" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="170" y="260" width="130" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

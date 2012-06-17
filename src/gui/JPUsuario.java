@@ -4,6 +4,7 @@
  */
 package gui;
 
+import Controlador.EmpleadoControlador;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,8 +16,11 @@ public class JPUsuario extends javax.swing.JPanel {
     /**
      * Creates new form JPCliente
      */
+    EmpleadoControlador controladorEmpleado;
+    
     public JPUsuario() {
         initComponents();
+        controladorEmpleado = new EmpleadoControlador();
     }
 
     /**
@@ -214,83 +218,64 @@ public class JPUsuario extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
-        jPanel3.setLayout(null);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setText("Nombre");
-        jPanel3.add(jLabel23);
-        jLabel23.setBounds(50, 20, 37, 14);
+        jPanel3.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
         jTFNombre3.setColumns(20);
-        jPanel3.add(jTFNombre3);
-        jTFNombre3.setBounds(170, 10, 166, 20);
+        jPanel3.add(jTFNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jCBGenero2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
         jCBGenero2.setName(""); // NOI18N
-        jPanel3.add(jCBGenero2);
-        jCBGenero2.setBounds(170, 40, 79, 20);
+        jPanel3.add(jCBGenero2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, -1, -1));
 
         jLabel24.setText("Genero");
-        jPanel3.add(jLabel24);
-        jLabel24.setBounds(50, 50, 35, 14);
+        jPanel3.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         jLabel25.setText("Fecha de nacimiento");
-        jPanel3.add(jLabel25);
-        jLabel25.setBounds(20, 80, 98, 14);
+        jPanel3.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jTFFechaNacimiento2.setColumns(20);
-        jPanel3.add(jTFFechaNacimiento2);
-        jTFFechaNacimiento2.setBounds(170, 70, 166, 20);
+        jPanel3.add(jTFFechaNacimiento2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, -1, -1));
 
         jTFTelefono2.setColumns(20);
-        jPanel3.add(jTFTelefono2);
-        jTFTelefono2.setBounds(170, 100, 166, 20);
+        jPanel3.add(jTFTelefono2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, -1, -1));
 
         jTFDireccion2.setColumns(20);
-        jPanel3.add(jTFDireccion2);
-        jTFDireccion2.setBounds(170, 130, 166, 20);
+        jPanel3.add(jTFDireccion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
 
         jTFEmail2.setColumns(20);
-        jPanel3.add(jTFEmail2);
-        jTFEmail2.setBounds(170, 160, 166, 20);
+        jPanel3.add(jTFEmail2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
 
         jCBCargo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Gerente", "Jefe de Taller", "Vendedor" }));
         jCBCargo2.setName(""); // NOI18N
-        jPanel3.add(jCBCargo2);
-        jCBCargo2.setBounds(170, 190, 90, 20);
+        jPanel3.add(jCBCargo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, -1, -1));
 
         jTFIdentificacion3.setColumns(20);
-        jPanel3.add(jTFIdentificacion3);
-        jTFIdentificacion3.setBounds(170, 230, 166, 20);
-        jPanel3.add(jPFPassword1);
-        jPFPassword1.setBounds(170, 260, 6, 20);
+        jPanel3.add(jTFIdentificacion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+        jPanel3.add(jPFPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, 130, -1));
 
         jLabel26.setText("Password");
-        jPanel3.add(jLabel26);
-        jLabel26.setBounds(50, 270, 46, 14);
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         jLabel27.setText("Identificacion");
-        jPanel3.add(jLabel27);
-        jLabel27.setBounds(50, 240, 64, 14);
+        jPanel3.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
         jLabel28.setText("Cargo");
-        jPanel3.add(jLabel28);
-        jLabel28.setBounds(50, 200, 29, 14);
+        jPanel3.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         jLabel29.setText("Email");
-        jPanel3.add(jLabel29);
-        jLabel29.setBounds(50, 170, 24, 14);
+        jPanel3.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         jLabel30.setText("Direccion");
-        jPanel3.add(jLabel30);
-        jLabel30.setBounds(50, 140, 43, 14);
+        jPanel3.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         jLabel31.setText("Telefono");
-        jPanel3.add(jLabel31);
-        jLabel31.setBounds(50, 110, 42, 14);
+        jPanel3.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
         jBModificar.setText("Modificar");
-        jPanel3.add(jBModificar);
-        jBModificar.setBounds(340, 290, 100, 23);
+        jPanel3.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 100, -1));
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 
@@ -320,13 +305,13 @@ public class JPUsuario extends javax.swing.JPanel {
         int guardar = -1;
         try {
             Integer.parseInt(jTFTelefono.getText());
-            guardar = clienteControlador.guardar(
+           /* guardar = clienteControlador.guardar(
                     Integer.parseInt(jTFIdentificacion.getText()),
                     jTFNombre.getText(),
                     jTFDireccion.getText(),
                     jTFTelefono.getText(),
                     jTFEmail.getText(),
-                    jCBGenero.getSelectedItem().toString());
+                    jCBGenero.getSelectedItem().toString());*/
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println();
