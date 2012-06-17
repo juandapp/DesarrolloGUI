@@ -368,14 +368,25 @@ public class JPVehiculo extends javax.swing.JPanel {
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         // TODO add your handling code here:
         int editar = -1;
+        Boolean disponible=null;
         try {
+            if (jCBDisponible.getSelectedIndex() == 0) {
+                disponible=null;
+            }
+            if (jCBDisponible.getSelectedIndex() == 1) {
+                disponible=true;
+            }
+            if (jCBDisponible.getSelectedIndex() == 2) {
+                disponible=false;
+            }
+            
             editar = vehiculoControlador.editar(Integer.parseInt(jTFNoChasis2.getText()),
                     jTFLinea2.getText(),
                     jTFMarca2.getText(),
                     jTFColor2.getText(),
                     jTFModelo2.getText(),
                     jTFCojineria1.getText(),
-                    Boolean.parseBoolean(jCBDisponible1.getSelectedItem().toString()));
+                    disponible);
 
         } catch (Exception e) {
             System.out.print(e);
