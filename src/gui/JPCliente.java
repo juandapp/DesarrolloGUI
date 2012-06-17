@@ -340,9 +340,9 @@ public class JPCliente extends javax.swing.JPanel {
             System.out.print(e);
         }
         if (editar == -1) {
-            JOptionPane.showMessageDialog(this, "No su pudo modificar el accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No su pudo modificar el cliente", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Accesorio modificado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Cliente modificado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
             limpiarCamposConsultar();
             jTFIdentificacion1.setText(jTFIdentificacion2.getText());
             jBConsultar.doClick();
@@ -355,6 +355,7 @@ public class JPCliente extends javax.swing.JPanel {
         int guardar = -1;
         try {
             Integer.parseInt(jTFTelefono.getText());
+            Integer.parseInt(jTFIdentificacion.getText());
             guardar = clienteControlador.guardar(
                     Integer.parseInt(jTFIdentificacion.getText()),
                     jTFNombre.getText(),

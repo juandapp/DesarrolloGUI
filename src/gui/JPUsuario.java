@@ -5,7 +5,12 @@
 package gui;
 
 import Controlador.EmpleadoControlador;
+import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import logica.Cliente;
+import logica.Empleado;
 
 /**
  *
@@ -17,7 +22,7 @@ public class JPUsuario extends javax.swing.JPanel {
      * Creates new form JPCliente
      */
     EmpleadoControlador controladorEmpleado;
-    
+
     public JPUsuario() {
         initComponents();
         controladorEmpleado = new EmpleadoControlador();
@@ -181,6 +186,11 @@ public class JPUsuario extends javax.swing.JPanel {
         jPanel2.add(jTFIdentificacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 190, -1));
 
         jBConsultar.setText("Consultar");
+        jBConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultarActionPerformed(evt);
+            }
+        });
         jPanel2.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 90, -1));
 
         jTFNombre1.setColumns(20);
@@ -304,29 +314,75 @@ public class JPUsuario extends javax.swing.JPanel {
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
         int guardar = -1;
         try {
+            Integer.parseInt(jTFIdentificacion.getText());
             Integer.parseInt(jTFTelefono.getText());
-           /* guardar = clienteControlador.guardar(
+            guardar = controladorEmpleado.guardar(
                     Integer.parseInt(jTFIdentificacion.getText()),
                     jTFNombre.getText(),
                     jTFDireccion.getText(),
                     jTFTelefono.getText(),
                     jTFEmail.getText(),
-                    jCBGenero.getSelectedItem().toString());*/
+                    jCBGenero.getSelectedItem().toString(),
+                    jCBCargo.getSelectedItem().toString(),
+                    jPFPassword.getPassword().toString());
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println();
         }
 
         if (guardar == -1) {
-            JOptionPane.showMessageDialog(this, "No su pudo crear el cliente", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No su pudo crear el Usuario", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Cliente Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Usuario Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
             jTFIdentificacion1.setText(jTFIdentificacion.getText());
             jBConsultar.doClick();
             jTabbedPane1.setSelectedIndex(1);
             limpiarCamposCrear();
+            
         }
     }//GEN-LAST:event_jBCrearActionPerformed
+
+    private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
+        LinkedList consulta = new LinkedList();
+        System.out.println("ya se consulto  "+consulta );
+        try {
+            
+            consulta = controladorEmpleado.consultar(jTFIdentificacion1.getText(), jTFNombre1.getText(), jCBCargo1.getSelectedItem().toString());
+            
+            Object[][] s = new Object[consulta.size()][8];
+            for (int i = 0; i < consulta.size(); i++) {
+                Empleado empleado = (Empleado) consulta.get(i);
+                if (empleado.getId_e().getNombre_p() != null) {
+                    s[i][0] = empleado.getId_e().getId_p();
+                    s[i][1] = empleado.getId_e().getNombre_p();
+                    s[i][2] = empleado.getId_e().getDireccion_p();
+                    s[i][3] = empleado.getId_e().getTelefono_p();
+                    s[i][4] = empleado.getId_e().getEmail_p();
+                    s[i][5] = empleado.getId_e().getGenero_p();
+                    s[i][6] = empleado.getTipo_e();
+                    s[i][7] = empleado.getContrasena_e();
+                } else {
+                    s = null;
+                }
+            }
+            TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre",
+                        "Direccion", "Telefono", "Email", "Genero","Cargo", "Password"}) {
+
+                boolean[] canEdit = new boolean[]{false, false, false, false,false, false, false, false
+                };
+
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            };
+            ///remover filas
+            jTResultados.setModel(myModel);            
+            jTResultados.setRowSorter(new TableRowSorter(myModel));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jBConsultarActionPerformed
 
     private void limpiarCamposModificar() {
         jTFDireccion2.setText("");
@@ -337,6 +393,7 @@ public class JPUsuario extends javax.swing.JPanel {
         jTFTelefono2.setText("");
         jCBGenero2.setSelectedIndex(0);
         jCBCargo2.setSelectedIndex(0);
+        jPFPassword1.setText("");
     }
 
     private void limpiarCamposCrear() {
@@ -348,6 +405,7 @@ public class JPUsuario extends javax.swing.JPanel {
         jTFTelefono.setText("");
         jCBGenero.setSelectedIndex(0);
         jCBCargo.setSelectedIndex(0);
+        jPFPassword.setText("");
     }
 
     private void limpiarCamposConsultar() {

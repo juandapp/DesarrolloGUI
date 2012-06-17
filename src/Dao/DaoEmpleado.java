@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
-import logica.Cliente;
 import logica.Empleado;
 import logica.Persona;
 
@@ -21,6 +20,7 @@ public class DaoEmpleado {
 
     public DaoEmpleado() {
         fachada = new FachadaBD();
+        daoPersona = new DaoPersona();
     }
 
     public int guardar(Empleado empleado) {
@@ -45,10 +45,11 @@ public class DaoEmpleado {
         return -1;
     }//fin guardar
 
-    public LinkedList consultar(String id_e, String nombre_e, String cargo_e) {
+    public LinkedList consultar(String id_e, String nombre_e, String cargo) {
+        System.out.println("en consulta de empleado" + cargo);
         LinkedList empleadoConsultado = new LinkedList();
         String sql_select = "SELECT * FROM empleado JOIN persona ON id_p=id_e      ";
-        if (!id_e.equals("") || !nombre_e.equals("") || !cargo_e.equals("")) {
+        if (!id_e.equals("") || !nombre_e.equals("") || !cargo.equals("")) {
             sql_select += "WHERE ";
         }
         if (!id_e.equals("")) {
@@ -57,8 +58,8 @@ public class DaoEmpleado {
         if (!nombre_e.equals("")) {
             sql_select += "nombre_p LIKE '%" + nombre_e + "%'" + " AND ";
         }
-        if (!cargo_e.equals("")) {
-            sql_select += "cargo_e LIKE '%" + cargo_e + "%'" + " AND ";
+        if (!cargo.equals("")) {
+            sql_select += "tipo_e LIKE '%" + cargo + "%'" + " AND ";
         }
         sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
@@ -85,6 +86,7 @@ public class DaoEmpleado {
 
         } catch (SQLException e) {
             System.out.println(e);
+            e.printStackTrace();
         } catch (Exception e) {
             System.out.println(e);
         }
