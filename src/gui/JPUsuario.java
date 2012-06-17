@@ -338,17 +338,19 @@ public class JPUsuario extends javax.swing.JPanel {
             jBConsultar.doClick();
             jTabbedPane1.setSelectedIndex(1);
             limpiarCamposCrear();
-            
+
         }
     }//GEN-LAST:event_jBCrearActionPerformed
 
     private void jBConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarActionPerformed
         LinkedList consulta = new LinkedList();
-        System.out.println("ya se consulto  "+consulta );
+        System.out.println("ya se consulto  " + consulta);
         try {
-            
-            consulta = controladorEmpleado.consultar(jTFIdentificacion1.getText(), jTFNombre1.getText(), jCBGenero2.getSelectedItem().toString());
-            
+            if (jCBCargo1.getSelectedItem().toString().equals("Seleccionar")) {
+                consulta = controladorEmpleado.consultar(jTFIdentificacion1.getText(), jTFNombre1.getText(), "");
+            } else {
+                consulta = controladorEmpleado.consultar(jTFIdentificacion1.getText(), jTFNombre1.getText(), jCBCargo1.getSelectedItem().toString());
+            }
             Object[][] s = new Object[consulta.size()][8];
             for (int i = 0; i < consulta.size(); i++) {
                 Empleado empleado = (Empleado) consulta.get(i);
@@ -366,9 +368,9 @@ public class JPUsuario extends javax.swing.JPanel {
                 }
             }
             TableModel myModel = new javax.swing.table.DefaultTableModel(s, new String[]{"Identificacion", "Nombre",
-                        "Direccion", "Telefono", "Email", "Genero","Cargo", "Password"}) {
+                        "Direccion", "Telefono", "Email", "Genero", "Cargo", "Password"}) {
 
-                boolean[] canEdit = new boolean[]{false, false, false, false,false, false, false, false
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false, false, false
                 };
 
                 @Override
@@ -377,7 +379,7 @@ public class JPUsuario extends javax.swing.JPanel {
                 }
             };
             ///remover filas
-            jTResultados.setModel(myModel);            
+            jTResultados.setModel(myModel);
             jTResultados.setRowSorter(new TableRowSorter(myModel));
         } catch (Exception e) {
             e.printStackTrace();
