@@ -58,9 +58,7 @@ public class DaoEmpleado {
         if (!nombre_e.equals("")) {
             sql_select += "nombre_p LIKE '%" + nombre_e + "%'" + " AND ";
         }
-        if (!cargo.equals("")) {
-            sql_select += "tipo_e LIKE '%" + cargo + "%'" + " AND ";
-        }
+
         sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
             Connection conn = fachada.conectar();

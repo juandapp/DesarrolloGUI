@@ -347,7 +347,7 @@ public class JPUsuario extends javax.swing.JPanel {
         System.out.println("ya se consulto  "+consulta );
         try {
             
-            consulta = controladorEmpleado.consultar(jTFIdentificacion1.getText(), jTFNombre1.getText(), jCBCargo1.getSelectedItem().toString());
+            consulta = controladorEmpleado.consultar(jTFIdentificacion1.getText(), jTFNombre1.getText(), jCBGenero2.getSelectedItem().toString());
             
             Object[][] s = new Object[consulta.size()][8];
             for (int i = 0; i < consulta.size(); i++) {
