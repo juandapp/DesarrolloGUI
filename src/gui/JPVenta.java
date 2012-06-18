@@ -4,14 +4,15 @@
  */
 package gui;
 
+import Controlador.C_compra_VControlador;
 import Controlador.ClienteControlador;
 import Controlador.VehiculoControlador;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
-import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
+import logica.Cliente;
 import logica.Vehiculo;
 
 /**
@@ -24,12 +25,16 @@ public class JPVenta extends javax.swing.JPanel {
      * Creates new form JPCliente
      */
     VehiculoControlador vehiculoControlador;
-    ClienteControlador clienteControlador;
+    ClienteControlador controladorCliente;
+    C_compra_VControlador ventaControlador;
 
     public JPVenta() {
         initComponents();
         vehiculoControlador = new VehiculoControlador();
-        clienteControlador = new ClienteControlador();
+        controladorCliente = new ClienteControlador();
+        ventaControlador = new C_compra_VControlador();
+        
+        jBConsultarVehiculo.doClick();
     }
 
     /**
@@ -301,6 +306,8 @@ public class JPVenta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBLimpiarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarOrdenActionPerformed
+        jTFidClienteOrden.setText("");
+        jTFidVehiculoOrden.setText("");
         jTFFecha.setText("");
         jTFValor.setText("");
         jCbTipoPago.setSelectedIndex(0);
@@ -319,15 +326,10 @@ public class JPVenta extends javax.swing.JPanel {
             Integer.parseInt(jTFidVehiculoOrden.getText());
             Integer.parseInt(jTFValor.getText());
 
-            guardar = controladorOrden.guardar(
-                    Integer.parseInt(jTFidEmpleadoOrden.getText()),
+            guardar = ventaControlador.guardar(
                     Integer.parseInt(jTFidClienteOrden.getText()),
                     Integer.parseInt(jTFidVehiculoOrden.getText()),
-                    Integer.parseInt(jTFidArticuloOrden.getText()),
-                    Integer.parseInt(jTFValor.getText()),
-                    d,
-                    jCbTipoPago.getSelectedItem().toString(),
-                    jTPDescripcion.getText());
+                    jCbTipoPago.getSelectedItem().toString());
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -388,8 +390,7 @@ public class JPVenta extends javax.swing.JPanel {
         int selectedRow = jTResultadosCliente.getSelectedRow();
         jTFidClienteOrden.setText("" + jTResultadosCliente.getModel().getValueAt(selectedRow, 0));
         JOptionPane.showMessageDialog(this, "Cliente Seleccionado", "Cliente Ordenes", JOptionPane.INFORMATION_MESSAGE);
-        jTabbedPane1.setSelectedIndex(3);
-        jBConsultarEmpleado.doClick();
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jTResultadosClienteMouseClicked
 
     private void jBLimpiarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarVehiculoActionPerformed
@@ -404,7 +405,7 @@ public class JPVenta extends javax.swing.JPanel {
     private void jBConsultarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarVehiculoActionPerformed
         LinkedList consulta = new LinkedList();
         try {
-            consulta = controladorVehiculo.consultar(jTFNoChasis.getText(), jTFMarca.getText(), jTFModelo.getText(), jTFLinea.getText(),
+            consulta = vehiculoControlador.consultar(jTFNoChasis.getText(), jTFMarca.getText(), jTFModelo.getText(), jTFLinea.getText(),
                     jTFColor.getText());
             Object[][] s = new Object[consulta.size()][7];
             for (int i = 0; i < consulta.size(); i++) {
@@ -445,37 +446,9 @@ public class JPVenta extends javax.swing.JPanel {
         int selectedRow = jTResultadosVehiculo.getSelectedRow();
         jTFidVehiculoOrden.setText("" + jTResultadosVehiculo.getModel().getValueAt(selectedRow, 0));
         JOptionPane.showMessageDialog(this, "Vehiculo Seleccionado", "Vehiculo Ordenes", JOptionPane.INFORMATION_MESSAGE);
-        jTabbedPane1.setSelectedIndex(1);
-        jBConsultarArticulo.doClick();
+        jTabbedPane1.setSelectedIndex(1);        
+        jBConsultarCliente.doClick();
     }//GEN-LAST:event_jTResultadosVehiculoMouseClicked
-    private void limpiarCamposModificar() {
-        jTFMarca2.setText("");
-        jTFLinea2.setText("");
-        jTFModelo2.setText("");
-        jTFNoChasis2.setText("");
-        jTFColor2.setText("");
-        jTFCojineria1.setText("");
-        jCBDisponible1.setSelectedIndex(0);
-
-    }
-
-    private void limpiarCamposCrear() {
-        jTFMarca.setText("");
-        jTFLinea.setText("");
-        jTFModelo.setText("");
-        jTFNoChasis.setText("");
-        jTFColor.setText("");
-        jTFCojineria.setText("");
-        jCBDisponible.setSelectedIndex(0);
-    }
-
-    private void limpiarCamposConsultar() {
-        jTFMarca1.setText("");
-        jTFLinea1.setText("");
-        jTFModelo1.setText("");
-        jTFNoChasis1.setText("");
-        jTFColor1.setText("");
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultarCliente;
     private javax.swing.JButton jBConsultarVehiculo;

@@ -4,7 +4,6 @@
  */
 package gui;
 
-
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -16,44 +15,42 @@ public class GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form GUI
-     * 
+     *
      */
     int tipo_e;
     String usuario_id;
 
-    public GUI(){
+    public GUI() {
         initComponents();
         jPPrincipal.setLayout(new FlowLayout());
         setResizable(false);
     }
-    
-    
-    
+
     public GUI(int valor, String usuario_id) {
-        
-        
+
+
         initComponents();
         jPPrincipal.setLayout(new FlowLayout());
-        tipo_e=valor;
+        tipo_e = valor;
         this.usuario_id = usuario_id;
-        if(tipo_e==1){ //El usuario es Gerente            
+        if (tipo_e == 1) { //El usuario es Gerente            
             jMIOrdenes.setEnabled(false);
         }
-        
-        if(tipo_e==2){ //El usuario es Vendedor
-            jMReportes.setEnabled(false); 
+
+        if (tipo_e == 2) { //El usuario es Vendedor
+            jMReportes.setEnabled(false);
             jMICrearUsuario.setEnabled(false);
             jMIOrdenes.setEnabled(false);
         }
-        if(tipo_e==3){ //El usuario es jefe de taller
+        if (tipo_e == 3) { //El usuario es jefe de taller
             jMReportes.setEnabled(false);
             jMVentas.setEnabled(false);
             jMICliente.setEnabled(false);
             jMICrearUsuario.setEnabled(false);
-                    
-        }  
-        
-        
+
+        }
+
+
     }
 
     /**
@@ -233,14 +230,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMICrearCotizacionActionPerformed
 
     private void jMIRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRegistrarVentaActionPerformed
-       /* try {
+        try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
         JPVenta jPV = new JPVenta();
         jPPrincipal.add(jPV, BorderLayout.CENTER);
         jPPrincipal.updateUI();
-        this.pack();*/
+        this.pack();
     }//GEN-LAST:event_jMIRegistrarVentaActionPerformed
 
     private void jMICrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearUsuarioActionPerformed
@@ -267,7 +264,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMIGenerarReporteActionPerformed
 
     private void jMIModificarDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarDatosPersonalesActionPerformed
-         try {
+        try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
@@ -280,9 +277,9 @@ public class GUI extends javax.swing.JFrame {
     private void jMIVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVehiculoActionPerformed
         ///interfaz completa
         try {
-           
+
             jPPrincipal.removeAll();
-            
+
         } catch (Exception e) {
         }
         
