@@ -26,7 +26,8 @@ public class JPCliente extends javax.swing.JPanel {
 
     public JPCliente() {
         initComponents();
-        clienteControlador = new ClienteControlador();
+        clienteControlador = new ClienteControlador();             
+                   
     }
 
     /**
