@@ -6,13 +6,14 @@ DROP TABLE vehiculo CASCADE;
 DROP TABLE articulo CASCADE;
 DROP TABLE ordenes CASCADE;
 DROP TABLE c_compra_v CASCADE;
+DROP TABLE cotizacion CASCADE;
 
 --TABLAS
 CREATE TABLE persona (
 id_p int PRIMARY KEY,
 nombre_p VARCHAR(100),
 direccion_p VARCHAR(100),
-telefono_p VARCHAR(100),
+telefono_p int,
 email_p VARCHAR(100),
 genero_p VARCHAR(100));
 
@@ -60,6 +61,15 @@ PRIMARY KEY (id_c,numerochasis_v),
 FOREIGN KEY (id_c) REFERENCES cliente(id_c),
 FOREIGN KEY (numerochasis_v) REFERENCES vehiculo(numerochasis_v)
 );
+
+CREATE TABLE cotizacion(
+linea_co VARCHAR(100),
+marca_co VARCHAR(100),
+color_co VARCHAR(100),
+modelo_co VARCHAR(100),
+cojineria_co VARCHAR(100),
+valor_co int);
+
 
 CREATE TABLE ordenes(
 id_e int,
