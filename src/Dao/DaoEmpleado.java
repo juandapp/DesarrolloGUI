@@ -62,7 +62,6 @@ public class DaoEmpleado {
         if (!cargo.equals("")) {
             sql_select += "tipo_e LIKE '%" + cargo + "%'" + " AND ";
         }
-        System.out.println("sqlllllll"+sql_select);
         sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
             Connection conn = fachada.conectar();

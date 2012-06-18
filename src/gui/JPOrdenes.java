@@ -7,7 +7,14 @@ package gui;
 import Controlador.AccesorioControlador;
 import Controlador.ClienteControlador;
 import Controlador.EmpleadoControlador;
+import Controlador.OrdenControlador;
 import Controlador.VehiculoControlador;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +38,7 @@ public class JPOrdenes extends javax.swing.JPanel {
     AccesorioControlador controladorAccesorio;
     ClienteControlador controladorCliente;
     EmpleadoControlador controladorEmpleado;
+    OrdenControlador controladorOrden;
 
     public JPOrdenes() {
         initComponents();
@@ -38,6 +46,13 @@ public class JPOrdenes extends javax.swing.JPanel {
         controladorAccesorio = new AccesorioControlador();
         controladorCliente = new ClienteControlador();
         controladorEmpleado = new EmpleadoControlador();
+        controladorOrden = new OrdenControlador();
+
+        String strFecha = "2010-06-18";
+        String[] fechaString = strFecha.split("-");
+        java.sql.Date d = new java.sql.Date(Integer.parseInt(fechaString[0]) - 1900, Integer.parseInt(fechaString[1]), Integer.parseInt(fechaString[2]));
+        System.out.println(d.toString());
+
 
     }
 
@@ -420,6 +435,11 @@ public class JPOrdenes extends javax.swing.JPanel {
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         jBCrearOrden.setText("Crear Orden");
+        jBCrearOrden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCrearOrdenActionPerformed(evt);
+            }
+        });
         jPanel4.add(jBCrearOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 260, 130, -1));
 
         jBLimpiarOrden.setText("Limpiar");
@@ -670,9 +690,44 @@ public class JPOrdenes extends javax.swing.JPanel {
         jTFidEmpleadoOrden.setText("" + jTResultadosEmpleado.getModel().getValueAt(selectedRow, 0));
         JOptionPane.showMessageDialog(this, "Empleado Seleccionado", "Empleado Ordenes", JOptionPane.INFORMATION_MESSAGE);
         jTabbedPane1.setSelectedIndex(4);
-        
+
     }//GEN-LAST:event_jTResultadosEmpleadoMouseClicked
 
+    private void jBCrearOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearOrdenActionPerformed
+        int guardar = -1;
+        try {
+
+            String[] fechaString = jTFFecha.getText().split("/");
+            java.sql.Date d = new java.sql.Date(Integer.parseInt(fechaString[0]) - 1901, Integer.parseInt(fechaString[1]) + 11, Integer.parseInt(fechaString[2]));
+            System.out.println(d.toString());
+
+            Integer.parseInt(jTFidEmpleadoOrden.getText()); 
+            Integer.parseInt(jTFidClienteOrden.getText());
+            Integer.parseInt(jTFidVehiculoOrden.getText());
+            Integer.parseInt(jTFidArticuloOrden.getText());
+            Integer.parseInt(jTFValor.getText());
+
+            guardar = controladorOrden.guardar(
+                    Integer.parseInt(jTFidEmpleadoOrden.getText()),
+                    Integer.parseInt(jTFidClienteOrden.getText()),
+                    Integer.parseInt(jTFidVehiculoOrden.getText()),
+                    Integer.parseInt(jTFidArticuloOrden.getText()),
+                    Integer.parseInt(jTFValor.getText()),
+                    d,
+                    jCbTipoOrden.getSelectedItem().toString(),
+                    jTPDescripcion.getText());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println();
+        }
+
+        if (guardar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo crear la Orden", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Orden Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_jBCrearOrdenActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBConsultarArticulo;
     private javax.swing.JButton jBConsultarCliente;
