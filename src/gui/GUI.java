@@ -193,8 +193,8 @@ public class GUI extends javax.swing.JFrame {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPCotizacion jPC = new JPCotizacion();
-        jPPrincipal.add(jPC, BorderLayout.CENTER);
+       // JPCotizacion jPC = new JPCotizacion();
+       // jPPrincipal.add(jPC, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMICrearCotizacionActionPerformed
@@ -227,8 +227,8 @@ public class GUI extends javax.swing.JFrame {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPReporte jPR = new JPReporte();
-        jPPrincipal.add(jPR, BorderLayout.CENTER);
+        //JPReporte jPR = new JPReporte();
+        //jPPrincipal.add(jPR, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMIGenerarReporteActionPerformed
