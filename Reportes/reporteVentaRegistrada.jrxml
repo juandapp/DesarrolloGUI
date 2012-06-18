@@ -2,13 +2,13 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteVentaRegistrada" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="48"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<queryString>
-		<![CDATA[select * from ((c_compra_v natural join vehiculo) join persona) where id_p=id_c]]>
+		<![CDATA[select * from c_compra_v natural join vehiculo join persona where id_p=id_c]]>
 	</queryString>
 	<field name="numerochasis_v" class="java.lang.Integer"/>
 	<field name="id_c" class="java.lang.Integer"/>
@@ -49,6 +49,12 @@
 					<textElement/>
 					<textFieldExpression><![CDATA[$F{id_c}]]></textFieldExpression>
 				</textField>
+				<rectangle>
+					<reportElement x="478" y="0" width="77" height="62" backcolor="#666666"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -63,6 +69,12 @@
 					<textElement/>
 					<textFieldExpression><![CDATA[$F{tipo_pago}]]></textFieldExpression>
 				</textField>
+				<rectangle>
+					<reportElement x="478" y="4" width="77" height="31" backcolor="#666666"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
 			</band>
 		</groupFooter>
 	</group>
@@ -100,6 +112,12 @@
 					<textElement/>
 					<textFieldExpression><![CDATA[$F{modelo_v}]]></textFieldExpression>
 				</textField>
+				<rectangle>
+					<reportElement x="478" y="2" width="77" height="82" backcolor="#666666"/>
+					<graphicElement>
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
 			</band>
 		</groupHeader>
 	</group>
@@ -108,16 +126,31 @@
 	</background>
 	<title>
 		<band height="88" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="129" y="37" width="119" height="41" forecolor="#B89F7D" backcolor="#9DB1B8"/>
+				<box>
+					<pen lineColor="#F60142"/>
+					<topPen lineStyle="Double" lineColor="#F60142"/>
+					<leftPen lineColor="#F60142"/>
+					<rightPen lineColor="#F60142"/>
+				</box>
+			</frame>
 			<staticText>
 				<reportElement style="Title" x="0" y="13" width="263" height="33"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Informe de Venta]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="SubTitle" x="117" y="46" width="157" height="22"/>
+				<reportElement style="SubTitle" x="129" y="49" width="157" height="22"/>
 				<textElement/>
 				<text><![CDATA[AutoSoft]]></text>
 			</staticText>
+			<frame>
+				<reportElement mode="Opaque" x="263" y="0" width="262" height="88" forecolor="#B89F7D" backcolor="#F2EBDF"/>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="46" width="117" height="32" forecolor="#000000" backcolor="#CC0000"/>
+			</frame>
 		</band>
 	</title>
 	<pageHeader>

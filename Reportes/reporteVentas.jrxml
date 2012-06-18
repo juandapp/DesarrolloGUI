@@ -15,7 +15,7 @@
 		</conditionalStyle>
 	</style>
 	<queryString>
-		<![CDATA[select * from ((c_compra_v natural join vehiculo) join persona) where id_p=id_c]]>
+		<![CDATA[select * from c_compra_v natural join vehiculo join persona where id_p=id_c]]>
 	</queryString>
 	<field name="numerochasis_v" class="java.lang.Integer"/>
 	<field name="id_c" class="java.lang.Integer"/>
@@ -87,8 +87,14 @@
 	</background>
 	<title>
 		<band height="132" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="5" width="120" height="98" forecolor="#000000" backcolor="#CC0000"/>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="120" y="0" width="435" height="127" forecolor="#B89F7D" backcolor="#F2EBDF"/>
+			</frame>
 			<staticText>
-				<reportElement style="Title" x="120" y="10" width="435" height="93"/>
+				<reportElement style="Title" x="131" y="5" width="435" height="93"/>
 				<textElement>
 					<font size="80" isBold="false"/>
 				</textElement>

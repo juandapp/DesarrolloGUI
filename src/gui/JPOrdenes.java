@@ -14,6 +14,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import GeneradorReportes.Reportes;
 
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -39,6 +40,7 @@ public class JPOrdenes extends javax.swing.JPanel {
     ClienteControlador controladorCliente;
     EmpleadoControlador controladorEmpleado;
     OrdenControlador controladorOrden;
+    Reportes reporte;
 
     public JPOrdenes() {
         initComponents();
@@ -726,6 +728,8 @@ public class JPOrdenes extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No su pudo crear la Orden", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Orden Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            reporte= new Reportes();
+            reporte.generarReporte("reporteOrdenRegistrada");
         }
     }//GEN-LAST:event_jBCrearOrdenActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables

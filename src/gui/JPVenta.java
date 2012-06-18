@@ -14,6 +14,7 @@ import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 import logica.Cliente;
 import logica.Vehiculo;
+import GeneradorReportes.Reportes;
 
 /**
  *
@@ -27,6 +28,7 @@ public class JPVenta extends javax.swing.JPanel {
     VehiculoControlador vehiculoControlador;
     ClienteControlador controladorCliente;
     C_compra_VControlador ventaControlador;
+    Reportes reporte;
 
     public JPVenta() {
         initComponents();
@@ -340,6 +342,8 @@ public class JPVenta extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No su pudo crear la Orden", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Orden Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            reporte= new Reportes();
+            reporte.generarReporte("reporteVentaRegistrada");
         }
     }//GEN-LAST:event_jBCrearOrdenActionPerformed
 
