@@ -1,5 +1,10 @@
 package gui;
 
+import Controlador.EmpleadoControlador;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import logica.Empleado;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -15,8 +20,19 @@ public class JPModificarDatosPersonales extends javax.swing.JPanel {
     /**
      * Creates new form JPModificarDatosPersonales
      */
+          Empleado e;
+    EmpleadoControlador empleadoControlador;
+    
     public JPModificarDatosPersonales() {
         initComponents();
+    }
+    
+
+    public JPModificarDatosPersonales(String usuario) {
+        initComponents();
+        empleadoControlador=new EmpleadoControlador();
+        llenarCampos(usuario);
+                
     }
 
     /**
@@ -107,9 +123,41 @@ public class JPModificarDatosPersonales extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-// TODO add your handling code here:
+     int editar = -1;
+        try {
+            
+            editar = empleadoControlador.editar(
+                    e.getId_e().getId_p(),
+                    e.getId_e().getNombre_p(), 
+                    jTFDireccion.getText(),
+                    jTFTelefono.getText(),
+                    jTFEmail.getText(),
+                    e.getId_e().getGenero_p(),
+                    e.getTipo_e(),
+                    jPFPassword.getText());
+        } catch (Exception e) {
+            System.out.print(e);
+        }
+        if (editar == -1) {
+            JOptionPane.showMessageDialog(this, "No se pudieron modificar los datos", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Datos actualizados correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);            
+        }
+
     }//GEN-LAST:event_jBGuardarActionPerformed
 
+    private void llenarCampos(String id_e){
+        LinkedList consulta=new LinkedList();
+        consulta=empleadoControlador.consultar(id_e, "", "");
+        
+        e=(Empleado)consulta.getFirst();
+        jTFNombre.setText(e.getId_e().getNombre_p());
+        jTFTelefono.setText(e.getId_e().getTelefono_p());
+        jTFDireccion.setText(e.getId_e().getDireccion_p());
+        jTFEmail.setText(e.getId_e().getEmail_p());
+        jPFPassword.setText(e.getContrasena_e());
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBGuardar;
     private javax.swing.JLabel jLabel1;
@@ -124,4 +172,6 @@ public class JPModificarDatosPersonales extends javax.swing.JPanel {
     private javax.swing.JTextField jTFNombre;
     private javax.swing.JTextField jTFTelefono;
     // End of variables declaration//GEN-END:variables
+
+ 
 }

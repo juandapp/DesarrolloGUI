@@ -22,10 +22,19 @@ public class JPAccesorio extends javax.swing.JPanel {
      * Creates new form JPCliente
      */
     AccesorioControlador accesorioControlador;
+    int tipo_e;
 
-    public JPAccesorio() {
+    public JPAccesorio(int tipo) {
         initComponents();
+        tipo_e=tipo;
         accesorioControlador = new AccesorioControlador();
+        if(tipo==1 || tipo==2){
+            
+            jTabbedPane1.setSelectedIndex(1);
+            jTabbedPane1.setEnabledAt(0, false);            
+            jTabbedPane1.setEnabledAt(2, false);
+            jTResultados.setEnabled(false);
+        }
     }
 
     /**
@@ -338,12 +347,14 @@ public class JPAccesorio extends javax.swing.JPanel {
     }
 
     private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
+        
         int selectedRow = jTResultados.getSelectedRow();
         jTFCodigo2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
         jTFNombre3.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
         jTPDescripcion1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 2));
         jTFCantidad1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 3));
         jTabbedPane1.setSelectedIndex(2);
+        
     }//GEN-LAST:event_jTResultadosMouseClicked
 
     private void jBLimpiarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarConsultarActionPerformed

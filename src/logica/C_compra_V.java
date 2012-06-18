@@ -11,10 +11,16 @@ package logica;
 public class C_compra_V {
 
     Cliente id_c;
-    Vehiculo  numerochasis_v;
+    Vehiculo numerochasis_v;
     String tipo_pago;
-    
+
     public C_compra_V() {
+    }
+
+    public C_compra_V(Cliente id_c, Vehiculo numerochasis_v, String tipo_pago) {
+        this.id_c = id_c;
+        this.numerochasis_v = numerochasis_v;
+        this.tipo_pago = tipo_pago;
     }
 
     public Cliente getId_c() {
@@ -40,7 +46,4 @@ public class C_compra_V {
     public void setTipo_pago(String tipo_pago) {
         this.tipo_pago = tipo_pago;
     }
-    
-    
-    
 }

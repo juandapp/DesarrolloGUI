@@ -4,11 +4,8 @@
  */
 package gui;
 
-
-import desarrollogui.Ventas.JPVenta;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.HeadlessException;
 
 /**
  *
@@ -18,41 +15,42 @@ public class GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form GUI
-     * 
+     *
      */
     int tipo_e;
+    String usuario_id;
 
-    public GUI() throws HeadlessException {
+    public GUI() {
         initComponents();
         jPPrincipal.setLayout(new FlowLayout());
+        setResizable(false);
     }
-    
-    
-    
-    public GUI(int valor) {
-        
-        
+
+    public GUI(int valor, String usuario_id) {
+
+
         initComponents();
         jPPrincipal.setLayout(new FlowLayout());
-        tipo_e=valor;
-        if(tipo_e==1){ //El usuario es Gerente            
+        tipo_e = valor;
+        this.usuario_id = usuario_id;
+        if (tipo_e == 1) { //El usuario es Gerente            
             jMIOrdenes.setEnabled(false);
         }
-        
-        if(tipo_e==2){ //El usuario es Vendedor
-            jMReportes.setEnabled(false); 
+
+        if (tipo_e == 2) { //El usuario es Vendedor
+            jMReportes.setEnabled(false);
             jMICrearUsuario.setEnabled(false);
             jMIOrdenes.setEnabled(false);
         }
-        if(tipo_e==3){ //El usuario es jefe de taller
+        if (tipo_e == 3) { //El usuario es jefe de taller
             jMReportes.setEnabled(false);
             jMVentas.setEnabled(false);
             jMICliente.setEnabled(false);
-            jMICrearUsuario.setEnabled(false); 
-                    
+            jMICrearUsuario.setEnabled(false);
+
         }
-        
-        
+
+
     }
 
     /**
@@ -65,7 +63,7 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPPrincipal = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInventario = new javax.swing.JMenu();
         jMICrearAccesorio = new javax.swing.JMenuItem();
@@ -87,9 +85,9 @@ public class GUI extends javax.swing.JFrame {
 
         jPPrincipal.setLayout(null);
 
-        jLabel1.setText("Principal");
-        jPPrincipal.add(jLabel1);
-        jLabel1.setBounds(280, 180, 59, 30);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Fondo.png"))); // NOI18N
+        jPPrincipal.add(jLabel2);
+        jLabel2.setBounds(0, -20, 670, 500);
 
         jMInventario.setText(" Inventario ");
 
@@ -191,7 +189,7 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+            .addComponent(jPPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
         pack();
@@ -270,7 +268,7 @@ public class GUI extends javax.swing.JFrame {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPModificarDatosPersonales jPMDP = new JPModificarDatosPersonales();
+        JPModificarDatosPersonales jPMDP = new JPModificarDatosPersonales(usuario_id);
         jPPrincipal.add(jPMDP, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
@@ -279,13 +277,13 @@ public class GUI extends javax.swing.JFrame {
     private void jMIVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVehiculoActionPerformed
         ///interfaz completa
         try {
-           
+
             jPPrincipal.removeAll();
-            
+
         } catch (Exception e) {
         }
         
-        JPVehiculo jPV = new JPVehiculo();
+        JPVehiculo jPV = new JPVehiculo(tipo_e);
         jPPrincipal.add(jPV, BorderLayout.CENTER);        
         jPPrincipal.updateUI();
         this.pack();
@@ -297,7 +295,7 @@ public class GUI extends javax.swing.JFrame {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPAccesorio jPCA = new JPAccesorio();
+        JPAccesorio jPCA = new JPAccesorio(tipo_e);
         jPCA.setBounds(jPPrincipal.getBounds());
         jPPrincipal.add(jPCA, BorderLayout.CENTER);
         jPPrincipal.updateUI();
@@ -307,47 +305,47 @@ public class GUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /*
-         * Set the Nimbus look and feel
-         */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the
-         * default look and feel. For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /*
-         * Create and display the form
-         */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            public void run() {
-                new GUI().setVisible(true);
-
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /*
+//         * Set the Nimbus look and feel
+//         */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /*
+//         * If Nimbus (introduced in Java SE 6) is not available, stay with the
+//         * default look and feel. For details see
+//         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /*
+//         * Create and display the form
+//         */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//
+//            public void run() {
+//                new GUI().setVisible(true);
+//
+//            }
+//        });
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMICliente;
     private javax.swing.JMenuItem jMICrearAccesorio;
     private javax.swing.JMenuItem jMICrearCotizacion;
