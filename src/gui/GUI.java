@@ -19,6 +19,7 @@ public class GUI extends javax.swing.JFrame {
      * 
      */
     int tipo_e;
+    String usuario_id;
 
     public GUI(){
         initComponents();
@@ -27,12 +28,13 @@ public class GUI extends javax.swing.JFrame {
     
     
     
-    public GUI(int valor) {
+    public GUI(int valor, String usuario_id) {
         
         
         initComponents();
         jPPrincipal.setLayout(new FlowLayout());
         tipo_e=valor;
+        this.usuario_id = usuario_id;
         if(tipo_e==1){ //El usuario es Gerente            
             jMIOrdenes.setEnabled(false);
         }
@@ -264,11 +266,11 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMIGenerarReporteActionPerformed
 
     private void jMIModificarDatosPersonalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIModificarDatosPersonalesActionPerformed
-        try {
+         try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPModificarDatosPersonales jPMDP = new JPModificarDatosPersonales();
+        JPModificarDatosPersonales jPMDP = new JPModificarDatosPersonales(usuario_id);
         jPPrincipal.add(jPMDP, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();

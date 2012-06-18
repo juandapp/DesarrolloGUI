@@ -158,24 +158,25 @@ public class Login extends javax.swing.JFrame {
 
         try {
             int tipo = -1;
+            String usuario = jTFUsuario.getText();
             tipo = daoEmpleado.tipoEmpleado(Integer.parseInt(jTFUsuario.getText()),
                     JPFPassword.getText());
             
             System.out.println(tipo);
 
             if (tipo == 1) {
-                guiPrincipal = new GUI(1);
+                guiPrincipal = new GUI(1, usuario);
                 guiPrincipal.setVisible(true);
                 setVisible(false);
                 
             }
             if (tipo == 2) {
-                guiPrincipal = new GUI(2);
+                guiPrincipal = new GUI(2, usuario);
                 guiPrincipal.setVisible(true);
                 setVisible(false);
             }
             if (tipo == 3) {
-                guiPrincipal = new GUI(3);
+                guiPrincipal = new GUI(3, usuario);
                 guiPrincipal.setVisible(true);
                 setVisible(false);
             }
