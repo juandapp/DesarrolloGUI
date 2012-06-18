@@ -122,4 +122,42 @@ public class DaoEmpleado {
         }
         return -1;
     }
+    
+    public int tipoEmpleado(int usuario, String pass){
+    
+        String sql_select = "SELECT tipo_e FROM empleado"
+                +           " WHERE id_e="+usuario+" AND contrasena_e='"+pass+"';";
+        
+         try {
+            Connection conn = fachada.conectar();
+            Statement sentencia = conn.createStatement();
+            ResultSet tabla = sentencia.executeQuery(sql_select);
+            while (tabla.next()) {
+               
+                String tipo=tabla.getString("tipo_e");
+                
+                System.err.println(tipo);
+                
+                if(tipo.equalsIgnoreCase("Gerente")) return 1;
+                if(tipo.equalsIgnoreCase("Vendedor")) return 2;
+                if(tipo.equalsIgnoreCase("Jefe de taller")) return 3;
+                
+                
+            }
+            conn.close();
+            System.out.println("Conexion cerrada");
+            
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        
+        return -1;
+    }
+    
+    
 }

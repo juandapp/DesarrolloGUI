@@ -15,7 +15,9 @@ public class DGUI {
      */
     public static void main(String[] args) {
         
-        GUI g = new GUI();
-        g.setVisible(true);
+        Login l=new Login();
+        l.setVisible(true);
+//        GUI g = new GUI();
+//        g.setVisible(true);
     }
 }

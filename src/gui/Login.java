@@ -4,6 +4,11 @@
  */
 package gui;
 
+import Controlador.EmpleadoControlador;
+import Dao.DaoEmpleado;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Juan
@@ -13,11 +18,11 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    
-    
-    public Login() {
+    DaoEmpleado daoEmpleado;  
+    GUI guiPrincipal;
+    public Login() {  
         initComponents();
-        
+        daoEmpleado=new DaoEmpleado();        
     }
 
     /**
@@ -30,12 +35,11 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTFUsuario = new javax.swing.JTextField();
-        JPFPassword = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTFUsuario = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        JPFPassword = new javax.swing.JPasswordField();
         jBIngresar = new javax.swing.JButton();
         jBLimpiar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
@@ -53,30 +57,17 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setLayout(null);
+        jLabel3.setText("Bienvenido a AutoSoft");
 
         jLabel1.setText("Usuario");
-        jPanel2.add(jLabel1);
-        jLabel1.setBounds(20, 90, 60, 14);
-
-        jLabel2.setText("Contraseña");
-        jPanel2.add(jLabel2);
-        jLabel2.setBounds(20, 140, 70, 14);
 
         jTFUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(jTFUsuario);
-        jTFUsuario.setBounds(110, 90, 110, 20);
-        jPanel2.add(JPFPassword);
-        JPFPassword.setBounds(110, 140, 110, 20);
 
-        jLabel3.setText("Bienvenido a AutoSoft");
-        jPanel2.add(jLabel3);
-        jLabel3.setBounds(60, 30, 160, 40);
+        jLabel2.setText("Contraseña");
 
         jBIngresar.setText("Ingresar");
         jBIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -84,8 +75,6 @@ public class Login extends javax.swing.JFrame {
                 jBIngresarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBIngresar);
-        jBIngresar.setBounds(10, 190, 73, 23);
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -93,8 +82,6 @@ public class Login extends javax.swing.JFrame {
                 jBLimpiarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpiar);
-        jBLimpiar.setBounds(90, 190, 65, 23);
 
         jBSalir.setText("Salir");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -102,38 +89,108 @@ public class Login extends javax.swing.JFrame {
                 jBSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(jBSalir);
-        jBSalir.setBounds(160, 190, 53, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(JPFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jBIngresar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBLimpiar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBSalir)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(JPFPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBIngresar)
+                    .addComponent(jBLimpiar)
+                    .addComponent(jBSalir))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFUsuarioActionPerformed
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFUsuarioActionPerformed
-
-    private void jBIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIngresarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBIngresarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jBSalirActionPerformed
 
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
         // TODO add your handling code here:
+        jTFUsuario.setText("");
+        JPFPassword.setText("");
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
-    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+    private void jBIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBIngresarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBSalirActionPerformed
+
+        try {
+            int tipo = -1;
+            tipo = daoEmpleado.tipoEmpleado(Integer.parseInt(jTFUsuario.getText()),
+                    JPFPassword.getText());
+            
+            System.out.println(tipo);
+
+            if (tipo == 1) {
+                guiPrincipal = new GUI(1);
+                guiPrincipal.setVisible(true);
+                setVisible(false);
+                
+            }
+            if (tipo == 2) {
+                guiPrincipal = new GUI(2);
+                guiPrincipal.setVisible(true);
+                setVisible(false);
+            }
+            if (tipo == 3) {
+                guiPrincipal = new GUI(3);
+                guiPrincipal.setVisible(true);
+                setVisible(false);
+            }
+            
+            if (tipo == -1) {
+             JOptionPane.showMessageDialog(this, "Error en Usuario y/o Contraseña", "Error Acceso", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(this, "Error en Usuario y/o Contraseña", "Error Acceso", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jBIngresarActionPerformed
+
+    private void jTFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,7 +242,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTFUsuario;
     // End of variables declaration//GEN-END:variables
 }
