@@ -4,7 +4,7 @@
  */
 package gui;
 import GeneradorReportes.Reportes;
-
+import Dao.DaoCotizacion;
 /**
  *
  * @author juandapp
@@ -15,8 +15,10 @@ public class JPCotizacion extends javax.swing.JPanel {
      * Creates new form JPCotizacion
      */
     Reportes reporte;
+    DaoCotizacion daoCotizacion;
     public JPCotizacion() {
         initComponents();
+        daoCotizacion= new DaoCotizacion();
     }
 
     /**
@@ -138,6 +140,10 @@ public class JPCotizacion extends javax.swing.JPanel {
     private void jBGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarActionPerformed
         // TODO add your handling code here:
         //FALTA INGRESAR DATOS A UNA TABLA DE COTIZACIONES
+        daoCotizacion.guardar(jTFMarca.getText(), jTFModelo.getText(), 
+                jTFLinea.getText(), jTFColor.getText(),
+                jTFCojineria.getText(), Integer.parseInt(jTFColor.getText()));
+        
         reporte=new Reportes();
         reporte.generarReporte("reporteCotizacion");
         
