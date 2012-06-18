@@ -263,7 +263,7 @@ public class JPVenta extends javax.swing.JPanel {
         jLabel10.setText("Descripcion");
         jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        jBCrearOrden.setText("Crear Orden");
+        jBCrearOrden.setText("Crear Venta");
         jBCrearOrden.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBCrearOrdenActionPerformed(evt);
