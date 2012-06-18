@@ -66,19 +66,19 @@ public class JPReporte extends javax.swing.JPanel {
             }
         });
         jPanelCotizacion.add(jBEmpleados);
-        jBEmpleados.setBounds(320, 110, 100, 30);
+        jBEmpleados.setBounds(320, 110, 130, 30);
 
         jLabel2.setText("Lista los empleados de la compañia");
         jPanelCotizacion.add(jLabel2);
-        jLabel2.setBounds(10, 110, 250, 20);
+        jLabel2.setBounds(10, 110, 310, 20);
 
         jLabel3.setText("Lista los clientes de la compañia");
         jPanelCotizacion.add(jLabel3);
-        jLabel3.setBounds(10, 60, 220, 17);
+        jLabel3.setBounds(10, 60, 300, 17);
 
         jLabel4.setText("Lista las ventas registradas");
         jPanelCotizacion.add(jLabel4);
-        jLabel4.setBounds(10, 170, 220, 20);
+        jLabel4.setBounds(10, 170, 310, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

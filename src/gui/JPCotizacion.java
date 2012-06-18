@@ -41,44 +41,43 @@ public class JPCotizacion extends javax.swing.JPanel {
         jBGenerar = new javax.swing.JButton();
         jTFColor = new javax.swing.JTextField();
         jTFLinea = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         jTFCojineria = new javax.swing.JTextField();
-        jTFCojineria2 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
 
         jPanelCotizacion.setBorder(javax.swing.BorderFactory.createTitledBorder("Cotizacion"));
         jPanelCotizacion.setLayout(null);
 
         jLabel1.setText("Modelo");
         jPanelCotizacion.add(jLabel1);
-        jLabel1.setBounds(10, 30, 46, 17);
+        jLabel1.setBounds(10, 30, 150, 17);
 
         jLabel4.setText("Linea");
         jPanelCotizacion.add(jLabel4);
-        jLabel4.setBounds(10, 60, 34, 17);
+        jLabel4.setBounds(10, 60, 70, 17);
 
         jLabel8.setText("Marca");
         jPanelCotizacion.add(jLabel8);
-        jLabel8.setBounds(10, 90, 39, 17);
+        jLabel8.setBounds(10, 90, 70, 17);
 
         jLabel9.setText("Color");
         jPanelCotizacion.add(jLabel9);
-        jLabel9.setBounds(10, 120, 33, 17);
+        jLabel9.setBounds(10, 120, 80, 17);
 
         jLabel10.setText("Valor");
         jPanelCotizacion.add(jLabel10);
-        jLabel10.setBounds(10, 180, 33, 17);
+        jLabel10.setBounds(10, 180, 80, 17);
 
         jTFMarca.setColumns(20);
         jPanelCotizacion.add(jTFMarca);
-        jTFMarca.setBounds(110, 90, 272, 27);
+        jTFMarca.setBounds(172, 90, 210, 27);
 
         jTFModelo.setColumns(20);
         jPanelCotizacion.add(jTFModelo);
-        jTFModelo.setBounds(110, 30, 272, 27);
+        jTFModelo.setBounds(172, 30, 210, 27);
 
         jTFValor.setColumns(20);
         jPanelCotizacion.add(jTFValor);
-        jTFValor.setBounds(110, 180, 272, 27);
+        jTFValor.setBounds(172, 180, 210, 27);
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -100,31 +99,25 @@ public class JPCotizacion extends javax.swing.JPanel {
 
         jTFColor.setColumns(20);
         jPanelCotizacion.add(jTFColor);
-        jTFColor.setBounds(110, 120, 272, 27);
+        jTFColor.setBounds(172, 120, 210, 27);
 
         jTFLinea.setColumns(20);
         jPanelCotizacion.add(jTFLinea);
-        jTFLinea.setBounds(110, 60, 272, 27);
-
-        jLabel11.setText("Cojineria");
-        jPanelCotizacion.add(jLabel11);
-        jLabel11.setBounds(10, 150, 55, 17);
+        jTFLinea.setBounds(172, 60, 210, 27);
 
         jTFCojineria.setColumns(20);
         jPanelCotizacion.add(jTFCojineria);
-        jTFCojineria.setBounds(110, 150, 272, 27);
+        jTFCojineria.setBounds(172, 150, 210, 27);
 
-        jTFCojineria2.setColumns(20);
-        jPanelCotizacion.add(jTFCojineria2);
-        jTFCojineria2.setBounds(110, 150, 272, 27);
+        jLabel12.setText("Cojineria");
+        jPanelCotizacion.add(jLabel12);
+        jLabel12.setBounds(10, 150, 80, 17);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelCotizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 78, Short.MAX_VALUE))
+            .addComponent(jPanelCotizacion, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,13 +148,12 @@ public class JPCotizacion extends javax.swing.JPanel {
     private javax.swing.JButton jBLimpiar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanelCotizacion;
     private javax.swing.JTextField jTFCojineria;
-    private javax.swing.JTextField jTFCojineria2;
     private javax.swing.JTextField jTFColor;
     private javax.swing.JTextField jTFLinea;
     private javax.swing.JTextField jTFMarca;
