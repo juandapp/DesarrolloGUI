@@ -5,10 +5,8 @@
 package gui;
 
 
-import desarrollogui.Ventas.JPVenta;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.HeadlessException;
 
 /**
  *
@@ -22,7 +20,7 @@ public class GUI extends javax.swing.JFrame {
      */
     int tipo_e;
 
-    public GUI() throws HeadlessException {
+    public GUI(){
         initComponents();
         jPPrincipal.setLayout(new FlowLayout());
     }
@@ -232,14 +230,14 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMICrearCotizacionActionPerformed
 
     private void jMIRegistrarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRegistrarVentaActionPerformed
-        try {
+       /* try {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
         JPVenta jPV = new JPVenta();
         jPPrincipal.add(jPV, BorderLayout.CENTER);
         jPPrincipal.updateUI();
-        this.pack();
+        this.pack();*/
     }//GEN-LAST:event_jMIRegistrarVentaActionPerformed
 
     private void jMICrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICrearUsuarioActionPerformed
