@@ -60,8 +60,9 @@ public class Reportes {
       JasperPrint print = JasperFillManager.fillReport(report, null, conn);
       // Exporta el informe a PDF
       JasperExportManager.exportReportToPdfFile(print,
-          "Reportes");
+          "Reportes/PDF");
       //Para visualizar el pdf directamente desde java
+      
       JasperViewer.viewReport(print, false);
      
         }
