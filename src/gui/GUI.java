@@ -272,11 +272,14 @@ public class GUI extends javax.swing.JFrame {
     private void jMIVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVehiculoActionPerformed
         ///interfaz completa
         try {
+           
             jPPrincipal.removeAll();
+            
         } catch (Exception e) {
         }
+        
         JPVehiculo jPV = new JPVehiculo();
-        jPPrincipal.add(jPV, BorderLayout.CENTER);
+        jPPrincipal.add(jPV, BorderLayout.CENTER);        
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMIVehiculoActionPerformed

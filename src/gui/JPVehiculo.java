@@ -7,6 +7,7 @@ package gui;
 import Controlador.VehiculoControlador;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -26,6 +27,8 @@ public class JPVehiculo extends javax.swing.JPanel {
     public JPVehiculo() {
         initComponents();
         vehiculoControlador = new VehiculoControlador();
+
+        
     }
 
     /**
@@ -368,18 +371,18 @@ public class JPVehiculo extends javax.swing.JPanel {
     private void jBModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBModificarActionPerformed
         // TODO add your handling code here:
         int editar = -1;
-        Boolean disponible=null;
+        Boolean disponible = null;
         try {
             if (jCBDisponible1.getSelectedIndex() == 0) {
-                disponible=null;
+                disponible = null;
             }
             if (jCBDisponible1.getSelectedIndex() == 1) {
-                disponible=true;
+                disponible = true;
             }
             if (jCBDisponible1.getSelectedIndex() == 2) {
-                disponible=false;
+                disponible = false;
             }
-            
+
             editar = vehiculoControlador.editar(Integer.parseInt(jTFNoChasis2.getText()),
                     jTFLinea2.getText(),
                     jTFMarca2.getText(),
@@ -455,17 +458,17 @@ public class JPVehiculo extends javax.swing.JPanel {
         System.out.println(guardar);
         try {
             if (jCBDisponible.getSelectedIndex() == 0) {
-                disponible=null;
+                disponible = null;
             }
             if (jCBDisponible.getSelectedIndex() == 1) {
-                disponible=true;
+                disponible = true;
             }
             if (jCBDisponible.getSelectedIndex() == 2) {
-                disponible=false;
+                disponible = false;
             }
-           
-            
-            
+
+
+
             guardar = vehiculoControlador.guardar(
                     Integer.parseInt(jTFNoChasis.getText()),
                     jTFLinea.getText(),
@@ -474,7 +477,7 @@ public class JPVehiculo extends javax.swing.JPanel {
                     jTFModelo.getText(),
                     jTFCojineria.getText(),
                     disponible);
-            
+
 
         } catch (Exception e) {
             System.err.println(guardar);
