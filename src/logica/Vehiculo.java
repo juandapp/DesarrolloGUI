@@ -15,6 +15,8 @@ public class Vehiculo {
     Boolean disponible_v;
     
     public Vehiculo(){}
+    
+    
     public Vehiculo(int numerochasis_v,String linea_v,String marca_v,String color_v
             ,String modelo_v,String cojineria_v,Boolean disponible_v) {
         this.numerochasis_v=numerochasis_v;
