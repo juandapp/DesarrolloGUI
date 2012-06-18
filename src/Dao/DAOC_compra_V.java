@@ -109,7 +109,7 @@ public class DAOC_compra_V {
             ResultSet tabla = sentencia.executeQuery(sql_select);
             while (tabla.next()) {
                 C_compra_V venta = new C_compra_V();
-                Cliente cliente = new Cliente((Cliente)new DaoPersona().consultar(id_c, ""));
+                Cliente cliente = new Cliente((Persona) new DaoPersona().consultar(id_c, "").getFirst());
                 
                 Empleado empleado = new Empleado();
                 Persona persona = new Persona();
