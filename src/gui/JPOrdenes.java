@@ -701,7 +701,7 @@ public class JPOrdenes extends javax.swing.JPanel {
             java.sql.Date d = new java.sql.Date(Integer.parseInt(fechaString[0]) - 1901, Integer.parseInt(fechaString[1]) + 11, Integer.parseInt(fechaString[2]));
             System.out.println(d.toString());
 
-            Integer.parseInt(jTFidEmpleadoOrden.getText());
+            Integer.parseInt(jTFidEmpleadoOrden.getText()); 
             Integer.parseInt(jTFidClienteOrden.getText());
             Integer.parseInt(jTFidVehiculoOrden.getText());
             Integer.parseInt(jTFidArticuloOrden.getText());
