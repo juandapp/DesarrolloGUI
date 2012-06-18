@@ -26,28 +26,136 @@ public class JPCotizacion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelCotizacion = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTFMarca = new javax.swing.JTextField();
+        jTFModelo = new javax.swing.JTextField();
+        jTFValor = new javax.swing.JTextField();
+        jBLimpiar = new javax.swing.JButton();
+        jBGenerar = new javax.swing.JButton();
+        jTFColor = new javax.swing.JTextField();
+        jTFLinea1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTFCojineria = new javax.swing.JTextField();
+        jTFCojineria2 = new javax.swing.JTextField();
 
-        jLabel1.setText("JPCotizacion");
+        jPanelCotizacion.setBorder(javax.swing.BorderFactory.createTitledBorder("Cotizacion"));
+        jPanelCotizacion.setLayout(null);
+
+        jLabel1.setText("Modelo");
+        jPanelCotizacion.add(jLabel1);
+        jLabel1.setBounds(10, 30, 46, 17);
+
+        jLabel4.setText("Linea");
+        jPanelCotizacion.add(jLabel4);
+        jLabel4.setBounds(10, 60, 34, 17);
+
+        jLabel8.setText("Marca");
+        jPanelCotizacion.add(jLabel8);
+        jLabel8.setBounds(10, 90, 39, 17);
+
+        jLabel9.setText("Color");
+        jPanelCotizacion.add(jLabel9);
+        jLabel9.setBounds(10, 120, 33, 17);
+
+        jLabel10.setText("Valor");
+        jPanelCotizacion.add(jLabel10);
+        jLabel10.setBounds(10, 180, 33, 17);
+
+        jTFMarca.setColumns(20);
+        jPanelCotizacion.add(jTFMarca);
+        jTFMarca.setBounds(110, 90, 272, 27);
+
+        jTFModelo.setColumns(20);
+        jPanelCotizacion.add(jTFModelo);
+        jTFModelo.setBounds(110, 30, 272, 27);
+
+        jTFValor.setColumns(20);
+        jPanelCotizacion.add(jTFValor);
+        jTFValor.setBounds(110, 180, 272, 27);
+
+        jBLimpiar.setText("Limpiar");
+        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarActionPerformed(evt);
+            }
+        });
+        jPanelCotizacion.add(jBLimpiar);
+        jBLimpiar.setBounds(270, 250, 100, 33);
+
+        jBGenerar.setText("Generar");
+        jBGenerar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGenerarActionPerformed(evt);
+            }
+        });
+        jPanelCotizacion.add(jBGenerar);
+        jBGenerar.setBounds(110, 250, 100, 33);
+
+        jTFColor.setColumns(20);
+        jPanelCotizacion.add(jTFColor);
+        jTFColor.setBounds(110, 120, 272, 27);
+
+        jTFLinea1.setColumns(20);
+        jPanelCotizacion.add(jTFLinea1);
+        jTFLinea1.setBounds(110, 60, 272, 27);
+
+        jLabel11.setText("Cojineria");
+        jPanelCotizacion.add(jLabel11);
+        jLabel11.setBounds(10, 150, 55, 17);
+
+        jTFCojineria.setColumns(20);
+        jPanelCotizacion.add(jTFCojineria);
+        jTFCojineria.setBounds(110, 150, 272, 27);
+
+        jTFCojineria2.setColumns(20);
+        jPanelCotizacion.add(jTFCojineria2);
+        jTFCojineria2.setBounds(110, 150, 272, 27);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(135, 135, 135)
-                .addComponent(jLabel1)
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addComponent(jPanelCotizacion, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
-                .addComponent(jLabel1)
-                .addContainerGap(176, Short.MAX_VALUE))
+            .addComponent(jPanelCotizacion, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
         );
+
+        jPanelCotizacion.getAccessibleContext().setAccessibleName("Cotizacion");
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+// TODO add your handling code here:
+    }//GEN-LAST:event_jBLimpiarActionPerformed
+
+    private void jBGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBGenerarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBGenerar;
+    private javax.swing.JButton jBLimpiar;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanelCotizacion;
+    private javax.swing.JTextField jTFCojineria;
+    private javax.swing.JTextField jTFCojineria2;
+    private javax.swing.JTextField jTFColor;
+    private javax.swing.JTextField jTFLinea1;
+    private javax.swing.JTextField jTFMarca;
+    private javax.swing.JTextField jTFModelo;
+    private javax.swing.JTextField jTFValor;
     // End of variables declaration//GEN-END:variables
 }
