@@ -24,6 +24,7 @@ public class GUI extends javax.swing.JFrame {
     public GUI(){
         initComponents();
         jPPrincipal.setLayout(new FlowLayout());
+        setResizable(false);
     }
     
     
@@ -65,7 +66,7 @@ public class GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPPrincipal = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMInventario = new javax.swing.JMenu();
         jMICrearAccesorio = new javax.swing.JMenuItem();
@@ -87,9 +88,9 @@ public class GUI extends javax.swing.JFrame {
 
         jPPrincipal.setLayout(null);
 
-        jLabel1.setText("Principal");
-        jPPrincipal.add(jLabel1);
-        jLabel1.setBounds(280, 180, 59, 30);
+        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Documentos de Juan\\NetBeansProjects\\DesarrolloGUI\\imagen\\Fondo.png")); // NOI18N
+        jPPrincipal.add(jLabel2);
+        jLabel2.setBounds(0, -20, 670, 500);
 
         jMInventario.setText(" Inventario ");
 
@@ -191,7 +192,7 @@ public class GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+            .addComponent(jPPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
         );
 
         pack();
@@ -285,7 +286,7 @@ public class GUI extends javax.swing.JFrame {
         } catch (Exception e) {
         }
         
-        JPVehiculo jPV = new JPVehiculo();
+        JPVehiculo jPV = new JPVehiculo(tipo_e);
         jPPrincipal.add(jPV, BorderLayout.CENTER);        
         jPPrincipal.updateUI();
         this.pack();
@@ -347,7 +348,7 @@ public class GUI extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMICliente;
     private javax.swing.JMenuItem jMICrearAccesorio;
     private javax.swing.JMenuItem jMICrearCotizacion;

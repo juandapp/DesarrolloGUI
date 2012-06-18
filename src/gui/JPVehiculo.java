@@ -24,9 +24,15 @@ public class JPVehiculo extends javax.swing.JPanel {
      */
     VehiculoControlador vehiculoControlador;
 
-    public JPVehiculo() {
+    public JPVehiculo(int tipo) {
         initComponents();
         vehiculoControlador = new VehiculoControlador();
+        if(tipo==1 || tipo==2){
+            
+            jTabbedPane1.setSelectedIndex(1);
+            jTabbedPane1.setEnabledAt(0, false);            
+            jTabbedPane1.setEnabledAt(2, false);
+        }
 
         
     }
