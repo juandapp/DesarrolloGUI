@@ -6,8 +6,8 @@ package Dao;
 
 import accesoDatos.FachadaBD;
 import java.sql.*;
-
-import logica.Ordenes;
+import java.util.LinkedList;
+import logica.*;
 
 /**
  *
@@ -32,8 +32,8 @@ public class DaoOrdenes {
     public int guardar(Ordenes ordenes) {
         String sql_guardar;
         sql_guardar = "INSERT INTO ordenes VALUES ("
-                + ordenes.getId_e() + ", "
-                + ordenes.getId_c() + ", '"
+                + ordenes.getId_e().getId_e().getId_p() + ", "
+                + ordenes.getId_c().getId_c().getId_p() + ", '"
                 + ordenes.getNumerochasis_v().getNumerochasis_v() + "', '"
                 + ordenes.getCodigo_a().getCodigo_a() + "', '"
                 + ordenes.getValor() + "', '"
@@ -53,42 +53,46 @@ public class DaoOrdenes {
         }
         return -1;
     }//fin guardar
+   
+     public LinkedList consultar(String id_e, String id_c, String numerochasis_v, String codigo_a) {
+        LinkedList ordenConsultada = new LinkedList();
 
-    public Ordenes consultar(int id_e, int id_c, int numerochasis_v, int codigo_a) {
-        Ordenes o = new Ordenes();
-        String sql_select;
-        int id_e_consulta = 0, id_c_consulta = 0, codigo_a_consulta = 0, numerochasis_v_consulta = 0;
-
-
-        sql_select = "SELECT * FROM ordenes WHERE id_e=" + id_e + " AND id_c=" + id_c
-                + " AND numerochasis_v=" + numerochasis_v + " AND codigo_a=" + codigo_a + "";
-
-
+        String sql_select = "SELECT * FROM ordenes      ";
+        if (!id_e.equals("") || !id_c.equals("")|| !numerochasis_v.equals("")|| !codigo_a.equals("")) {
+            sql_select += "WHERE ";
+        }
+        if (!id_e.equals("")) {
+            sql_select += "id_e = " + id_e + " AND ";
+        }
+        if (!id_c.equals("")) {
+            sql_select += "id_c =" + id_c + " AND ";
+        }
+        if (!numerochasis_v.equals("")) {
+            sql_select += "numerochasis_v =" + numerochasis_v + " AND ";
+        }
+        if (!codigo_a.equals("")) {
+            sql_select += "codigo_a =" + codigo_a + " AND ";
+        }
+        sql_select = sql_select.substring(0, sql_select.length() - 5);
         try {
             Connection conn = fachada.conectar();
             Statement sentencia = conn.createStatement();
             ResultSet tabla = sentencia.executeQuery(sql_select);
-
-            //
-            if (tabla.next()) {
-                id_e_consulta = Integer.parseInt(tabla.getString("id_e"));
-                id_c_consulta = Integer.parseInt(tabla.getString("id_c"));
-                codigo_a_consulta = Integer.parseInt(tabla.getString("codigo_a"));
-                numerochasis_v_consulta = Integer.parseInt(tabla.getString("numerochasis_v"));
-                o.setFecha(Date.valueOf(tabla.getString("fecha")));
-                o.setTipo_orden(tabla.getString("tipo_orden"));
-                o.setValor(Integer.parseInt(tabla.getString("valor")));
-                o.setDescripcion(tabla.getString("descripcion"));
-
+            while (tabla.next()) {
+                Ordenes orden = new Ordenes();
+                orden.setId_c((Cliente)new DaoCliente().consultar(tabla.getString("id_c"), "").getFirst());
+                orden.setId_e((Empleado)new DaoEmpleado().consultar(tabla.getString("id_e"), "","").getFirst());
+                orden.setNumerochasis_v((Vehiculo)new DaoVehiculo().consultar(tabla.getString("id_e"), "","","","").getFirst());
+                orden.setCodigo_a((Articulo)new DaoArticulo().consultar(tabla.getString("id_e"), "").getFirst());
+                orden.setDescripcion(tabla.getString("descripcion_a"));
+                orden.setTipo_orden(tabla.getString("tipo_orden"));
+                orden.setFecha(tabla.getDate("fecha"));
+                orden.setValor(Integer.parseInt(tabla.getString("valor")));
+                ordenConsultada.add(orden);
             }
-            o.setCodigo_a(daoArticulo.consultar(codigo_a_consulta));
-            o.setId_c(daoCliente.consultar(id_c_consulta));
-            o.setId_e(daoEmpleado.consultar(id_e_consulta));
-            o.setNumerochasis_v(daoVehiculo.consultar(numerochasis_v_consulta));
-
             conn.close();
             System.out.println("Conexion cerrada");
-            return o;
+            return ordenConsultada;
 
         } catch (SQLException e) {
             System.out.println(e);
@@ -98,7 +102,7 @@ public class DaoOrdenes {
 
         return null;
     }
-
+    
     public int editar(Ordenes o) {
 
         String sql_update;
