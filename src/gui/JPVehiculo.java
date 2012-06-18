@@ -17,6 +17,7 @@ import logica.Vehiculo;
  *
  * @author juandapp
  */
+
 public class JPVehiculo extends javax.swing.JPanel {
 
     /**
