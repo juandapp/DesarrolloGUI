@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package desarrollogui.Ventas;
+package gui;
 
 /**
  *
@@ -128,8 +128,6 @@ public class JPCotizacion extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanelCotizacion, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
         );
-
-        jPanelCotizacion.getAccessibleContext().setAccessibleName("Cotizacion");
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed

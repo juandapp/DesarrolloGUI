@@ -5,8 +5,6 @@
 package gui;
 
 
-import desarrollogui.Reporte.JPReporte;
-import desarrollogui.Ventas.JPCotizacion;
 import desarrollogui.Ventas.JPVenta;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
