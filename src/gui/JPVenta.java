@@ -306,6 +306,8 @@ public class JPVenta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBLimpiarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarOrdenActionPerformed
+        jTFidClienteOrden.setText("");
+        jTFidVehiculoOrden.setText("");
         jTFFecha.setText("");
         jTFValor.setText("");
         jCbTipoPago.setSelectedIndex(0);
