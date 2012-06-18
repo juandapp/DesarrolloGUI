@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteVentaRegistrada" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[select * from ((c_compra_v natural join vehiculo) join persona) where id_p=id_c]]>
+	</queryString>
+	<field name="numerochasis_v" class="java.lang.Integer"/>
+	<field name="id_c" class="java.lang.Integer"/>
+	<field name="tipo_pago" class="java.lang.String"/>
+	<field name="linea_v" class="java.lang.String"/>
+	<field name="marca_v" class="java.lang.String"/>
+	<field name="color_v" class="java.lang.String"/>
+	<field name="modelo_v" class="java.lang.String"/>
+	<field name="cojineria_v" class="java.lang.String"/>
+	<field name="disponible_v" class="java.lang.Boolean"/>
+	<field name="id_p" class="java.lang.Integer"/>
+	<field name="nombre_p" class="java.lang.String"/>
+	<field name="direccion_p" class="java.lang.String"/>
+	<field name="telefono_p" class="java.lang.Integer"/>
+	<field name="email_p" class="java.lang.String"/>
+	<field name="genero_p" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="62">
+				<staticText>
+					<reportElement x="14" y="0" width="103" height="20"/>
+					<textElement/>
+					<text><![CDATA[Nombre del Cliente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="32" width="56" height="20"/>
+					<textElement/>
+					<text><![CDATA[ID Cliente]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="154" y="0" width="87" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{nombre_p}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="154" y="32" width="56" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{id_c}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="35">
+				<staticText>
+					<reportElement x="14" y="15" width="77" height="20"/>
+					<textElement/>
+					<text><![CDATA[Tipo de Pago]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="154" y="15" width="109" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tipo_pago}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band height="84">
+				<staticText>
+					<reportElement x="14" y="0" width="80" height="20"/>
+					<textElement/>
+					<text><![CDATA[ID Vehiculo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="31" width="46" height="20"/>
+					<textElement/>
+					<text><![CDATA[Marca]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="14" y="64" width="46" height="20"/>
+					<textElement/>
+					<text><![CDATA[Modelo]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="154" y="0" width="131" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{numerochasis_v}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="154" y="31" width="87" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{marca_v}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="154" y="64" width="109" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{modelo_v}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="13" width="263" height="33"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Informe de Venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="117" y="46" width="157" height="22"/>
+				<textElement/>
+				<text><![CDATA[AutoSoft]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnFooter>
+		<band height="17" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteOrdenRegistrada" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="149"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString>
+		<![CDATA[select * from (ordenes join persona) where id_p=id_c]]>
+	</queryString>
+	<field name="id_e" class="java.lang.Integer"/>
+	<field name="id_c" class="java.lang.Integer"/>
+	<field name="numerochasis_v" class="java.lang.Integer"/>
+	<field name="codigo_a" class="java.lang.Integer"/>
+	<field name="valor" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="tipo_orden" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="id_p" class="java.lang.Integer"/>
+	<field name="nombre_p" class="java.lang.String"/>
+	<field name="direccion_p" class="java.lang.String"/>
+	<field name="telefono_p" class="java.lang.Integer"/>
+	<field name="email_p" class="java.lang.String"/>
+	<field name="genero_p" class="java.lang.String"/>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="54">
+				<textField>
+					<reportElement x="201" y="34" width="56" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{id_c}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="61" y="0" width="103" height="20"/>
+					<textElement/>
+					<text><![CDATA[Nombre del Cliente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="61" y="34" width="56" height="20"/>
+					<textElement/>
+					<text><![CDATA[ID Cliente]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="201" y="0" width="87" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{nombre_p}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="158">
+				<frame>
+					<reportElement mode="Opaque" x="652" y="0" width="150" height="30" forecolor="#CCCCCC" backcolor="#CCCCCC"/>
+				</frame>
+				<staticText>
+					<reportElement x="61" y="0" width="80" height="20"/>
+					<textElement/>
+					<text><![CDATA[Tipo de Orden]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="61" y="30" width="80" height="20"/>
+					<textElement/>
+					<text><![CDATA[Valor]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="61" y="62" width="80" height="20"/>
+					<textElement/>
+					<text><![CDATA[Descripcion]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="201" y="0" width="131" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{tipo_orden}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="201" y="30" width="131" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="201" y="62" width="321" height="57"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band height="68">
+				<staticText>
+					<reportElement x="61" y="14" width="80" height="20"/>
+					<textElement/>
+					<text><![CDATA[ID Vehiculo]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="201" y="14" width="131" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{numerochasis_v}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="61" y="48" width="80" height="20"/>
+					<textElement/>
+					<text><![CDATA[ID Empleado]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="201" y="48" width="131" height="20"/>
+					<textElement/>
+					<textFieldExpression><![CDATA[$F{id_e}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Informe Orden de Trabajo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[AutoSoft]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666"/>
+				<staticText>
+					<reportElement style="Column header" x="5" y="0" width="166" height="15"/>
+					<textElement/>
+					<text><![CDATA[Informe Orden de Trabajo]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15"/>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Orden de Trabajo]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
