@@ -158,7 +158,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTFLinea1">
+        <Component class="javax.swing.JTextField" name="jTFLinea">
           <Properties>
             <Property name="columns" type="int" value="20"/>
           </Properties>

@@ -66,6 +66,7 @@ public class Reportes {
      
         }
         catch(Exception ej){ej.printStackTrace();}
+        fachada.cerrarConexion(conn);
     }
     
     

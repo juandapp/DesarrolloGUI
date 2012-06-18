@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package gui;
+import GeneradorReportes.Reportes;
 
 /**
  *
@@ -13,6 +14,7 @@ public class JPCotizacion extends javax.swing.JPanel {
     /**
      * Creates new form JPCotizacion
      */
+    Reportes reporte;
     public JPCotizacion() {
         initComponents();
     }
@@ -38,7 +40,7 @@ public class JPCotizacion extends javax.swing.JPanel {
         jBLimpiar = new javax.swing.JButton();
         jBGenerar = new javax.swing.JButton();
         jTFColor = new javax.swing.JTextField();
-        jTFLinea1 = new javax.swing.JTextField();
+        jTFLinea = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTFCojineria = new javax.swing.JTextField();
         jTFCojineria2 = new javax.swing.JTextField();
@@ -100,9 +102,9 @@ public class JPCotizacion extends javax.swing.JPanel {
         jPanelCotizacion.add(jTFColor);
         jTFColor.setBounds(110, 120, 272, 27);
 
-        jTFLinea1.setColumns(20);
-        jPanelCotizacion.add(jTFLinea1);
-        jTFLinea1.setBounds(110, 60, 272, 27);
+        jTFLinea.setColumns(20);
+        jPanelCotizacion.add(jTFLinea);
+        jTFLinea.setBounds(110, 60, 272, 27);
 
         jLabel11.setText("Cojineria");
         jPanelCotizacion.add(jLabel11);
@@ -132,10 +134,20 @@ public class JPCotizacion extends javax.swing.JPanel {
 
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
 // TODO add your handling code here:
+        jTFCojineria.setText("");
+        jTFColor.setText("");
+        jTFMarca.setText("");
+        jTFModelo.setText("");
+        jTFValor.setText("");
+        jTFLinea.setText("");
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarActionPerformed
         // TODO add your handling code here:
+        //FALTA INGRESAR DATOS A UNA TABLA DE COTIZACIONES
+        reporte=new Reportes();
+        reporte.generarReporte("reporteCotizacion");
+        
     }//GEN-LAST:event_jBGenerarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -151,7 +163,7 @@ public class JPCotizacion extends javax.swing.JPanel {
     private javax.swing.JTextField jTFCojineria;
     private javax.swing.JTextField jTFCojineria2;
     private javax.swing.JTextField jTFColor;
-    private javax.swing.JTextField jTFLinea1;
+    private javax.swing.JTextField jTFLinea;
     private javax.swing.JTextField jTFMarca;
     private javax.swing.JTextField jTFModelo;
     private javax.swing.JTextField jTFValor;

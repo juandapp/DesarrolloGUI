@@ -3,6 +3,7 @@
  * and open the template in the editor.
  */
 package gui;
+import GeneradorReportes.Reportes;
 
 /**
  *
@@ -12,9 +13,12 @@ public class JPReporte extends javax.swing.JPanel {
 
     /**
      * Creates new form JPReporte
+     * 
      */
+    Reportes reporte;
     public JPReporte() {
         initComponents();
+        
     }
 
     /**
@@ -27,9 +31,9 @@ public class JPReporte extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanelCotizacion = new javax.swing.JPanel();
-        jBLimpiar = new javax.swing.JButton();
-        jBGenerar = new javax.swing.JButton();
-        jBLimpiar1 = new javax.swing.JButton();
+        jBVentas = new javax.swing.JButton();
+        jBClientes = new javax.swing.JButton();
+        jBEmpleados = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -37,32 +41,32 @@ public class JPReporte extends javax.swing.JPanel {
         jPanelCotizacion.setBorder(javax.swing.BorderFactory.createTitledBorder("Reporte"));
         jPanelCotizacion.setLayout(null);
 
-        jBLimpiar.setText("Ventas");
-        jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
+        jBVentas.setText("Ventas");
+        jBVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimpiarActionPerformed(evt);
+                jBVentasActionPerformed(evt);
             }
         });
-        jPanelCotizacion.add(jBLimpiar);
-        jBLimpiar.setBounds(320, 170, 100, 30);
+        jPanelCotizacion.add(jBVentas);
+        jBVentas.setBounds(320, 170, 100, 30);
 
-        jBGenerar.setText("Clientes");
-        jBGenerar.addActionListener(new java.awt.event.ActionListener() {
+        jBClientes.setText("Clientes");
+        jBClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBGenerarActionPerformed(evt);
+                jBClientesActionPerformed(evt);
             }
         });
-        jPanelCotizacion.add(jBGenerar);
-        jBGenerar.setBounds(320, 50, 100, 33);
+        jPanelCotizacion.add(jBClientes);
+        jBClientes.setBounds(320, 50, 100, 33);
 
-        jBLimpiar1.setText("Empleados");
-        jBLimpiar1.addActionListener(new java.awt.event.ActionListener() {
+        jBEmpleados.setText("Empleados");
+        jBEmpleados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBLimpiar1ActionPerformed(evt);
+                jBEmpleadosActionPerformed(evt);
             }
         });
-        jPanelCotizacion.add(jBLimpiar1);
-        jBLimpiar1.setBounds(320, 110, 100, 30);
+        jPanelCotizacion.add(jBEmpleados);
+        jBEmpleados.setBounds(320, 110, 100, 30);
 
         jLabel2.setText("Lista los empleados de la compañia");
         jPanelCotizacion.add(jLabel2);
@@ -92,22 +96,28 @@ public class JPReporte extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
+    private void jBVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBVentasActionPerformed
 // TODO add your handling code here:
-    }//GEN-LAST:event_jBLimpiarActionPerformed
+        reporte= new Reportes();
+        reporte.generarReporte("reporteVentas");
+    }//GEN-LAST:event_jBVentasActionPerformed
 
-    private void jBGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarActionPerformed
+    private void jBClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBClientesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBGenerarActionPerformed
+        reporte= new Reportes();
+        reporte.generarReporte("reporteClientes");
+    }//GEN-LAST:event_jBClientesActionPerformed
 
-    private void jBLimpiar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiar1ActionPerformed
+    private void jBEmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEmpleadosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBLimpiar1ActionPerformed
+        reporte= new Reportes();
+        reporte.generarReporte("reporteUsuarios");
+    }//GEN-LAST:event_jBEmpleadosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBGenerar;
-    private javax.swing.JButton jBLimpiar;
-    private javax.swing.JButton jBLimpiar1;
+    private javax.swing.JButton jBClientes;
+    private javax.swing.JButton jBEmpleados;
+    private javax.swing.JButton jBVentas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
