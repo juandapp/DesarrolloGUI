@@ -23,9 +23,15 @@ public class JPAccesorio extends javax.swing.JPanel {
      */
     AccesorioControlador accesorioControlador;
 
-    public JPAccesorio() {
+    public JPAccesorio(int tipo) {
         initComponents();
         accesorioControlador = new AccesorioControlador();
+        if(tipo==1 || tipo==2){
+            
+            jTabbedPane1.setSelectedIndex(1);
+            jTabbedPane1.setEnabledAt(0, false);            
+            jTabbedPane1.setEnabledAt(2, false);
+        }
     }
 
     /**
