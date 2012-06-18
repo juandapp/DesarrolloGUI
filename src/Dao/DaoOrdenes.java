@@ -82,8 +82,8 @@ public class DaoOrdenes {
                 Ordenes orden = new Ordenes();
                 orden.setId_c((Cliente)new DaoCliente().consultar(tabla.getString("id_c"), "").getFirst());
                 orden.setId_e((Empleado)new DaoEmpleado().consultar(tabla.getString("id_e"), "","").getFirst());
-                orden.setNumerochasis_v((Vehiculo)new DaoVehiculo().consultar(tabla.getString("id_e"), "","","","").getFirst());
-                orden.setCodigo_a((Articulo)new DaoArticulo().consultar(tabla.getString("id_e"), "").getFirst());
+                orden.setNumerochasis_v((Vehiculo)new DaoVehiculo().consultar(tabla.getString("numerochasis_v"), "","","","").getFirst());
+                orden.setCodigo_a((Articulo)new DaoArticulo().consultar(tabla.getString("codigo_a"), "").getFirst());
                 orden.setDescripcion(tabla.getString("descripcion_a"));
                 orden.setTipo_orden(tabla.getString("tipo_orden"));
                 orden.setFecha(tabla.getDate("fecha"));
