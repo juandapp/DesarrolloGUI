@@ -23,6 +23,18 @@ public class Ordenes {
     public Ordenes() {
     }
 
+    public Ordenes(Empleado id_e, Cliente id_c, Vehiculo numerochasis_v, Articulo codigo_a, int valor, Date fecha, String tipo_orden, String descripcion) {
+        this.id_e = id_e;
+        this.id_c = id_c;
+        this.numerochasis_v = numerochasis_v;
+        this.codigo_a = codigo_a;
+        this.valor = valor;
+        this.fecha = fecha;
+        this.tipo_orden = tipo_orden;
+        this.descripcion = descripcion;
+    }
+    
+
     public Articulo getCodigo_a() {
         return codigo_a;
     }
