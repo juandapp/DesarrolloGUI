@@ -41,7 +41,7 @@ public class GUI extends javax.swing.JFrame {
             jMReportes.setEnabled(false);
             jMVentas.setEnabled(false);
             jMICliente.setEnabled(false);
-            jMICrearUsuario.setEnabled(false);
+            jMICrearUsuario.setEnabled(false); 
                     
         }
         
