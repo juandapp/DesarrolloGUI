@@ -8,7 +8,7 @@
 	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<queryString>
-		<![CDATA[select * from ordenes join persona where id_p=id_c]]>
+		<![CDATA[select * from ordenes join persona where id_p=id_c;]]>
 	</queryString>
 	<field name="id_e" class="java.lang.Integer"/>
 	<field name="id_c" class="java.lang.Integer"/>
