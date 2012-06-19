@@ -87,6 +87,15 @@
 	</background>
 	<title>
 		<band height="90" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="90" forecolor="#B89F7D" backcolor="#9DB1B8"/>
+				<box>
+					<pen lineColor="#F60142"/>
+					<topPen lineStyle="Double" lineColor="#F60142"/>
+					<leftPen lineColor="#F60142"/>
+					<rightPen lineColor="#F60142"/>
+				</box>
+			</frame>
 			<staticText>
 				<reportElement style="Title" x="0" y="13" width="263" height="33"/>
 				<textElement verticalAlignment="Middle"/>
@@ -98,19 +107,10 @@
 				<text><![CDATA[AutoSoft]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="358" y="0" width="197" height="90" forecolor="#B89F7D" backcolor="#9DB1B8"/>
-				<box>
-					<pen lineColor="#F60142"/>
-					<topPen lineStyle="Double" lineColor="#F60142"/>
-					<leftPen lineColor="#F60142"/>
-					<rightPen lineColor="#F60142"/>
-				</box>
-			</frame>
-			<frame>
 				<reportElement mode="Opaque" x="0" y="68" width="218" height="22" backcolor="#006699"/>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="263" y="13" width="95" height="77" forecolor="#B89F7D" backcolor="#000000"/>
+				<reportElement mode="Opaque" x="218" y="68" width="337" height="22" forecolor="#B89F7D" backcolor="#000000"/>
 			</frame>
 		</band>
 	</title>
