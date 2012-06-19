@@ -283,6 +283,7 @@ public class JPAccesorio extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No su pudo crear la Accesorio", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Accesorio Creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCamposConsultar();
             jTFCodigo1.setText(jTFCodigo.getText());
             jBConsultar.doClick();
             jBLimpiarCrear.doClick();
