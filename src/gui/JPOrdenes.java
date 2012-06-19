@@ -727,9 +727,10 @@ public class JPOrdenes extends javax.swing.JPanel {
         if (guardar == -1) {
             JOptionPane.showMessageDialog(this, "No su pudo crear la Orden", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(this, "Orden Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
             reporte= new Reportes();
             reporte.generarReporte("reporteOrdenRegistrada");
+            JOptionPane.showMessageDialog(this, "Orden Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            
         }
     }//GEN-LAST:event_jBCrearOrdenActionPerformed
     // Variables declaration - do not modify//GEN-BEGIN:variables
