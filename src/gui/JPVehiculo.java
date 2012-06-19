@@ -17,7 +17,6 @@ import logica.Vehiculo;
  *
  * @author juandapp
  */
-
 public class JPVehiculo extends javax.swing.JPanel {
 
     /**
@@ -28,18 +27,18 @@ public class JPVehiculo extends javax.swing.JPanel {
 
     public JPVehiculo(int tipo) {
         initComponents();
-        tipo_e=tipo;
+        tipo_e = tipo;
         vehiculoControlador = new VehiculoControlador();
-        if(tipo==1 || tipo==2){
-            
+        if (tipo == 1 || tipo == 2) {
+
             jTabbedPane1.setSelectedIndex(1);
-            jTabbedPane1.setEnabledAt(0, false);            
+            jTabbedPane1.setEnabledAt(0, false);
             jTabbedPane1.setEnabledAt(2, false);
             jTResultados.setEnabled(false);
-            
+
         }
 
-        
+
     }
 
     /**
@@ -499,6 +498,7 @@ public class JPVehiculo extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "No su pudo crear el Vehiculo", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "Vehiculo creado correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            limpiarCamposConsultar();
             jTFNoChasis1.setText(jTFNoChasis.getText());
             jBConsultar.doClick();
             jBLimpiar.doClick();
@@ -515,7 +515,7 @@ public class JPVehiculo extends javax.swing.JPanel {
 
     private void jTResultadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosMouseClicked
         // TODO add your handling code here:
-      System.err.print(tipo_e);
+        System.err.print(tipo_e);
         int selectedRow = jTResultados.getSelectedRow();
         jTFNoChasis2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 0));
         jTFLinea2.setText("" + jTResultados.getModel().getValueAt(selectedRow, 1));
@@ -525,7 +525,7 @@ public class JPVehiculo extends javax.swing.JPanel {
         jTFCojineria1.setText("" + jTResultados.getModel().getValueAt(selectedRow, 5));
         jCBDisponible1.setSelectedItem("" + jTResultados.getModel().getValueAt(selectedRow, 6));
         jTabbedPane1.setSelectedIndex(2);
-      
+
     }//GEN-LAST:event_jTResultadosMouseClicked
     private void limpiarCamposModificar() {
         jTFMarca2.setText("");
