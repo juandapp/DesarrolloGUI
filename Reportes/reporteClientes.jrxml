@@ -76,7 +76,7 @@
 			<staticText>
 				<reportElement style="SubTitle" x="175" y="0" width="166" height="66"/>
 				<textElement textAlignment="Right">
-					<font fontName="DejaVu Sans" size="40"/>
+					<font fontName="Arial" size="40"/>
 				</textElement>
 				<text><![CDATA[Clientes]]></text>
 			</staticText>
