@@ -28,8 +28,8 @@ public class DaoCotizacion {
             {
             {
         String sql_guardar;
-        sql_guardar = "INSERT INTO cotizacion VALUES ("
-                + marca + ", '"
+        sql_guardar = "INSERT INTO cotizacion VALUES ('"
+                + marca + "', '"
                 + modelo+ "', '"
                 + linea + "', '"
                 + color + "', '"

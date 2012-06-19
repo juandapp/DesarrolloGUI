@@ -142,7 +142,7 @@ public class JPCotizacion extends javax.swing.JPanel {
         //FALTA INGRESAR DATOS A UNA TABLA DE COTIZACIONES
         daoCotizacion.guardar(jTFMarca.getText(), jTFModelo.getText(), 
                 jTFLinea.getText(), jTFColor.getText(),
-                jTFCojineria.getText(), Integer.parseInt(jTFColor.getText()));
+                jTFCojineria.getText(), Integer.parseInt(jTFValor.getText()));
         
         reporte=new Reportes();
         reporte.generarReporte("reporteCotizacion");
