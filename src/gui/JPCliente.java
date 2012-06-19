@@ -147,15 +147,13 @@ public class JPCliente extends javax.swing.JPanel {
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
-        jPanel2.setLayout(null);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setText("Identificacion");
-        jPanel2.add(jLabel16);
-        jLabel16.setBounds(10, 20, 64, 14);
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jTFIdentificacion1.setColumns(20);
-        jPanel2.add(jTFIdentificacion1);
-        jTFIdentificacion1.setBounds(160, 10, 190, 20);
+        jPanel2.add(jTFIdentificacion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 190, -1));
 
         jBConsultar.setText("Consultar");
         jBConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -163,16 +161,13 @@ public class JPCliente extends javax.swing.JPanel {
                 jBConsultarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBConsultar);
-        jBConsultar.setBounds(360, 10, 90, 23);
+        jPanel2.add(jBConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 90, -1));
 
         jTFNombre1.setColumns(20);
-        jPanel2.add(jTFNombre1);
-        jTFNombre1.setBounds(160, 40, 190, 20);
+        jPanel2.add(jTFNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, 190, -1));
 
         jLabel6.setText("Nombre");
-        jPanel2.add(jLabel6);
-        jLabel6.setBounds(10, 50, 37, 14);
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jTResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -197,8 +192,7 @@ public class JPCliente extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTResultados);
 
-        jPanel2.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 80, 480, 125);
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 480, 125));
 
         jBLimpiarConsultar.setText("Limpiar");
         jBLimpiarConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -206,62 +200,49 @@ public class JPCliente extends javax.swing.JPanel {
                 jBLimpiarConsultarActionPerformed(evt);
             }
         });
-        jPanel2.add(jBLimpiarConsultar);
-        jBLimpiarConsultar.setBounds(360, 40, 90, 23);
+        jPanel2.add(jBLimpiarConsultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 90, -1));
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
-        jPanel3.setLayout(null);
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setText("Identificacion");
-        jPanel3.add(jLabel19);
-        jLabel19.setBounds(10, 20, 64, 14);
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jTFIdentificacion2.setColumns(20);
         jTFIdentificacion2.setEnabled(false);
-        jPanel3.add(jTFIdentificacion2);
-        jTFIdentificacion2.setBounds(160, 10, 166, 20);
+        jPanel3.add(jTFIdentificacion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jLabel10.setText("Nombre");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(10, 50, 37, 14);
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jTFNombre2.setColumns(20);
-        jPanel3.add(jTFNombre2);
-        jTFNombre2.setBounds(160, 40, 166, 20);
+        jPanel3.add(jTFNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         jLabel12.setText("Genero");
-        jPanel3.add(jLabel12);
-        jLabel12.setBounds(10, 80, 35, 14);
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jCBGenero1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Femenino", "Masculino" }));
         jCBGenero1.setName(""); // NOI18N
-        jPanel3.add(jCBGenero1);
-        jCBGenero1.setBounds(160, 70, 79, 20);
+        jPanel3.add(jCBGenero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
 
         jTFTelefono1.setColumns(20);
-        jPanel3.add(jTFTelefono1);
-        jTFTelefono1.setBounds(160, 100, 166, 20);
+        jPanel3.add(jTFTelefono1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
 
         jTFDireccion1.setColumns(20);
-        jPanel3.add(jTFDireccion1);
-        jTFDireccion1.setBounds(160, 130, 166, 20);
+        jPanel3.add(jTFDireccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
 
         jTFEmail1.setColumns(20);
-        jPanel3.add(jTFEmail1);
-        jTFEmail1.setBounds(160, 160, 166, 20);
+        jPanel3.add(jTFEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         jLabel18.setText("Email");
-        jPanel3.add(jLabel18);
-        jLabel18.setBounds(10, 170, 24, 14);
+        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         jLabel17.setText("Direccion");
-        jPanel3.add(jLabel17);
-        jLabel17.setBounds(10, 140, 43, 14);
+        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jLabel11.setText("Telefono");
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(10, 110, 42, 14);
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jBModificar.setText("Modificar");
         jBModificar.addActionListener(new java.awt.event.ActionListener() {
@@ -269,8 +250,7 @@ public class JPCliente extends javax.swing.JPanel {
                 jBModificarActionPerformed(evt);
             }
         });
-        jPanel3.add(jBModificar);
-        jBModificar.setBounds(330, 200, 90, 23);
+        jPanel3.add(jBModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 90, -1));
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 
