@@ -15,7 +15,7 @@
 		</conditionalStyle>
 	</style>
 	<queryString>
-		<![CDATA[select * from c_compra_v natural join vehiculo join persona where id_p=id_c;]]>
+		<![CDATA[select * from (c_compra_v natural join vehiculo) join persona where id_p=id_c;]]>
 	</queryString>
 	<field name="numerochasis_v" class="java.lang.Integer"/>
 	<field name="id_c" class="java.lang.Integer"/>

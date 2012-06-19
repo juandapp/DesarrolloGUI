@@ -63,6 +63,9 @@
 	</background>
 	<title>
 		<band height="70" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="53" y="37" width="337" height="32" forecolor="#000000" backcolor="#CC0000"/>
+			</frame>
 			<staticText>
 				<reportElement style="SubTitle" x="0" y="0" width="117" height="37"/>
 				<textElement textAlignment="Right">
@@ -70,21 +73,8 @@
 				</textElement>
 				<text><![CDATA[AutoSoft]]></text>
 			</staticText>
-			<frame>
-				<reportElement mode="Opaque" x="0" y="37" width="390" height="32" forecolor="#000000" backcolor="#CC0000"/>
-			</frame>
-			<frame>
-				<reportElement mode="Opaque" x="390" y="3" width="67" height="66" backcolor="#000000"/>
-				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29"/>
-					<textElement textAlignment="Right">
-						<font size="22" isBold="false"/>
-					</textElement>
-					<text><![CDATA[]]></text>
-				</staticText>
-			</frame>
 			<staticText>
-				<reportElement style="SubTitle" x="189" y="3" width="166" height="66"/>
+				<reportElement style="SubTitle" x="175" y="0" width="166" height="66"/>
 				<textElement textAlignment="Right">
 					<font fontName="DejaVu Sans" size="40"/>
 				</textElement>
@@ -97,6 +87,9 @@
 	</pageHeader>
 	<columnHeader>
 		<band height="36" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="263" y="2" width="275" height="32" forecolor="#000000" backcolor="#CC0000"/>
+			</frame>
 			<staticText>
 				<reportElement style="Column header" x="0" y="12" width="263" height="22"/>
 				<textElement/>
@@ -108,9 +101,6 @@
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
-			<frame>
-				<reportElement mode="Opaque" x="263" y="2" width="292" height="32" forecolor="#000000" backcolor="#CC0000"/>
-			</frame>
 			<frame>
 				<reportElement mode="Opaque" x="23" y="2" width="230" height="10" backcolor="#666666"/>
 			</frame>
