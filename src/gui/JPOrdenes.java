@@ -503,6 +503,10 @@ public class JPOrdenes extends javax.swing.JPanel {
     }//GEN-LAST:event_jBLimpiarempleadoActionPerformed
 
     private void jBLimpiarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarOrdenActionPerformed
+        jTFidArticuloOrden.setText("");
+        jTFidClienteOrden.setText("");
+        jTFidEmpleadoOrden.setText("");
+        jTFidVehiculoOrden.setText("");
         jTFFecha.setText("");
         jTFValor.setText("");
         jCbTipoOrden.setSelectedIndex(0);
