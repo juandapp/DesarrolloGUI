@@ -87,4 +87,35 @@ FOREIGN KEY (codigo_a) REFERENCES articulo(codigo_a),
 FOREIGN KEY (numerochasis_v) REFERENCES vehiculo(numerochasis_v)
 );
 
+--Registros
+--Gerente
+INSERT INTO persona VALUES(12345,'Cristian Loaiza','Calle 8a #50-22','3328529','gerente@porschecolombia.com','masc');
+
+INSERT INTO empleado VALUES(1234,'gerente','admin');
+
+--Jefe de Taller
+INSERT INTO persona VALUES(23456,'Frank Calvache','Calle 5 #83-29','8895024','calvache@porschecolombia.com','masc');
+
+INSERT INTO empleado VALUES(23456,'jefe de taller','taller_admin');
+
+--Vendedor
+INSERT INTO persona VALUES(34567,'Elisha Dushku','Calle 13 #20-42','3319852','dushku@porschecolombia.com','femen');
+
+INSERT INTO empleado VALUES(34567,'vendedor','vendedora');
+
+
+--Acesorios
+INSERT  INTO articulo VALUES(000250,'Motor 2.3l DISI Turbo','L3T con intercooler',1);
+
+INSERT  INTO articulo VALUES(042536,'Cera Simoniz 1lt','Cera brillante despues de lavado',10);
+
+INSERT  INTO articulo VALUES(000241,'Suspension MacPherson','Independiente, brazo sencillo',4);
+
+--Vehiculos
+
+INSERT INTO vehiculo VALUES(24523656,'Laser','Ford','Plateado','2009','Normal',TRUE);
+
+INSERT INTO vehiculo VALUES(52456331,'Aveo','Chevrolet','Rojo','2012','Normal',TRUE);
+
+INSERT INTO vehiculo VALUES(78464236,'RX8','Mazda','Plateado','2012','Cuero',TRUE);
 
