@@ -96,12 +96,12 @@ INSERT INTO empleado VALUES(12345,'Gerente','admin');
 --Jefe de Taller
 INSERT INTO persona VALUES(23456,'Frank Calvache','Calle 5 #83-29','8895024','calvache@porschecolombia.com','Masculino');
 
-INSERT INTO empleado VALUES(23456,'Jefe de taller','23456');
+INSERT INTO empleado VALUES(23456,'Jefe de Taller','23456');
 
 --Vendedor
 INSERT INTO persona VALUES(34567,'Elisha Dushku','Calle 13 #20-42','3319852','dushku@porschecolombia.com','Femenino');
 
-INSERT INTO empleado VALUES(34567,'vendedor','34567');
+INSERT INTO empleado VALUES(34567,'Vendedor','34567');
 
 
 --Acesorios
