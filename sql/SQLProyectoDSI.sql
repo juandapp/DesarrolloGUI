@@ -89,33 +89,33 @@ FOREIGN KEY (numerochasis_v) REFERENCES vehiculo(numerochasis_v)
 
 --Registros
 --Gerente
-INSERT INTO persona VALUES(12345,'Cristian Loaiza','Calle 8a #50-22','3328529','gerente@porschecolombia.com','masc');
+INSERT INTO persona VALUES(12345,'Cristian Loaiza','Calle 8a #50-22','3328529','gerente@porschecolombia.com','Masculino');
 
-INSERT INTO empleado VALUES(1234,'gerente','admin');
+INSERT INTO empleado VALUES(12345,'Gerente','admin');
 
 --Jefe de Taller
-INSERT INTO persona VALUES(23456,'Frank Calvache','Calle 5 #83-29','8895024','calvache@porschecolombia.com','masc');
+INSERT INTO persona VALUES(23456,'Frank Calvache','Calle 5 #83-29','8895024','calvache@porschecolombia.com','Masculino');
 
-INSERT INTO empleado VALUES(23456,'jefe de taller','taller_admin');
+INSERT INTO empleado VALUES(23456,'Jefe de taller','23456');
 
 --Vendedor
-INSERT INTO persona VALUES(34567,'Elisha Dushku','Calle 13 #20-42','3319852','dushku@porschecolombia.com','femen');
+INSERT INTO persona VALUES(34567,'Elisha Dushku','Calle 13 #20-42','3319852','dushku@porschecolombia.com','Femenino');
 
-INSERT INTO empleado VALUES(34567,'vendedor','vendedora');
+INSERT INTO empleado VALUES(34567,'vendedor','34567');
 
 
 --Acesorios
-INSERT  INTO articulo VALUES(000250,'Motor 2.3l DISI Turbo','L3T con intercooler',1);
+INSERT  INTO articulo VALUES(250,'Motor 2.3l DISI Turbo','L3T con intercooler',1);
 
-INSERT  INTO articulo VALUES(042536,'Cera Simoniz 1lt','Cera brillante despues de lavado',10);
+INSERT  INTO articulo VALUES(42536,'Cera Simoniz 1lt','Cera brillante despues de lavado',10);
 
-INSERT  INTO articulo VALUES(000241,'Suspension MacPherson','Independiente, brazo sencillo',4);
+INSERT  INTO articulo VALUES(241,'Suspension MacPherson','Independiente, brazo sencillo',4);
 
 --Vehiculos
 
-INSERT INTO vehiculo VALUES(24523656,'Laser','Ford','Plateado','2009','Normal',TRUE);
+INSERT INTO vehiculo VALUES(24523656,'Laser','Ford','Plateado','2009','Normal','TRUE');
 
-INSERT INTO vehiculo VALUES(52456331,'Aveo','Chevrolet','Rojo','2012','Normal',TRUE);
+INSERT INTO vehiculo VALUES(52456331,'Aveo','Chevrolet','Rojo','2012','Normal','TRUE');
 
-INSERT INTO vehiculo VALUES(78464236,'RX8','Mazda','Plateado','2012','Cuero',TRUE);
+INSERT INTO vehiculo VALUES(78464236,'RX8','Mazda','Plateado','2012','Cuero','TRUE');
 
