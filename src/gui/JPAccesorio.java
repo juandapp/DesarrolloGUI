@@ -17,7 +17,7 @@ import logica.Articulo;
  * @author juandapp
  */
 public class JPAccesorio extends javax.swing.JPanel {
-
+ 
     /**
      * Creates new form JPCliente
      */
