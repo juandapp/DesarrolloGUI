@@ -119,7 +119,6 @@ public class JPOrdenes extends javax.swing.JPanel {
         jTFidVehiculoOrden = new javax.swing.JTextField();
         jTFidClienteOrden = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTFFecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTFValor = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -134,6 +133,7 @@ public class JPOrdenes extends javax.swing.JPanel {
         jBLimpiarOrden = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jTFidArticuloOrden = new javax.swing.JTextField();
+        jDCFecha3 = new com.toedter.calendar.JDateChooser();
 
         setEnabled(false);
 
@@ -410,7 +410,6 @@ public class JPOrdenes extends javax.swing.JPanel {
 
         jLabel3.setText("Fecha");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
-        jPanel4.add(jTFFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 100, -1));
 
         jLabel4.setText("Valor");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
@@ -457,6 +456,9 @@ public class JPOrdenes extends javax.swing.JPanel {
 
         jTFidArticuloOrden.setEnabled(false);
         jPanel4.add(jTFidArticuloOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 140, -1));
+
+        jDCFecha3.setDateFormatString("dd MMM yyyy");
+        jPanel4.add(jDCFecha3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, -1));
 
         jTabbedPane1.addTab("Orden", jPanel4);
 
@@ -507,7 +509,7 @@ public class JPOrdenes extends javax.swing.JPanel {
         jTFidClienteOrden.setText("");
         jTFidEmpleadoOrden.setText("");
         jTFidVehiculoOrden.setText("");
-        jTFFecha.setText("");
+        jDCFecha3.setDate(new java.util.Date());
         jTFValor.setText("");
         jCbTipoOrden.setSelectedIndex(0);
         jTPDescripcion.setText("");
@@ -703,9 +705,10 @@ public class JPOrdenes extends javax.swing.JPanel {
         int guardar = -1;
         try {
 
-            String[] fechaString = jTFFecha.getText().split("/");
+            java.sql.Date fecha=new java.sql.Date(jDCFecha3.getDate().getTime());   
+         /*   String[] fechaString = jTFFecha.getText().split("/");
             java.sql.Date d = new java.sql.Date(Integer.parseInt(fechaString[0]) - 1901, Integer.parseInt(fechaString[1]) + 11, Integer.parseInt(fechaString[2]));
-            System.out.println(d.toString());
+            System.out.println(d.toString());*/
 
             Integer.parseInt(jTFidEmpleadoOrden.getText()); 
             Integer.parseInt(jTFidClienteOrden.getText());
@@ -719,7 +722,7 @@ public class JPOrdenes extends javax.swing.JPanel {
                     Integer.parseInt(jTFidVehiculoOrden.getText()),
                     Integer.parseInt(jTFidArticuloOrden.getText()),
                     Integer.parseInt(jTFValor.getText()),
-                    d,
+                    fecha,
                     jCbTipoOrden.getSelectedItem().toString(),
                     jTPDescripcion.getText());
 
@@ -750,6 +753,7 @@ public class JPOrdenes extends javax.swing.JPanel {
     private javax.swing.JButton jBLimpiarempleado;
     private javax.swing.JComboBox jCBCargo1;
     private javax.swing.JComboBox jCbTipoOrden;
+    private com.toedter.calendar.JDateChooser jDCFecha3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -784,7 +788,6 @@ public class JPOrdenes extends javax.swing.JPanel {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTFCodigoArticulo;
     private javax.swing.JTextField jTFColor;
-    private javax.swing.JTextField jTFFecha;
     private javax.swing.JTextField jTFIdentificacionCliente;
     private javax.swing.JTextField jTFIdentificacionEmpleado;
     private javax.swing.JTextField jTFLinea;

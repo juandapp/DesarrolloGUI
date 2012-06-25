@@ -223,8 +223,11 @@ public class GUI extends javax.swing.JFrame {
             jPPrincipal.removeAll();
         } catch (Exception e) {
         }
-        JPCotizacion jPC = new JPCotizacion();
-        jPPrincipal.add(jPC, BorderLayout.CENTER);
+//        JPCotizacion jPC = new JPCotizacion();
+//        jPPrincipal.add(jPC, BorderLayout.CENTER);
+//        jPPrincipal.updateUI();
+        JPCotizacion2 jPC2 = new JPCotizacion2();
+        jPPrincipal.add(jPC2, BorderLayout.CENTER);
         jPPrincipal.updateUI();
         this.pack();
     }//GEN-LAST:event_jMICrearCotizacionActionPerformed

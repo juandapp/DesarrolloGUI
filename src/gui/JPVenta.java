@@ -82,7 +82,6 @@ public class JPVenta extends javax.swing.JPanel {
         jTFidVehiculoOrden = new javax.swing.JTextField();
         jTFidClienteOrden = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTFFecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTFValor = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -93,6 +92,7 @@ public class JPVenta extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jBCrearOrden = new javax.swing.JButton();
         jBLimpiarOrden = new javax.swing.JButton();
+        jDCFecha3 = new com.toedter.calendar.JDateChooser();
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("Cliente"));
         jPanel5.setLayout(null);
@@ -250,7 +250,6 @@ public class JPVenta extends javax.swing.JPanel {
 
         jLabel3.setText("Fecha");
         jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-        jPanel8.add(jTFFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 100, -1));
 
         jLabel4.setText("Valor");
         jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
@@ -286,6 +285,9 @@ public class JPVenta extends javax.swing.JPanel {
         });
         jPanel8.add(jBLimpiarOrden, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 100, -1));
 
+        jDCFecha3.setDateFormatString("dd MMM yyyy");
+        jPanel8.add(jDCFecha3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 140, -1));
+
         jTabbedPane1.addTab("Orden", jPanel8);
 
         jPanel4.add(jTabbedPane1);
@@ -309,20 +311,21 @@ public class JPVenta extends javax.swing.JPanel {
 
     private void jBLimpiarOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarOrdenActionPerformed
         jTFidClienteOrden.setText("");
-        jTFidVehiculoOrden.setText("");
-        jTFFecha.setText("");
+        jTFidVehiculoOrden.setText("");        
         jTFValor.setText("");
         jCbTipoPago.setSelectedIndex(0);
         jTPDescripcion.setText("");
+        jDCFecha3.setDate(null);
     }//GEN-LAST:event_jBLimpiarOrdenActionPerformed
 
     private void jBCrearOrdenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearOrdenActionPerformed
         int guardar = -1;
         try {
-
-            String[] fechaString = jTFFecha.getText().split("/");
-            java.sql.Date d = new java.sql.Date(Integer.parseInt(fechaString[0]) - 1901, Integer.parseInt(fechaString[1]) + 11, Integer.parseInt(fechaString[2]));
-            System.out.println(d.toString());
+            java.sql.Date fecha=new java.sql.Date(jDCFecha3.getDate().getTime());          
+            
+          //  String[] fechaString = jTFFecha.getText().split("/");
+          //  java.sql.Date d = new java.sql.Date(Integer.parseInt(fechaString[0]) - 1901, Integer.parseInt(fechaString[1]) + 11, Integer.parseInt(fechaString[2]));
+          //  System.out.println(d.toString());
 
             Integer.parseInt(jTFidClienteOrden.getText());
             Integer.parseInt(jTFidVehiculoOrden.getText());
@@ -462,6 +465,7 @@ public class JPVenta extends javax.swing.JPanel {
     private javax.swing.JButton jBLimpiarOrden;
     private javax.swing.JButton jBLimpiarVehiculo;
     private javax.swing.JComboBox jCbTipoPago;
+    private com.toedter.calendar.JDateChooser jDCFecha3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
@@ -486,7 +490,6 @@ public class JPVenta extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTFColor;
-    private javax.swing.JTextField jTFFecha;
     private javax.swing.JTextField jTFIdentificacionCliente;
     private javax.swing.JTextField jTFLinea;
     private javax.swing.JTextField jTFMarca;
