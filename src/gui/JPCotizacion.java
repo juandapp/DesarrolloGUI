@@ -27,7 +27,9 @@ public class JPCotizacion extends javax.swing.JPanel {
     
     VehiculoControlador vehiculoControlador;
     CotizacionControlador cotizacionControlador;
+    Reportes reporte;
     public JPCotizacion() {
+        reporte = new Reportes();
         cotizacionControlador = new CotizacionControlador();
         vehiculoControlador = new VehiculoControlador();
         initComponents();
@@ -287,8 +289,8 @@ int guardar = -1;
         } else {
             JOptionPane.showMessageDialog(this, "Cotizacion Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
         
-//        reporte = new Reportes();
-//        reporte.generarReporte("reporteCotizacion");
+        reporte = new Reportes();
+        reporte.generarReporte("reporteCotizacion");
             
             
         }
