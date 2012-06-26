@@ -63,12 +63,9 @@ FOREIGN KEY (numerochasis_v) REFERENCES vehiculo(numerochasis_v)
 );
 
 CREATE TABLE cotizacion(
-linea_co VARCHAR(100),
-marca_co VARCHAR(100),
-color_co VARCHAR(100),
-modelo_co VARCHAR(100),
-cojineria_co VARCHAR(100),
-valor_co int);
+numerochasis_v int,
+fecha DATE
+precio int);
 
 
 CREATE TABLE ordenes(

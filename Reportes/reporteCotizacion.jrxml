@@ -8,14 +8,14 @@
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<queryString>
-		<![CDATA[select * from cotizacion;]]>
+		<![CDATA[select linea_v,modelo_v,color_v,marca_v,cojineria_v,precio from cotizacion natural join vehiculo;]]>
 	</queryString>
-	<field name="linea_co" class="java.lang.String"/>
-	<field name="marca_co" class="java.lang.String"/>
-	<field name="color_co" class="java.lang.String"/>
-	<field name="modelo_co" class="java.lang.String"/>
-	<field name="cojineria_co" class="java.lang.String"/>
-	<field name="valor_co" class="java.lang.Integer"/>
+	<field name="linea_v" class="java.lang.String"/>
+	<field name="modelo_v" class="java.lang.String"/>
+	<field name="color_v" class="java.lang.String"/>
+	<field name="marca_v" class="java.lang.String"/>
+	<field name="cojineria_v" class="java.lang.String"/>
+	<field name="precio" class="java.lang.Integer"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
 		<groupHeader>
@@ -28,24 +28,18 @@
 				<textField>
 					<reportElement x="150" y="25" width="87" height="20"/>
 					<textElement/>
-					<textFieldExpression><![CDATA[$F{marca_co}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{marca_v}]]></textFieldExpression>
 				</textField>
 				<textField>
 					<reportElement x="150" y="0" width="109" height="20"/>
 					<textElement/>
-					<textFieldExpression><![CDATA[$F{color_co}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{color_v}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="17" y="0" width="77" height="20"/>
 					<textElement/>
 					<text><![CDATA[Color]]></text>
 				</staticText>
-				<frame>
-					<reportElement mode="Opaque" x="19" y="17" width="517" height="8" backcolor="#006699"/>
-				</frame>
-				<frame>
-					<reportElement mode="Opaque" x="19" y="45" width="517" height="8" backcolor="#006699"/>
-				</frame>
 			</band>
 		</groupHeader>
 		<groupFooter>
@@ -59,7 +53,7 @@
 				<textField>
 					<reportElement x="150" y="26" width="109" height="20"/>
 					<textElement/>
-					<textFieldExpression><![CDATA[$F{valor_co}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
 				</textField>
 				<staticText>
 					<reportElement x="17" y="26" width="46" height="20"/>
@@ -74,11 +68,8 @@
 				<textField>
 					<reportElement x="150" y="0" width="87" height="20"/>
 					<textElement/>
-					<textFieldExpression><![CDATA[$F{cojineria_co}]]></textFieldExpression>
+					<textFieldExpression><![CDATA[$F{cojineria_v}]]></textFieldExpression>
 				</textField>
-				<frame>
-					<reportElement mode="Opaque" x="17" y="18" width="517" height="8" backcolor="#006699"/>
-				</frame>
 			</band>
 		</groupHeader>
 	</group>
@@ -88,7 +79,7 @@
 	<title>
 		<band height="90" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="90" forecolor="#B89F7D" backcolor="#9DB1B8"/>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="90" forecolor="#B89F7D" backcolor="#CC66FF"/>
 				<box>
 					<pen lineColor="#F60142"/>
 					<topPen lineStyle="Double" lineColor="#F60142"/>
@@ -107,10 +98,10 @@
 				<text><![CDATA[AutoSoft]]></text>
 			</staticText>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="68" width="218" height="22" backcolor="#006699"/>
+				<reportElement mode="Opaque" x="0" y="68" width="263" height="22" backcolor="#006699"/>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="218" y="68" width="337" height="22" forecolor="#B89F7D" backcolor="#000000"/>
+				<reportElement mode="Opaque" x="263" y="0" width="292" height="90" forecolor="#B89F7D" backcolor="#FF9966"/>
 			</frame>
 		</band>
 	</title>
@@ -128,7 +119,7 @@
 			<textField>
 				<reportElement x="150" y="0" width="87" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{modelo_co}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{modelo_v}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="17" y="30" width="80" height="20"/>
@@ -138,23 +129,17 @@
 			<textField>
 				<reportElement x="150" y="30" width="131" height="20"/>
 				<textElement/>
-				<textFieldExpression><![CDATA[$F{linea_co}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{linea_v}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="17" y="0" width="46" height="20"/>
 				<textElement/>
 				<text><![CDATA[Modelo]]></text>
 			</staticText>
-			<frame>
-				<reportElement mode="Opaque" x="17" y="20" width="519" height="5" backcolor="#006699"/>
-			</frame>
-			<frame>
-				<reportElement mode="Opaque" x="19" y="50" width="517" height="8" backcolor="#006699"/>
-			</frame>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="16" splitType="Stretch">
+		<band height="33" splitType="Stretch">
 			<line>
 				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1"/>
 				<graphicElement>
@@ -171,6 +156,9 @@
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
 			</line>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="54" forecolor="#B89F7D" backcolor="#FF9966"/>
+			</frame>
 		</band>
 	</columnFooter>
 	<pageFooter>
