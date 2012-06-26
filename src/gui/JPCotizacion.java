@@ -27,7 +27,9 @@ public class JPCotizacion extends javax.swing.JPanel {
     
     VehiculoControlador vehiculoControlador;
     CotizacionControlador cotizacionControlador;
+    Reportes reporte;
     public JPCotizacion() {
+        reporte = new Reportes();
         cotizacionControlador = new CotizacionControlador();
         vehiculoControlador = new VehiculoControlador();
         initComponents();
@@ -151,19 +153,19 @@ public class JPCotizacion extends javax.swing.JPanel {
 
         jLabel1.setText("Fecha");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(300, 10, 70, 14);
+        jLabel1.setBounds(300, 10, 70, 18);
 
         jTFidVehiculoOrden.setEnabled(false);
         jPanel3.add(jTFidVehiculoOrden);
-        jTFidVehiculoOrden.setBounds(90, 10, 140, 20);
+        jTFidVehiculoOrden.setBounds(130, 10, 140, 28);
 
         jDCFecha3.setDateFormatString("dd MMM yyyy");
         jPanel3.add(jDCFecha3);
-        jDCFecha3.setBounds(350, 10, 140, 20);
+        jDCFecha3.setBounds(370, 10, 140, 28);
 
         jLabel2.setText("Vehiculo Id");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(20, 10, 70, 14);
+        jLabel2.setBounds(20, 10, 90, 18);
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +174,7 @@ public class JPCotizacion extends javax.swing.JPanel {
             }
         });
         jPanel3.add(jBLimpiar);
-        jBLimpiar.setBounds(280, 80, 100, 23);
+        jBLimpiar.setBounds(280, 80, 100, 30);
 
         jBGenerar.setText("Generar");
         jBGenerar.addActionListener(new java.awt.event.ActionListener() {
@@ -181,13 +183,13 @@ public class JPCotizacion extends javax.swing.JPanel {
             }
         });
         jPanel3.add(jBGenerar);
-        jBGenerar.setBounds(130, 80, 100, 23);
+        jBGenerar.setBounds(130, 80, 100, 30);
 
         jLabel3.setText("Precio");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(100, 40, 50, 14);
+        jLabel3.setBounds(100, 40, 50, 18);
         jPanel3.add(jTFPrecio2);
-        jTFPrecio2.setBounds(140, 40, 90, 20);
+        jTFPrecio2.setBounds(160, 40, 90, 28);
 
         jTabbedPane1.addTab("Cotizacion", jPanel3);
 
@@ -287,8 +289,8 @@ int guardar = -1;
         } else {
             JOptionPane.showMessageDialog(this, "Cotizacion Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
         
-//        reporte = new Reportes();
-//        reporte.generarReporte("reporteCotizacion");
+        reporte = new Reportes();
+        reporte.generarReporte("reporteCotizacion");
             
             
         }
