@@ -3,22 +3,34 @@
  * and open the template in the editor.
  */
 package gui;
-import GeneradorReportes.Reportes;
+
+import Controlador.CotizacionControlador;
+import Controlador.VehiculoControlador;
 import Dao.DaoCotizacion;
+import GeneradorReportes.Reportes;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
+import logica.Vehiculo;
+
 /**
  *
- * @author juandapp
+ * @author JUANPAULO
  */
 public class JPCotizacion extends javax.swing.JPanel {
 
     /**
      * Creates new form JPCotizacion
      */
-    Reportes reporte;
-    DaoCotizacion daoCotizacion;
+    
+    VehiculoControlador vehiculoControlador;
+    CotizacionControlador cotizacionControlador;
     public JPCotizacion() {
+        cotizacionControlador = new CotizacionControlador();
+        vehiculoControlador = new VehiculoControlador();
         initComponents();
-        daoCotizacion= new DaoCotizacion();
     }
 
     /**
@@ -30,56 +42,128 @@ public class JPCotizacion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelCotizacion = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jTFMarca = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel2 = new javax.swing.JPanel();
         jTFModelo = new javax.swing.JTextField();
-        jTFValor = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jTFColor = new javax.swing.JTextField();
+        jTFNoChasis = new javax.swing.JTextField();
+        jTFMarca = new javax.swing.JTextField();
+        jTFLinea = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTResultadosVehiculo = new javax.swing.JTable();
+        jBConsultarVehiculo = new javax.swing.JButton();
+        jBLimpiarVehiculo = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jTFidVehiculoOrden = new javax.swing.JTextField();
+        jDCFecha3 = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
         jBLimpiar = new javax.swing.JButton();
         jBGenerar = new javax.swing.JButton();
-        jTFColor = new javax.swing.JTextField();
-        jTFLinea = new javax.swing.JTextField();
-        jTFCojineria = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTFPrecio2 = new javax.swing.JTextField();
 
-        jPanelCotizacion.setBorder(javax.swing.BorderFactory.createTitledBorder("Cotizacion"));
-        jPanelCotizacion.setLayout(null);
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Cotizacion"));
+        jPanel1.setLayout(null);
 
-        jLabel1.setText("Modelo");
-        jPanelCotizacion.add(jLabel1);
-        jLabel1.setBounds(10, 30, 150, 17);
-
-        jLabel4.setText("Linea");
-        jPanelCotizacion.add(jLabel4);
-        jLabel4.setBounds(10, 60, 70, 17);
-
-        jLabel8.setText("Marca");
-        jPanelCotizacion.add(jLabel8);
-        jLabel8.setBounds(10, 90, 70, 17);
-
-        jLabel9.setText("Color");
-        jPanelCotizacion.add(jLabel9);
-        jLabel9.setBounds(10, 120, 80, 17);
-
-        jLabel10.setText("Valor");
-        jPanelCotizacion.add(jLabel10);
-        jLabel10.setBounds(10, 180, 80, 17);
-
-        jTFMarca.setColumns(20);
-        jPanelCotizacion.add(jTFMarca);
-        jTFMarca.setBounds(172, 90, 210, 27);
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTFModelo.setColumns(20);
-        jPanelCotizacion.add(jTFModelo);
-        jTFModelo.setBounds(172, 30, 210, 27);
+        jPanel2.add(jTFModelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
-        jTFValor.setColumns(20);
-        jPanelCotizacion.add(jTFValor);
-        jTFValor.setBounds(172, 180, 210, 27);
+        jLabel23.setText("Modelo");
+        jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jLabel22.setText("Linea");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        jLabel21.setText("Marca");
+        jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        jLabel20.setText("No. Chasis");
+        jPanel2.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        jLabel24.setText("Color");
+        jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        jTFColor.setColumns(20);
+        jPanel2.add(jTFColor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 130, -1, -1));
+
+        jTFNoChasis.setColumns(20);
+        jPanel2.add(jTFNoChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, -1, -1));
+
+        jTFMarca.setColumns(20);
+        jPanel2.add(jTFMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+
+        jTFLinea.setColumns(20);
+        jPanel2.add(jTFLinea, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, -1, -1));
+
+        jTResultadosVehiculo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria", "Disponible"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTResultadosVehiculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTResultadosVehiculoMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jTResultadosVehiculo);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 550, 125));
+
+        jBConsultarVehiculo.setText("Consultar");
+        jBConsultarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBConsultarVehiculoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBConsultarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, 90, -1));
+
+        jBLimpiarVehiculo.setText("Limpiar");
+        jBLimpiarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBLimpiarVehiculoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jBLimpiarVehiculo, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, 90, -1));
+
+        jTabbedPane1.addTab("Vehiculo", jPanel2);
+
+        jPanel3.setLayout(null);
+
+        jLabel1.setText("Fecha");
+        jPanel3.add(jLabel1);
+        jLabel1.setBounds(300, 10, 70, 14);
+
+        jTFidVehiculoOrden.setEnabled(false);
+        jPanel3.add(jTFidVehiculoOrden);
+        jTFidVehiculoOrden.setBounds(90, 10, 140, 20);
+
+        jDCFecha3.setDateFormatString("dd MMM yyyy");
+        jPanel3.add(jDCFecha3);
+        jDCFecha3.setBounds(350, 10, 140, 20);
+
+        jLabel2.setText("Vehiculo Id");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(20, 10, 70, 14);
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -87,8 +171,8 @@ public class JPCotizacion extends javax.swing.JPanel {
                 jBLimpiarActionPerformed(evt);
             }
         });
-        jPanelCotizacion.add(jBLimpiar);
-        jBLimpiar.setBounds(270, 250, 100, 33);
+        jPanel3.add(jBLimpiar);
+        jBLimpiar.setBounds(280, 80, 100, 23);
 
         jBGenerar.setText("Generar");
         jBGenerar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,74 +180,160 @@ public class JPCotizacion extends javax.swing.JPanel {
                 jBGenerarActionPerformed(evt);
             }
         });
-        jPanelCotizacion.add(jBGenerar);
-        jBGenerar.setBounds(110, 250, 100, 33);
+        jPanel3.add(jBGenerar);
+        jBGenerar.setBounds(130, 80, 100, 23);
 
-        jTFColor.setColumns(20);
-        jPanelCotizacion.add(jTFColor);
-        jTFColor.setBounds(172, 120, 210, 27);
+        jLabel3.setText("Precio");
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(100, 40, 50, 14);
+        jPanel3.add(jTFPrecio2);
+        jTFPrecio2.setBounds(140, 40, 90, 20);
 
-        jTFLinea.setColumns(20);
-        jPanelCotizacion.add(jTFLinea);
-        jTFLinea.setBounds(172, 60, 210, 27);
+        jTabbedPane1.addTab("Cotizacion", jPanel3);
 
-        jTFCojineria.setColumns(20);
-        jPanelCotizacion.add(jTFCojineria);
-        jTFCojineria.setBounds(172, 150, 210, 27);
-
-        jLabel12.setText("Cojineria");
-        jPanelCotizacion.add(jLabel12);
-        jLabel12.setBounds(10, 150, 80, 17);
+        jPanel1.add(jTabbedPane1);
+        jTabbedPane1.setBounds(10, 20, 570, 360);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCotizacion, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 588, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelCotizacion, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTResultadosVehiculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTResultadosVehiculoMouseClicked
+        int selectedRow = jTResultadosVehiculo.getSelectedRow();
+        jTFidVehiculoOrden.setText("" + jTResultadosVehiculo.getModel().getValueAt(selectedRow, 0));
+        JOptionPane.showMessageDialog(this, "Vehiculo Seleccionado", "Vehiculo Ordenes", JOptionPane.INFORMATION_MESSAGE);
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jTResultadosVehiculoMouseClicked
+
+    private void jBConsultarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBConsultarVehiculoActionPerformed
+        LinkedList consulta = new LinkedList();
+        try {
+            consulta = vehiculoControlador.consultar(jTFNoChasis.getText(), jTFMarca.getText(), jTFModelo.getText(), jTFLinea.getText(),
+                    jTFColor.getText());
+            Object[][] s = new Object[consulta.size()][7];
+            for (int i = 0; i < consulta.size(); i++) {
+                Vehiculo v = (Vehiculo) consulta.get(i);
+
+                if (!v.getModelo_v().isEmpty()) {
+                    s[i][0] = v.getNumerochasis_v();
+                    s[i][1] = v.getLinea_v();
+                    s[i][2] = v.getMarca_v();
+                    s[i][3] = v.getColor_v();
+                    s[i][4] = v.getModelo_v();
+                    s[i][5] = v.getCojineria_v();
+                    s[i][6] = v.getDisponible_v();
+                } else {
+                    s = null;
+                }
+            }
+            TableModel myModel = new DefaultTableModel(s, new String[]{"No Chasis", "Linea", "Marca", "Color", "Modelo", "Cojineria", "Disponible"}) {
+
+                boolean[] canEdit = new boolean[]{false, false, false, false, false, false, false
+                };
+
+                @Override
+                public boolean isCellEditable(int rowIndex, int columnIndex) {
+                    return canEdit[columnIndex];
+                }
+            };
+            ///remover filas
+            jTResultadosVehiculo.setModel(myModel);
+            jTResultadosVehiculo.setRowSorter(new TableRowSorter(myModel));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jBConsultarVehiculoActionPerformed
+
+    private void jBLimpiarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarVehiculoActionPerformed
+        limpiarConsultar();
+        jBConsultarVehiculo.doClick();
+    }//GEN-LAST:event_jBLimpiarVehiculoActionPerformed
+
     private void jBLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBLimpiarActionPerformed
-// TODO add your handling code here:
-        jTFCojineria.setText("");
-        jTFColor.setText("");
-        jTFMarca.setText("");
-        jTFModelo.setText("");
-        jTFValor.setText("");
-        jTFLinea.setText("");
+        limpiarCotiazacion();
     }//GEN-LAST:event_jBLimpiarActionPerformed
 
     private void jBGenerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGenerarActionPerformed
         // TODO add your handling code here:
         //FALTA INGRESAR DATOS A UNA TABLA DE COTIZACIONES
-        daoCotizacion.guardar(jTFMarca.getText(), jTFModelo.getText(), 
-                jTFLinea.getText(), jTFColor.getText(),
-                jTFCojineria.getText(), Integer.parseInt(jTFValor.getText()));
+int guardar = -1;
+        try {
+            java.sql.Date fecha=new java.sql.Date(jDCFecha3.getDate().getTime());          
+
+            Integer.parseInt(jTFidVehiculoOrden.getText());
+            Integer.parseInt(jTFPrecio2.getText());
+
+            guardar = cotizacionControlador.guardar(
+                    Integer.parseInt(jTFidVehiculoOrden.getText()),                    
+                    fecha,
+                    Integer.parseInt(jTFPrecio2.getText()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println();
+        }
+
+        if (guardar == -1) {
+            JOptionPane.showMessageDialog(this, "No su pudo crear la Cotizacion", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(this, "Cotizacion Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
         
-        reporte=new Reportes();
-        reporte.generarReporte("reporteCotizacion");
-        
+//        reporte = new Reportes();
+//        reporte.generarReporte("reporteCotizacion");
+            
+            
+        }
+
+
     }//GEN-LAST:event_jBGenerarActionPerformed
 
+    public void limpiarCotiazacion(){
+        jTFidVehiculoOrden.setText("");
+        jDCFecha3.setDate(null);
+    }
+    public void limpiarConsultar(){
+        jTFModelo.setText("");
+        jTFLinea.setText("");
+        jTFMarca.setText("");
+        jTFNoChasis.setText("");
+        jTFColor.setText("");
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBConsultarVehiculo;
     private javax.swing.JButton jBGenerar;
     private javax.swing.JButton jBLimpiar;
+    private javax.swing.JButton jBLimpiarVehiculo;
+    private com.toedter.calendar.JDateChooser jDCFecha3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanelCotizacion;
-    private javax.swing.JTextField jTFCojineria;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTFColor;
     private javax.swing.JTextField jTFLinea;
     private javax.swing.JTextField jTFMarca;
     private javax.swing.JTextField jTFModelo;
-    private javax.swing.JTextField jTFValor;
+    private javax.swing.JTextField jTFNoChasis;
+    private javax.swing.JTextField jTFPrecio2;
+    private javax.swing.JTextField jTFidVehiculoOrden;
+    private javax.swing.JTable jTResultadosVehiculo;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
