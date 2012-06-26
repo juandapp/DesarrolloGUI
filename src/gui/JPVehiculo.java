@@ -115,51 +115,51 @@ public class JPVehiculo extends javax.swing.JPanel {
 
         jLabel1.setText("Modelo");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(10, 20, 160, 14);
+        jLabel1.setBounds(10, 20, 160, 18);
 
         jTFModelo.setColumns(20);
         jPanel1.add(jTFModelo);
-        jTFModelo.setBounds(170, 10, 166, 20);
+        jTFModelo.setBounds(170, 10, 270, 28);
 
         jLabel2.setText("Linea");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(10, 50, 150, 14);
+        jLabel2.setBounds(10, 50, 150, 18);
 
         jTFLinea.setColumns(20);
         jPanel1.add(jTFLinea);
-        jTFLinea.setBounds(170, 40, 166, 20);
+        jTFLinea.setBounds(170, 40, 270, 28);
 
         jLabel3.setText("Marca");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 80, 150, 14);
+        jLabel3.setBounds(10, 80, 150, 18);
 
         jTFMarca.setColumns(20);
         jPanel1.add(jTFMarca);
-        jTFMarca.setBounds(170, 70, 166, 20);
+        jTFMarca.setBounds(170, 70, 270, 28);
 
         jTFNoChasis.setColumns(20);
         jPanel1.add(jTFNoChasis);
-        jTFNoChasis.setBounds(170, 100, 166, 20);
+        jTFNoChasis.setBounds(170, 100, 270, 28);
 
         jTFColor.setColumns(20);
         jPanel1.add(jTFColor);
-        jTFColor.setBounds(170, 130, 166, 20);
+        jTFColor.setBounds(170, 130, 270, 28);
 
         jTFCojineria.setColumns(20);
         jPanel1.add(jTFCojineria);
-        jTFCojineria.setBounds(170, 160, 166, 26);
+        jTFCojineria.setBounds(170, 160, 270, 26);
 
         jLabel4.setText("No. Chasis");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(10, 110, 150, 14);
+        jLabel4.setBounds(10, 110, 150, 18);
 
         jLabel5.setText("Color");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(10, 140, 150, 14);
+        jLabel5.setBounds(10, 140, 150, 18);
 
         jLabel7.setText("Cojineria");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(10, 170, 150, 14);
+        jLabel7.setBounds(10, 170, 150, 18);
 
         jCBDisponible.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "True", "False" }));
         jCBDisponible.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -169,7 +169,7 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jCBDisponible);
-        jCBDisponible.setBounds(170, 200, 120, 20);
+        jCBDisponible.setBounds(170, 200, 120, 28);
 
         jBLimpiar.setText("Limpiar");
         jBLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -178,11 +178,11 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(jBLimpiar);
-        jBLimpiar.setBounds(250, 250, 90, 23);
+        jBLimpiar.setBounds(250, 250, 90, 30);
 
         jLabel6.setText("Disponible");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(10, 210, 150, 14);
+        jLabel6.setBounds(10, 210, 150, 18);
 
         Crear.setText("Crear");
         Crear.addActionListener(new java.awt.event.ActionListener() {
@@ -191,7 +191,7 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(Crear);
-        Crear.setBounds(160, 250, 90, 23);
+        Crear.setBounds(160, 250, 90, 30);
 
         jTabbedPane1.addTab("Crear", jPanel1);
 
@@ -204,7 +204,7 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jBConsultar);
-        jBConsultar.setBounds(380, 10, 90, 23);
+        jBConsultar.setBounds(480, 10, 90, 30);
 
         jTResultados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -234,43 +234,43 @@ public class JPVehiculo extends javax.swing.JPanel {
 
         jLabel20.setText("No. Chasis");
         jPanel2.add(jLabel20);
-        jLabel20.setBounds(10, 110, 130, 14);
+        jLabel20.setBounds(10, 110, 130, 18);
 
         jLabel21.setText("Marca");
         jPanel2.add(jLabel21);
-        jLabel21.setBounds(10, 80, 130, 14);
+        jLabel21.setBounds(10, 80, 130, 18);
 
         jLabel22.setText("Linea");
         jPanel2.add(jLabel22);
-        jLabel22.setBounds(10, 50, 130, 14);
+        jLabel22.setBounds(10, 50, 130, 18);
 
         jTFLinea1.setColumns(20);
         jPanel2.add(jTFLinea1);
-        jTFLinea1.setBounds(160, 40, 166, 20);
+        jTFLinea1.setBounds(160, 40, 270, 28);
 
         jTFMarca1.setColumns(20);
         jPanel2.add(jTFMarca1);
-        jTFMarca1.setBounds(160, 70, 166, 20);
+        jTFMarca1.setBounds(160, 70, 270, 28);
 
         jTFNoChasis1.setColumns(20);
         jPanel2.add(jTFNoChasis1);
-        jTFNoChasis1.setBounds(160, 100, 166, 20);
+        jTFNoChasis1.setBounds(160, 100, 270, 28);
 
         jTFModelo1.setColumns(20);
         jPanel2.add(jTFModelo1);
-        jTFModelo1.setBounds(160, 10, 166, 20);
+        jTFModelo1.setBounds(160, 10, 270, 28);
 
         jLabel23.setText("Modelo");
         jPanel2.add(jLabel23);
-        jLabel23.setBounds(10, 20, 130, 14);
+        jLabel23.setBounds(10, 20, 130, 18);
 
         jLabel24.setText("Color");
         jPanel2.add(jLabel24);
-        jLabel24.setBounds(10, 140, 130, 14);
+        jLabel24.setBounds(10, 140, 130, 18);
 
         jTFColor1.setColumns(20);
         jPanel2.add(jTFColor1);
-        jTFColor1.setBounds(160, 130, 166, 20);
+        jTFColor1.setBounds(160, 130, 270, 28);
 
         jBLimpiarConsultar.setText("Limpiar");
         jBLimpiarConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -279,7 +279,7 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel2.add(jBLimpiarConsultar);
-        jBLimpiarConsultar.setBounds(380, 40, 90, 23);
+        jBLimpiarConsultar.setBounds(480, 40, 90, 30);
 
         jTabbedPane1.addTab("Consultar", jPanel2);
 
@@ -292,64 +292,64 @@ public class JPVehiculo extends javax.swing.JPanel {
             }
         });
         jPanel3.add(jBModificar);
-        jBModificar.setBounds(220, 250, 90, 23);
+        jBModificar.setBounds(220, 250, 90, 30);
 
         jLabel8.setText("Modelo");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(10, 20, 130, 14);
+        jLabel8.setBounds(10, 20, 130, 18);
 
         jTFModelo2.setColumns(20);
         jPanel3.add(jTFModelo2);
-        jTFModelo2.setBounds(150, 20, 166, 20);
+        jTFModelo2.setBounds(150, 20, 270, 28);
 
         jTFLinea2.setColumns(20);
         jPanel3.add(jTFLinea2);
-        jTFLinea2.setBounds(150, 50, 166, 20);
+        jTFLinea2.setBounds(150, 50, 270, 28);
 
         jTFMarca2.setColumns(20);
         jPanel3.add(jTFMarca2);
-        jTFMarca2.setBounds(150, 80, 166, 20);
+        jTFMarca2.setBounds(150, 80, 270, 28);
 
         jLabel9.setText("Linea");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(10, 50, 130, 14);
+        jLabel9.setBounds(10, 50, 130, 18);
 
         jLabel16.setText("Marca");
         jPanel3.add(jLabel16);
-        jLabel16.setBounds(10, 80, 120, 14);
+        jLabel16.setBounds(10, 80, 120, 18);
 
         jLabel25.setText("No. Chasis");
         jPanel3.add(jLabel25);
-        jLabel25.setBounds(10, 110, 130, 14);
+        jLabel25.setBounds(10, 110, 130, 18);
 
         jLabel26.setText("Color");
         jPanel3.add(jLabel26);
-        jLabel26.setBounds(10, 140, 130, 14);
+        jLabel26.setBounds(10, 140, 130, 18);
 
         jLabel27.setText("Cojineria");
         jPanel3.add(jLabel27);
-        jLabel27.setBounds(10, 170, 120, 14);
+        jLabel27.setBounds(10, 170, 120, 18);
 
         jLabel29.setText("Disponible");
         jPanel3.add(jLabel29);
-        jLabel29.setBounds(10, 200, 120, 14);
+        jLabel29.setBounds(10, 200, 120, 18);
 
         jCBDisponible1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccione", "true", "false" }));
         jPanel3.add(jCBDisponible1);
-        jCBDisponible1.setBounds(150, 210, 120, 20);
+        jCBDisponible1.setBounds(150, 210, 120, 28);
 
         jTFCojineria1.setColumns(20);
         jPanel3.add(jTFCojineria1);
-        jTFCojineria1.setBounds(150, 170, 166, 26);
+        jTFCojineria1.setBounds(150, 170, 270, 26);
 
         jTFColor2.setColumns(20);
         jPanel3.add(jTFColor2);
-        jTFColor2.setBounds(150, 140, 166, 20);
+        jTFColor2.setBounds(150, 140, 270, 28);
 
         jTFNoChasis2.setColumns(20);
         jTFNoChasis2.setEditable(false);
         jPanel3.add(jTFNoChasis2);
-        jTFNoChasis2.setBounds(150, 110, 166, 20);
+        jTFNoChasis2.setBounds(150, 110, 270, 28);
 
         jTabbedPane1.addTab("Modificar", jPanel3);
 

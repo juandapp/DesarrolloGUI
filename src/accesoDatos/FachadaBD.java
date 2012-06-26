@@ -21,13 +21,13 @@ public class FachadaBD {
     ResultSet tabla;
 
     public FachadaBD() {
-//        url = "jdbc:postgresql://pgsql:5432/juandapp";
-//        usuario = "juandapp";
-//        password = "juandapp";
+        url = "jdbc:postgresql://pgsql:5432/juandapp";
+        usuario = "juandapp";
+        password = "juandapp";
 //            
-            url="jdbc:postgresql://localhost:5432/proyectoDSI";
-            usuario="postgres";
-            password="JUANPAULO";
+//            url="jdbc:postgresql://localhost:5432/proyectoDSI";
+//            usuario="postgres";
+//            password="JUANPAULO";
 
 //            url="jdbc:postgresql://localhost:5432/ProyectoDS";
 //            usuario="postgres";
