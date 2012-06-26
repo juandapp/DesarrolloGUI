@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import net.sf.jasperreports.view.JasperViewer;
 import accesoDatos.FachadaBD;
+import java.io.File;
 
 /**
  *
@@ -31,36 +32,61 @@ public class Reportes {
     Connection conn=fachada.conectar();
         
    JasperReport report=null;
-
+   String destino="Reportes/";
+   int contador=1;
         try{
          if(tipo.equals("reporteVentaRegistrada"))
-    report = JasperCompileManager.compileReport(
+         {  report = JasperCompileManager.compileReport(
           "Reportes/reporteVentaRegistrada.jrxml");
+         destino+="reporteVentaRegistrada";
+         while(new File(destino+contador+".pdf").exists())
+             contador++;
+         }
          
          if(tipo.equals("reporteOrdenRegistrada"))
-    report = JasperCompileManager.compileReport(
+         {  report = JasperCompileManager.compileReport(
           "Reportes/reporteOrdenRegistrada.jrxml");
+         destino+="reporteOrdenRegistrada";
+         while(new File(destino+contador+".pdf").exists())
+             contador++;
+         }
          
          if(tipo.equals("reporteUsuarios"))
-    report = JasperCompileManager.compileReport(
+         {  report = JasperCompileManager.compileReport(
           "Reportes/reporteUsuarios.jrxml");
+         destino+="reporteUsuarios";
+         while(new File(destino+contador+".pdf").exists())
+             contador++;
+         }
          
          if(tipo.equals("reporteVentas"))
-    report = JasperCompileManager.compileReport(
+         {  report = JasperCompileManager.compileReport(
           "Reportes/reporteVentas.jrxml");
+         destino+="reporteVentas";
+         while(new File(destino+contador+".pdf").exists())
+             contador++;
+         }
          
          if(tipo.equals("reporteClientes"))
-    report = JasperCompileManager.compileReport(
+         {  report = JasperCompileManager.compileReport(
           "Reportes/reporteClientes.jrxml");
+         destino+="reporteClientes";
+         while(new File(destino+contador+".pdf").exists())
+             contador++;
+         }
          
          if(tipo.equals("reporteCotizacion"))
-    report = JasperCompileManager.compileReport(
+         { report = JasperCompileManager.compileReport(
           "Reportes/reporteCotizacion.jrxml");
+         destino+="reporteCotizacion";
+         while(new File(destino+contador+".pdf").exists())
+             contador++;
+         }
          
       JasperPrint print = JasperFillManager.fillReport(report, null, conn);
       // Exporta el informe a PDF
       JasperExportManager.exportReportToPdfFile(print,
-          "Reportes/PDF");
+          destino);
       //Para visualizar el pdf directamente desde java
       
       JasperViewer.viewReport(print, false);
