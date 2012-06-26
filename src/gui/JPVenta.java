@@ -342,11 +342,11 @@ public class JPVenta extends javax.swing.JPanel {
         }
 
         if (guardar == -1) {
-            JOptionPane.showMessageDialog(this, "No su pudo crear la Orden", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No su pudo registrar la venta", "Error Base Datos", JOptionPane.ERROR_MESSAGE);
         } else {
             reporte= new Reportes();
             reporte.generarReporte("reporteVentaRegistrada");
-            JOptionPane.showMessageDialog(this, "Orden Creada correctamente", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Venta exitosa", "Base Datos", JOptionPane.INFORMATION_MESSAGE);
             
         }
     }//GEN-LAST:event_jBCrearOrdenActionPerformed
