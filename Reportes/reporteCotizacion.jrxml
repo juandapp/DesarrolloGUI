@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCotizacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="27"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -16,6 +16,7 @@
 	<field name="marca_v" class="java.lang.String"/>
 	<field name="cojineria_v" class="java.lang.String"/>
 	<field name="precio" class="java.lang.Integer"/>
+	<sortField name="COLUMN_COUNT" order="Descending" type="Variable"/>
 	<group name="Group1">
 		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
 		<groupHeader>
@@ -101,7 +102,7 @@
 				<reportElement mode="Opaque" x="0" y="68" width="263" height="22" backcolor="#006699"/>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="263" y="0" width="292" height="90" forecolor="#B89F7D" backcolor="#FF9966"/>
+				<reportElement mode="Opaque" x="263" y="0" width="292" height="90" forecolor="#B89F7D" backcolor="#6600CC"/>
 			</frame>
 		</band>
 	</title>
@@ -157,7 +158,7 @@
 				</graphicElement>
 			</line>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="555" height="54" forecolor="#B89F7D" backcolor="#FF9966"/>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="54" forecolor="#B89F7D" backcolor="#6600CC"/>
 			</frame>
 		</band>
 	</columnFooter>
