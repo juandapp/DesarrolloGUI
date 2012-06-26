@@ -300,6 +300,7 @@ int guardar = -1;
 
     public void limpiarCotiazacion(){
         jTFidVehiculoOrden.setText("");
+        jTFPrecio2.setText("");
         jDCFecha3.setDate(null);
     }
     public void limpiarConsultar(){
