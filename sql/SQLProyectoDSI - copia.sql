@@ -65,7 +65,10 @@ FOREIGN KEY (numerochasis_v) REFERENCES vehiculo(numerochasis_v)
 CREATE TABLE cotizacion(
 numerochasis_v int,
 fecha DATE
-precio int);
+precio int,
+PRIMARY KEY(numerochasis_v,fecha,precio),
+FOREIGN KEY (numerochasis_v) REFERENCES vehiculo(numerochasis_v)
+);
 
 
 CREATE TABLE ordenes(
