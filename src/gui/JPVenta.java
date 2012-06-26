@@ -256,7 +256,7 @@ public class JPVenta extends javax.swing.JPanel {
         jPanel8.add(jTFValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 140, -1));
 
         jLabel9.setText("Tipo Pago");
-        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 60, -1));
+        jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 80, -1));
         jPanel8.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 570, 10));
 
         jCbTipoPago.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar", "Efectivo", "Tarjeta" }));
